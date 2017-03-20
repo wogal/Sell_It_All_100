@@ -2,14 +2,14 @@
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/sale_item_name_v2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:background="@drawable/thin_l_blue_boarder"
-    android:color="#b69f"
-    android:orientation="vertical"
-    android:padding="20dp">
+              android:id="@+id/sale_item_name_v2"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp"
+              android:background="@drawable/thin_l_blue_boarder"
+              android:color="#b69f"
+              android:orientation="vertical"
+              android:padding="20dp">
 
 
     <TextView
@@ -24,7 +24,7 @@
         android:text="Record Voice Memo"
         android:textColor="#F451aE"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/But_sound_play_v3"
@@ -35,46 +35,51 @@
         android:text="Play"
         android:textColor="#fe7e07"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
-<LinearLayout
+    <LinearLayout
 
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/But_sound_play_v3"
-    android:id="@+id/But_sound_play_v3_QQQQ">
+        android:id="@+id/But_sound_play_v3_QQQQ"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        android:orientation="horizontal">
 
-    <Button
+        <Button
+            android:layout_margin="1dp"
+            android:padding="5dp"
+            android:id="@+id/But_sound_record_v3"
+            android:layout_width="159dp"
+            android:layout_height="97dp"
+            android:layout_below="@+id/But_sound_play_v3"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Start Recoding"
+            android:textColor="#ff4d07"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:visibility="visible"/>
 
-        android:id="@+id/But_sound_record_v3"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:background="@drawable/bg_btn_login_background"
-        android:text= "Start Recoding"
-        android:textColor="#ff4d07"
-        android:textSize="5sp"
-        android:textStyle="bold"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/text_view_sound_recorder_v3_QQQ"
-        android:layout_alignRight="@+id/But_sound_record_v3"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/obect_header_txt_v1_"
-
-        android:text="Record Voice Memo"
-        android:textColor="#F451aE"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        <Button
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_weight="0.09"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/But_sound_play_v3"
+            android:id="@+id/But_sound_record_time_v3"
+            android:layout_width="wrap_content"
+            android:layout_height="98dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="10"
+            android:layout_gravity="center"
+            android:textColor="#ff4d07"
+            android:textSize="60dp"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:visibility="visible"/>
 
 
-
-</LinearLayout>
-
+    </LinearLayout>
 
 
     <Button
@@ -87,8 +92,7 @@
         android:textColor="#ff0777"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:visibility="gone" />
-
+        android:visibility="gone"/>
 
 
     <Button
@@ -100,7 +104,7 @@
         android:text="Done"
         android:textColor="#ed0e37"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
 
     <LinearLayout
@@ -116,7 +120,7 @@
             android:layout_margin="10dp"
             android:max="4000"
             android:progressDrawable="@drawable/progressbar"
-            android:visibility="gone" />
+            android:visibility="gone"/>
     </LinearLayout>
 
 </LinearLayout>

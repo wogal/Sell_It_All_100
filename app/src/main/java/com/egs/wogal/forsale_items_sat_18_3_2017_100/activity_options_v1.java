@@ -43,8 +43,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mButSound_Start_Stop_Record;
     private Button mBut_Sound_Done;
     private Button mBut_Sound_Stop;
+    private Button mButRecordTimrLeft;
     private boolean mTestBoolExecuteTrue = false;
-
+    private int mRecordTimeLeft = 0;
 
     private Sound_Play_Record_Helper mSound_Play_Record_Helper = null;
     private ProgressBar pb;
@@ -73,6 +74,19 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
             //  scalednum = _amp % Max + 1;
             pb.setMax( 200 );
             pb.setProgress( scalednum );
+        }
+    };
+
+    private Handler handleRecTimer = new Handler() {
+        @Override
+        public void handleMessage (Message msg) {
+            String _str;
+            if (msg.arg1 >= 0) {
+                _str = "" + msg.arg1;
+            } else {
+                _str = "--";
+            }
+            mButRecordTimrLeft.setText( _str );
         }
     };
 
@@ -192,6 +206,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     }
                     if (mSound_Play_Record_Helper.isM_IsPlaying() == true) {
                         // we are already playing SO STPO
+                        SoundDoneButton_Ena_dis( true );
                         mSound_Play_Record_Helper.Set_Play_Action( false );
                         // ebnable button
                         mButSound_Start_Stop_Play.setText( "Star Play" );
@@ -200,6 +215,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                         mButSound_Start_Stop_Record.setEnabled( true );
                     } else {
                         // disable Record button
+                        SoundDoneButton_Ena_dis( false );
                         mButSound_Start_Stop_Record.setText( "-" );
                         mButSound_Start_Stop_Record.setEnabled( false );
                         // we are not playing so we need to start
@@ -218,15 +234,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
 
                     if (mSound_Play_Record_Helper.isM_IsRecording() == true) {
                         // im already recording so pls stop me & re enable the buttons
-                        mSound_Play_Record_Helper.Set_Record_Action( false );
-
-                        mButSound_Start_Stop_Play.setText( "Start Playing" );
-                        mButSound_Start_Stop_Play.setEnabled( true );
-
-                        mButSound_Start_Stop_Record.setText( "Start Recoding" );
-                        mButSound_Start_Stop_Record.setEnabled( true );
-                        // Dis enable progress bar
-                        pb.setVisibility( View.GONE );
+                        ForceStopRecording();
                     } else {
                         // i haven't even started recording to lets go
                         mSound_Play_Record_Helper.Set_Record_Action( true );
@@ -237,6 +245,30 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                         mButSound_Start_Stop_Play.setEnabled( false );
                         // enable progress bar
                         pb.setVisibility( View.VISIBLE );
+                        // enable record length timer
+                        mRecordTimeLeft = 10;
+                        if (null == mmCountDownTimer) {
+                            mmCountDownTimer = new CountDownTimer( 11000, 1000 ) {
+                                @Override
+                                public void onTick (long millisUntilFinished) {
+                                    Message message = Message.obtain();
+                                    mRecordTimeLeft = (int) (millisUntilFinished / 1000);
+                                    message.arg1 = mRecordTimeLeft--;
+                                    SoundDoneButton_Ena_dis( false );
+                                    handleRecTimer.sendMessage( message );
+                                }
+
+                                @Override
+                                public void onFinish () {
+                                    ForceStopRecording();
+
+                                    mmCountDownTimer = null;
+                                    Message message = Message.obtain();
+                                    message.arg1 = -1;
+                                    handleRecTimer.sendMessage( message );
+                                }
+                            }.start();
+                        }
                     }
                     break;
                 }
@@ -269,8 +301,10 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     mBut_Sound_Stop = (Button) mViewSound.findViewById( R.id.But_sound_stop_v3 );
                     mBut_Sound_Stop.setOnClickListener( this );
 
-                    pb = (ProgressBar) mViewSound.findViewById( R.id.progressBar );
+                    mButRecordTimrLeft = (Button) mViewSound.findViewById( R.id.But_sound_record_time_v3 );
 
+                    mButRecordTimrLeft.setText( "--" );
+                    pb = (ProgressBar) mViewSound.findViewById( R.id.progressBar );
                     pb.setProgress( 10 );
                     pb.setMax( 100 );
                     pb.setProgress( 25 );
@@ -306,7 +340,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                                 Message message = Message.obtain();
                                 message.arg1 = _amp;
                                 handler.sendMessage( message );
-
                                 return 0;
                             }
                         } );
@@ -318,6 +351,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                                 mButSound_Start_Stop_Record.setText( "Start Recoding" );
                                 mButSound_Start_Stop_Play.setEnabled( true );
                                 mButSound_Start_Stop_Play.setText( "Start Play" );
+                                SoundDoneButton_Ena_dis(true);
                                 pb.setVisibility( View.GONE );
                                 return 10;
                             }
@@ -364,6 +398,41 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                 break;
             }
         }
+    }
+
+
+    private void SoundDoneButton_Ena_dis (boolean _enable) {
+        if (_enable == true) {
+            mBut_Sound_Done.setEnabled( true );
+            mBut_Sound_Done.setText( "Done" );
+        } else {
+            mBut_Sound_Done.setEnabled( false );
+            mBut_Sound_Done.setText( "--" );
+        }
+    }
+
+    private void ForceStopRecording () {
+        // im already recording so pls stop me & re enable the buttons
+        mSound_Play_Record_Helper.Set_Record_Action( false );
+
+        mButSound_Start_Stop_Play.setText( "Start Playing" );
+        mButSound_Start_Stop_Play.setEnabled( true );
+
+        mButSound_Start_Stop_Record.setText( "Start Recoding" );
+        mButSound_Start_Stop_Record.setEnabled( true );
+        // stop and quit the rec timer
+        if (mmCountDownTimer != null) {
+            mmCountDownTimer.cancel();
+            mmCountDownTimer = null;
+        }
+        mmCountDownTimer = null;
+        Message message = Message.obtain();
+        message.arg1 = -1;
+        handleRecTimer.sendMessage( message );
+        // Dis enable progress bar
+        pb.setVisibility( View.GONE );
+        // enable done button
+        SoundDoneButton_Ena_dis( true );
     }
 }
 
