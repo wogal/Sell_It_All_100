@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/start_header_text_v0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Diana's Deals  ..(v0)"
+        android:textColor="#F44336"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/master_logo_vo"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_below="@+id/start_header_text_v0"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:foregroundGravity="center"
+        android:padding="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/for_sale_logo_640_480" />
+
+    <Button
+        android:id="@+id/butt_lets_start_selling_v0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/master_logo_vo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="74dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Lets Start Selling"
+        android:textColor="@color/button_login_txt_colour"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+</RelativeLayout>

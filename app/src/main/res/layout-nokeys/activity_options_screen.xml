@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Let's Sell Stuff"
+            android:textColor="#F4511E"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_v_sales_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="-------"
+            android:textColor="#F4511E"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/But_item_name_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Sales Item Name"
+            android:textColor="#FFC107"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayoutFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone">
+            <!--app:errorTextAppearance="@style/error_appearance"-->
+
+            <EditText
+                android:id="@+id/sale_item_name"
+                style="@android:style/Widget.DeviceDefault.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sale Item Name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/But_item_voice_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Add Voice Memo"
+            android:textColor="#FFC107"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

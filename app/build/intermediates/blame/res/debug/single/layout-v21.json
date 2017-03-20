@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    }
+]

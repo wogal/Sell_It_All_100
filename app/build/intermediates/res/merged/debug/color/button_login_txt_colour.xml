@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#ffaa" android:state_pressed="true" />
+    <item android:color="#00ffff"/>
+    <color android:name="colorPrimary">#3F51B5</color>
+    <color android:name="colorPrimaryDark">#303F9F</color>
+    <color android:name="colorAccent">#FF4081</color>
+    <color android:name="textColorPrimary">#fff</color>
+    <color android:name="error_color">#00C853</color>
+    <color android:name="error_color2">#06f6f6</color>
+    <color android:name="control_activated">#0690f0</color>
+    <color android:name="control_normal">#646161</color>
+
+</selector>
