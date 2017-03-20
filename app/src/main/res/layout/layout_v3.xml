@@ -37,17 +37,44 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+<LinearLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/But_sound_play_v3"
+    android:id="@+id/But_sound_play_v3_QQQQ">
+
     <Button
+
         android:id="@+id/But_sound_record_v3"
-        android:layout_width="match_parent"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:background="@drawable/bg_btn_login_background"
-        android:text="Record"
+        android:text= "Start Recoding"
         android:textColor="#ff4d07"
-        android:textSize="25sp"
+        android:textSize="5sp"
         android:textStyle="bold"
         android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/text_view_sound_recorder_v3_QQQ"
+        android:layout_alignRight="@+id/But_sound_record_v3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/obect_header_txt_v1_"
+
+        android:text="Record Voice Memo"
+        android:textColor="#F451aE"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+
+</LinearLayout>
+
 
 
     <Button
@@ -61,6 +88,8 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="gone" />
+
+
 
     <Button
         android:id="@+id/But_sound_exit_v3"

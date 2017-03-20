@@ -37,17 +37,28 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+<RelativeLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/But_sound_play_v3">
+    android:id="@+id/But_sound_play_v3_QQQQ"
+
     <Button
+
         android:id="@+id/But_sound_record_v3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20sp"
         android:background="@drawable/bg_btn_login_background"
-        android:text="Record"
+        android:text= "Start Recoding"
         android:textColor="#ff4d07"
         android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="visible" />
+
+</RelativeLayout>
+    
 
 
     <Button
@@ -61,6 +72,8 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="gone" />
+
+
 
     <Button
         android:id="@+id/But_sound_exit_v3"

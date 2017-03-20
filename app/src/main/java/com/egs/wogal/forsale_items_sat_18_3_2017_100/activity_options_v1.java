@@ -305,7 +305,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                             public int GotMicAmplitude (String _str, int _amp) {
                                 Message message = Message.obtain();
                                 message.arg1 = _amp;
-                                handler.sendMessageAtFrontOfQueue( message );
+                                handler.sendMessage( message );
 
                                 return 0;
                             }
@@ -318,7 +318,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                                 mButSound_Start_Stop_Record.setText( "Start Recoding" );
                                 mButSound_Start_Stop_Play.setEnabled( true );
                                 mButSound_Start_Stop_Play.setText( "Start Play" );
-                                //        Toast.makeText( getApplicationContext(), " Wogal Play Stoped -> " + a, Toast.LENGTH_LONG ).show();
                                 pb.setVisibility( View.GONE );
                                 return 10;
                             }
