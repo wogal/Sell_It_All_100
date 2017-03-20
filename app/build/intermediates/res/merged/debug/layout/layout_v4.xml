@@ -58,5 +58,21 @@
             android:textColor="#FFC107"
             android:textSize="25dp"
             android:textStyle="bold" />
+
+
+        <Button
+            android:layout_gravity="bottom"
+
+            android:id="@+id/But_Done_v4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Done"
+            android:textColor="#ff07b9"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+
     </LinearLayout>
 </RelativeLayout>

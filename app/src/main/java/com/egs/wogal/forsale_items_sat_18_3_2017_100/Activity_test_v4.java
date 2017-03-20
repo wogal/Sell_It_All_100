@@ -10,6 +10,8 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
 
     private Button mBut_test;
     private TextView m_txt_view;
+    private Button mBut_Done;
+    private CounterClassHelper mCounterClassHelper;
 
 
     @Override
@@ -22,13 +24,24 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
         m_txt_view = (TextView) findViewById( R.id.txt_test_v4 );
         m_txt_view.setText( "-- --" );
 
+        mBut_Done = (Button) findViewById( R.id.But_Done_v4 );
+        mBut_Done.setOnClickListener( this );
+
+
+
 
     }
 
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
+            case R.id.But_Done_v4:{
+                this.finish();
+                break;
+            }
             case R.id.But_test_button_v4: {
+                // counter test
+
                 break;
             }
 

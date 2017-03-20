@@ -4,6 +4,10 @@
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_logo.png",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_logo.png"
+    },
+    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     }

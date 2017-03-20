@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher_logo.png",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_logo.png"
+    },
+    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },

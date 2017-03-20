@@ -48,7 +48,7 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wo
 	android:allowBackup
 		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:10:9-35
 	android:icon
-		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:11:9-48
 	android:theme
 		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:15:9-40
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Main_v0
