@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:3:11-66
 		INJECTED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml
@@ -26,7 +26,7 @@ ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:7:5-
 	android:name
 		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:7:22-77
 application
-ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:9:5-25:19
+ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:9:5-27:19
 MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\a246d6f7009289ee8d060d22931f187f9ff84c8c\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\wogal\.android\build-cache\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.0.0] C:\Users\wogal\.android\build-cache\1b06c7e8ad81bc38116702237f415a362084b5b8\output\AndroidManifest.xml:22:5-20
@@ -73,6 +73,10 @@ activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_test_v4
 ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:24:9-53
 	android:name
 		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:24:19-51
+activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Camera_v5
+ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:25:9-26:20
+	android:name
+		ADDED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml:25:19-53
 uses-sdk
 INJECTED from C:\Android_Apps\Sell_It_All_100\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\a246d6f7009289ee8d060d22931f187f9ff84c8c\output\AndroidManifest.xml:21:5-23:62

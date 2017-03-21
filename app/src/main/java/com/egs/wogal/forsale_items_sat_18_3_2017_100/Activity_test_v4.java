@@ -1,11 +1,12 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Activity_test_v4 extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,6 +20,8 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.layout_v4 );
+
+        this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         mBut_test = (Button) findViewById( R.id.But_test_button_v4 );
         mBut_test.setOnClickListener( this );
@@ -40,7 +43,8 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
             }
             case R.id.But_test_button_v4: {
             // test camera
-                Toast.makeText( this ,"Str ->" + "",Toast.LENGTH_LONG ).show();
+                Intent intent = new Intent( this, Activity_Camera_v5.class );
+                startActivity( intent );
                 break;
             }
         }

@@ -108,8 +108,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         Log.d( TAG, "onRestoreInstanceState" );
     }
     //endregion   Activity frf
-
-
     //region Description -- Activity States
     //region Description
     @Override
