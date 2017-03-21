@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Test Counter"
+            android:text="Test Camera"
             android:textColor="#FFC107"
             android:textSize="25dp"
             android:textStyle="bold" />

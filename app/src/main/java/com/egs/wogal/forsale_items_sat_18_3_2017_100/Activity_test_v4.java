@@ -1,34 +1,18 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Activity_test_v4 extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBut_test;
     private TextView m_txt_view;
     private Button mBut_Done;
-    private int mCount = 0;
-    private CountDownTimer mCountDownTimer = null;
 
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage (Message msg) {
-            String _str = "";
-            if (msg.arg1 >= 0) {
-                _str = "Cnt -> " + msg.arg1;
-            } else {
-                _str = " All Done";
-            }
-            m_txt_view.setText( _str );
-        }
-    };
 
 
     @Override
@@ -55,26 +39,11 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
                 break;
             }
             case R.id.But_test_button_v4: {
-                if (mCountDownTimer == null) {
-                    mCount = 1;
-                    mCountDownTimer = new CountDownTimer( 10000, 100 ) {
-                        @Override
-                        public void onTick (long millisUntilFinished) {
-                            Message message = Message.obtain();
-                            message.arg1 = mCount++;
-                            handler.sendMessage( message );
-                        }
-                        @Override
-                        public void onFinish () {
-                            Message message = Message.obtain();
-                            message.arg1 = -1; // indicate all dose
-                            handler.sendMessage( message );
-                            mCountDownTimer = null;
-                        }
-                    }.start();
-                }
+            // test camera
+                Toast.makeText( this ,"Str ->" + "",Toast.LENGTH_LONG ).show();
                 break;
             }
         }
     }
 }
+
