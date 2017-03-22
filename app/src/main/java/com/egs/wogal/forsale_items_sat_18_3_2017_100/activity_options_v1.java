@@ -32,7 +32,7 @@ import static java.lang.Math.pow;
 
 public class activity_options_v1 extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String TAG = "Wogal";
+    public static final String TAG = "Wogal v1";
     private Button mBut_Test_v4;
     private TextView mTxtHeaderText_v1;
     private TextView mTxtItemName_v1;
