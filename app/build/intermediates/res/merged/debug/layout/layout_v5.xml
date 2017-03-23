@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+<LinearLayout
+        android:id="@+id/earle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txt_header_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Camera Stuff (v5)"
+            android:textColor="#F4511E"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txt_v_take_pici_v5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="-------"
+            android:textColor="#F4511E"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/But_take_pici_v5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Take Pici"
+            android:textColor="#FFC107"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/But_get_pici_v5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Get Pici"
+        android:textColor="#FFC107"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>
+
+        <ImageView
+            android:id="@+id/capturePhotoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@drawable/bug"
+            android:layout_below="@+id/earle"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

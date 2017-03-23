@@ -56,7 +56,7 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
         }
         mPhotoCaptureImageView = (ImageView) findViewById( R.id.capturePhotoImageView );
 
-        mPhotoCaptureImageView.setImageResource( R.drawable.diana_100 );
+        mPhotoCaptureImageView.setImageResource( R.drawable.wogals_uimg_700_700 );
         image_Hieght = mPhotoCaptureImageView.getMeasuredHeight();
         image_Widght = mPhotoCaptureImageView.getMeasuredWidth();
 
@@ -101,12 +101,12 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
     }
 
 
-    private String GetTempImageFileAbsPath(){
+    private String GetTempImageFileAbsPath () {
         String AbsFilePath = "";
         String imageFileName = "Wogals_IMAGE_0";
         File strorageDirectory = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );
         //    File Tmp_image = File.createTempFile(imageFileName, ".jpg", strorageDirectory);
-         AbsFilePath = strorageDirectory + "/" + imageFileName + ".jpg";
+        AbsFilePath = strorageDirectory + "/" + imageFileName + ".jpg";
         mImageFileLocation = AbsFilePath;
         return AbsFilePath;
     }
@@ -200,14 +200,14 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
     private void getfromfile () {
 
 
-        if(1 == 2) {
+        if (1 == 2) {
             File imgFile = new File( GetTempImageFileAbsPath() );
             if (imgFile.exists()) {
                 Bitmap bitmap = BitmapFactory.decodeFile( imgFile.getAbsolutePath() );
                 //Drawable d = new BitmapDrawable(getResources(), myBitmap);
                 mPhotoCaptureImageView.setImageBitmap( bitmap );
             }
-        }else {
+        } else {
             Bitmap bitmap = null;
             File f = new File( GetTempImageFileAbsPath() );
             BitmapFactory.Options options = new BitmapFactory.Options();

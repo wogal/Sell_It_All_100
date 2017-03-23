@@ -726,8 +726,8 @@ int drawable notification_bg_low_pressed 0x7f02006a
 int drawable notification_bg_normal 0x7f02006b
 int drawable notification_bg_normal_pressed 0x7f02006c
 int drawable notification_icon_background 0x7f02006d
-int drawable notification_template_icon_bg 0x7f020076
-int drawable notification_template_icon_low_bg 0x7f020077
+int drawable notification_template_icon_bg 0x7f020078
+int drawable notification_template_icon_low_bg 0x7f020079
 int drawable notification_tile_bg 0x7f02006e
 int drawable notify_panel_notification_icon_bg 0x7f02006f
 int drawable obect_header_blank_bg_ 0x7f020070
@@ -736,6 +736,8 @@ int drawable progressbar 0x7f020072
 int drawable star 0x7f020073
 int drawable thin_l_blue_boarder 0x7f020074
 int drawable up 0x7f020075
+int drawable wogals_uimg_0 0x7f020076
+int drawable wogals_uimg_700_700 0x7f020077
 int id But_Done_v4 0x7f0d00a0
 int id But_get_pici_v5 0x7f0d00a3
 int id But_item_name_done_v2 0x7f0d0094
