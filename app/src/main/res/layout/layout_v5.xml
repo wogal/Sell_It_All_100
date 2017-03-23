@@ -1,8 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <LinearLayout
+<LinearLayout
         android:id="@+id/earle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,18 +54,26 @@
             android:textSize="25dp"
             android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="250sp">
+    <Button
+        android:id="@+id/But_get_pici_v5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Get Pici"
+        android:textColor="#FFC107"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
 
-            <ImageView
-                android:id="@+id/ImgView_v5"
-                android:layout_width="match_parent"
+</LinearLayout>
 
-                android:layout_height="250dp"/>
+        <ImageView
+            android:id="@+id/capturePhotoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@drawable/bug"
+            android:layout_below="@+id/earle"
+            android:layout_centerHorizontal="true"/>
 
-        </LinearLayout>
-
-
-    </LinearLayout>
 </RelativeLayout>
