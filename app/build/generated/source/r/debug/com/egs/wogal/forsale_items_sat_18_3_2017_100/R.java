@@ -3115,9 +3115,9 @@ containing a value of this type.
         public static final int obect_header_txt_v1_=0x7f020071;
         public static final int progressbar=0x7f020072;
         public static final int star=0x7f020073;
-        public static final int thin_l_blue_boarder=0x7f020074;
-        public static final int up=0x7f020075;
-        public static final int wogals_uimg_0=0x7f020076;
+        public static final int test_img_0=0x7f020074;
+        public static final int thin_l_blue_boarder=0x7f020075;
+        public static final int up=0x7f020076;
         public static final int wogals_uimg_700_700=0x7f020077;
     }
     public static final class id {

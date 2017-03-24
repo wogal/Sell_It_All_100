@@ -2,10 +2,12 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Environment;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +26,27 @@ public class Storage_Helper_Class {
         mContext = base;
     }
 
+    public static String saveImage (Bitmap b, String _name, String _extension) {
+        OutputStream fOutputStream ;
+        fOutputStream = null;
+        String AbsPath = GetBaseStorageFilePathAndAddFile( _name, _extension );
+        try {
+            fOutputStream = new FileOutputStream( AbsPath );
+            b.compress( Bitmap.CompressFormat.JPEG, 100, fOutputStream );
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            fOutputStream.flush();
+            fOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return AbsPath;
+    }
+
     public static String GetVoiceFilePath () {
         String imageFileName = "Wogals_Voice_0";
         File strorageDirectory = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );
@@ -31,6 +54,14 @@ public class Storage_Helper_Class {
         String AbsFilePath = strorageDirectory + "/wogals_voice.3gp";
         return AbsFilePath;
     }
+
+    public static String GetBaseStorageFilePathAndAddFile (String _file, String _file_ext) {
+        File strorageDirectory = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );
+        //    File Tmp_image = File.createTempFile(imageFileName, ".jpg", strorageDirectory);
+        String AbsFilePath = strorageDirectory + "/" + _file + "." + _file_ext; //    "/wogals_voice.3gp";
+        return AbsFilePath;
+    }
+
 
     public static String MakeAbsoulteFromPathAndFile (String _path, String _filename) {
         String fullAbsPath = "";
@@ -64,7 +95,7 @@ public class Storage_Helper_Class {
         return ""; // not mounter or error
     }
 
-    public String SgetExternalStorageDirectory () {
+    public String getExternalStorageDirectory () {
         File path;
         String str;
         path = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_PICTURES );

@@ -16,16 +16,16 @@
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\up.png"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lightning.png",
-        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\lightning.png"
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_btn_login_background.xml",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\bg_btn_login_background.xml"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lightning.png",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\lightning.png"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
@@ -124,10 +124,6 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wogals_uimg_0.jpg",
-        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\wogals_uimg_0.jpg"
-    },
-    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
@@ -136,12 +132,12 @@
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wogals_uimg_700_700.jpg",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\wogals_uimg_700_700.jpg"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\down.png",
@@ -186,6 +182,10 @@
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\test_img_0.jpg",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\test_img_0.jpg"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_ic_visibility.xml",

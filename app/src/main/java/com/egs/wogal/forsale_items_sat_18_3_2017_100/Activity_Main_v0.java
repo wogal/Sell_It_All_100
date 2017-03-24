@@ -23,6 +23,7 @@ public class Activity_Main_v0 extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.layout_v0);
         mBtn_startselling_vn = (Button) findViewById(R.id.butt_lets_start_selling_v0);
         mBtn_startselling_vn.setOnClickListener(this);
+
     }
 
     @Override
