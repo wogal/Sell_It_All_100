@@ -14,6 +14,8 @@ public class Activity_Recycle_v6 extends AppCompatActivity implements View.OnCli
     private RecyclerView mRecView;
 
 
+
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
