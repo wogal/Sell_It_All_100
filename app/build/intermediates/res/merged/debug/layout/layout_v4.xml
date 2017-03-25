@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/earle"
@@ -32,7 +32,7 @@
             android:text="Test Activity (v4)"
             android:textColor="#F4511E"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txt_test_v4"
@@ -46,7 +46,7 @@
             android:text="----"
             android:textColor="#f41edf"
             android:textSize="30dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/But_test_button_v4"
@@ -57,21 +57,33 @@
             android:text="Test Camera"
             android:textColor="#FFC107"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
 
         <Button
-            android:layout_gravity="bottom"
-
             android:id="@+id/But_Done_v4"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_margin="15dp"
             android:background="@drawable/bg_btn_login_background"
             android:text="Done"
             android:textColor="#ff07b9"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
+
+
+        <Button
+            android:id="@+id/But_recyclerview_v6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="recyclerview"
+            android:textColor="#FFC107"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
 
 
     </LinearLayout>

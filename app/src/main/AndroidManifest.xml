@@ -24,6 +24,8 @@
         <activity android:name=".Activity_test_v4"/>
         <activity android:name=".Activity_Camera_v5">
         </activity>
+        <activity android:name=".Activity_Recycle_v6">
+        </activity>
     </application>
 
 </manifest>

@@ -13,7 +13,7 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
     private Button mBut_test;
     private TextView m_txt_view;
     private Button mBut_Done;
-
+    private Button mbut_Recyclerview;
 
 
     @Override
@@ -21,7 +21,7 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
         super.onCreate( savedInstanceState );
         setContentView( R.layout.layout_v4 );
 
-        this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
         mBut_test = (Button) findViewById( R.id.But_test_button_v4 );
         mBut_test.setOnClickListener( this );
@@ -32,6 +32,10 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
         mBut_Done = (Button) findViewById( R.id.But_Done_v4 );
         mBut_Done.setOnClickListener( this );
 
+        mbut_Recyclerview = (Button) findViewById( R.id.But_recyclerview_v6 );
+        mbut_Recyclerview.setOnClickListener( this );
+
+
     }
 
     @Override
@@ -41,8 +45,14 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
                 this.finish();
                 break;
             }
+            case R.id.But_recyclerview_v6: {
+                // test recyclerview
+                Intent intent = new Intent( this, Activity_Recycle_v6.class );
+                startActivity( intent );
+                break;
+            }
             case R.id.But_test_button_v4: {
-            // test camera
+                // test camera
                 Intent intent = new Intent( this, Activity_Camera_v5.class );
                 startActivity( intent );
                 break;
