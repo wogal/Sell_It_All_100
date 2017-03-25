@@ -1,6 +1,6 @@
 
 
-package com.egs.wogal.forsale_items_sat_18_3_2017_100;
+package JavaClasses_pkg_100;
 
 
 

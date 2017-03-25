@@ -1,4 +1,4 @@
-package com.egs.wogal.forsale_items_sat_18_3_2017_100;
+package JavaClasses_pkg_100;
 
 
 import android.Manifest;
@@ -29,7 +29,7 @@ public class Sound_Play_Record_Helper_10000000 extends AppCompatActivity {
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
     public Sound_Play_Record_Helper_10000000 () {
-        mFileName = com.egs.wogal.forsale_items_sat_18_3_2017_100.Storage_Helper_Class.GetVoiceFilePath();        //
+        mFileName = Storage_Helper_Class.GetVoiceFilePath();        //
     }
 
 

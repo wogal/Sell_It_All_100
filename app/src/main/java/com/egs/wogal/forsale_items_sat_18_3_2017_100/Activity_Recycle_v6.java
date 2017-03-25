@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import ForSaleItem_pkg.Adapterdrops;
+import JavaClasses_pkg_100.Adapterdrops;
 
 public class Activity_Recycle_v6 extends AppCompatActivity implements View.OnClickListener {
     private Button mBut_Done_v6;

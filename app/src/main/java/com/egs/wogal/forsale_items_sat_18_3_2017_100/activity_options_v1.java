@@ -17,6 +17,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import JavaClasses_pkg_100.Sound_Play_Record_Helper;
+
 import static android.view.KeyEvent.KEYCODE_ENTER;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
 import static java.lang.Math.log;

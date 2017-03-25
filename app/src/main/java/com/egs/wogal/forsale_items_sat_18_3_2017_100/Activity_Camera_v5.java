@@ -20,7 +20,10 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
-import static com.egs.wogal.forsale_items_sat_18_3_2017_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
+import JavaClasses_pkg_100.ImageClassHelper;
+import JavaClasses_pkg_100.Storage_Helper_Class;
+
+import static JavaClasses_pkg_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
 
 public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = "Cam Test v5";
