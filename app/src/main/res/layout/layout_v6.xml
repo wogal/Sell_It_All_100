@@ -14,7 +14,7 @@
         android:background="@drawable/obect_header_txt_v1_"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Recyclerview"
+        android:text="Recyclerview v6"
         android:textColor="#f41edf"
         android:textSize="30dp"
         android:textStyle="bold"/>
@@ -31,6 +31,7 @@
         android:textStyle="bold"/>
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/Rec_View_v6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"/>
