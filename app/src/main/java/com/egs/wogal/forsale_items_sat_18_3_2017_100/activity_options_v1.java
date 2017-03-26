@@ -41,11 +41,15 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mBtnSalesItemName_v1;
     private Button mBtnVoiceMeme_v1;
     private Button mBut_name_item_GoBack;
+
     private Button mButSound_Start_Stop_Play;
     private Button mButSound_Start_Stop_Record;
     private Button mBut_Sound_Done;
     private Button mBut_Sound_Stop;
     private Button mButRecordTimrLeft;
+
+
+
     private Button mButMakeSalesItem;
     private boolean mTestBoolExecuteTrue = false;
     private int mRecordTimeLeft = 0;
@@ -297,7 +301,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                 }
                 case R.id.But_item_voice_v1: { // SOUND RECORDER
                     AlertDialog.Builder mBuilderSound = new AlertDialog.Builder( activity_options_v1.this );
-                    mViewSound = getLayoutInflater().inflate( R.layout.layout_v3, null );
+                    mViewSound = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
 
                     mBut_Sound_Done = (Button) mViewSound.findViewById( R.id.But_sound_exit_v3 );
                     mBut_Sound_Done.setOnClickListener( this );
@@ -431,5 +435,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         // enable done button
         SoundDoneButton_Ena_dis( true );
     }
+
+
+
+
 }
 
