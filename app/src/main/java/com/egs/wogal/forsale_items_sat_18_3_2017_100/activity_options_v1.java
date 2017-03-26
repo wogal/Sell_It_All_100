@@ -46,6 +46,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mBut_Sound_Done;
     private Button mBut_Sound_Stop;
     private Button mButRecordTimrLeft;
+    private Button mButMakeSalesItem;
     private boolean mTestBoolExecuteTrue = false;
     private int mRecordTimeLeft = 0;
 
@@ -109,6 +110,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         }
         Log.d( TAG, "onRestoreInstanceState" );
     }
+
     //endregion   Activity frf
     //region Description -- Activity States
     //region Description
@@ -171,6 +173,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         mBut_Test_v4 = (Button) findViewById( R.id.But_test_activity_v1 );
         mBut_Test_v4.setOnClickListener( this );
 
+        mButMakeSalesItem = (Button) findViewById( R.id.But_make_item_v1 );
+        mButMakeSalesItem.setOnClickListener( this );
+
 
     }
 
@@ -179,6 +184,11 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     public void onClick (View v) {
         if (1 == 1) {
             switch (v.getId()) {
+                case R.id.But_make_item_v1: {
+                    Intent intent = new Intent( this, Activity_MakeSalesItem_v8.class );
+                    startActivity( intent );
+                    break;
+                }
                 case R.id.But_test_activity_v1: {
                     Intent intent = new Intent( this, Activity_test_v4.class );
                     startActivity( intent );
@@ -313,19 +323,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     mButSound_Start_Stop_Record.setText( "Start Recoding" );
 
                     if (!mTestBoolExecuteTrue) {
-                    /*
-                    mmCountDownTimer = new CountDownTimer( 0xc,22) {
-                        @Override
-                        public void onTick (long millisUntilFinished) {
-
-                        }
-
-                        @Override
-                        public void onFinish () {
-
-                        }
-                    };
-                    */
                         mSound_Play_Record_Helper = new Sound_Play_Record_Helper();
                         // set default values
                         pb.setVisibility( View.GONE );
@@ -351,7 +348,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                                 mButSound_Start_Stop_Record.setText( "Start Recoding" );
                                 mButSound_Start_Stop_Play.setEnabled( true );
                                 mButSound_Start_Stop_Play.setText( "Start Play" );
-                                SoundDoneButton_Ena_dis(true);
+                                SoundDoneButton_Ena_dis( true );
                                 pb.setVisibility( View.GONE );
                                 return 10;
                             }
