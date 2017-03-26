@@ -14,6 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.sql.Time;
+
+import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import JavaClasses_pkg_100.Sound_Play_Record_Helper;
 
 import static android.view.KeyEvent.KEYCODE_ENTER;
@@ -22,6 +28,11 @@ import static java.lang.Math.log;
 import static java.lang.Math.pow;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
+
+
+    private Button mBut_saveItemObj;
+    private Button mBut_RecallIemObj;
+
 
     private View mViewItemName;
     private Button mBut_name_item_GoBack;
@@ -56,6 +67,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
     private CountDownTimer mmCountDownTimer;
+
+    // master item class object
+    private For_Sale_Item_Object For_Sale_Item_ObjectCls = null;
 
 
     private Handler handler = new Handler() {
@@ -106,6 +120,16 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         mBut_Add_Voice_Handeler_v8 = (Button) findViewById( R.id.But_voice_header_v8 );
         mBut_Add_Voice_Handeler_v8.setOnClickListener( this );
+
+
+        mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
+        mBut_saveItemObj.setOnClickListener( this );
+
+        mBut_RecallIemObj = (Button) findViewById( R.id.But_recall_obj_v8 );
+        mBut_RecallIemObj.setOnClickListener( this );
+
+        GetCreateSalesItemObject();
+
     }
 
 
@@ -146,19 +170,26 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
-            // **************************************
+            case R.id.But_save_obj_v8: {
+                SaveItemObj();
+                break;
+            }
+
+            case R.id.But_recall_obj_v8: {
+                RecallItemObj();
+                break;
+            }
+
 
             case R.id.But_sound_exit_v3: {
                 Dialog_SoundRecord.dismiss();
                 break;
             }
-
             case R.id.But_sound_stop_v3: {
                 //    mSound_Play_Record_Helper.DummyInVokeEvent(5);
                 pb.setProgress( pb.getProgress() + 5 );
                 break;
             }
-
             case R.id.But_sound_play_v3: {
                 if (mSound_Play_Record_Helper == null)
                     break;
@@ -237,10 +268,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 break;
             }
 
-
-            // **************************************
-
-
             case R.id.But_voice_header_v8: {
                 AlertDialog.Builder mBuilderSound = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
                 mViewSound = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
@@ -304,7 +331,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 }
                 break;
             }
-
 
             case R.id.txt_v_text_header_v8:
             case R.id.But_text_header_v8:
@@ -411,6 +437,33 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 Dialog_ItemName.show();
                 break;
         }
+    }
+
+    private void RecallItemObj () {
+
+    }
+
+    private void SaveItemObj (For_Sale_Item_Object _itemObj) {
+        String path = "earle.ser";
+        try {
+            ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ));
+            out.writeObject( _itemObj );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void GetCreateSalesItemObject () {
+        long timeTicks;
+        timeTicks = new Time( System.currentTimeMillis() ).getTime();
+        For_Sale_Item_ObjectCls = new For_Sale_Item_Object( timeTicks ) {
+            @Override
+            public void test () {
+
+            }
+        };
+
     }
 }
 
