@@ -32,6 +32,8 @@
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Recycle_v6" >
         </activity>
+        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_MakeSalesItem_v8" >
+        </activity>
     </application>
 
 </manifest>

@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".Activity_Recycle_v6">
         </activity>
+        <activity android:name=".Activity_MakeSalesItem_v8">
+        </activity>
     </application>
 
 </manifest>
