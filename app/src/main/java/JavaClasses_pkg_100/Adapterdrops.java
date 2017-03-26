@@ -2,6 +2,8 @@ package JavaClasses_pkg_100;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,7 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
 
     public static ArrayList<String> genValues () {
         ArrayList<String> Slist = new ArrayList<>();
-        for (int cnt = 0; cnt != 10; cnt++) {
+        for (int cnt = 0; cnt != 20; cnt++) {
             Slist.add( "Item -> " + cnt );
         }
         return Slist;
@@ -50,7 +52,17 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
 
     @Override
     public void onBindViewHolder (DropHolder holder, int position) {
-        holder.mTxtview.setText( mItems.get( position ));
+        String path = "";
+        Bitmap bm;
+        Bitmap bm_1;
+        holder.mTxtview.setText( mItems.get( position ) );
+        // put in image
+        path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
+        bm = BitmapFactory.decodeFile( path );
+        bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
+        holder.mImgView.setImageBitmap( bm );
+        //    holder.mImgView.setImageResource( R.drawable.bug );
+        path = "";
     }
 
     @Override
@@ -66,6 +78,8 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
         public DropHolder (View itemView) {
             super( itemView );
             mTxtview = (TextView) itemView.findViewById( R.id.textV7 );
+            mImgView = (ImageView) itemView.findViewById( R.id.iMageView_v6 );
+
 
         }
     }

@@ -14,6 +14,44 @@ import java.io.IOException;
 
 public class ImageClassHelper {
 
+    public static Bitmap forMatImage_4_ImageView (Bitmap bm,String _path) {
+        Bitmap bm_in;
+        Bitmap bm_out;
+        bm_in = BitmapFactory.decodeFile( _path );
+        //    bm_out = rotateImage( bm_in );
+        bm_in = ImageClassHelper.getResizedBitmap( bm_in, 700, 700 );
+        String path;
+        bm_in = rotateImage( bm_in , _path);
+        return bm_in;
+    }
+
+
+
+
+    public static Bitmap rotateImage (Bitmap bitmap,String _path) {
+        ExifInterface exifInterface = null;
+        try {
+            exifInterface = new ExifInterface( _path );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int orientation = exifInterface.getAttributeInt( ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED );
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_90: {
+                matrix.setRotate( 90 );
+                break;
+            }
+            case ExifInterface.ORIENTATION_ROTATE_180: {
+                matrix.setRotate( 180 );
+                break;
+            }
+        }
+        bitmap = Bitmap.createBitmap( bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true );
+        return bitmap;
+    }
+
+
     public static Bitmap setReducedImageSize (int _width, int _height, String _absFilePath) {
         int targetImageViewWidth = _width;
         int targetImageViewHeight = _height;

@@ -5,4 +5,5 @@
     <string name="wogal">is earle</string>
     <string name="fileToken">Wogals_IMAGE_.jpg</string>
     <string name="test_image_path">/storage/emulated/0/Pictures/Wogals_IMAGE_.jpg</string>
+    <string name="wogal_101">\@drawable/for_sale_logo_640_480</string>
 </resources>

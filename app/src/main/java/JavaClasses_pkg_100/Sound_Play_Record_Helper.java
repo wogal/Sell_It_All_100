@@ -11,13 +11,11 @@ import java.io.IOException;
 
 public class Sound_Play_Record_Helper implements Runnable {
 
-
     private static final String LOG_TAG = "AudioRecordTest";
     private static String mSoundFileName = null;
     public int test = 0;
     private boolean mStartRecording = true;
     private boolean mStartPlaying = true;
-
 
     private MediaRecorder mRecorder = null;
 
@@ -28,7 +26,6 @@ public class Sound_Play_Record_Helper implements Runnable {
 
     private boolean m_IsRecording = false;
     private boolean m_IsPlaying = false;
-
 
     public Sound_Play_Record_Helper () {
         mSoundFileName = Storage_Helper_Class.GetVoiceFilePath();        //
@@ -173,7 +170,7 @@ public class Sound_Play_Record_Helper implements Runnable {
     }
 
 
-    private void onRecord (boolean start)   {
+    private void onRecord (boolean start) {
         if (start) {
             m_IsRecording = true;
             startRecording();

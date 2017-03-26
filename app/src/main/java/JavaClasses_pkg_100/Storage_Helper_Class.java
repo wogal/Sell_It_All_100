@@ -27,7 +27,7 @@ public class Storage_Helper_Class {
     }
 
     public static String saveImage (Bitmap b, String _name, String _extension) {
-        OutputStream fOutputStream ;
+        OutputStream fOutputStream;
         fOutputStream = null;
         String AbsPath = GetBaseStorageFilePathAndAddFile( _name, _extension );
         try {
@@ -36,8 +36,6 @@ public class Storage_Helper_Class {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
         try {
             fOutputStream.flush();
             fOutputStream.close();
@@ -103,13 +101,6 @@ public class Storage_Helper_Class {
         return (str);
     }
 
-//
-//    public static ArrayList<File> GetListOfImageFiles(String _fileToken) {
-//        ArrayList<File>  arrayList = new ArrayList<>();
-//
-//
-//
-//    }
 
     public void copy (File src, File dst) throws IOException {
         InputStream in = new FileInputStream( src );

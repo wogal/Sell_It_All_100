@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,6 +21,7 @@ import java.io.IOException;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
+import static JavaClasses_pkg_100.ImageClassHelper.rotateImage;
 import static JavaClasses_pkg_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
 
 public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClickListener {
@@ -95,7 +94,7 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
             //    bm_out = rotateImage( bm_in );
             bm_in = ImageClassHelper.getResizedBitmap( bm_in, 700, 700 );
             String path;
-            bm_in = rotateImage( bm_in );
+            bm_in = rotateImage( bm_in, mImageFileLocation );
             path = Storage_Helper_Class.saveImage( bm_in, "wogal", "jpg" );
             Log.d( TAG, "onActivityResult end ( save pressed " );
             mPhotoCaptureImageView.setImageBitmap( bm_in );
@@ -123,11 +122,10 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
         path = mImageFileLocation;
         File file = new File( path );
         if (file.exists()) {
-            Bitmap bm = BitmapFactory.
-                    decodeFile( path );
+            Bitmap bm = BitmapFactory.decodeFile( path );
             if (null != bm) {
                 bm = ImageClassHelper.getResizedBitmap( bm, 700, 700 );
-                bm = rotateImage( bm );
+                bm = ImageClassHelper.rotateImage( bm, mImageFileLocation );
                 mPhotoCaptureImageView.setImageBitmap( bm );
             }
         }
@@ -168,29 +166,6 @@ public class Activity_Camera_v5 extends AppCompatActivity implements View.OnClic
         }
     }
 
-
-    private Bitmap rotateImage (Bitmap bitmap) {
-        ExifInterface exifInterface = null;
-        try {
-            exifInterface = new ExifInterface( mImageFileLocation );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        int orientation = exifInterface.getAttributeInt( ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED );
-        Matrix matrix = new Matrix();
-        switch (orientation) {
-            case ExifInterface.ORIENTATION_ROTATE_90: {
-                matrix.setRotate( 90 );
-                break;
-            }
-            case ExifInterface.ORIENTATION_ROTATE_180: {
-                matrix.setRotate( 180 );
-                break;
-            }
-        }
-        bitmap = Bitmap.createBitmap( bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true );
-        return bitmap;
-    }
 }
 
 
