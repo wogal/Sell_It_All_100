@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_test_v4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/obect_header_txt_v1_"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="Recyclerview v6"
+        android:textColor="#f41edf"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/But_done_v6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Done"
+        android:textColor="#FFC107"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+/<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Rec_View_v6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>
+</LinearLayout>
