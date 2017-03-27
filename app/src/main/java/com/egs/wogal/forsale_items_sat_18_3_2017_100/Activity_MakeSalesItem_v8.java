@@ -14,13 +14,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.Time;
 
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import JavaClasses_pkg_100.Sound_Play_Record_Helper;
+import JavaClasses_pkg_100.Storage_Helper_Class;
 
 import static android.view.KeyEvent.KEYCODE_ENTER;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
@@ -128,8 +132,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_RecallIemObj = (Button) findViewById( R.id.But_recall_obj_v8 );
         mBut_RecallIemObj.setOnClickListener( this );
 
-        GetCreateSalesItemObject();
-
+        For_Sale_Item_ObjectCls = RecallItemObj();
     }
 
 
@@ -171,7 +174,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_save_obj_v8: {
-                SaveItemObj();
+                SaveItemObj( For_Sale_Item_ObjectCls );
                 break;
             }
 
@@ -411,7 +414,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                         }
                     }
                 } );
-
                 mTxtInputText_v2 = (EditText) mViewItemName.findViewById( R.id.edit_text_item_name_v2 );
                 mTxtInputText_v2.setOnKeyListener( new View.OnKeyListener() {
                     @Override
@@ -439,14 +441,43 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         }
     }
 
-    private void RecallItemObj () {
+    private For_Sale_Item_Object RecallItemObj () {
+        For_Sale_Item_Object fsObj = null;
+        String file = "earle.ser";
+        String path;
+        path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
+        path = path + "/" + file;
+        // see if item file exist ,, if not put in blank default values else get from file
+        File fs = new File( path );
+        if (!fs.exists())
+            return GetCreateSalesItemObject();
 
+        try {
+            ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
+            fsObj = (For_Sale_Item_Object) in.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        // pop layout ( View )
+        mTxtView_ItemHeaderText_v8.setText( fsObj.get_FS_ItemHeaderText() );
+        mTxtItemName_v8.setText( fsObj.get_FS_SaleItemName() );
+        return fsObj;
     }
 
     private void SaveItemObj (For_Sale_Item_Object _itemObj) {
-        String path = "earle.ser";
+        // put in any data
+        _itemObj.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
+        _itemObj.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
+
+
+        String file = "earle.ser";
+        String path;
+        path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
+        path = path + "/" + file;
         try {
-            ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ));
+            ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ) );
             out.writeObject( _itemObj );
         } catch (IOException e) {
             e.printStackTrace();
@@ -454,16 +485,11 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    private void GetCreateSalesItemObject () {
+    private For_Sale_Item_Object GetCreateSalesItemObject () {
         long timeTicks;
         timeTicks = new Time( System.currentTimeMillis() ).getTime();
-        For_Sale_Item_ObjectCls = new For_Sale_Item_Object( timeTicks ) {
-            @Override
-            public void test () {
-
-            }
-        };
-
+        For_Sale_Item_ObjectCls = new For_Sale_Item_Object( timeTicks );
+        return For_Sale_Item_ObjectCls;
     }
 }
 

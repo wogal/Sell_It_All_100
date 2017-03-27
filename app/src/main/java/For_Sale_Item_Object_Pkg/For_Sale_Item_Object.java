@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by wogal on 3/25/2017.
  */
 
-public abstract class For_Sale_Item_Object extends SaleItemMakeup implements Serializable {
+public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializable {
 
 
     //<editor-fold desc=" Variables  ">
@@ -21,6 +21,19 @@ public abstract class For_Sale_Item_Object extends SaleItemMakeup implements Ser
     private ArrayList<SaleItemMakeup> _ItemGroup;
     // path to voice files for the item in group  ** store as bytes later on
     private String _FS_VoiceItemFilePath;
+    // text to discribe sales item
+    private String _FS_ItemHeaderText ="";
+
+    public String get_FS_ItemHeaderText () {
+        return _FS_ItemHeaderText;
+    }
+
+    public void set_FS_ItemHeaderText (String _FS_ItemHeaderText) {
+        this._FS_ItemHeaderText = _FS_ItemHeaderText;
+    }
+
+
+
 
     public For_Sale_Item_Object (long _FS_DateTime_of_Conseption) {
         this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
@@ -63,14 +76,12 @@ public abstract class For_Sale_Item_Object extends SaleItemMakeup implements Ser
     //</editor-fold>
 
 
-    public abstract void test ();
-
 
 }
 
 
 // class ( group ) to hold each item in for sale item
-class SaleItemMakeup {
+class SaleItemMakeup implements Serializable  {
     // bitmap list of pictures for the
     public ArrayList<Bitmap> _FS_ItemImages;
 

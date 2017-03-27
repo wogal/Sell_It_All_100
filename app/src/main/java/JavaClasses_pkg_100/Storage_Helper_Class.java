@@ -63,34 +63,31 @@ public class Storage_Helper_Class {
 
     public static String MakeAbsoulteFromPathAndFile (String _path, String _filename) {
         String fullAbsPath = "";
-        try {
-            fullAbsPath = MakeOrCheck_If_Folder_Exists( _path );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fullAbsPath = MakeOrCheck_If_Folder_Exists( _path );
         fullAbsPath = fullAbsPath + "/" + _filename;
         return (fullAbsPath);
     }
 
-    public static String MakeOrCheck_If_Folder_Exists (String path) throws IOException {
+    public static String MakeOrCheck_If_Folder_Exists (String _path) {
         String state;
         // see if fisrt char in path is "/" if not make sure it starts and ends with a "/"
         // remove all "/"  ( if eny exists )
-        path = path.replaceAll( "/", "" );
+        _path = _path.replaceAll( "/", "" );
         // now add "/" to start & end of path
-        path = new StringBuilder( path ).insert( 0, "/" ).toString();
-        path = new StringBuilder( path ).insert( path.length(), "/" ).toString();
+        _path = new StringBuilder( _path ).insert( 0, "/" ).toString();
+        _path = new StringBuilder( _path ).insert( _path.length(), "/" ).toString();
         state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals( state )) {
             File Root = Environment.getExternalStorageDirectory();
-            File Dir = new File( Root.getAbsolutePath() + path );
+            File Dir = new File( Root.getAbsolutePath() + _path );
             if (!Dir.exists()) {
                 Dir.mkdir();
             }
-            path = Dir.toString();
-            return (path);
+            _path = Dir.toString();
+            return (_path);
         }
-        return ""; // not mounter or error
+
+        return _path; // not mounter or error
     }
 
     public String getExternalStorageDirectory () {
