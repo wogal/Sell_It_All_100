@@ -141,6 +141,12 @@
                 android:textSize="25dp"
                 android:textStyle="bold"/>
         </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Rec_itemPics_v8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 </RelativeLayout>
 

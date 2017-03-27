@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +35,10 @@ import static java.lang.Math.pow;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
 
+    // horizontal item pics RecyclerView
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.Adapter mAdapter;
 
     private Button mBut_saveItemObj;
     private Button mBut_RecallIemObj;
@@ -133,8 +139,19 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_RecallIemObj = (Button) findViewById( R.id.But_recall_obj_v8 );
         mBut_RecallIemObj.setOnClickListener( this );
 
+        // horizontal Rec View
+        mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
+        mRecyclerView.setHasFixedSize( true );
+        mLayoutManager = new LinearLayoutManager( this );
+        mRecyclerView.setLayoutManager( mLayoutManager );
+        mAdapter = new MainAdapter();
+        mRecyclerView.setAdapter( mAdapter );
+
+        // recall item database
         For_Sale_Item_ObjectCls = RecallItemObj();
     }
+
+
 
     private void SoundDoneButton_Ena_dis (boolean _enable) {
         if (_enable == true) {
