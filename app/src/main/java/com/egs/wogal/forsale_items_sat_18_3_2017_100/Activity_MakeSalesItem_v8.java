@@ -168,6 +168,12 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         pb.setVisibility( View.GONE );
         // enable done button
         SoundDoneButton_Ena_dis( true );
+        // copy recorded voice to item object
+        // get voice file path
+        mSoundFileName = Storage_Helper_Class.GetVoiceFilePath();        /
+
+
+
     }
 
     @Override
@@ -177,13 +183,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 SaveItemObj( For_Sale_Item_ObjectCls );
                 break;
             }
-
             case R.id.But_recall_obj_v8: {
                 RecallItemObj();
                 break;
             }
-
-
             case R.id.But_sound_exit_v3: {
                 Dialog_SoundRecord.dismiss();
                 break;
@@ -468,20 +471,27 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     private void SaveItemObj (For_Sale_Item_Object _itemObj) {
         // put in any data
-        _itemObj.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
-        _itemObj.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
+        boolean _test = false;
+        _test = Storage_Helper_Class.canWriteToExternalStorage( this );
 
 
-        String file = "earle.ser";
-        String path;
-        path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
-        path = path + "/" + file;
-        try {
-            ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ) );
-            out.writeObject( _itemObj );
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (true) {
+            _itemObj.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
+            _itemObj.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
+
+
+            String file = "earle.ser";
+            String path;
+            path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
+            path = path + "/" + file;
+            try {
+                ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ) );
+                out.writeObject( _itemObj );
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        return;
     }
 
 

@@ -2,9 +2,12 @@ package JavaClasses_pkg_100;
 
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -99,6 +102,10 @@ public class Storage_Helper_Class {
     }
 
 
+    public static boolean canWriteToExternalStorage(Context context) {
+        return ContextCompat.checkSelfPermission(context, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+    }
+
     public void copy (File src, File dst) throws IOException {
         InputStream in = new FileInputStream( src );
         OutputStream out = new FileOutputStream( dst );
@@ -112,4 +119,29 @@ public class Storage_Helper_Class {
         in.close();
         out.close();
     }
+
+
+
+
+    public byte[] File_2_ByteArray(String _AbsFilePath){
+
+        File file = new File(_AbsFilePath);
+        int size = (int) file.length();
+        byte[] bytes = new byte[size];
+        try {
+            BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
+            buf.read(bytes, 0, bytes.length);
+            buf.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return bytes;
+    }
+
+
+
 }
