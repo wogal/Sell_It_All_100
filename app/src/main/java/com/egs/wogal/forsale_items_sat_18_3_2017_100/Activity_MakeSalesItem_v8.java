@@ -1,5 +1,6 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -20,7 +21,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.sql.Time;
 
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import JavaClasses_pkg_100.Sound_Play_Record_Helper;
@@ -110,6 +110,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         super.onCreate( savedInstanceState );
         setContentView( R.layout.layout_v8 );
 
+        this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
+
         mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_item_name_v8 );
         mBtnSalesItemName_v8.setOnClickListener( this );
 
@@ -125,7 +127,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_Add_Voice_Handeler_v8 = (Button) findViewById( R.id.But_voice_header_v8 );
         mBut_Add_Voice_Handeler_v8.setOnClickListener( this );
 
-
         mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
         mBut_saveItemObj.setOnClickListener( this );
 
@@ -134,7 +135,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         For_Sale_Item_ObjectCls = RecallItemObj();
     }
-
 
     private void SoundDoneButton_Ena_dis (boolean _enable) {
         if (_enable == true) {
@@ -170,10 +170,16 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         SoundDoneButton_Ena_dis( true );
         // copy recorded voice to item object
         // get voice file path
-        mSoundFileName = Storage_Helper_Class.GetVoiceFilePath();        /
-
-
-
+        String mSoundFileName = Storage_Helper_Class.GetVoiceFilePath();
+        File fs = new File( mSoundFileName );
+        if (fs.exists()) {
+            if (fs.length() >= 500) {
+                // we have a valid voice / sound file so save as byte array 2 itemObject
+                byte[] bA;
+                bA = Storage_Helper_Class.File_2_ByteArray( mSoundFileName );
+                For_Sale_Item_ObjectCls.set_FS_ItemHeaderVoiceFileData( bA );
+            }
+        }
     }
 
     @Override
@@ -342,7 +348,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             case R.id.But_text_header_v8:
                 mBuilderItemName = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
                 mViewItemName = getLayoutInflater().inflate( R.layout.layout_v2, null );
-
                 mTextEntersTextField_v2 = (TextView) mViewItemName.findViewById( text_view_sales_item_name_v2 );
 
                 mBut_name_item_GoBack = (Button) mViewItemName.findViewById( R.id.But_item_name_done_v2 );
@@ -361,7 +366,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                         }
                     }
                 } );
-
                 mTxtInputText_v2 = (EditText) mViewItemName.findViewById( R.id.edit_text_item_name_v2 );
                 mTxtInputText_v2.setOnKeyListener( new View.OnKeyListener() {
                     @Override
@@ -460,12 +464,18 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             fsObj = (For_Sale_Item_Object) in.readObject();
         } catch (IOException e) {
             e.printStackTrace();
+            fsObj = new For_Sale_Item_Object();
+            return fsObj;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            fsObj = new For_Sale_Item_Object();
+            return fsObj;
         }
         // pop layout ( View )
         mTxtView_ItemHeaderText_v8.setText( fsObj.get_FS_ItemHeaderText() );
         mTxtItemName_v8.setText( fsObj.get_FS_SaleItemName() );
+        // make voice arry to sound file
+        Storage_Helper_Class.ByteArray_2_File( Storage_Helper_Class.GetVoiceFilePath(), fsObj.get_FS_ItemHeaderVoiceFileData() );
         return fsObj;
     }
 
@@ -474,12 +484,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         boolean _test = false;
         _test = Storage_Helper_Class.canWriteToExternalStorage( this );
 
-
         if (true) {
             _itemObj.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
             _itemObj.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
-
-
             String file = "earle.ser";
             String path;
             path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
@@ -491,14 +498,11 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 e.printStackTrace();
             }
         }
-        return;
+        this.finish();
     }
 
-
     private For_Sale_Item_Object GetCreateSalesItemObject () {
-        long timeTicks;
-        timeTicks = new Time( System.currentTimeMillis() ).getTime();
-        For_Sale_Item_ObjectCls = new For_Sale_Item_Object( timeTicks );
+        For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
         return For_Sale_Item_ObjectCls;
     }
 }

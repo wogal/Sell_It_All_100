@@ -49,7 +49,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mButRecordTimrLeft;
 
 
-
     private Button mButMakeSalesItem;
     private boolean mTestBoolExecuteTrue = false;
     private int mRecordTimeLeft = 0;
@@ -435,8 +434,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         // enable done button
         SoundDoneButton_Ena_dis( true );
     }
-
-
 
 
 }

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_V8">10dp</dimen>
+    <dimen name="butt_margin_100">5dp</dimen>
+    <dimen name="butt_margin_101">5dp</dimen>
+    <dimen name="textViewPadding_100">10dp</dimen>
+    <dimen name="text_header_padding_8">20dp</dimen>
 </resources>

@@ -3,6 +3,7 @@ package For_Sale_Item_Object_Pkg;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.ArrayList;
 
 /**
@@ -19,10 +20,11 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
     private String _FS_SaleItemName;
     // list of item objects ie:pic , text , voice , --
     private ArrayList<SaleItemMakeup> _ItemGroup;
-    // path to voice files for the item in group  ** store as bytes later on
-    private String _FS_VoiceItemFilePath;
-    // text to discribe sales item
+    // text to describe sales item
     private String _FS_ItemHeaderText ="";
+    // byte array for item header voice sound file
+    private byte[] _FS_ItemHeaderVoiceFileDataArray;
+
 
     public String get_FS_ItemHeaderText () {
         return _FS_ItemHeaderText;
@@ -32,10 +34,8 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
         this._FS_ItemHeaderText = _FS_ItemHeaderText;
     }
 
-
-
-
-    public For_Sale_Item_Object (long _FS_DateTime_of_Conseption) {
+    public For_Sale_Item_Object () {
+        long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
         this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
         this.set_ItemGroup( new ArrayList<SaleItemMakeup>() );
     }
@@ -66,12 +66,14 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
         this._ItemGroup = _ItemGroup;
     }
 
-    public String get_FS_VoiceItemFilePath () {
-        return _FS_VoiceItemFilePath;
+
+
+    public byte[] get_FS_ItemHeaderVoiceFileData () {
+        return _FS_ItemHeaderVoiceFileDataArray;
     }
 
-    public void set_FS_VoiceItemFilePath (String _FS_VoiceItemFilePath) {
-        this._FS_VoiceItemFilePath = _FS_VoiceItemFilePath;
+    public void set_FS_ItemHeaderVoiceFileData (byte[] _FS_ItemHeaderVoiceFileDate) {
+        this._FS_ItemHeaderVoiceFileDataArray = _FS_ItemHeaderVoiceFileDate;
     }
     //</editor-fold>
 

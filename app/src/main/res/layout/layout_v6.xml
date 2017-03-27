@@ -30,10 +30,13 @@
         android:textSize="25dp"
         android:textStyle="bold"/>
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/Rec_View_v6"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"/>
+
+
 
 </LinearLayout>
