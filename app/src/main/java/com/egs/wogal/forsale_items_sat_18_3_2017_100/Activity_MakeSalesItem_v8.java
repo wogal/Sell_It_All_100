@@ -8,7 +8,9 @@ import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -142,11 +144,15 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // horizontal Rec View
         mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
         mRecyclerView.setHasFixedSize( true );
-        mLayoutManager = new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL,false );
+        mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
         mRecyclerView.setLayoutManager( mLayoutManager );
         mAdapter = new v8_ItemAdapter();
         mRecyclerView.setAdapter( mAdapter );
 
+
+        SnapHelper snapHelper = new LinearSnapHelper();
+        //     SnapHelper snapHelper = new GravitySnapHelper ();
+        snapHelper.attachToRecyclerView( mRecyclerView );
         // recall item database
         For_Sale_Item_ObjectCls = RecallItemObj();
     }
