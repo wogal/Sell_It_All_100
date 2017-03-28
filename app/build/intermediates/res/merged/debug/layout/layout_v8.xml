@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/text_header_padding_8"
-            android:background="@drawable/obect_header_txt_v1_"
+            android:background="@drawable/boarder_thin_100"
             android:gravity="center"
             android:padding="10dp"
             android:text="Let's Make Sales Item (v8)"
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/bg_btn_login_background"
+            android:background="@drawable/boarder_thin_100"
             android:orientation="vertical">
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/butt_margin_100"
-                android:background="@drawable/obect_header_txt_v1_"
+                android:background="@drawable/boarder_thin_100"
                 android:gravity="center"
                 android:padding="@dimen/textViewPadding_100"
                 android:text="----"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_V8"
-                android:background="@drawable/bg_btn_login_background"
+                android:background="@drawable/boarder_thin_100"
                 android:text="Sales Item Name"
                 android:textAllCaps="false"
                 android:textColor="#ffac07"
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/butt_margin_101"
-            android:background="@drawable/bg_btn_login_background"
+            android:background="@drawable/boarder_thin_100"
             android:orientation="vertical">
 
             <TextView
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/butt_margin_100"
-                android:background="@drawable/obect_header_txt_v1_"
+                android:background="@drawable/boarder_thin_100"
                 android:gravity="center"
                 android:padding="@dimen/textViewPadding_100"
                 android:text="----"
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_V8"
-                android:background="@drawable/bg_btn_login_background"
+                android:background="@drawable/boarder_thin_100"
                 android:text="Add Text Header"
                 android:textAllCaps="false"
                 android:textColor="#ffac07"
@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_V8"
-            android:background="@drawable/bg_btn_login_background"
+            android:background="@drawable/boarder_thin_100"
             android:text="Voice Header"
             android:textAllCaps="false"
             android:textColor="#ffac07"
@@ -121,7 +121,7 @@
 
                 android:layout_margin="5dp"
                 android:layout_weight="2"
-                android:background="@drawable/bg_btn_login_background"
+                android:background="@drawable/boarder_thin_100"
                 android:text="Item Done"
                 android:textAllCaps="false"
                 android:textColor="#ffac07"
@@ -134,13 +134,19 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_btn_login_background"
+                android:background="@drawable/boarder_thin_100"
                 android:text="Rec"
                 android:textAllCaps="false"
                 android:textColor="#9affcd07"
                 android:textSize="25dp"
                 android:textStyle="bold"/>
         </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Rec_itemPics_v8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 </RelativeLayout>
 

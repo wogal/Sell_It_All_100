@@ -142,7 +142,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // horizontal Rec View
         mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
         mRecyclerView.setHasFixedSize( true );
-        mLayoutManager = new LinearLayoutManager( this );
+        mLayoutManager = new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL,false );
         mRecyclerView.setLayoutManager( mLayoutManager );
         mAdapter = new MainAdapter();
         mRecyclerView.setAdapter( mAdapter );
@@ -150,7 +150,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // recall item database
         For_Sale_Item_ObjectCls = RecallItemObj();
     }
-
 
 
     private void SoundDoneButton_Ena_dis (boolean _enable) {

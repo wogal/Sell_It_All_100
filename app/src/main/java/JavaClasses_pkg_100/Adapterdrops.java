@@ -27,6 +27,7 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
     public Adapterdrops (Context context) {
         mInflater = LayoutInflater.from( context );
         mItems = genValues();
+
     }
 
     public static ArrayList<String> genValues () {
@@ -45,7 +46,7 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
 
     @Override
     public DropHolder onCreateViewHolder (ViewGroup parent, int viewType) {
-        View view = mInflater.inflate( R.layout.layout_v7, parent, false );
+        View view = mInflater.inflate( R.layout.layout_rec_item_v7, parent, false );
         DropHolder holder = new DropHolder( view );
         return holder;
     }
@@ -78,7 +79,7 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
         public DropHolder (View itemView) {
             super( itemView );
             mTxtview = (TextView) itemView.findViewById( R.id.textV7 );
-            mImgView = (ImageView) itemView.findViewById( R.id.iMageView_v6 );
+            mImgView = (ImageView) itemView.findViewById( R.id.iMageView_v7 );
 
 
         }

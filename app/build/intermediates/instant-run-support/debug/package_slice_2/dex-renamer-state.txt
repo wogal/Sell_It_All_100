@@ -1,4 +1,4 @@
-#Mon Mar 27 15:48:34 EDT 2017
+#Tue Mar 28 08:27:35 EDT 2017
 base.0=C\:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2
 renamed.0=classes.dex
 file.0=C\:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2\\classes.dex
