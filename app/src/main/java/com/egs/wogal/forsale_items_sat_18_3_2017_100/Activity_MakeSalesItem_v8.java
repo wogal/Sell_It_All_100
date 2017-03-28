@@ -144,7 +144,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mRecyclerView.setHasFixedSize( true );
         mLayoutManager = new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL,false );
         mRecyclerView.setLayoutManager( mLayoutManager );
-        mAdapter = new MainAdapter();
+        mAdapter = new v8_ItemAdapter();
         mRecyclerView.setAdapter( mAdapter );
 
         // recall item database

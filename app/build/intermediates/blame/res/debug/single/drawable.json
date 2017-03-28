@@ -16,16 +16,16 @@
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\up.png"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lightning.png",
-        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\lightning.png"
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_btn_login_background.xml",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\bg_btn_login_background.xml"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lightning.png",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\lightning.png"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\diana_100.jpg",
-        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\diana_100.jpg"
-    },
-    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\boarder_thin_100.xml",
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\boarder_thin_100.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\diana_100.jpg",
+        "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\diana_100.jpg"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
@@ -192,12 +192,12 @@
         "source": "C:\\Android_Apps\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\test_img_0.jpg"
     },
     {
-        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_switch_thumb_material.xml"
-    },
-    {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_ic_visibility.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\a246d6f7009289ee8d060d22931f187f9ff84c8c\\output\\res\\drawable\\design_ic_visibility.xml"
+    },
+    {
+        "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\1510d9d08e8bf73c783d8aa075b762f9e961c9ea\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
         "merged": "C:\\Android_Apps\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
