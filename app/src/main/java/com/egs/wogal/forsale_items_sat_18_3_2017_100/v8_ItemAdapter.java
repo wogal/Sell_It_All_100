@@ -1,14 +1,16 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
@@ -17,27 +19,55 @@ import JavaClasses_pkg_100.Storage_Helper_Class;
  * Created by wogal on 3/27/2017.
  */
 
-class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_ViewHolder> {
+public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_ViewHolder> {
 
-    @Override
-    public v8_Item_ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
+    public Context m_Context = null;
+    public ImageView mImageView;
+    public LinearLayout m_ItemRecle_Id;
+    Activity_MakeSalesItem_v8 m_activity_makeSalesItem_v8;
+    private AlertDialog Dialog_Itemview;
+    private View mView_Itemview;
 
-        View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.layout_rec_item_v7, parent, false );
-        v8_Item_ViewHolder vh = new v8_Item_ViewHolder( v );
-        return vh;
+    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8) {
+        m_activity_makeSalesItem_v8 = _activity_makeSalesItem_v8;
+        mView_Itemview = _activity_makeSalesItem_v8.get_view();
     }
 
     @Override
+    public v8_Item_ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.layout_rec_item_v7, parent, false );
+        v8_Item_ViewHolder vh = new v8_Item_ViewHolder( v, m_Context );
+
+        m_ItemRecle_Id = (LinearLayout) v.findViewById( R.id.ItermView_v7 );
+        m_ItemRecle_Id.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                switch (v.getId()) {
+                    case R.id.ItermView_v7: {
+                        m_activity_makeSalesItem_v8.MakeDialog( v );
+                        break;
+                    }
+                }
+            }
+        } );
+        return vh;
+    }
+
+
+    @Override
     public void onBindViewHolder (v8_Item_ViewHolder holder, int position) {
-        holder.mTitle.setText( "wogal" + position );
-        String path = "";
-        Bitmap bm;
-        Bitmap bm_1;
-        // put in image
-        path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
-        bm = BitmapFactory.decodeFile( path );
-        bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
-        holder.mImageView.setImageBitmap( bm );
+        if (position == 0) {
+        } else {
+            holder.mTitle.setText( "wogal" + position );
+            String path = "";
+            Bitmap bm;
+            Bitmap bm_1;
+            // put in image
+            path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
+            bm = BitmapFactory.decodeFile( path );
+            bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
+            holder.mImageView.setImageBitmap( bm );
+        }
     }
 
     @Override
@@ -45,23 +75,37 @@ class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_ViewHol
         return 10;
     }
 
+
     // is class to hold item views
-    public class v8_Item_ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
+    public class v8_Item_ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTitle;
         public ImageView mImageView;
 
-        public v8_Item_ViewHolder (View view) {
-            super( view );
-            mTitle = (TextView) view.findViewById( R.id.textV7 );
-            mImageView = (ImageView) view.findViewById( R.id.iMageView_v7 );
-            view.setOnClickListener( this );
+
+        private AlertDialog Dialog_Itemview;
+        private View mView_Itemview;
+
+        public v8_Item_ViewHolder (View _view, Context _Context) {
+            super( _view );
+            mTitle = (TextView) _view.findViewById( R.id.textV7 );
+            mImageView = (ImageView) _view.findViewById( R.id.iMageView_v7 );
+            //   _view.setOnClickListener( this );
         }
 
-        @Override
-        public void onClick (View v) {
-
-            Toast.makeText( v.getContext(), "Wogal Heck " + "Pos -> " + getAdapterPosition(), Toast.LENGTH_LONG ).show();
+        public void QQQtest () {
+            m_activity_makeSalesItem_v8.MakeDialog( mView_Itemview );
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 

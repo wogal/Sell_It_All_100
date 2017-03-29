@@ -21,7 +21,7 @@
         android:background="@drawable/obect_header_txt_v1_"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Record Voice Memo"
+        android:text="Record Voice Memo (v3)"
         android:textColor="#F451aE"
         android:textSize="30sp"
         android:textStyle="bold"/>

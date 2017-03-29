@@ -1,5 +1,6 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -11,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +39,8 @@ import static java.lang.Math.pow;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
 
+    public static final String TAG = "Wogal v8";
+
     // horizontal item pics RecyclerView
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -58,6 +62,11 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private AlertDialog Dialog_ItemName;
     private TextView mTxtItemName_v8;
     private AlertDialog.Builder mBuilderItemName;
+
+
+    private AlertDialog Dialog_Itemview;
+    private View mView_Itemview;
+    private AlertDialog.Builder mBuilderItemView = null;
 
     // Alert Dialog_Sound Vars
     private AlertDialog Dialog_SoundRecord;
@@ -145,16 +154,26 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
         mRecyclerView.setHasFixedSize( true );
         mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
-        mRecyclerView.setLayoutManager( mLayoutManager );
-        mAdapter = new v8_ItemAdapter();
-        mRecyclerView.setAdapter( mAdapter );
 
+
+        mRecyclerView.setLayoutManager( mLayoutManager );
+
+        Activity mActivity = this;
+
+        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity );
+        mRecyclerView.setAdapter( mAdapter );
 
         SnapHelper snapHelper = new LinearSnapHelper();
         //     SnapHelper snapHelper = new GravitySnapHelper ();
         snapHelper.attachToRecyclerView( mRecyclerView );
         // recall item database
         For_Sale_Item_ObjectCls = RecallItemObj();
+    }
+
+
+    public View get_view () {
+        View v = null;
+        return v;
     }
 
 
@@ -208,7 +227,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_save_obj_v8: {
-                SaveItemObj( For_Sale_Item_ObjectCls );
+                MakeDialog( v );
+                //    SaveItemObj( For_Sale_Item_ObjectCls );
                 break;
             }
             case R.id.But_recall_obj_v8: {
@@ -303,6 +323,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             }
 
             case R.id.But_voice_header_v8: {
+                // record voice message
                 AlertDialog.Builder mBuilderSound = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
                 mViewSound = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
 
@@ -523,9 +544,77 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         this.finish();
     }
 
+
+    public void MakeDialog (View v) {
+        if (mBuilderItemView != null)
+            return;
+        mBuilderItemView = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
+        mView_Itemview = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
+        mBuilderItemView.setView( mView_Itemview );
+        Dialog_Itemview = mBuilderItemView.create();
+        Dialog_Itemview.show();
+
+
+
+        if (true) {
+            Button mBut_Sound_Done = (Button) Dialog_Itemview.findViewById( R.id.But_sound_exit_v3 );
+            mBut_Sound_Done.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick (View v) {
+                    Dialog_Itemview.dismiss();
+                    //  Dialog_Itemview.set
+                    mBuilderItemView = null;
+                }
+            } );
+        }
+    }
+
     private For_Sale_Item_Object GetCreateSalesItemObject () {
         For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
         return For_Sale_Item_ObjectCls;
     }
+
+
+    //endregion   Activity frf
+    //region Description -- Activity States
+    //region Description
+    @Override
+    protected void onStart () {
+        Log.d( TAG, "osStart" );
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart () {
+        Log.d( TAG, "  Wogal onRestart " );
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume () {
+        Log.d( TAG, "  Wogal onResume " );
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause () {
+        Log.d( TAG, "  Wogal onPause " );
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop () {
+        Log.d( TAG, "  Wogal onStop " );
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy () {
+        Log.d( TAG, "  Wogal onDestroy " );
+        super.onDestroy();
+    }
+    //endregion
+
+
 }
 

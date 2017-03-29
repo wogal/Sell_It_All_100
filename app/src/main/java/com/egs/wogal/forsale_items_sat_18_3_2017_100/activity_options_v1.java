@@ -31,6 +31,7 @@ import static java.lang.Math.pow;
 // import com.egs.wogal.for_sale_app_100.R;
 // import static com.egs.wogal.for_sale_app.R.id.text_view_sales_item_name_v2;
 //     Toast.makeText( getApplicationContext(), " Wogal Test Activity -> ", Toast.LENGTH_LONG ).show();
+// wogal
 
 public class activity_options_v1 extends AppCompatActivity implements View.OnClickListener {
 
@@ -178,8 +179,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
 
         mButMakeSalesItem = (Button) findViewById( R.id.But_make_item_v1 );
         mButMakeSalesItem.setOnClickListener( this );
-
-
     }
 
 
@@ -400,7 +399,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         }
     }
 
-
     private void SoundDoneButton_Ena_dis (boolean _enable) {
         if (_enable == true) {
             mBut_Sound_Done.setEnabled( true );
@@ -434,7 +432,5 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         // enable done button
         SoundDoneButton_Ena_dis( true );
     }
-
-
 }
 

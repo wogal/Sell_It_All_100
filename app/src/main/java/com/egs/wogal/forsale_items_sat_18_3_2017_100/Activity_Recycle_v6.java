@@ -27,7 +27,6 @@ public class Activity_Recycle_v6 extends AppCompatActivity implements View.OnCli
         LinearLayoutManager manger = new LinearLayoutManager( this );
         mRecView.setLayoutManager( manger );
 
-
     }
 
 

@@ -4,6 +4,7 @@
               android:layout_height="100dp"
               android:orientation="horizontal"
               android:background="@drawable/bg_btn_login_background"
+              android:id="@+id/ItermView_v7"
               android:padding="22dp">
 
 
