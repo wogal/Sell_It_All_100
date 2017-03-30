@@ -129,6 +129,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
+
+
         mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_item_name_v8 );
         mBtnSalesItemName_v8.setOnClickListener( this );
 
@@ -156,18 +158,20 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
 
 
+        // recall item database
+        For_Sale_Item_ObjectCls = RecallItemObj();
+
         mRecyclerView.setLayoutManager( mLayoutManager );
 
         Activity mActivity = this;
 
-        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity , For_Sale_Item_ObjectCls );
+        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity, For_Sale_Item_ObjectCls );
         mRecyclerView.setAdapter( mAdapter );
 
         SnapHelper snapHelper = new LinearSnapHelper();
         //     SnapHelper snapHelper = new GravitySnapHelper ();
         snapHelper.attachToRecyclerView( mRecyclerView );
-        // recall item database
-        For_Sale_Item_ObjectCls = RecallItemObj();
+
     }
 
 
@@ -227,7 +231,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_save_obj_v8: {
-                 SaveItemObj( For_Sale_Item_ObjectCls );
+                SaveItemObj( For_Sale_Item_ObjectCls );
                 break;
             }
             case R.id.But_recall_obj_v8: {
@@ -556,8 +560,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         Dialog_Itemview = mBuilderItemView.create();
         Dialog_Itemview.show();
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
-     //   if (_itemPosistion == 0)
-            mTextView.setText( "Item # " + _itemPosistion + ":" );
+        //   if (_itemPosistion == 0)
+        mTextView.setText( "Item # " + _itemPosistion + ":" );
 
 
         if (true) {

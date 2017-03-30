@@ -51,7 +51,8 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
     }
 
     public String get_FS_SaleItemName () {
-        return _FS_SaleItemName;
+//        return _FS_SaleItemName;
+        return "Wogal Heck";
     }
 
     public void set_FS_SaleItemName (String _FS_SaleItemName) {

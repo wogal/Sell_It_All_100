@@ -31,7 +31,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     private For_Sale_Item_Object mFor_Sale_Item_ObjectCls;
 
 
-    private int _itemPosistion =0;
+    private int _itemPosistion = 0;
 
     public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, For_Sale_Item_Object _for_Sale_Item_ObjectCls) {
         mFor_Sale_Item_ObjectCls = _for_Sale_Item_ObjectCls;
@@ -50,7 +50,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             public void onClick (View v) {
                 switch (v.getId()) {
                     case R.id.ItermView_v7: {
-                        m_activity_makeSalesItem_v8.MakeDialog( v ,_itemPosistion);
+                        m_activity_makeSalesItem_v8.MakeDialog( v, _itemPosistion );
                         break;
                     }
                 }
@@ -73,7 +73,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             bm = BitmapFactory.decodeFile( path );
             bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
             holder.mImageView.setImageBitmap( bm );
-            holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName());
+            holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
         }
     }
 
