@@ -160,7 +160,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         Activity mActivity = this;
 
-        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity );
+        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity , For_Sale_Item_ObjectCls );
         mRecyclerView.setAdapter( mAdapter );
 
         SnapHelper snapHelper = new LinearSnapHelper();

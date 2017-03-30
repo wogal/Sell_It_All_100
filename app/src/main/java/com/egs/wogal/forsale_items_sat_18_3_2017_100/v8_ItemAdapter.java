@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -27,14 +28,13 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     Activity_MakeSalesItem_v8 m_activity_makeSalesItem_v8;
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
+    private For_Sale_Item_Object mFor_Sale_Item_ObjectCls;
 
-    public int get_itemPosistion () {
-        return _itemPosistion;
-    }
 
     private int _itemPosistion =0;
 
-    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8) {
+    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, For_Sale_Item_Object _for_Sale_Item_ObjectCls) {
+        mFor_Sale_Item_ObjectCls = _for_Sale_Item_ObjectCls;
         m_activity_makeSalesItem_v8 = _activity_makeSalesItem_v8;
         mView_Itemview = _activity_makeSalesItem_v8.get_view();
     }
@@ -65,7 +65,6 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
         _itemPosistion = position;
         if (position == 0) {
         } else {
-            holder.mTitle.setText( "wogal" + position );
             String path = "";
             Bitmap bm;
             Bitmap bm_1;
@@ -74,6 +73,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             bm = BitmapFactory.decodeFile( path );
             bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
             holder.mImageView.setImageBitmap( bm );
+            holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName());
         }
     }
 
