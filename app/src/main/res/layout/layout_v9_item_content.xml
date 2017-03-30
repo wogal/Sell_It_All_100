@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/sale_item_contents_v9"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp"
+              android:background="@drawable/thin_l_blue_boarder"
+              android:color="#b69f"
+              android:orientation="vertical"
+              android:padding="20dp">
+
+
+    <TextView
+        android:id="@+id/txt_view_item_content_header_txt_v9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/obect_header_txt_v1_"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Item Content (v9)"
+        android:textColor="#F451aE"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+
+
+    <ImageView
+        android:id="@+id/capturePhotoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/for_sale_logo_640_480"
+        android:layout_below="@+id/txt_view_item_content_header_txt_v9"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+    <Button
+        android:id="@+id/But_pici_v9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:layout_marginTop="15sp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Take Pici"
+        android:textColor="#ff0777"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/But_text_memo_v9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Text Memo"
+        android:textColor="#ff0777"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/But_record_voice_memo_v9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Voice Memo"
+        android:textColor="#ff0777"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/But_item_content_v9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Done"
+        android:textColor="#ed0e37"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+</LinearLayout>
+
+

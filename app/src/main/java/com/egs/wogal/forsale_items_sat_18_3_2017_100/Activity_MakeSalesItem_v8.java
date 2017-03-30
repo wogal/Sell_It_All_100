@@ -227,8 +227,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_save_obj_v8: {
-                MakeDialog( v );
-                //    SaveItemObj( For_Sale_Item_ObjectCls );
+                 SaveItemObj( For_Sale_Item_ObjectCls );
                 break;
             }
             case R.id.But_recall_obj_v8: {
@@ -545,19 +544,24 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    public void MakeDialog (View v) {
+    public void MakeDialog (View v, int _itemPosistion) {
         if (mBuilderItemView != null)
             return;
+
+        TextView mTextView;
+
         mBuilderItemView = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
-        mView_Itemview = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
+        mView_Itemview = getLayoutInflater().inflate( R.layout.layout_v9_item_content, null );
         mBuilderItemView.setView( mView_Itemview );
         Dialog_Itemview = mBuilderItemView.create();
         Dialog_Itemview.show();
-
+        mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
+     //   if (_itemPosistion == 0)
+            mTextView.setText( "Item # " + _itemPosistion + ":" );
 
 
         if (true) {
-            Button mBut_Sound_Done = (Button) Dialog_Itemview.findViewById( R.id.But_sound_exit_v3 );
+            Button mBut_Sound_Done = (Button) Dialog_Itemview.findViewById( R.id.But_item_content_v9 );
             mBut_Sound_Done.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {

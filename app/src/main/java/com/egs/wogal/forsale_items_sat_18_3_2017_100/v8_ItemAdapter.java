@@ -28,6 +28,12 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
 
+    public int get_itemPosistion () {
+        return _itemPosistion;
+    }
+
+    private int _itemPosistion =0;
+
     public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8) {
         m_activity_makeSalesItem_v8 = _activity_makeSalesItem_v8;
         mView_Itemview = _activity_makeSalesItem_v8.get_view();
@@ -44,7 +50,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             public void onClick (View v) {
                 switch (v.getId()) {
                     case R.id.ItermView_v7: {
-                        m_activity_makeSalesItem_v8.MakeDialog( v );
+                        m_activity_makeSalesItem_v8.MakeDialog( v ,_itemPosistion);
                         break;
                     }
                 }
@@ -56,6 +62,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
 
     @Override
     public void onBindViewHolder (v8_Item_ViewHolder holder, int position) {
+        _itemPosistion = position;
         if (position == 0) {
         } else {
             holder.mTitle.setText( "wogal" + position );
@@ -92,9 +99,6 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             //   _view.setOnClickListener( this );
         }
 
-        public void QQQtest () {
-            m_activity_makeSalesItem_v8.MakeDialog( mView_Itemview );
-        }
     }
 }
 
