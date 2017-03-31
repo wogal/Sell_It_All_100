@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by wogal on 3/25/2017.
  */
 
-public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializable {
+public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable {
 
 
     //<editor-fold desc=" Variables  ">
@@ -19,12 +19,24 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
     // name of item for sale
     private String _FS_SaleItemName;
     // list of item objects ie:pic , text , voice , --
-    private ArrayList<SaleItemMakeup> _ItemGroup;
+    private ArrayList<SaleItemMakeup> _ItemGroupArray;
     // text to describe sales item
-    private String _FS_ItemHeaderText ="";
+    private String _FS_ItemHeaderText = "";
     // byte array for item header voice sound file
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
+    public For_Sale_Item_Object () {
+        long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
+        this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
+        this.set_ItemGroupArray( new ArrayList<SaleItemMakeup>() );
+    }
 
+    public ArrayList<SaleItemMakeup> get_ItemGroupArray () {
+        return _ItemGroupArray;
+    }
+
+    public void set_ItemGroupArray (ArrayList<SaleItemMakeup> _ItemGroupArray) {
+        this._ItemGroupArray = _ItemGroupArray;
+    }
 
     public String get_FS_ItemHeaderText () {
         return _FS_ItemHeaderText;
@@ -32,12 +44,6 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
 
     public void set_FS_ItemHeaderText (String _FS_ItemHeaderText) {
         this._FS_ItemHeaderText = _FS_ItemHeaderText;
-    }
-
-    public For_Sale_Item_Object () {
-        long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
-        this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
-        this.set_ItemGroup( new ArrayList<SaleItemMakeup>() );
     }
 
     //</editor-fold>
@@ -51,22 +57,12 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
     }
 
     public String get_FS_SaleItemName () {
-//        return _FS_SaleItemName;
-        return "Wogal Heck";
+        return _FS_SaleItemName;
     }
 
     public void set_FS_SaleItemName (String _FS_SaleItemName) {
         this._FS_SaleItemName = _FS_SaleItemName;
     }
-
-    public ArrayList<SaleItemMakeup> get_ItemGroup () {
-        return _ItemGroup;
-    }
-
-    public void set_ItemGroup (ArrayList<SaleItemMakeup> _ItemGroup) {
-        this._ItemGroup = _ItemGroup;
-    }
-
 
 
     public byte[] get_FS_ItemHeaderVoiceFileData () {
@@ -79,12 +75,11 @@ public  class For_Sale_Item_Object extends SaleItemMakeup implements Serializabl
     //</editor-fold>
 
 
-
 }
 
 
 // class ( group ) to hold each item in for sale item
-class SaleItemMakeup implements Serializable  {
+class SaleItemMakeup implements Serializable {
     // bitmap list of pictures for the
     public ArrayList<Bitmap> _FS_ItemImages;
 

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 public class Activity_test_v4 extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBut_test;
@@ -23,7 +22,7 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
-        mBut_test = (Button) findViewById( R.id.But_test_button_v4 );
+        mBut_test = (Button) findViewById( R.id.But_Invoke_Camera_v4 );
         mBut_test.setOnClickListener( this );
 
         m_txt_view = (TextView) findViewById( R.id.txt_test_v4 );
@@ -51,7 +50,7 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
                 startActivity( intent );
                 break;
             }
-            case R.id.But_test_button_v4: {
+            case R.id.But_Invoke_Camera_v4: {
                 // test camera
                 Intent intent = new Intent( this, Activity_Camera_v5.class );
                 startActivity( intent );

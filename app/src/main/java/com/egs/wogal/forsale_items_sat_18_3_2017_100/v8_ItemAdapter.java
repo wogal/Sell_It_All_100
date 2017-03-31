@@ -64,7 +64,21 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     public void onBindViewHolder (v8_Item_ViewHolder holder, int position) {
         _itemPosistion = position;
         if (position == 0) {
+            // hake new item header
+            String path = "";
+            Bitmap bm;
+            Bitmap bm_1;
+            // put in image
+            path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
+            bm = BitmapFactory.decodeFile( path );
+            bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
+            holder.mImageView.setImageBitmap( bm );
+            holder.mTitle.setText( "Make New Item" );
+            holder.mTitle.setTextSize( 25 );
+            holder.mTitle.setTextColor( 0xFFFF5044 );
+            holder.mImageView.setVisibility( View.GONE );
         } else {
+
             String path = "";
             Bitmap bm;
             Bitmap bm_1;
@@ -74,12 +88,15 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
             holder.mImageView.setImageBitmap( bm );
             holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
+            holder.mImageView.setVisibility( View.VISIBLE );
         }
     }
 
     @Override
     public int getItemCount () {
-        return 10;
+        int cnt;
+        cnt = mFor_Sale_Item_ObjectCls.get_ItemGroupArray().size();
+        return cnt + 10;
     }
 
 

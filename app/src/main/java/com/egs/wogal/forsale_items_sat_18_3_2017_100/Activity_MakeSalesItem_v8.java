@@ -1,6 +1,8 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,6 +19,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +36,7 @@ import JavaClasses_pkg_100.Sound_Play_Record_Helper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
 import static android.view.KeyEvent.KEYCODE_ENTER;
+import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
 import static java.lang.Math.log;
 import static java.lang.Math.pow;
@@ -49,6 +53,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private Button mBut_saveItemObj;
     private Button mBut_RecallIemObj;
 
+    private LinearLayout mLinearLayoutManager;
 
     private View mViewItemName;
     private Button mBut_name_item_GoBack;
@@ -130,7 +135,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
 
-
         mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_item_name_v8 );
         mBtnSalesItemName_v8.setOnClickListener( this );
 
@@ -159,7 +163,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
         // recall item database
-        For_Sale_Item_ObjectCls = RecallItemObj();
+        RecallItemObj();
 
         mRecyclerView.setLayoutManager( mLayoutManager );
 
@@ -231,7 +235,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_save_obj_v8: {
-                SaveItemObj( For_Sale_Item_ObjectCls );
+                SaveItemObj();
                 break;
             }
             case R.id.But_recall_obj_v8: {
@@ -494,7 +498,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         }
     }
 
-    private For_Sale_Item_Object RecallItemObj () {
+    private void RecallItemObj () {
         For_Sale_Item_Object fsObj = null;
         String file = "earle.ser";
         String path;
@@ -503,43 +507,43 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // see if item file exist ,, if not put in blank default values else get from file
         File fs = new File( path );
         if (!fs.exists())
-            return GetCreateSalesItemObject();
-
+            GetCreateSalesItemObject();
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
             fsObj = (For_Sale_Item_Object) in.readObject();
         } catch (IOException e) {
-            e.printStackTrace();
             fsObj = new For_Sale_Item_Object();
-            return fsObj;
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
             fsObj = new For_Sale_Item_Object();
-            return fsObj;
+            e.printStackTrace();
+        } finally {
+            //    For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
+            //    return ;
         }
         // pop layout ( View )
         mTxtView_ItemHeaderText_v8.setText( fsObj.get_FS_ItemHeaderText() );
         mTxtItemName_v8.setText( fsObj.get_FS_SaleItemName() );
         // make voice arry to sound file
         Storage_Helper_Class.ByteArray_2_File( Storage_Helper_Class.GetVoiceFilePath(), fsObj.get_FS_ItemHeaderVoiceFileData() );
-        return fsObj;
+        For_Sale_Item_ObjectCls = fsObj;
     }
 
-    private void SaveItemObj (For_Sale_Item_Object _itemObj) {
+    private void SaveItemObj () {
         // put in any data
         boolean _test = false;
         _test = Storage_Helper_Class.canWriteToExternalStorage( this );
 
         if (true) {
-            _itemObj.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
-            _itemObj.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
+            For_Sale_Item_ObjectCls.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
+            For_Sale_Item_ObjectCls.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
             String file = "earle.ser";
             String path;
             path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
             path = path + "/" + file;
             try {
                 ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ) );
-                out.writeObject( _itemObj );
+                out.writeObject( For_Sale_Item_ObjectCls );
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -551,31 +555,76 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     public void MakeDialog (View v, int _itemPosistion) {
         if (mBuilderItemView != null)
             return;
-
+        //   SaveItemObj();
         TextView mTextView;
+
 
         mBuilderItemView = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
         mView_Itemview = getLayoutInflater().inflate( R.layout.layout_v9_item_content, null );
         mBuilderItemView.setView( mView_Itemview );
         Dialog_Itemview = mBuilderItemView.create();
         Dialog_Itemview.show();
+
+        // action button allocations
+        Button mBut_Take_Pic_v9;
+        Button mBut_Text_Memo_v9;
+        Button mBut_Voice_Memo_v9;
+        Button mbut_Exit_and_save_v9;
+        Button mbut_Exit_NO_save_v9;
+
+     //   Itemcontent_v9_ObclickHandler mItemcontent_v9_obclickHandler = new Itemcontent_v9_ObclickHandler( this );
+
+
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
         //   if (_itemPosistion == 0)
-        mTextView.setText( "Item # " + _itemPosistion + ":" );
+        //    mTextView.setText( "Item # " + _itemPosistion + ":" );
 
 
         if (true) {
-            Button mBut_Sound_Done = (Button) Dialog_Itemview.findViewById( R.id.But_item_content_v9 );
-            mBut_Sound_Done.setOnClickListener( new View.OnClickListener() {
+
+            mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
+             mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
+                 @Override
+                 public void onClick (View v) {
+                     ItemContentTakePicture_v9();
+                 }});
+
+
+
+
+
+
+
+                 Button mButItemGone = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
+            mButItemGone.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {
-                    Dialog_Itemview.dismiss();
-                    //  Dialog_Itemview.set
-                    mBuilderItemView = null;
-                }
+                    switch (v.getId()) {
+                        case R.id.But_text_memo_v9: {
+                            // take text item memo
+                            break;
+                        }
+                        case R.id.But_record_voice_memo_v9: {
+                            // take voice  item memo
+                            break;
+                        }
+                        case R.id.But_item_save_v9: {
+                            // get new item and save
+                            Dialog_Itemview.dismiss();
+                            mBuilderItemView = null;
+                            break;
+                        }
+                        case R.id.But_item_No_save_v9: {
+                            // exit NO save
+                            break;
+                        }
+                    }
+                }-
             } );
         }
     }
+
+
 
     private For_Sale_Item_Object GetCreateSalesItemObject () {
         For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
@@ -588,40 +637,55 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     //region Description
     @Override
     protected void onStart () {
-        Log.d( TAG, "osStart" );
+        Log.d( TAG, "osStart v8" );
+        RecallItemObj();
         super.onStart();
     }
 
     @Override
     protected void onRestart () {
-        Log.d( TAG, "  Wogal onRestart " );
+        Log.d( TAG, "  Wogal onRestart v8" );
+        RecallItemObj();
         super.onRestart();
     }
 
     @Override
     protected void onResume () {
-        Log.d( TAG, "  Wogal onResume " );
+        Log.d( TAG, "  Wogal onResume v8" );
+        RecallItemObj();
         super.onResume();
     }
 
     @Override
     protected void onPause () {
-        Log.d( TAG, "  Wogal onPause " );
+        Log.d( TAG, "  Wogal onPause v8" );
+        SaveItemObj();
         super.onPause();
     }
 
     @Override
     protected void onStop () {
-        Log.d( TAG, "  Wogal onStop " );
+        Log.d( TAG, "  Wogal onStop v8" );
+        SaveItemObj();
         super.onStop();
     }
 
     @Override
     protected void onDestroy () {
-        Log.d( TAG, "  Wogal onDestroy " );
+        Log.d( TAG, "  Wogal onDestroy v8 " );
+        SaveItemObj();
         super.onDestroy();
     }
     //endregion
+
+
+    private void ItemContentTakePicture_v9 () {
+        Intent intent = new Intent( this, Activity_Camera_v5.class );
+        startActivity( intent );
+        Toast.makeText( this, " Take Pici ", Toast.LENGTH_LONG ).show();
+    }
+
+
 
 
 }
