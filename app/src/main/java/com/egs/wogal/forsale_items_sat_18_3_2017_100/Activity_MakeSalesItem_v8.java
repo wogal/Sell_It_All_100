@@ -3,6 +3,7 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -144,9 +145,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
 
-
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
-
 
         mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_item_name_v8 );
         mBtnSalesItemName_v8.setOnClickListener( this );
@@ -169,25 +168,23 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_RecallIemObj = (Button) findViewById( But_recall_obj_v8 );
         mBut_RecallIemObj.setOnClickListener( this );
 
-        // horizontal Rec View
-        mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
-        mRecyclerView.setHasFixedSize( true );
-        mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
-
-
-        // recall item database
         RecallItemObj();
 
-        mRecyclerView.setLayoutManager( mLayoutManager );
+        // horizontal Rec View
+        if (true) {
+            mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
+            mRecyclerView.setHasFixedSize( true );
+            mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
 
-        Activity mActivity = this;
+            mRecyclerView.setLayoutManager( mLayoutManager );
+            Activity mActivity = this;
+            mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity, For_Sale_Item_ObjectCls );
+            mRecyclerView.setAdapter( mAdapter );
 
-        mAdapter = new v8_ItemAdapter( (Activity_MakeSalesItem_v8) mActivity, For_Sale_Item_ObjectCls );
-        mRecyclerView.setAdapter( mAdapter );
-
-        SnapHelper snapHelper = new LinearSnapHelper();
-        //     SnapHelper snapHelper = new GravitySnapHelper ();
-        snapHelper.attachToRecyclerView( mRecyclerView );
+            SnapHelper snapHelper = new LinearSnapHelper();
+            //     SnapHelper snapHelper = new GravitySnapHelper ();
+            snapHelper.attachToRecyclerView( mRecyclerView );
+        }
 
     }
 
@@ -253,7 +250,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             }
             case But_recall_obj_v8: {
                 takePhoto();
-             //   RecallItemObj();
+                //   RecallItemObj();
                 break;
             }
             case R.id.But_sound_exit_v3: {
@@ -566,77 +563,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    public void MakeDialog (View v, int _itemPosistion) {
-        if (mBuilderItemView != null)
-            return;
-        //   SaveItemObj();
-        TextView mTextView;
-
-
-        mBuilderItemView = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
-        mView_Itemview = getLayoutInflater().inflate( R.layout.layout_v9_item_content, null );
-        mBuilderItemView.setView( mView_Itemview );
-        Dialog_Itemview = mBuilderItemView.create();
-        Dialog_Itemview.show();
-
-        // action button allocations
-        Button mBut_Take_Pic_v9;
-        Button mBut_Text_Memo_v9;
-        Button mBut_Voice_Memo_v9;
-        Button mbut_Exit_and_save_v9;
-        Button mbut_Exit_NO_save_v9;
-
-        //   Itemcontent_v9_ObclickHandler mItemcontent_v9_obclickHandler = new Itemcontent_v9_ObclickHandler( this );
-
-
-        mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
-        //   if (_itemPosistion == 0)
-        //    mTextView.setText( "Item # " + _itemPosistion + ":" );
-
-
-        if (true) {
-
-            mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
-            mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
-                @Override
-                public void onClick (View v) {
-                    Toast.makeText( getApplicationContext(), "hi Take Picture ", Toast.LENGTH_LONG ).show();
-                    Log.d( TAG, " Take Picture -- v8 " );
-                        ItemContentTakePicture_v9();
-                }
-            } );
-
-
-            Button mButItemGone = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
-            mButItemGone.setOnClickListener( new View.OnClickListener() {
-                @Override
-                public void onClick (View v) {
-                    switch (v.getId()) {
-                        case R.id.But_text_memo_v9: {
-                            // take text item memo
-                            break;
-                        }
-                        case R.id.But_record_voice_memo_v9: {
-                            // take voice  item memo
-                            break;
-                        }
-                        case R.id.But_item_save_v9: {
-                            // get new item and save
-                            Dialog_Itemview.dismiss();
-                            mBuilderItemView = null;
-                            break;
-                        }
-                        case R.id.But_item_No_save_v9: {
-                            // exit NO save
-                            break;
-                        }
-                    }
-                }
-            } );
-        }
-    }
-
-
     private For_Sale_Item_Object GetCreateSalesItemObject () {
         For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
         return For_Sale_Item_ObjectCls;
@@ -656,36 +582,42 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     @Override
     protected void onRestart () {
         Log.d( TAG, "  Wogal onRestart v8" );
-        RecallItemObj();
+        //   RecallItemObj();
         super.onRestart();
     }
 
     @Override
     protected void onResume () {
         Log.d( TAG, "  Wogal onResume v8" );
-        RecallItemObj();
+        //    RecallItemObj();
         super.onResume();
     }
 
     @Override
     protected void onPause () {
         Log.d( TAG, "  Wogal onPause v8" );
-        SaveItemObj();
+        //    SaveItemObj();
         super.onPause();
     }
 
     @Override
     protected void onStop () {
         Log.d( TAG, "  Wogal onStop v8" );
-        SaveItemObj();
+        //    SaveItemObj();
         super.onStop();
     }
 
     @Override
     protected void onDestroy () {
         Log.d( TAG, "  Wogal onDestroy v8 " );
-        SaveItemObj();
+        //   SaveItemObj();
         super.onDestroy();
+    }
+
+    @Override
+    public void onConfigurationChanged (Configuration newConfig) {
+        super.onConfigurationChanged( newConfig );
+        Log.d( TAG, " onConfigurationChanged " );
     }
     //endregion
 
@@ -719,13 +651,18 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
     @Override
-    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+    public void onLowMemory () {
+        super.onLowMemory();
+        Log.d( TAG, " ***   onLowMemory   **" );
+    }
 
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         Toast.makeText( this, "Wogal Heck ", Toast.LENGTH_LONG ).show();
         Log.d( TAG, "onActivityResult start " );
-        if (false) {
+        if (true) {
             if (requestCode == ACTIVITY_START_CAMERA_APP && resultCode == RESULT_OK) {
-                if (true)
+                if (false)
                     return;
                 Bitmap bm_in;
                 Bitmap bm_out;
@@ -736,10 +673,84 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 bm_in = rotateImage( bm_in, mImageFileLocation );
                 path = Storage_Helper_Class.saveImage( bm_in, "wogal", "jpg" );
                 Log.d( TAG, "onActivityResult end ( save pressed " );
-                //   mPhotoCaptureImageView.setImageBitmap( bm_in );
+                mPhotoCaptureImageView.setImageBitmap( bm_in );
             }
         }
     }
+
+    // Make Item Content dialog v9
+    //region Description
+    public void MakeDialog (View v, int _itemPosistion) {
+        if (mBuilderItemView != null)
+            return;
+        //   SaveItemObj();
+        TextView mTextView;
+
+        mBuilderItemView = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
+        mView_Itemview = getLayoutInflater().inflate( R.layout.layout_v9_item_content, null );
+        mBuilderItemView.setView( mView_Itemview );
+        Dialog_Itemview = mBuilderItemView.create();
+        Dialog_Itemview.show();
+        // action button allocations
+        Button mBut_Take_Pic_v9;
+        Button mBut_Text_Memo_v9;
+        Button mBut_Voice_Memo_v9;
+        Button mbut_Exit_and_save_v9;
+        Button mbut_Exit_NO_save_v9;
+
+
+        mBut_Text_Memo_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_text_memo_v9 );
+        mBut_Text_Memo_v9.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        } );
+
+        mBut_Voice_Memo_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_record_voice_memo_v9 );
+        mBut_Voice_Memo_v9.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        } );
+
+        mbut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
+        mbut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                // get new item and save
+                Dialog_Itemview.dismiss();
+                mBuilderItemView = null;
+            }
+        } );
+        mbut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9 );
+        mbut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+
+            }
+        } );
+
+        mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
+        //   if (_itemPosistion == 0)
+        //    mTextView.setText( "Item # " + _itemPosistion + ":" );
+        if (true) {
+            mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
+            mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick (View v) {
+                    Toast.makeText( getApplicationContext(), "hi Take Picture ", Toast.LENGTH_LONG ).show();
+                    Log.d( TAG, " Take Picture -- v8 " );
+                    ItemContentTakePicture_v9();
+                }
+            } );
+            mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
+
+
+        }
+    }
+    //endregion
 
 
 }

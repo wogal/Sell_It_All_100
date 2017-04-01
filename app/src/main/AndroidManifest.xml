@@ -28,10 +28,14 @@
         </activity>
         <activity android:name=".Activity_Recycle_v6">
         </activity>
+
+        <uses-feature android:name="android.hardware.camera"></uses-feature>
+
         <activity
+
             android:name=".Activity_MakeSalesItem_v8"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
         </activity>
 
         <activity android:name=".Activity_Camrea_100">

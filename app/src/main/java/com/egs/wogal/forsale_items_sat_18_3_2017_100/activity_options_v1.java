@@ -183,6 +183,13 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
 
 
     @Override
+    public void onLowMemory () {
+        super.onLowMemory();
+        Log.d( TAG, " ***   onLowMemory   **" );
+    }
+
+
+    @Override
     public void onClick (View v) {
         if (1 == 1) {
             switch (v.getId()) {
