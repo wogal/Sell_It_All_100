@@ -1,13 +1,16 @@
 package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +22,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,11 +35,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
+import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Sound_Play_Record_Helper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
+import static JavaClasses_pkg_100.ImageClassHelper.rotateImage;
+import static JavaClasses_pkg_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
 import static android.view.KeyEvent.KEYCODE_ENTER;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
+import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_recall_obj_v8;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
 import static java.lang.Math.log;
 import static java.lang.Math.pow;
@@ -44,6 +51,10 @@ import static java.lang.Math.pow;
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "Wogal v8";
+
+    private static final int ACTIVITY_START_CAMERA_APP = 0;
+    private String mImageFileLocation = null;
+    private ImageView mPhotoCaptureImageView;
 
     // horizontal item pics RecyclerView
     private RecyclerView mRecyclerView;
@@ -53,7 +64,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private Button mBut_saveItemObj;
     private Button mBut_RecallIemObj;
 
-    private LinearLayout mLinearLayoutManager;
 
     private View mViewItemName;
     private Button mBut_name_item_GoBack;
@@ -132,6 +142,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         super.onCreate( savedInstanceState );
         setContentView( R.layout.layout_v8 );
 
+        mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
+
+
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
 
@@ -153,7 +166,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
         mBut_saveItemObj.setOnClickListener( this );
 
-        mBut_RecallIemObj = (Button) findViewById( R.id.But_recall_obj_v8 );
+        mBut_RecallIemObj = (Button) findViewById( But_recall_obj_v8 );
         mBut_RecallIemObj.setOnClickListener( this );
 
         // horizontal Rec View
@@ -238,8 +251,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 SaveItemObj();
                 break;
             }
-            case R.id.But_recall_obj_v8: {
-                RecallItemObj();
+            case But_recall_obj_v8: {
+                takePhoto();
+             //   RecallItemObj();
                 break;
             }
             case R.id.But_sound_exit_v3: {
@@ -572,7 +586,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         Button mbut_Exit_and_save_v9;
         Button mbut_Exit_NO_save_v9;
 
-     //   Itemcontent_v9_ObclickHandler mItemcontent_v9_obclickHandler = new Itemcontent_v9_ObclickHandler( this );
+        //   Itemcontent_v9_ObclickHandler mItemcontent_v9_obclickHandler = new Itemcontent_v9_ObclickHandler( this );
 
 
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
@@ -583,19 +597,17 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         if (true) {
 
             mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
-             mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
-                 @Override
-                 public void onClick (View v) {
-                     ItemContentTakePicture_v9();
-                 }});
+            mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick (View v) {
+                    Toast.makeText( getApplicationContext(), "hi Take Picture ", Toast.LENGTH_LONG ).show();
+                    Log.d( TAG, " Take Picture -- v8 " );
+                        ItemContentTakePicture_v9();
+                }
+            } );
 
 
-
-
-
-
-
-                 Button mButItemGone = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
+            Button mButItemGone = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
             mButItemGone.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {
@@ -619,11 +631,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                             break;
                         }
                     }
-                }-
+                }
             } );
         }
     }
-
 
 
     private For_Sale_Item_Object GetCreateSalesItemObject () {
@@ -680,12 +691,55 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
     private void ItemContentTakePicture_v9 () {
-        Intent intent = new Intent( this, Activity_Camera_v5.class );
-        startActivity( intent );
-        Toast.makeText( this, " Take Pici ", Toast.LENGTH_LONG ).show();
+        takePhoto();
     }
 
+    public void takePhoto () {
+        Log.d( TAG, "takePhoto start" );
+        Intent callCameraApplicationIntent = new Intent();
+        callCameraApplicationIntent.setAction( MediaStore.ACTION_IMAGE_CAPTURE );
+        File photoFile = null;
+        try {
+            photoFile = createImageFile();
+        } catch (IOException ex1) {
+            ex1.printStackTrace();
+        }
+        // puts bitmap into file and writes to storage ( temp file )
+        callCameraApplicationIntent.putExtra( MediaStore.EXTRA_OUTPUT, Uri.fromFile( photoFile ) );
+        startActivityForResult( callCameraApplicationIntent, ACTIVITY_START_CAMERA_APP );
+        Log.d( TAG, "takePhoto end" );
+    }
 
+    private File createImageFile () throws IOException {
+        Log.d( TAG, "createImageFile start " );
+        String AbsFilePath = mImageFileLocation;
+        File image = new File( AbsFilePath );
+        Log.d( TAG, "createImageFile end " );
+        return (image);
+    }
+
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+
+        Toast.makeText( this, "Wogal Heck ", Toast.LENGTH_LONG ).show();
+        Log.d( TAG, "onActivityResult start " );
+        if (false) {
+            if (requestCode == ACTIVITY_START_CAMERA_APP && resultCode == RESULT_OK) {
+                if (true)
+                    return;
+                Bitmap bm_in;
+                Bitmap bm_out;
+                bm_in = BitmapFactory.decodeFile( mImageFileLocation );
+                //    bm_out = rotateImage( bm_in );
+                bm_in = ImageClassHelper.getResizedBitmap( bm_in, 700, 700 );
+                String path;
+                bm_in = rotateImage( bm_in, mImageFileLocation );
+                path = Storage_Helper_Class.saveImage( bm_in, "wogal", "jpg" );
+                Log.d( TAG, "onActivityResult end ( save pressed " );
+                //   mPhotoCaptureImageView.setImageBitmap( bm_in );
+            }
+        }
+    }
 
 
 }
