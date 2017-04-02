@@ -1,7 +1,5 @@
 package For_Sale_Item_Object_Pkg;
 
-import android.graphics.Bitmap;
-
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -24,6 +22,10 @@ public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable
     private String _FS_ItemHeaderText = "";
     // byte array for item header voice sound file
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
+
+
+
+
     public For_Sale_Item_Object () {
         long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
         this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
@@ -78,12 +80,3 @@ public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable
 }
 
 
-// class ( group ) to hold each item in for sale item
-class SaleItemMakeup implements Serializable {
-    // bitmap list of pictures for the
-    public ArrayList<Bitmap> _FS_ItemImages;
-
-    // path to voice files for the item in group  ** store as bytes later on
-    private String _FS_VoiceItemFilePath;
-
-}

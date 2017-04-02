@@ -12,7 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
+import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -63,6 +66,9 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     @Override
     public void onBindViewHolder (v8_Item_ViewHolder holder, int position) {
         _itemPosistion = position;
+        if (holder.getOldPosition() == position)
+            return;
+        ;
         if (position == 0) {
             // hake new item header
             String path = "";
@@ -78,25 +84,34 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             holder.mTitle.setTextColor( 0xFFFF5044 );
             holder.mImageView.setVisibility( View.GONE );
         } else {
+            SaleItemMakeup mSaleItemMakeup;
+            ArrayList<SaleItemMakeup> mItemList;
+            mItemList = mFor_Sale_Item_ObjectCls.get_ItemGroupArray();
+            if (mItemList.size() == 0)
+                return;
+            mSaleItemMakeup = mItemList.get( position - 1 );
+            holder.mImageView.setImageBitmap( mSaleItemMakeup.get_Bitmap() );
 
-            String path = "";
-            Bitmap bm;
-            Bitmap bm_1;
-            // put in image
-            path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
-            bm = BitmapFactory.decodeFile( path );
-            bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
-            holder.mImageView.setImageBitmap( bm );
-            holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
-            holder.mImageView.setVisibility( View.VISIBLE );
+            if (true) {
+                String path;
+                Bitmap bm;
+                // put in image
+                mSaleItemMakeup = mItemList.get( position - 1 );
+                bm = mSaleItemMakeup.get_Bitmap();
+                holder.mImageView.setImageBitmap( bm );
+                holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
+                holder.mTitle.setText( "Pos -> " + position );
+                holder.mImageView.setVisibility( View.VISIBLE );
+            }
         }
+        holder.itemView.setHorizontalScrollBarEnabled( true );
     }
 
     @Override
     public int getItemCount () {
         int cnt;
         cnt = mFor_Sale_Item_ObjectCls.get_ItemGroupArray().size();
-        return cnt + 10;
+        return cnt + 1;
     }
 
 

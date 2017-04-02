@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -34,8 +35,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
+import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Sound_Play_Record_Helper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
@@ -575,42 +578,42 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     @Override
     protected void onStart () {
         Log.d( TAG, "osStart v8" );
-        RecallItemObj();
+        //   RecallItemObj();
         super.onStart();
     }
 
     @Override
     protected void onRestart () {
         Log.d( TAG, "  Wogal onRestart v8" );
-        //   RecallItemObj();
+        //       RecallItemObj();
         super.onRestart();
     }
 
     @Override
     protected void onResume () {
         Log.d( TAG, "  Wogal onResume v8" );
-        //    RecallItemObj();
+        //       RecallItemObj();
         super.onResume();
     }
 
     @Override
     protected void onPause () {
         Log.d( TAG, "  Wogal onPause v8" );
-        //    SaveItemObj();
+        //        SaveItemObj();
         super.onPause();
     }
 
     @Override
     protected void onStop () {
         Log.d( TAG, "  Wogal onStop v8" );
-        //    SaveItemObj();
+        //     SaveItemObj();
         super.onStop();
     }
 
     @Override
     protected void onDestroy () {
         Log.d( TAG, "  Wogal onDestroy v8 " );
-        //   SaveItemObj();
+        //     SaveItemObj();
         super.onDestroy();
     }
 
@@ -695,8 +698,20 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         Button mBut_Take_Pic_v9;
         Button mBut_Text_Memo_v9;
         Button mBut_Voice_Memo_v9;
-        Button mbut_Exit_and_save_v9;
-        Button mbut_Exit_NO_save_v9;
+        Button mBut_Exit_and_save_v9;
+        Button mBut_Exit_NO_save_v9;
+
+        // if _itemPosistion == 0 then new item else populate end edit existing item
+        if (_itemPosistion > 0) {
+            // get pic of selected item
+            Bitmap bm;
+          SaleItemMakeup iTem =  GetSlectedItemGroup(_itemPosistion);
+            bm = iTem.get_Bitmap();
+            mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
+            mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
+            mPhotoCaptureImageView.setImageBitmap( bm );
+
+        }
 
 
         mBut_Text_Memo_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_text_memo_v9 );
@@ -715,24 +730,30 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             }
         } );
 
-        mbut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
-        mbut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
+        mBut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
+        mBut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick (View v) {
                 // get new item and save
+                // put v9 into   For_Sale_Item_Object.get/set_ItemGroupArray< SaleItemMakeup>
+                //       For_Sale_Item_ObjectCls.get_SaleItemMakeup();
+                Add_SaleItemMakeup_2_set_ItemGroupArray();
                 Dialog_Itemview.dismiss();
                 mBuilderItemView = null;
             }
         } );
-        mbut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9 );
-        mbut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
+        mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9 );
+        mBut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick (View v) {
-
+                Dialog_Itemview.dismiss();
+                mBuilderItemView = null;
             }
         } );
 
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
+        mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
+
         //   if (_itemPosistion == 0)
         //    mTextView.setText( "Item # " + _itemPosistion + ":" );
         if (true) {
@@ -745,11 +766,28 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                     ItemContentTakePicture_v9();
                 }
             } );
-            mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
-
 
         }
     }
+
+    private void Add_SaleItemMakeup_2_set_ItemGroupArray () {
+        SaleItemMakeup mSaleItemMakeup = new For_Sale_Item_Object();
+        ArrayList<SaleItemMakeup> mItemList;
+        mSaleItemMakeup.set_Bitmap( ((BitmapDrawable) mPhotoCaptureImageView.getDrawable()).getBitmap() );
+        mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();
+        mItemList.add( mSaleItemMakeup );
+        For_Sale_Item_ObjectCls.set_ItemGroupArray( mItemList );
+        SaveItemObj();
+    }
+
+    private SaleItemMakeup GetSlectedItemGroup (int _posistion) {
+        SaleItemMakeup mSaleItemMakeup;
+        ArrayList<SaleItemMakeup> mItemList;
+        mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();
+        mSaleItemMakeup = mItemList.get( _posistion - 1 );
+        return mSaleItemMakeup;
+    }
+
     //endregion
 
 
