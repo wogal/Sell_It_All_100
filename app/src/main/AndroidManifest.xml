@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Activity_Main_v0">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
         <activity android:name=".activity_options_v1"/>
         <activity android:name=".Activity_test_v4"/>
         <activity android:name=".Activity_Camera_v5">
@@ -29,16 +34,16 @@
         <activity android:name=".Activity_Recycle_v6">
         </activity>
 
-        <uses-feature android:name="android.hardware.camera"></uses-feature>
+        <uses-feature android:name="android.hardware.camera"/>
 
         <activity
-
             android:name=".Activity_MakeSalesItem_v8"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape">
         </activity>
-
         <activity android:name=".Activity_Camrea_100">
+        </activity>
+        <activity android:name=".Activity_FaceBook_v10">
         </activity>
     </application>
 

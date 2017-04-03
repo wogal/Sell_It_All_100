@@ -75,7 +75,7 @@
 
 
         <Button
-            android:id="@+id/But_recyclerview_v6"
+            android:id="@+id/But_recyclerview_v4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -84,6 +84,19 @@
             android:textColor="#FFC107"
             android:textSize="25dp"
             android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/But_facebookIntergration_v4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="FaceBook Integration"
+            android:textColor="#FFC107"
+            android:textSize="20dp"
+            android:textStyle="italic"/>
+
+
 
 
     </LinearLayout>
