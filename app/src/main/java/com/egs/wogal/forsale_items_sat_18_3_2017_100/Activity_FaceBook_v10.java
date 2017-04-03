@@ -65,13 +65,17 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 getId();
                 break;
             }
+            case R.id.But_facebook_ID_v10:{
+                getId();
+                break;
+            }
         }
     }
 
     private void getId () {
         MessageDigest md;
         try {
-            PackageInfo info = getPackageManager().getPackageInfo( "com.you.name", PackageManager.GET_SIGNATURES );
+            PackageInfo info = getPackageManager().getPackageInfo( "com.egs.wogal.forsale_items_sat_18_3_2017_100", PackageManager.GET_SIGNATURES );
             for (Signature signature : info.signatures) {
                 md = MessageDigest.getInstance( "SHA" );
                 md.update( signature.toByteArray() );
