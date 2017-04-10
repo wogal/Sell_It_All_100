@@ -23,8 +23,22 @@
             </intent-filter>
         </activity>
 
+        <dependency>
+            <groupId>com.facebook.android</groupId>
+            <artifactId>facebook-android-sdk</artifactId>
+            <version>PUT_LATEST_VERSION_HERE</version>
+        </dependency>
+
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1867682216852926"
+            android:exported="true"/>
+
+
         <meta-data
-            android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
 
         <activity android:name=".activity_options_v1"/>
         <activity android:name=".Activity_test_v4"/>

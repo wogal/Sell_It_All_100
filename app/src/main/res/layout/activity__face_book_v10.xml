@@ -20,7 +20,7 @@
 
 
     <com.facebook.login.widget.LoginButton
-        android:id="@+id/facebook_login_button_v10"
+        android:id="@+id/facebook_login_button_v10QQQ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_header_v10"
@@ -34,14 +34,16 @@
         android:id="@+id/But_facebookPost_v10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/facebook_login_button_v10"
-        android:layout_margin="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:background="@drawable/bg_btn_login_background"
         android:text="FaceBook Post"
         android:textColor="#FFC107"
         android:textSize="25dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/facebook_login_button_v10QQQ"
+        android:layout_alignStart="@+id/But_facebook_ID_v10"/>
 
     <Button
         android:id="@+id/But_facebook_ID_v10"
@@ -71,6 +73,34 @@
         android:textColor="#F4511E"
         android:textSize="25dp"
         android:textStyle="italic"/>
+
+
+    <Button
+        android:id="@+id/But_fb_permissions_v10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_hash_key_v10"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Get FaceBook Permissions "
+        android:textColor="#FFC107"
+        android:textSize="20dp"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/But_fb_post_pic_v10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/But_fb_permissions_v10"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Post Picky  "
+        android:textColor="#FFC107"
+        android:textSize="25dp"
+        android:textStyle="italic"/>
+
 
 
 </RelativeLayout>

@@ -7,4 +7,9 @@
     <string name="test_image_path">/storage/emulated/0/Pictures/Wogals_IMAGE_.jpg</string>
     <string name="wogal_101">\@drawable/for_sale_logo_640_480</string>
     <string name="facebook_app_id">1867682216852926</string>
+    <string name="aa">publish_actions</string>
+    <string name="successfully_posted_post">Post ID: %1$s</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="ok">OK</string>
 </resources>

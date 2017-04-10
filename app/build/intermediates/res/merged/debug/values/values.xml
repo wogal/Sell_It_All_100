@@ -702,6 +702,7 @@
     <string name="F_S_O_FileFolder">FSO_Folder"</string>
     <string name="F_S_O_FileName">FSO_List.fso</string>
     <string name="Qcamera_text">Camera</string>
+    <string name="aa">publish_actions</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -761,12 +762,16 @@
     <string name="com_facebook_smart_login_confirmation_continue_as">Continue as %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Confirm Login</string>
     <string name="com_facebook_tooltip_default">You\'re in control - choose what info you want to share with apps.</string>
+    <string name="error">Error</string>
     <string name="facebook_app_id">1867682216852926</string>
     <string name="fileToken">Wogals_IMAGE_.jpg</string>
     <string name="login_text">Login</string>
     <string name="messenger_send_button_text">Send</string>
+    <string name="ok">OK</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Post ID: %1$s</string>
     <string name="test_image_path">/storage/emulated/0/Pictures/Wogals_IMAGE_.jpg</string>
     <string name="wogal">is earle</string>
     <string name="wogal_101">\@drawable/for_sale_logo_640_480</string>
