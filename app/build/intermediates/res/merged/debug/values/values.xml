@@ -738,6 +738,7 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="camera_text">Camera</string>
+    <string name="cancelled">Cancelled</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> and enter the code shown above.</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
@@ -765,9 +766,11 @@
     <string name="error">Error</string>
     <string name="facebook_app_id">1867682216852926</string>
     <string name="fileToken">Wogals_IMAGE_.jpg</string>
+    <string name="hello_user">Hello %1$s!</string>
     <string name="login_text">Login</string>
     <string name="messenger_send_button_text">Send</string>
     <string name="ok">OK</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="success">Success</string>

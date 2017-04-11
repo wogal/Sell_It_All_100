@@ -23,15 +23,18 @@ import android.widget.TextView;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookAuthorizationException;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.facebook.login.widget.ProfilePictureView;
 import com.facebook.share.ShareApi;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
@@ -52,7 +55,10 @@ import java.util.Arrays;
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "faceBk v10";
-    private static final String[] PERMISSIONS = new String[]{"publish_actions", "read_stream"};
+    //    private static final String[] PERMISSIONS = new String[]{"publish_actions", "read_stream"};
+    private static final String[] PERMISSIONS = new String[]{"publish_actions"};
+    private final String PENDING_ACTION_BUNDLE_KEY =
+            "com.egs.wogal.forsale_items_sat_18_3_2017_100:PendingAction";
     public GraphRequest graphRequest;
     private String response = "";
     private String paramiters = "";
@@ -63,45 +69,78 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private Button mButt_PostPic;
     private TextView mTxtView_HashValue;
     private AccessToken MASTER_AccessToken;
+    protected FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess (LoginResult loginResult) {
+            //      AccessToken accessToken = LoginResult.getAccessToken();
+            Log.d( TAG, " FaceBook onSuccess v10 " );
+            MASTER_AccessToken = loginResult.getAccessToken();
+            Profile profile = Profile.getCurrentProfile();
+            if (profile != null) {
+                mTxtView_HashValue.setText( "Wellcome " + profile.getName() );
+
+            } else {
+                mTxtView_HashValue.setText( " Error profile = null" );
+            }
+        }
+
+        @Override
+        public void onCancel () {
+            Log.d( TAG, " FaceBook onCancel v10 " );
+        }
+
+        @Override
+        public void onError (FacebookException error) {
+            Log.d( TAG, " FaceBook onError v10 " );
+        }
+    };
+    //  private ShareDialog shareDialog;
+    private ProfileTracker profileTracker;
     private boolean canPresentShareDialogWithPhotos;
     private ShareDialog shareDialog;
     private String str;
     private PendingAction pendingAction = PendingAction.NONE;
     private boolean canPresentShareDialog;
-
+    private CallbackManager callbackManager;
+    private Button postStatusUpdateButton;
+    private Button postPhotoButton;
+    private ProfilePictureView profilePictureView;
+    private TextView greeting;
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
-        public void onCancel() {
-            Log.d("HelloFacebook", "Canceled");
+        public void onCancel () {
+            Log.d( "HelloFacebook", "Canceled" );
         }
+
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
-        public void onError(FacebookException error) {
-            Log.d("HelloFacebook", String.format("Error: %s", error.toString()));
-            String title = getString( R.string.error);
+        public void onError (FacebookException error) {
+            Log.d( "HelloFacebook", String.format( "Error: %s", error.toString() ) );
+            String title = getString( R.string.error );
             String alertMessage = error.getMessage();
-            showResult(title, alertMessage);
+            showResult( title, alertMessage );
         }
+
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
-        public void onSuccess(Sharer.Result result) {
-            Log.d("HelloFacebook", "Success!");
+        public void onSuccess (Sharer.Result result) {
+            Log.d( "HelloFacebook", "Success!" );
             if (result.getPostId() != null) {
-                String title = getString(  R.string.success);
+                String title = getString( R.string.success );
                 String id = result.getPostId();
-                String alertMessage = getString( R.string.successfully_posted_post, id);
-                showResult(title, alertMessage);
+                String alertMessage = getString( R.string.successfully_posted_post, id );
+                showResult( title, alertMessage );
             }
         }
-        private void showResult(String title, String alertMessage) {
-            new AlertDialog.Builder(Activity_FaceBook_v10.this)
-                    .setTitle(title)
-                    .setMessage(alertMessage)
-                    .setPositiveButton( R.string.ok, null)
+
+        private void showResult (String title, String alertMessage) {
+            new AlertDialog.Builder( Activity_FaceBook_v10.this )
+                    .setTitle( title )
+                    .setMessage( alertMessage )
+                    .setPositiveButton( R.string.ok, null )
                     .show();
         }
     };
-
 
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
@@ -114,61 +153,146 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity__face_book_v10 );
 
-        mButt_FaceBookPost = (Button) findViewById( R.id.But_facebookPost_v10 );
-        mButt_GetId = (Button) findViewById( R.id.But_facebook_ID_v10 );
-        mButt_GetId.setOnClickListener( this );
-        mTxtView_HashValue = (TextView) findViewById( R.id.txt_hash_key_v10 );
+
+        if (false) {
+            mButt_FaceBookPost = (Button) findViewById( R.id.But_facebookPost_v10 );
+            mButt_GetId = (Button) findViewById( R.id.But_facebook_ID_v10 );
+            mButt_GetId.setOnClickListener( this );
+            mTxtView_HashValue = (TextView) findViewById( R.id.txt_hash_key_v10 );
 
 
-        mCallbackManager = CallbackManager.Factory.create();
-        LoginButton = (LoginButton) findViewById( R.id.facebook_login_button_v10QQQ );
+            mCallbackManager = CallbackManager.Factory.create();
+            LoginButton = (LoginButton) findViewById( R.id.facebook_login_button_v10QQQ );
 
-        String permissionsString;
-        permissionsString = "user_friends,user_birthday,user_birthday,user_location,user_photos,user_friends,email";
+            String permissionsString;
+            permissionsString = "user_friends,user_birthday,user_birthday,user_location,user_photos,user_friends,email";
 
-   //     LoginButton.setReadPermissions( permissionsString );
+            //     LoginButton.setReadPermissions( permissionsString );
 
 
-          LoginButton.setPublishPermissions( "publish_actions " );
+            LoginButton.setPublishPermissions( "publish_actions " );
 
-        LoginButton.registerCallback( mCallbackManager, mCallback );
+            LoginButton.registerCallback( mCallbackManager, mCallback );
 
-        Button mbutt_FbUser_Permissions_v10 = (Button) findViewById( R.id.But_fb_permissions_v10 );
-        mbutt_FbUser_Permissions_v10.setOnClickListener( this );
+            Button mbutt_FbUser_Permissions_v10 = (Button) findViewById( R.id.But_fb_permissions_v10 );
+            mbutt_FbUser_Permissions_v10.setOnClickListener( this );
 
-        mButt_FaceBookPost = (Button) findViewById( R.id.But_facebookPost_v10 );
-        mButt_FaceBookPost.setOnClickListener( this );
+            mButt_FaceBookPost = (Button) findViewById( R.id.But_facebookPost_v10 );
+            mButt_FaceBookPost.setOnClickListener( this );
 
-        mButt_PostPic = (Button) findViewById( R.id.But_fb_post_pic_v10 );
-        mButt_PostPic.setOnClickListener( this );
+            mButt_PostPic = (Button) findViewById( R.id.But_fb_post_pic_v10 );
+            mButt_PostPic.setOnClickListener( this );
+        }
+
+        // ******************  START ************************************
+
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback( callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess (LoginResult loginResult) {
+                        handlePendingAction();
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onCancel () {
+                        if (pendingAction != PendingAction.NONE) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+
+                        updateUI();
+                    }
+
+                    @Override
+                    public void onError (FacebookException exception) {
+                        if (pendingAction != PendingAction.NONE
+                                && exception instanceof FacebookAuthorizationException) {
+                            showAlert();
+                            pendingAction = PendingAction.NONE;
+                        }
+                        updateUI();
+                    }
+
+                    private void showAlert () {
+                        new AlertDialog.Builder( Activity_FaceBook_v10.this )
+                                .setTitle( R.string.cancelled )
+                                .setMessage( R.string.permission_not_granted )
+                                .setPositiveButton( R.string.ok, null )
+                                .show();
+                    }
+                } );
+
+        shareDialog = new ShareDialog( this );
+        shareDialog.registerCallback(
+                callbackManager,
+                shareCallback );
+
+        if (savedInstanceState != null) {
+            String name = savedInstanceState.getString( PENDING_ACTION_BUNDLE_KEY );
+            pendingAction = PendingAction.valueOf( name );
+        }
+
+
+        profileTracker = new ProfileTracker() {
+            @Override
+            protected void onCurrentProfileChanged (Profile oldProfile, Profile currentProfile) {
+                updateUI();
+                // It's possible that we were waiting for Profile to be populated in order to
+                // post a status update.
+                handlePendingAction();
+            }
+        };
+
+        profilePictureView = (ProfilePictureView) findViewById( R.id.profilePicture );
+        greeting = (TextView) findViewById( R.id.greeting );
+
+        postStatusUpdateButton = (Button) findViewById( R.id.postStatusUpdateButton );
+        postStatusUpdateButton.setOnClickListener( new View.OnClickListener() {
+            public void onClick (View view) {
+                onClickPostStatusUpdate();
+            }
+        } );
+
+        postPhotoButton = (Button) findViewById( R.id.postPhotoButton );
+        postPhotoButton.setOnClickListener( new View.OnClickListener() {
+            public void onClick (View view) {
+                onClickPostPhoto();
+            }
+        } );
+
+
+        // *************   END    ********************************************
+
     }
 
-    protected FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess (LoginResult loginResult) {
-        //      AccessToken accessToken = LoginResult.getAccessToken();
-            Log.d( TAG, " FaceBook onSuccess v10 " );
-            MASTER_AccessToken = loginResult.getAccessToken();
-            Profile profile = Profile.getCurrentProfile();
-            if (profile != null) {
-                mTxtView_HashValue.setText( "Wellcome " + profile.getName() );
 
-            } else {
-                mTxtView_HashValue.setText( " Error profile = null" );
-            }
+    private void onClickPostPhoto () {
+        performPublish( PendingAction.POST_PHOTO, canPresentShareDialogWithPhotos );
+    }
+
+
+    private void onClickPostStatusUpdate () {
+        performPublish( PendingAction.POST_STATUS_UPDATE, canPresentShareDialog );
+    }
+
+    private void updateUI () {
+        boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
+
+        postStatusUpdateButton.setEnabled( enableButtons || canPresentShareDialog );
+        postPhotoButton.setEnabled( enableButtons || canPresentShareDialogWithPhotos );
+
+        Profile profile = Profile.getCurrentProfile();
+        if (enableButtons && profile != null) {
+            profilePictureView.setProfileId( profile.getId() );
+            greeting.setText( getString( R.string.hello_user, profile.getFirstName() ) );
+        } else {
+            profilePictureView.setProfileId( null );
+            greeting.setText( null );
         }
-        @Override
-        public void onCancel () {
-            Log.d( TAG, " FaceBook onCancel v10 " );
-        }
-
-        @Override
-        public void onError (FacebookException error) {
-            Log.d( TAG, " FaceBook onError v10 " );
-        }
-    };
-
-
+    }
 
     private void faceBookPost () {
     }
@@ -199,7 +323,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_fb_post_pic_v10: {
-                PostPicky();
+                performPublish( PendingAction.POST_PHOTO, canPresentShareDialogWithPhotos );
+                //    PostPicky();
                 //    Post_Picky_100();
                 break;
             }
@@ -461,10 +586,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
         //  LoginManager.getInstance().logInWithReadPermissions(params);
 
-    //    LoginManager.getInstance().logInWithPublishPermissions( getApplicationContext());
+        //    LoginManager.getInstance().logInWithPublishPermissions( getApplicationContext());
 
-            getCallingActivity();
-
+        getCallingActivity();
 
 
         params.putString( "message", "wogal heck" );
@@ -490,65 +614,45 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
 
-    private void postPhoto() {
-        Bitmap image = BitmapFactory.decodeResource(this.getResources(), R.drawable.bug);
-        SharePhoto sharePhoto = new SharePhoto.Builder().setBitmap(image).build();
+    private void postPhoto () {
+        Bitmap image = BitmapFactory.decodeResource( this.getResources(), R.drawable.bug );
+        SharePhoto sharePhoto = new SharePhoto.Builder().setBitmap( image ).build();
         ArrayList<SharePhoto> photos = new ArrayList<>();
-        photos.add(sharePhoto);
+        photos.add( sharePhoto );
 
         SharePhotoContent sharePhotoContent =
-                new SharePhotoContent.Builder().setPhotos(photos).build();
+                new SharePhotoContent.Builder().setPhotos( photos ).build();
         if (canPresentShareDialogWithPhotos) {
-            shareDialog.show(sharePhotoContent);
+            shareDialog.show( sharePhotoContent );
         } else if (hasPublishPermission()) {
-            ShareApi.share(sharePhotoContent, shareCallback);
+            ShareApi.share( sharePhotoContent, shareCallback );
         } else {
             pendingAction = PendingAction.POST_PHOTO;
             // We need to get new permissions, then complete the action when we get called back.
             LoginManager.getInstance().logInWithPublishPermissions(
                     this,
-                    Arrays.asList(PERMISSIONS));
+                    Arrays.asList( PERMISSIONS ) );
         }
     }
 
-
-    private enum PendingAction {
-        NONE,
-        POST_PHOTO,
-        POST_STATUS_UPDATE
-    }
-
-    private boolean hasPublishPermission() {
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        return accessToken != null && accessToken.getPermissions().contains("publish_actions");
-    }
-
-    private void performPublish(PendingAction action, boolean allowNoToken) {
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        if (accessToken != null || allowNoToken) {
-           pendingAction = action;
-            handlePendingAction();
-        }
-    }
-
-    private void postStatusUpdate() {
+    private void postStatusUpdate () {
         Profile profile = Profile.getCurrentProfile();
         ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                .setContentTitle("Hello Facebook")
+                .setContentTitle( "Hello Facebook" )
                 .setContentDescription(
-                        "The 'Hello Facebook' sample  showcases simple Facebook integration")
-                .setContentUrl( Uri.parse("http://developers.facebook.com/docs/android"))
+                        "The 'Hello Facebook' sample  showcases simple Facebook integration" )
+                .setContentUrl( Uri.parse( "http://developers.facebook.com/docs/android" ) )
                 .build();
         if (canPresentShareDialog) {
-            shareDialog.show(linkContent);
+            shareDialog.show( linkContent );
         } else if (profile != null && hasPublishPermission()) {
-            ShareApi.share(linkContent, shareCallback);
+            ShareApi.share( linkContent, shareCallback );
         } else {
             pendingAction = PendingAction.POST_STATUS_UPDATE;
         }
     }
 
-    private void handlePendingAction() {
+    private void handlePendingAction () {
         PendingAction previouslyPendingAction = pendingAction;
         // These actions may re-set pendingAction if they are still pending, but we assume they
         // will succeed.
@@ -566,7 +670,26 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         }
     }
 
+    private boolean hasPublishPermission () {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        return accessToken != null && accessToken.getPermissions().contains( "publish_actions" );
+    }
 
+    // send pic
+    private void performPublish (PendingAction action, boolean allowNoToken) {
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        if (accessToken != null || allowNoToken) {
+            pendingAction = action;
+            handlePendingAction();
+        }
+    }
+
+
+    private enum PendingAction {
+        NONE,
+        POST_PHOTO,
+        POST_STATUS_UPDATE
+    }
 
 
 }
