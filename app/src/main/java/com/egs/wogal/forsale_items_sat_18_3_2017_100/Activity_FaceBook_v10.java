@@ -34,10 +34,6 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -107,6 +103,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
                     .show();
         }
     };
+    private AccessToken accessToken;
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
@@ -337,19 +334,77 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
     private void onclickGetPermissions () {
         /* make the API call */
         String usrIdstr;
-        AccessToken acctoken = AccessToken.getCurrentAccessToken();
+        String pic_url;
 
-        usrIdstr = acctoken.getUserId();
+        pic_url = "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40";
+
+        accessToken = AccessToken.getCurrentAccessToken();
+
+        usrIdstr = accessToken.getUserId();
+
+        // user id = 935766826488905
+        //         "/" + "100001667882988" + "/feed",
+
+        Bundle params = new Bundle();
+        //   params.putString( "url", pic_url );
+        params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40" );
 
 
         new GraphRequest(
-                acctoken,
-                "/1006171692755468",
-                null,
-                HttpMethod.GET,
+                AccessToken.getCurrentAccessToken(),
+                "/me/photos",
+                params,
+                HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse response) {
+                        mStr = response.toString();
+                        mStr += "";
+                    }
+                }
+        ).executeAsync();
 
+        if (false) {
+            GraphRequest request = GraphRequest.newGraphPathRequest(
+                    accessToken,
+                    "/me/permissions",
+                    new GraphRequest.Callback() {
+                        @Override
+                        public void onCompleted (GraphResponse response) {
+                            mStr = response.toString();
+                            mStr += "";
+                        }
+                    } );
+            request.executeAsync();
+
+            params = new Bundle();
+            params.putString( "message", "embedded test 12345 qwert " );
+            new GraphRequest(
+                    accessToken,
+                    "/me/feed",
+                    params,
+                    HttpMethod.POST,
+                    new GraphRequest.Callback() {
+                        public void onCompleted (GraphResponse response) {
+
+                            mStr = response.toString();
+                            mStr += "";
+                        }
+                    }
+            ).executeAsync();
+        }
+
+
+        params.putString( "url", pic_url );
+
+        params.putString( "message", "test  Post 100 id - 1125553 " );
+/* make the API call */
+        new GraphRequest(
+                accessToken,
+                "/1006171692755468/photos",
+                params,
+                HttpMethod.POST,
+                new GraphRequest.Callback() {
+                    public void onCompleted (GraphResponse response) {
                         mStr = response.toString();
                         mStr += "";
                     }
@@ -357,47 +412,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         ).executeAsync();
 
 
-        if (false) {
-            new GraphRequest( acctoken,
-                    "/" + usrIdstr + "/permissions",
-                    null,
-                    HttpMethod.GET,
-                    new GraphRequest.Callback() {
-                        public void onCompleted (GraphResponse response) {
-                            mStr = response.toString();
-                            mStr += "";
-
-                            JSONArray albumArr = null;
-                            try {
-                                albumArr = response.getJSONArray().getJSONArray( 1 );
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                            for (int i = 0; i < albumArr.length(); i++) {
-
-                                try {
-                                    JSONObject item = albumArr.getJSONObject( i );
-                                    System.out.println( "id : " + item.getString( "id" ) );
-                                    System.out.println( "fromName : " + item.getJSONObject( "from" ).getString( "name" ) );
-                                    System.out.println( "fromid : " + item.getJSONObject( "from" ).getString( "id" ) );
-                                    System.out.println( "link : " + item.getString( "link" ) );
-                                    System.out.println( "cover_photo : " + item.getString( "cover_photo" ) );
-                                    System.out.println( "count : " + item.getString( "count" ) );
-                                    System.out.println( "created_time : " + item.getString( "created_time" ) );
-                                    System.out.println( "updated_time : " + item.getString( "updated_time" ) );
-                                    System.out.println( "can_upload : " + item.getString( "can_upload" ) );
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-
-                            }
-
-                        }
-                    }
-            ).executeAsync();
-        }
     }
 
     private enum PendingAction {
