@@ -43,6 +43,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
     public static final String TAG = "faceBk v10";
     // START
 
+    public static final String WogalstestGroup = "357763397958712";
 
     private static final String PERMISSION = "publish_actions";
     private static final Location SEATTLE_LOCATION = new Location( "" ) {
@@ -342,17 +343,20 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
 
         usrIdstr = accessToken.getUserId();
 
-        // user id = 935766826488905
-        //         "/" + "100001667882988" + "/feed",
-
         Bundle params = new Bundle();
         //   params.putString( "url", pic_url );
-        params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40" );
-
+      //  params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40");
+        params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-0/p206x206/421308_290584514340476_678502771_n.jpg?oh=726ec2e4d190451066467cca84198a23&oe=594C65DD" );
+      //  params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/322113_290584694340458_745919865_o.jpg?oh=a821994bc205abd8e07b8b836af07f12&oe=598826BE" );
+     //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/331774_290584881007106_1250734524_o.jpg?oh=3c5dbad582df75ce28211c9d9bf914c5&oe=5999D235" );
+     //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/341220_290589617673299_931147747_o.jpg?oh=2a1939acc3065dac02a4a28914a9fb0f&oe=594E69BA" );
+     //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/323667_290589747673286_387270164_o.jpg?oh=9518de188a40a2fb10ab2b9534734007&oe=594E6A34" );
+        params.putString( "message", "test picks  0x5555aaaaaa zzzzzz" );
+// {Response:  responseCode: 200, graphObject: {"id":"1532388980160017","post_id":"1525043127561269_357844364617282"}, error: null}
 
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
-                "/me/photos",
+                "/" + "1525043127561269_357845597950492" + "/photos",
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
@@ -362,6 +366,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
                     }
                 }
         ).executeAsync();
+
 
         if (false) {
             GraphRequest request = GraphRequest.newGraphPathRequest(
@@ -380,7 +385,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
             params.putString( "message", "embedded test 12345 qwert " );
             new GraphRequest(
                     accessToken,
-                    "/me/feed",
+                    "/WogalstestGroup/feed",
                     params,
                     HttpMethod.POST,
                     new GraphRequest.Callback() {
@@ -391,27 +396,26 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
                         }
                     }
             ).executeAsync();
-        }
 
 
-        params.putString( "url", pic_url );
+            params.putString( "url", pic_url );
 
-        params.putString( "message", "test  Post 100 id - 1125553 " );
+            params.putString( "message", "test  Post 100 id - 1125553 " );
 /* make the API call */
-        new GraphRequest(
-                accessToken,
-                "/1006171692755468/photos",
-                params,
-                HttpMethod.POST,
-                new GraphRequest.Callback() {
-                    public void onCompleted (GraphResponse response) {
-                        mStr = response.toString();
-                        mStr += "";
+            new GraphRequest(
+                    accessToken,
+                    "/1006171692755468/photos",
+                    params,
+                    HttpMethod.POST,
+                    new GraphRequest.Callback() {
+                        public void onCompleted (GraphResponse response) {
+                            mStr = response.toString();
+                            mStr += "";
+                        }
                     }
-                }
-        ).executeAsync();
+            ).executeAsync();
 
-
+        }
     }
 
     private enum PendingAction {
