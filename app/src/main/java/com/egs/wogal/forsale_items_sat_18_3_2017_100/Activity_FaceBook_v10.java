@@ -37,7 +37,7 @@ import com.facebook.share.widget.ShareDialog;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import FaceBook_Java_Helpers.Helper_Facebook_Posts;
+import FaceBook_Java_Helpers.HlpFbook_Posts;
 
 
 public class Activity_FaceBook_v10 extends AppCompatActivity {
@@ -355,8 +355,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/323667_290589747673286_387270164_o.jpg?oh=9518de188a40a2fb10ab2b9534734007&oe=594E6A34" );
 
 
-        Helper_Facebook_Posts.postImage_toGroup( this, WogalstestGroup, "dogs with logs ", Helper_Facebook_Posts.PostImageType.POST_BITMAP_PHOTO, true );
-
+        pic_url = "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40";
+        HlpFbook_Posts.postOPbj_2_Grp( this, WogalstestGroup, "dogs with logs ", HlpFbook_Posts.PostImageType.POST_BITMAP_PHOTO, true, R.drawable.heart );
+        HlpFbook_Posts.postOPbj_2_Grp( this, WogalstestGroup, "cats with dogs", HlpFbook_Posts.PostImageType.POST_IMAGE_PHOTO, true, pic_url );
 
 
         if (false) {
