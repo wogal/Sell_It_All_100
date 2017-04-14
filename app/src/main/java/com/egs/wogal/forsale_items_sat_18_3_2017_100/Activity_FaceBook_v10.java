@@ -95,6 +95,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
                 String id = result.getPostId();
                 String alertMessage = getString( R.string.successfully_posted_post, id );
                 showResult( title, alertMessage );
+
             }
         }
 

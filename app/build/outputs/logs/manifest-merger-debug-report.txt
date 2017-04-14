@@ -47,6 +47,7 @@ MERGED from [com.android.support:cardview-v7:25.0.0] C:\Users\wogal\.android\bui
 MERGED from [com.android.support:customtabs:25.0.0] C:\Users\wogal\.android\build-cache\22064eb13f754b506c1cb5c2e57f7f829495a782\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-compat:25.0.0] C:\Users\wogal\.android\build-cache\204d7e62c4abb33c8fc5d533bc625472c670d350\output\AndroidManifest.xml:25:5-20
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:28:5-48:19
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\wogal\.android\build-cache\cfe8777de89855cb59b25691edbaa8bbd4ace838\output\AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:14:9-41
 	android:supportsRtl
@@ -152,6 +153,7 @@ MERGED from [com.android.support:cardview-v7:25.0.0] C:\Users\wogal\.android\bui
 MERGED from [com.android.support:customtabs:25.0.0] C:\Users\wogal\.android\build-cache\22064eb13f754b506c1cb5c2e57f7f829495a782\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:25.0.0] C:\Users\wogal\.android\build-cache\204d7e62c4abb33c8fc5d533bc625472c670d350\output\AndroidManifest.xml:21:5-23:58
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.volley:volley:1.0.0] C:\Users\wogal\.android\build-cache\cfe8777de89855cb59b25691edbaa8bbd4ace838\output\AndroidManifest.xml:7:5-43
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\8cb48a0c128b873f3be016061ae4374a315135f2\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
