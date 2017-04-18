@@ -390,6 +390,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                         }
                     } );
 
+
+
                     mSound_Play_Record_Helper.setOnStopTrackEventListener( new Sound_Play_Record_Helper.OnStopTrackEventListener() {
                         @Override
                         public int onStopTrack (int a) {
@@ -405,6 +407,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                     Dialog_SoundRecord = mBuilderSound.create();
                     Dialog_SoundRecord.show();
                 }
+
+
                 break;
             }
 
@@ -512,7 +516,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         }
     }
 
-    private void RecallItemObj () {
+    private For_Sale_Item_Object RecallItemObj () {
         For_Sale_Item_Object fsObj = null;
         String file = "earle.ser";
         String path;
@@ -541,6 +545,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // make voice arry to sound file
         Storage_Helper_Class.ByteArray_2_File( Storage_Helper_Class.GetVoiceFilePath(), fsObj.get_FS_ItemHeaderVoiceFileData() );
         For_Sale_Item_ObjectCls = fsObj;
+        return fsObj;
     }
 
     private void SaveItemObj () {

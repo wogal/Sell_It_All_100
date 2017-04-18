@@ -10,21 +10,26 @@ import java.io.Serializable;
 public class SaleItemMakeup implements Serializable {
 
 
+    //region Vars Used In each sales items
+    // START  of item used vars used in item object
+
     // bitmap  of pictures for the
     private byte[] _FS_ItemBitmapArray;
 
-
-    //  private Bitmap _Bitmap;
-
+    //  private Bitmap _Bitmap -- used as temporary var in translation --
     private transient Bitmap _Bitmap;
 
-    // byte array for item  voice sound file
+    // byte array for item  voice sound file for this item
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
 
-    // text of item for sale
+    // text name  of item for sale
     private String _FS_SaleItemName;
-    // path to voice files for the item in group  ** store as bytes later on
-    private String _FS_VoiceItemFilePath;
+
+
+    // END of item used vars used in item object
+    //endregion
+
+
 
     public Bitmap get_Bitmap () {
         Bitmap mBitmapB;
@@ -46,14 +51,5 @@ public class SaleItemMakeup implements Serializable {
         this._FS_SaleItemName = _FS_SaleItemName;
     }
 
-    public String get_FS_VoiceItemFilePath () {
-        return _FS_VoiceItemFilePath;
-    }
-
-//  private ArrayList<Bitmap> _FS_ItemImages;
-
-    public void set_FS_VoiceItemFilePath (String _FS_VoiceItemFilePath) {
-        this._FS_VoiceItemFilePath = _FS_VoiceItemFilePath;
-    }
 
 }

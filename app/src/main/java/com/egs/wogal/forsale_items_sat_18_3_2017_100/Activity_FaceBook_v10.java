@@ -8,10 +8,14 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -38,9 +42,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import FaceBook_Java_Helpers.HlpFbook_Posts;
+import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
+import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
 
-public class Activity_FaceBook_v10 extends AppCompatActivity {
+public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, HlpFbook_Posts.Graph_OnCompleted_CallBack_Interface {
 
     public static final String TAG = "faceBk v10";
     // START
@@ -57,11 +63,11 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
 
     private final String PENDING_ACTION_BUNDLE_KEY =
             "com.egs.wogal.forsale_items_sat_18_3_2017_100:PendingAction";
-
+    // thread testing
+    Thread mThread;
     private String mStr;
-    private Button postStatusUpdateButton;
     private Button postPhotoButton;
-    private Button mBtnGetPermissions;
+    private Button mBtnPost_Multiple_Images;
     private ProfilePictureView profilePictureView;
     private TextView greeting;
     private PendingAction pendingAction = PendingAction.NONE;
@@ -70,9 +76,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
     private ShareDialog shareDialog;
-    private TextView txtview;
-
-
+    private ImageView mImageView;
+    private ProgressBar mProgressBar_Post_Progress;
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel () {
@@ -108,6 +113,17 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         }
     };
     private AccessToken accessToken;
+
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage (Message msg) {
+            int a;
+            a = msg.arg1;
+            mProgressBar_Post_Progress.setProgress( a );
+        }
+    };
+
 
     @Override
     public void onCreate (Bundle savedInstanceState) {
@@ -176,12 +192,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         profilePictureView = (ProfilePictureView) findViewById( R.id.profilePicture );
         greeting = (TextView) findViewById( R.id.greeting );
 
-        postStatusUpdateButton = (Button) findViewById( R.id.postStatusUpdateButton );
-        postStatusUpdateButton.setOnClickListener( new View.OnClickListener() {
-            public void onClick (View view) {
-                onClickPostStatusUpdate();
-            }
-        } );
 
         postPhotoButton = (Button) findViewById( R.id.postPhotoButton );
         postPhotoButton.setOnClickListener( new View.OnClickListener() {
@@ -190,13 +200,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
             }
         } );
 
-        mBtnGetPermissions = (Button) findViewById( R.id.GetPermmisionsButton );
-        mBtnGetPermissions.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                onclickGetPermissions();
-            }
-        } );
+        mBtnPost_Multiple_Images = (Button) findViewById( R.id.PostMultibule_Imagges );
+        mBtnPost_Multiple_Images.setOnClickListener( this );
 
 
         // Can we present the share dialog for regular links?
@@ -207,13 +212,13 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class );
 
-        txtview = (TextView) findViewById( R.id.textView1 );
+        mImageView = (ImageView) findViewById( R.id.capturePostImageView );
 
-        txtview.setText( "First \n Second" );
-        txtview.setText( "First \n Second" );
-        txtview.setText( "First \n Second" );
-        txtview.setText( "First \n Second" );
+        mProgressBar_Post_Progress = (ProgressBar) findViewById( R.id.post_progress_bar );
+        mProgressBar_Post_Progress.setProgress( 0 );
 
+        mThread = new Thread( new Mythread() );
+        mThread.start();
     }
 
 
@@ -245,8 +250,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
     private void updateUI () {
         boolean enableButtons = AccessToken.getCurrentAccessToken() != null;
 
-        postStatusUpdateButton.setEnabled( enableButtons || canPresentShareDialog );
-        postPhotoButton.setEnabled( enableButtons || canPresentShareDialogWithPhotos );
 
         Profile profile = Profile.getCurrentProfile();
         if (enableButtons && profile != null) {
@@ -335,34 +338,41 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         }
     }
 
-    private void onclickGetPermissions () {
+
+    @Override
+    public int CallBackFunction (String _str) {
+        return 0;
+    }
+
+
+    private void Post_multibule_Images () {
         /* make the API call */
         String usrIdstr;
         String pic_url;
-
+        For_Sale_Item_Object for_sale_item_object;
         pic_url = "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40";
 
         accessToken = AccessToken.getCurrentAccessToken();
-
         usrIdstr = accessToken.getUserId();
-
         Bundle params = new Bundle();
-        //   params.putString( "url", pic_url );
-        //  params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40");
-        //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-0/p206x206/421308_290584514340476_678502771_n.jpg?oh=726ec2e4d190451066467cca84198a23&oe=594C65DD" );
-        //  params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/322113_290584694340458_745919865_o.jpg?oh=a821994bc205abd8e07b8b836af07f12&oe=598826BE" );
-        //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/331774_290584881007106_1250734524_o.jpg?oh=3c5dbad582df75ce28211c9d9bf914c5&oe=5999D235" );
 
-        //   params.putString( "url", "https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/323667_290589747673286_387270164_o.jpg?oh=9518de188a40a2fb10ab2b9534734007&oe=594E6A34" );
+        for_sale_item_object = For_Sale_Item_Object.RecallItemObj();
 
+        SaleItemMakeup salesItem;
 
-        pic_url = "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40";
-        HlpFbook_Posts.postOPbj_2_Grp( this, WogalstestGroup, "dogs with logs ", HlpFbook_Posts.PostImageType.POST_BITMAP_PHOTO, true, R.drawable.heart );
-        HlpFbook_Posts.postOPbj_2_Grp( this, WogalstestGroup, "cats with dogs", HlpFbook_Posts.PostImageType.POST_IMAGE_PHOTO, true, pic_url );
+        salesItem = for_sale_item_object.get_ItemGroupArray().get( 1 );
 
+        mImageView.setImageBitmap( salesItem.get_Bitmap() );
+
+        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts();
+
+        //    mHlpFbook_posts.Graph_OnCompleted_CallBack_Interface(this);
+
+        mHlpFbook_posts.setEventListener( this );
+
+        mHlpFbook_posts.PostMultiplePicys( for_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, for_sale_item_object.get_FS_SaleItemName() );
 
         if (false) {
-
 
             GraphRequest request = GraphRequest.newGraphPathRequest(
                     accessToken,
@@ -413,10 +423,42 @@ public class Activity_FaceBook_v10 extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClick (View v) {
+        switch (v.getId()) {
+            case R.id.PostMultibule_Imagges: {
+                Post_multibule_Images();
+                break;
+            }
+        }
+    }
+
+
     private enum PendingAction {
         NONE,
         POST_PHOTO,
         POST_STATUS_UPDATE
+    }
+
+    class Mythread implements Runnable {
+        @Override
+        public void run () {
+            int mBarValue = 5;
+
+
+            int max = mProgressBar_Post_Progress.getMax();
+
+            for (mBarValue = 0; mBarValue != max - 1; mBarValue++) {
+                Message message = Message.obtain();
+                message.arg1 = mBarValue;
+                mHandler.sendMessage( message );
+                try {
+                    Thread.sleep( 5 );
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 

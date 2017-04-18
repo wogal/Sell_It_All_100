@@ -1,83 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:facebook="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:background="#FFF"
-    >
-    <LinearLayout android:orientation="vertical"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:background="#FFF"
-                  android:id="@+id/main_ui_container">
+    <LinearLayout
+        android:id="@+id/earle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
         <com.facebook.login.widget.LoginButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:layout_gravity="center_horizontal"
-            facebook:com_facebook_confirm_logout="false"
-            facebook:com_facebook_tooltip_mode="never_display"
             />
-        <LinearLayout
-            android:layout_width="150dp"
+
+        <TextView
+            android:id="@+id/greeting"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:id="@+id/greeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:textColor="#333"
-                android:textSize="18sp"/>
-            <com.facebook.login.widget.ProfilePictureView
-                android:id="@+id/profilePicture"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                facebook:com_facebook_preset_size="normal"/>
-            <Button
-                android:id="@+id/postStatusUpdateButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Post Status Update"
-                />
-            <Button
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textColor="#333"
+            android:textSize="18sp"/>
+
+        <com.facebook.login.widget.ProfilePictureView
+            android:id="@+id/profilePicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#ffac07"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+      <ProgressBar
+          android:layout_width="match_parent"
+          android:layout_height="25dp"
+          android:id="@+id/post_progress_bar"
+          style="?android:attr/progressBarStyleHorizontal"
+          android:indeterminate="false"
+          android:max="1000"
+          android:progress="0"
+          android:progressDrawable="@drawable/progressbar"
+
+          android:layout_margin="@dimen/margin_V8"/>
+
+        <Button
             android:id="@+id/postPhotoButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_V8"
+            android:background="@drawable/boarder_thin_100"
             android:text="Post Piccy"
+            android:textAllCaps="false"
+            android:textColor="#ffac07"
+            android:textSize="25dp"
+            android:textStyle="bold"
             />
-            <Button
-                android:id="@+id/GetPermmisionsButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Get Pemmsions"
-                />
 
+        <Button
+            android:id="@+id/PostMultibule_Imagges"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_V8"
+            android:background="@drawable/boarder_thin_100"
+            android:text="Post multiple Image's "
+            android:textAllCaps="false"
+            android:textColor="#ffac07"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            />
 
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/GetPermmisionsButton"
-                    android:layout_marginTop="22dp"
-                    android:lines="10"
-                    android:textSize="10dp"
-                    android:text="text" />
+        <ImageView
+            android:id="@+id/capturePostImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/txt_view_item_content_header_txt_v9"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/for_sale_logo_640_480"/>
 
-
-
-        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
-
+</RelativeLayout>
