@@ -23,9 +23,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookAuthorizationException;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
@@ -38,12 +36,14 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import FaceBook_Java_Helpers.HlpFbook_Posts;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
-import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, HlpFbook_Posts.Graph_OnCompleted_CallBack_Interface {
@@ -78,6 +78,12 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private ShareDialog shareDialog;
     private ImageView mImageView;
     private ProgressBar mProgressBar_Post_Progress;
+    private TextView mTextView;
+
+    private Handler mHandler_Text;
+    private Handler mHandler_ProgressBar;
+
+
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
         public void onCancel () {
@@ -121,6 +127,13 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             int a;
             a = msg.arg1;
             mProgressBar_Post_Progress.setProgress( a );
+        }
+    };
+
+    private Handler getmHandler_ProgressBar = new Handler() {
+        @Override
+        public void handleMessage (Message msg) {
+
         }
     };
 
@@ -216,6 +229,20 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
         mProgressBar_Post_Progress = (ProgressBar) findViewById( R.id.post_progress_bar );
         mProgressBar_Post_Progress.setProgress( 0 );
+
+        mTextView = (TextView) findViewById( R.id.txt_status_v10 );
+
+        mHandler_Text = new Handler() {
+            @Override
+            public void handleMessage (Message msg) {
+                String msgvalue;
+                msgvalue = (String) msg.obj;
+                String mStr;
+                mStr = "Post Cnt -> " + msgvalue;
+                mTextView.setText( mStr );
+            }
+        };
+
 
         mThread = new Thread( new Mythread() );
         mThread.start();
@@ -339,89 +366,43 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
 
+    private void Post_multibule_Images () {
+        int mCnt;
+        For_Sale_Item_Object mfor_sale_item_object;
+        mfor_sale_item_object = For_Sale_Item_Object.RecallItemObj();
+        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts();
+        mHlpFbook_posts.setEventListener( this );
+        mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
+        // set progress bar to total amount of posts
+        mProgressBar_Post_Progress.setProgress( 0 );
+        mProgressBar_Post_Progress.setMax( mCnt );
+
+        mHlpFbook_posts.run();
+
+
+
+
+
+        mHlpFbook_posts.PostMultiplePicys( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
+    }
+
+
     @Override
-    public int CallBackFunction (String _str) {
+    public int CallBackFunction (GraphResponse _response) {
+        Message message = Message.obtain();
+        JSONObject Json_objQ;
+        Json_objQ = _response.getJSONObject();
+        try {
+            mStr = (String) Json_objQ.get( "id" );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        mStr += "";
+        message.obj = "iD:" + mStr;
+        mHandler_Text.sendMessage( message );
         return 0;
     }
 
-
-    private void Post_multibule_Images () {
-        /* make the API call */
-        String usrIdstr;
-        String pic_url;
-        For_Sale_Item_Object for_sale_item_object;
-        pic_url = "https://scontent-ort2-1.xx.fbcdn.net/v/t1.0-9/419047_10150790611320550_2085280315_n.jpg?oh=2bf0137a575e4e4977b8b0d3c655e9c1&oe=59971A40";
-
-        accessToken = AccessToken.getCurrentAccessToken();
-        usrIdstr = accessToken.getUserId();
-        Bundle params = new Bundle();
-
-        for_sale_item_object = For_Sale_Item_Object.RecallItemObj();
-
-        SaleItemMakeup salesItem;
-
-        salesItem = for_sale_item_object.get_ItemGroupArray().get( 1 );
-
-        mImageView.setImageBitmap( salesItem.get_Bitmap() );
-
-        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts();
-
-        //    mHlpFbook_posts.Graph_OnCompleted_CallBack_Interface(this);
-
-        mHlpFbook_posts.setEventListener( this );
-
-        mHlpFbook_posts.PostMultiplePicys( for_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, for_sale_item_object.get_FS_SaleItemName() );
-
-        if (false) {
-
-            GraphRequest request = GraphRequest.newGraphPathRequest(
-                    accessToken,
-                    "/me/permissions",
-                    new GraphRequest.Callback() {
-                        @Override
-                        public void onCompleted (GraphResponse response) {
-                            mStr = response.toString();
-                            mStr += "";
-                        }
-                    } );
-            request.executeAsync();
-
-            params = new Bundle();
-            params.putString( "message", "embedded test 12345 qwert " );
-            new GraphRequest(
-                    accessToken,
-                    "/WogalstestGroup/feed",
-                    params,
-                    HttpMethod.POST,
-                    new GraphRequest.Callback() {
-                        public void onCompleted (GraphResponse response) {
-
-                            mStr = response.toString();
-                            mStr += "";
-                        }
-                    }
-            ).executeAsync();
-
-
-            params.putString( "url", pic_url );
-
-            params.putString( "message", "test  Post 100 id - 1125553 " );
-/* make the API call */
-            new GraphRequest(
-                    accessToken,
-                    "/1006171692755468/photos",
-                    params,
-                    HttpMethod.POST,
-                    new GraphRequest.Callback() {
-                        public void onCompleted (GraphResponse response) {
-                            mStr = response.toString();
-                            mStr += "";
-                        }
-                    }
-            ).executeAsync();
-
-        }
-    }
 
     @Override
     public void onClick (View v) {
