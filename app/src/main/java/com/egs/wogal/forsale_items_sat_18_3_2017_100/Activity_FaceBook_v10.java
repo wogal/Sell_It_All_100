@@ -42,12 +42,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import FaceBook_Java_Helpers.Graph_OnCompleted_CallBack_Interface;
+import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
-
-public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, HlpFbook_Posts.Graph_OnCompleted_CallBack_Interface {
+public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCompleted_CallBack_Interface {
 
     public static final String TAG = "faceBk v10";
     // START
@@ -83,6 +84,13 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
     private Handler mHandler_Text;
     private Handler mHandler_ProgressBar;
+
+    private HlpFbook_Posts mHlpFbook_posts = null;
+
+
+    private Button mBut_FB_1;
+    private Button mBut_FB_2;
+    private Button mBut_FB_3;
 
 
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
@@ -233,6 +241,16 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
         mTextView = (TextView) findViewById( R.id.txt_status_v10 );
 
+        mBut_FB_1 = (Button) findViewById( R.id.FB_1 );
+        mBut_FB_1.setOnClickListener( this );
+
+        mBut_FB_2 = (Button) findViewById( R.id.FB_2 );
+        mBut_FB_3.setOnClickListener( this );
+
+        mBut_FB_3 = (Button) findViewById( R.id.FB_3 );
+        mBut_FB_3.setOnClickListener( this );
+
+
         mHandler_Text = new Handler() {
             @Override
             public void handleMessage (Message msg) {
@@ -377,8 +395,11 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         // set progress bar to total amount of posts
         mProgressBar_Post_Progress.setProgress( 0 );
         mProgressBar_Post_Progress.setMax( mCnt );
-        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
+
+        mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
         mHlpFbook_posts.setEventListener( this );
+        mHlpFbook_posts.setEventListener_Final_Post( this );
+
         mHlpFbook_posts.run();
         mTextView.setText( "" );
         if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
@@ -391,17 +412,20 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     public int CallBackFunction (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         Message message = Message.obtain();
         JSONObject Json_objQ;
+        String postId;
         Json_objQ = _response.getJSONObject();
         try {
             mStr = (String) Json_objQ.get( "id" );
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         mStr += "";
         message.obj = "iD:" + mStr;
 
         if (mMultiPost_Response.size() == _items_2_Post.size()) {
-            message.obj = "All Done -> " + mMultiPost_Response.size();
+            //    message.obj = "All Done -> " + mMultiPost_Response.size();
+            postId = HlpFbook_Posts.Format_Post_String( mStr );
         }
         mHandler_Text.sendMessage( message );
         return 0;
@@ -415,7 +439,21 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 Post_multibule_Images();
                 break;
             }
+            case R.id.FB_1: {
+                break;
+            }
+            case R.id.FB_2: {
+                break;
+            }
+            case R.id.FB_3: {
+                break;
+            }
         }
+    }
+
+    @Override
+    public int CallBackFunctionFinal_Post (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+        return 0;
     }
 
 
