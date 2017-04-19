@@ -35,6 +35,7 @@ public class HlpFbook_Posts implements Runnable {
     private Activity _acActivity;
     private String _destination_id;
     private String _MainpostMessage;
+
     public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
         this._items_2_Post = _items_2_Post;
         this._acActivity = _acActivity;
@@ -86,10 +87,6 @@ public class HlpFbook_Posts implements Runnable {
                 postOPbj_2_Grp( _acActivity, WogalstestGroup, mItemtxtHeader, HlpFbook_Posts.PostImageType.POST_BITMAP_PHOTO, true, mBitmap );
             }
         }
-
-
-
-
         tst = 0;
         PostCount = mGraphFaceBookPartPost_Id.size();
         mStr = "--";
@@ -136,9 +133,9 @@ public class HlpFbook_Posts implements Runnable {
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
-                    public void onCompleted (GraphResponse _response ) {
+                    public void onCompleted (GraphResponse _response) {
                         mMultiPost_Response.add( _response );
-                        mGraph_onCompleted_callBack_Listerner.CallBackFunction( _response,mMultiPost_Response,_items_2_Post);
+                        mGraph_onCompleted_callBack_Listerner.CallBackFunction( _response, mMultiPost_Response, _items_2_Post );
                     }
                 }
         ).executeAsync();
@@ -155,7 +152,6 @@ public class HlpFbook_Posts implements Runnable {
         POST_IMAGE_PHOTO,
         POST_BITMAP_PHOTO,
     }
-
 
     public interface Graph_OnCompleted_CallBack_Interface {
         // call back  from post function

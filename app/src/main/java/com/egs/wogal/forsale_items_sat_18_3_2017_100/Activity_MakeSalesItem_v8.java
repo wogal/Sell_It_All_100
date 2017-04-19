@@ -389,9 +389,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                             return 0;
                         }
                     } );
-
-
-
                     mSound_Play_Record_Helper.setOnStopTrackEventListener( new Sound_Play_Record_Helper.OnStopTrackEventListener() {
                         @Override
                         public int onStopTrack (int a) {
@@ -407,8 +404,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                     Dialog_SoundRecord = mBuilderSound.create();
                     Dialog_SoundRecord.show();
                 }
-
-
                 break;
             }
 
