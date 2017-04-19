@@ -44,6 +44,7 @@ import java.util.Arrays;
 
 import FaceBook_Java_Helpers.HlpFbook_Posts;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
+import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, HlpFbook_Posts.Graph_OnCompleted_CallBack_Interface {
@@ -370,25 +371,24 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         int mCnt;
         For_Sale_Item_Object mfor_sale_item_object;
         mfor_sale_item_object = For_Sale_Item_Object.RecallItemObj();
-        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts();
-        mHlpFbook_posts.setEventListener( this );
+
+
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
         mProgressBar_Post_Progress.setProgress( 0 );
         mProgressBar_Post_Progress.setMax( mCnt );
-
+        HlpFbook_Posts mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
+        mHlpFbook_posts.setEventListener( this );
         mHlpFbook_posts.run();
-
-
-
-
-
-        mHlpFbook_posts.PostMultiplePicys( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
+        mTextView.setText( "" );
+        if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
+            mTextView.setText( "ALL DONE cnr -> " + mHlpFbook_posts.get_mMultiPost_Response().size() );
+        }
     }
 
 
     @Override
-    public int CallBackFunction (GraphResponse _response) {
+    public int CallBackFunction (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         Message message = Message.obtain();
         JSONObject Json_objQ;
         Json_objQ = _response.getJSONObject();
@@ -399,6 +399,10 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         }
         mStr += "";
         message.obj = "iD:" + mStr;
+
+        if (mMultiPost_Response.size() == _items_2_Post.size()) {
+            message.obj = "All Done -> " + mMultiPost_Response.size();
+        }
         mHandler_Text.sendMessage( message );
         return 0;
     }
@@ -426,7 +430,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         public void run () {
             int mBarValue = 5;
 
-
             int max = mProgressBar_Post_Progress.getMax();
 
             for (mBarValue = 0; mBarValue != max - 1; mBarValue++) {
@@ -441,10 +444,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             }
         }
     }
-
-
     //    END
-
 }
 
 

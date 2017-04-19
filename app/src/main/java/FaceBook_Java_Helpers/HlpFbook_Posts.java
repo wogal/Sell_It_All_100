@@ -22,23 +22,48 @@ import static com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_FaceBook_v1
  * Created by wogal on 4/13/2017.
  */
 
-public class HlpFbook_Posts implements Runnable{
+public class HlpFbook_Posts implements Runnable {
 
     public ArrayList<GraphResponse> mGraphFaceBookPartPost_Id;
+    public int tst = 0;
     private String mStr;
     private JSONObject Json_objQ;
     //  private String mStr = "";
     private Graph_OnCompleted_CallBack_Interface mGraph_onCompleted_callBack_Listerner;
     private ArrayList<GraphResponse> mMultiPost_Response;
-    public int tst = 0;
-
-    public HlpFbook_Posts () {
+    private ArrayList<SaleItemMakeup> _items_2_Post;
+    private Activity _acActivity;
+    private String _destination_id;
+    private String _MainpostMessage;
+    public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
+        this._items_2_Post = _items_2_Post;
+        this._acActivity = _acActivity;
+        this._destination_id = _destination_id;
+        this._MainpostMessage = _MainpostMessage;
         mMultiPost_Response = new ArrayList<>();
+    }
+
+    public ArrayList<GraphResponse> get_mMultiPost_Response () {
+        return mMultiPost_Response;
+    }
+
+    @Override
+    public void run () {
+        PostMultiplePicys( _items_2_Post, _acActivity, _destination_id, _MainpostMessage );
+        if (false) {
+            try {
+                Thread.sleep( 1000 );
+                if (mMultiPost_Response.size() == 3)
+                    return;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
     // master wrapper for posting " multiple " images
-    public void PostMultiplePicys (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
+    private void PostMultiplePicys (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
         int cnt;
         SaleItemMakeup mSsaleItemMakeup;
         cnt = _items_2_Post.size();
@@ -63,13 +88,6 @@ public class HlpFbook_Posts implements Runnable{
         }
 
 
-        if (true) {
-            do {
-                tst++;
-                if (tst > 500000)
-                    tst = 0;
-            } while (mMultiPost_Response.size() == 0);
-        }
 
 
         tst = 0;
@@ -77,7 +95,7 @@ public class HlpFbook_Posts implements Runnable{
         mStr = "--";
     }
 
-    public void postOPbj_2_Grp (Activity _acActivity, String _destination_id, String _postMessage, PostImageType _ImgeTyp, boolean _pubStus, Bitmap _imgObj) {
+    private void postOPbj_2_Grp (Activity _acActivity, String _destination_id, String _postMessage, PostImageType _ImgeTyp, boolean _pubStus, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
@@ -110,7 +128,7 @@ public class HlpFbook_Posts implements Runnable{
             }
         }
         //     params.putString( "message", _postMessage );
-        params.putString( "message", "--- 200 500 ---" );
+        params.putString( "message", "--- Diana's Many Sales Items ---" );
         params.putString( "published", _pubStus ? "true" : "false" );
         new GraphRequest(
                 currentAccessToken,
@@ -118,9 +136,9 @@ public class HlpFbook_Posts implements Runnable{
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
-                    public void onCompleted (GraphResponse _response) {
-                        mGraph_onCompleted_callBack_Listerner.CallBackFunction( _response );
+                    public void onCompleted (GraphResponse _response ) {
                         mMultiPost_Response.add( _response );
+                        mGraph_onCompleted_callBack_Listerner.CallBackFunction( _response,mMultiPost_Response,_items_2_Post);
                     }
                 }
         ).executeAsync();
@@ -131,13 +149,8 @@ public class HlpFbook_Posts implements Runnable{
         mGraph_onCompleted_callBack_Listerner = eventListener;
     }
 
-    @Override
-    public void run () {
 
-    }
-
-
-    public enum PostImageType {
+    private enum PostImageType {
         NONE,
         POST_IMAGE_PHOTO,
         POST_BITMAP_PHOTO,
@@ -146,7 +159,7 @@ public class HlpFbook_Posts implements Runnable{
 
     public interface Graph_OnCompleted_CallBack_Interface {
         // call back  from post function
-        int CallBackFunction (GraphResponse _response);
+        int CallBackFunction (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post);
     }
 
 
