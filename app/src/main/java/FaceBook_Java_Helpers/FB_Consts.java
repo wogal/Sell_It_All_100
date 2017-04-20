@@ -5,8 +5,13 @@ package FaceBook_Java_Helpers;
  */
 
 public class FB_Consts {
+
+
     public static String FB_media_fbid = "media_fbid";
 
+    public static String FB_attached_media = "attached_media";
+
+    public static String FB_post_id = "id";
 
     public enum PostImageType {
         NONE,

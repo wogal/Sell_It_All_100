@@ -245,7 +245,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mBut_FB_1.setOnClickListener( this );
 
         mBut_FB_2 = (Button) findViewById( R.id.FB_2 );
-        mBut_FB_3.setOnClickListener( this );
+        mBut_FB_2.setOnClickListener( this );
 
         mBut_FB_3 = (Button) findViewById( R.id.FB_3 );
         mBut_FB_3.setOnClickListener( this );
@@ -422,11 +422,11 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
         mStr += "";
         message.obj = "iD:" + mStr;
-
+/*
         if (mMultiPost_Response.size() == _items_2_Post.size()) {
             //    message.obj = "All Done -> " + mMultiPost_Response.size();
-            postId = HlpFbook_Posts.Format_Post_String( mStr );
-        }
+
+        }*/
         mHandler_Text.sendMessage( message );
         return 0;
     }
@@ -440,6 +440,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 break;
             }
             case R.id.FB_1: {
+                // test post
+                HlpFbook_Posts.TestPost( WogalstestGroup, "Wogal heck -- " );
                 break;
             }
             case R.id.FB_2: {
@@ -453,6 +455,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
     @Override
     public int CallBackFunctionFinal_Post (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+        // finsh and auth multi posts
+
+        HlpFbook_Posts.TestPost( WogalstestGroup, "final post pics = -> " + _items_2_Post.size() );
         return 0;
     }
 

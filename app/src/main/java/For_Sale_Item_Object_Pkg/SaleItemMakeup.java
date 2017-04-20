@@ -3,6 +3,8 @@ package For_Sale_Item_Object_Pkg;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.facebook.GraphResponse;
+
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
@@ -26,10 +28,20 @@ public class SaleItemMakeup implements Serializable {
     private String _FS_SaleItemName;
 
 
+    private GraphResponse _graph_response;
+
+
     // END of item used vars used in item object
     //endregion
 
 
+    public GraphResponse get_graph_response () {
+        return _graph_response;
+    }
+
+    public void set_graph_response (GraphResponse _graph_response) {
+        this._graph_response = _graph_response;
+    }
 
     public Bitmap get_Bitmap () {
         Bitmap mBitmapB;
