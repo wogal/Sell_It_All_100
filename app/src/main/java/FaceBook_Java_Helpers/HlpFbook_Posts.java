@@ -50,25 +50,6 @@ public class HlpFbook_Posts implements Runnable {
         _mMultiPost_Response = new ArrayList<>();
     }
 
-    public static void TestPost (String _postId, String _postText) {
-        Bundle params = new Bundle();
-        params.clear();
-        AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
-        params.putString( "message", _postText );
-
-        new GraphRequest(
-                currentAccessToken,
-                "/" + _postId + "/feed",
-                params,
-                HttpMethod.POST,
-                new GraphRequest.Callback() {
-                    public void onCompleted (GraphResponse _response) {
-                        mStr_static = _response.toString();
-                        //   DoFinal_PublishPost( _response );
-                    }
-                }
-        ).executeAsync();
-    }
 
     public void setEventListener_Final_Post (Graph_OnfinalPost_CallBack_Interface _eventListener) {
         mGraph_onfinalPost_callBack_Listerner = _eventListener;
@@ -160,6 +141,10 @@ public class HlpFbook_Posts implements Runnable {
                 break;
             }
         }
+
+
+
+
         //     params.putString( "message", _postMessage );
         params.putString( "message", "--- Diana's Many Sales Items ---" );
         params.putString( "published", _pubStus ? "true" : "false" );
@@ -185,9 +170,9 @@ public class HlpFbook_Posts implements Runnable {
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
         mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
         // final post to auth previous multi posts ,,
-        Bundle params = new Bundle();
+        Bundle params;
         params = FB_HelperClss.FB_Extract_NamedValue_from_Respose( _mMultiPost_Response );
-        params.putString( FB_Consts.FB_message,"Multi Post Authorise 100" );
+        params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
         // do custom post
         CustomPost( _destination_id, params );
     }

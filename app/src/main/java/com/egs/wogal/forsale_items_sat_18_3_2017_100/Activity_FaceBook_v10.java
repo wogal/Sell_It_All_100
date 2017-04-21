@@ -388,6 +388,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mHlpFbook_posts.setEventListener( this );
         mHlpFbook_posts.setEventListener_Final_Post( this );
 
+
         mHlpFbook_posts.run();
         mTextView.setText( "" );
         if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
