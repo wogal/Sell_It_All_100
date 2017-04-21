@@ -3,6 +3,7 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
@@ -14,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -35,9 +35,6 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -78,7 +75,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
     private ShareDialog shareDialog;
-    private ImageView mImageView;
     private ProgressBar mProgressBar_Post_Progress;
     private TextView mTextView;
 
@@ -152,7 +148,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         super.onCreate( savedInstanceState );
 
         callbackManager = CallbackManager.Factory.create();
+        this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
+        //region "    LoginManager.getInstance().registerCallback( callbackManager, "
         LoginManager.getInstance().registerCallback( callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
@@ -160,7 +158,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         handlePendingAction();
                         updateUI();
                     }
-
                     @Override
                     public void onCancel () {
                         if (pendingAction != PendingAction.NONE) {
@@ -169,7 +166,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         }
                         updateUI();
                     }
-
                     @Override
                     public void onError (FacebookException exception) {
                         if (pendingAction != PendingAction.NONE
@@ -179,7 +175,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         }
                         updateUI();
                     }
-
                     private void showAlert () {
                         new AlertDialog.Builder( Activity_FaceBook_v10.this )
                                 .setTitle( R.string.cancelled )
@@ -188,6 +183,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                                 .show();
                     }
                 } );
+        //endregion
 
         shareDialog = new ShareDialog( this );
         shareDialog.registerCallback(
@@ -215,13 +211,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         greeting = (TextView) findViewById( R.id.greeting );
 
 
-        postPhotoButton = (Button) findViewById( R.id.postPhotoButton );
-        postPhotoButton.setOnClickListener( new View.OnClickListener() {
-            public void onClick (View view) {
-                onClickPostPhoto();
-            }
-        } );
-
         mBtnPost_Multiple_Images = (Button) findViewById( R.id.PostMultibule_Imagges );
         mBtnPost_Multiple_Images.setOnClickListener( this );
 
@@ -234,7 +223,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         canPresentShareDialogWithPhotos = ShareDialog.canShow(
                 SharePhotoContent.class );
 
-        mImageView = (ImageView) findViewById( R.id.capturePostImageView );
 
         mProgressBar_Post_Progress = (ProgressBar) findViewById( R.id.post_progress_bar );
         mProgressBar_Post_Progress.setProgress( 0 );
@@ -409,24 +397,12 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
 
     @Override
-    public int CallBackFunction (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+    public int CallBackFunction_MultiPost (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         Message message = Message.obtain();
-        JSONObject Json_objQ;
-        String postId;
-        Json_objQ = _response.getJSONObject();
-        try {
-            mStr = (String) Json_objQ.get( "id" );
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         mStr += "";
         message.obj = "iD:" + mStr;
-/*
-        if (mMultiPost_Response.size() == _items_2_Post.size()) {
-            //    message.obj = "All Done -> " + mMultiPost_Response.size();
 
-        }*/
         mHandler_Text.sendMessage( message );
         return 0;
     }
@@ -454,7 +430,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public int CallBackFunctionFinal_Post (GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+    public int CallBack_OnFinal_On_Mulit_Image_Post (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         // finsh and auth multi posts
 
         HlpFbook_Posts.TestPost( WogalstestGroup, "final post pics = -> " + _items_2_Post.size() );

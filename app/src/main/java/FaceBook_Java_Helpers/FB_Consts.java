@@ -13,6 +13,8 @@ public class FB_Consts {
 
     public static String FB_post_id = "id";
 
+    public static String FB_message = "message";
+
     public enum PostImageType {
         NONE,
         POST_IMAGE_PHOTO,

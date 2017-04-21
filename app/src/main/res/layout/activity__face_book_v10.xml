@@ -43,7 +43,6 @@
             android:textStyle="bold"/>
 
 
-
         <LinearLayout
             android:id="@+id/layout_1"
             android:layout_width="match_parent"
@@ -93,34 +92,16 @@
 
         </LinearLayout>
 
-
-
         <ProgressBar
-          android:layout_width="match_parent"
-          android:layout_height="25dp"
-          android:id="@+id/post_progress_bar"
-          style="?android:attr/progressBarStyleHorizontal"
-          android:indeterminate="false"
-          android:max="1000"
-          android:progress="0"
-          android:progressDrawable="@drawable/progressbar"
-
-          android:layout_margin="@dimen/margin_V8"/>
-
-        <Button
-            android:id="@+id/postPhotoButton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/post_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
             android:layout_margin="@dimen/margin_V8"
-            android:background="@drawable/boarder_thin_100"
-            android:text="Post Piccy"
-            android:textAllCaps="false"
-            android:textColor="#ffac07"
-            android:textSize="25dp"
-            android:visibility="gone"
-            android:textStyle="bold"
-            />
-
+            android:indeterminate="false"
+            android:max="1000"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar"/>
 
         <TextView
             android:id="@+id/txt_status_v10"
@@ -136,6 +117,17 @@
             android:textSize="30dp"
             android:textStyle="bold"/>
 
+         <CheckBox
+            android:text="Separate Posts"
+            android:id="@+id/chkBx_sepPosts_v10"
+            android:textSize="25dp"
+            android:textStyle="italic"
+            android:padding="5dp"
+            android:checked="false"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <Button
             android:id="@+id/PostMultibule_Imagges"
             android:layout_width="fill_parent"
@@ -150,21 +142,14 @@
             />
 
 
-
-        <ImageView
-            android:id="@+id/capturePostImageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/txt_view_item_content_header_txt_v9"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:scaleType="centerInside"
-            android:visibility="gone"
-            android:src="@drawable/for_sale_logo_640_480"/>
-
-
-
-
-
     </LinearLayout>
 </RelativeLayout>
+
+
+
+
+
+
+
+
+

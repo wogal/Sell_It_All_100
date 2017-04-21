@@ -16,8 +16,6 @@ import java.util.ArrayList;
 
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
-import static com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_FaceBook_v10.WogalstestGroup;
-
 /**
  * Created by wogal on 4/13/2017.
  */
@@ -32,29 +30,12 @@ public class HlpFbook_Posts implements Runnable {
     //  private String mStr = "";
 
 
-
     // call back event for final post on multi post actions
     private Graph_OnfinalPost_CallBack_Interface mGraph_onfinalPost_callBack_Listerner;
-    public void setEventListener_Final_Post (Graph_OnfinalPost_CallBack_Interface _eventListener) {
-        mGraph_onfinalPost_callBack_Listerner = _eventListener;
-    }
-
-
     // call back event for custom posts  ( we supply most of the stuff and data )
     private Graph_Custom_Post_CallBack_Interface mGraph_custom_post_callBack_Listner;
-    public void setEventListener_custom_Post (Graph_Custom_Post_CallBack_Interface _eventListener) {
-        mGraph_custom_post_callBack_Listner = _eventListener;
-    }
-
     // call back event on each iteration of a multi pos
     private Graph_OnCompleted_CallBack_Interface mGraph_onCompleted_callBack_Listerner;
-    public void setEventListener (Graph_OnCompleted_CallBack_Interface _eventListener) {
-        mGraph_onCompleted_callBack_Listerner = _eventListener;
-    }
-
-
-
-
     private ArrayList<GraphResponse> _mMultiPost_Response;
     private ArrayList<SaleItemMakeup> _items_2_Post;
     private Activity _acActivity;
@@ -68,7 +49,6 @@ public class HlpFbook_Posts implements Runnable {
         this._MainpostMessage = _MainpostMessage;
         _mMultiPost_Response = new ArrayList<>();
     }
-
 
     public static void TestPost (String _postId, String _postText) {
         Bundle params = new Bundle();
@@ -88,6 +68,18 @@ public class HlpFbook_Posts implements Runnable {
                     }
                 }
         ).executeAsync();
+    }
+
+    public void setEventListener_Final_Post (Graph_OnfinalPost_CallBack_Interface _eventListener) {
+        mGraph_onfinalPost_callBack_Listerner = _eventListener;
+    }
+
+    public void setEventListener_custom_Post (Graph_Custom_Post_CallBack_Interface _eventListener) {
+        mGraph_custom_post_callBack_Listner = _eventListener;
+    }
+
+    public void setEventListener (Graph_OnCompleted_CallBack_Interface _eventListener) {
+        mGraph_onCompleted_callBack_Listerner = _eventListener;
     }
 
     public ArrayList<GraphResponse> get_mMultiPost_Response () {
@@ -128,7 +120,7 @@ public class HlpFbook_Posts implements Runnable {
                 mBitmap = mSsaleItemMakeup.get_Bitmap();
                 mItemtxtHeader = mSsaleItemMakeup.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
-                postOPbj_2_Grp( _acActivity, WogalstestGroup, mItemtxtHeader, FB_Consts.PostImageType.POST_BITMAP_PHOTO, true, mBitmap );
+                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, FB_Consts.PostImageType.POST_BITMAP_PHOTO, false, mBitmap );
             }
         }
         tst = 0;
@@ -136,7 +128,7 @@ public class HlpFbook_Posts implements Runnable {
         mStr = "--";
     }
 
-    private void postOPbj_2_Grp (Activity _acActivity, String _destination_id, String _postMessage, FB_Consts.PostImageType _ImgeTyp, boolean _pubStus, Bitmap _imgObj) {
+    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, FB_Consts.PostImageType _ImgeTyp, boolean _pubStus, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
@@ -179,10 +171,10 @@ public class HlpFbook_Posts implements Runnable {
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {
                         _mMultiPost_Response.add( _response );
-                        mGraph_onCompleted_callBack_Listerner.CallBackFunction( _response, _mMultiPost_Response, _items_2_Post );
+                        mGraph_onCompleted_callBack_Listerner.CallBackFunction_MultiPost( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
                         if (_mMultiPost_Response.size() == _items_2_Post.size()) {
                             // if all done then do final publish post
-                            DoFinal_PublishPost( _response );
+                            DoFinal_PublishPost( _destination_id, _response );
                         }
                     }
                 }
@@ -190,16 +182,30 @@ public class HlpFbook_Posts implements Runnable {
         mStr += "";
     }
 
-
-
-    private void DoFinal_PublishPost (GraphResponse _response) {
-        mGraph_onfinalPost_callBack_Listerner.CallBackFunctionFinal_Post( _response, _mMultiPost_Response, _items_2_Post );
+    private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
+        mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
         // final post to auth previous multi posts ,,
         Bundle params = new Bundle();
-
         params = FB_HelperClss.FB_Extract_NamedValue_from_Respose( _mMultiPost_Response );
+        params.putString( FB_Consts.FB_message,"Multi Post Authorise 100" );
+        // do custom post
+        CustomPost( _destination_id, params );
+    }
 
 
+    public void CustomPost (final String _destination_id, Bundle _params) {
+        AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
+        new GraphRequest(
+                currentAccessToken,
+                "/" + _destination_id + "/feed",
+                _params,
+                HttpMethod.POST,
+                new GraphRequest.Callback() {
+                    public void onCompleted (GraphResponse _response) {
+                        mGraph_custom_post_callBack_Listner.CallBack_On_Custom_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
+                    }
+                }
+        ).executeAsync();
     }
 
 }

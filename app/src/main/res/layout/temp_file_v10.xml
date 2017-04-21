@@ -126,5 +126,15 @@
         android:textSize="25dp"
         android:textStyle="italic"/>
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/But_fb_post_pic_v10"
+        android:layout_below="@+id/But_fb_post_pic_v10"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="23dp"
+        android:text="CheckBox"/>
+
 
 </RelativeLayout>
