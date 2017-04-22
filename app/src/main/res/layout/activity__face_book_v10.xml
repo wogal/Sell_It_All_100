@@ -7,12 +7,12 @@
         android:id="@+id/earle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
 
 
         <com.facebook.login.widget.LoginButton
@@ -118,13 +118,12 @@
             android:textStyle="bold"/>
 
          <CheckBox
-            android:text="Separate Posts"
+            android:text=" One Sales Item Per Post"
             android:id="@+id/chkBx_sepPosts_v10"
-            android:textSize="25dp"
+            android:textSize="30dp"
             android:textStyle="italic"
             android:padding="5dp"
             android:checked="false"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

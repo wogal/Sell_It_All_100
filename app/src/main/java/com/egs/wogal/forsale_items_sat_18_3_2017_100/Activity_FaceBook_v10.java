@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -87,6 +88,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private Button mBut_FB_1;
     private Button mBut_FB_2;
     private Button mBut_FB_3;
+    private CheckBox mChkBoxiTemPerPost;
 
 
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
@@ -158,6 +160,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         handlePendingAction();
                         updateUI();
                     }
+
                     @Override
                     public void onCancel () {
                         if (pendingAction != PendingAction.NONE) {
@@ -166,6 +169,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         }
                         updateUI();
                     }
+
                     @Override
                     public void onError (FacebookException exception) {
                         if (pendingAction != PendingAction.NONE
@@ -175,6 +179,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                         }
                         updateUI();
                     }
+
                     private void showAlert () {
                         new AlertDialog.Builder( Activity_FaceBook_v10.this )
                                 .setTitle( R.string.cancelled )
@@ -249,6 +254,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 mTextView.setText( mStr );
             }
         };
+
+        mChkBoxiTemPerPost = (CheckBox) findViewById( R.id.chkBx_sepPosts_v10 );
 
 
         mThread = new Thread( new Mythread() );
@@ -384,7 +391,12 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mProgressBar_Post_Progress.setProgress( 0 );
         mProgressBar_Post_Progress.setMax( mCnt );
 
-        mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName() );
+
+        boolean bool_image_per_post;
+
+        bool_image_per_post = mChkBoxiTemPerPost.isChecked();
+
+        mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
         mHlpFbook_posts.setEventListener( this );
         mHlpFbook_posts.setEventListener_Final_Post( this );
 

@@ -42,12 +42,14 @@ public class HlpFbook_Posts implements Runnable {
     private Activity _acActivity;
     private String _destination_id;
     private String _MainpostMessage;
+    private boolean _bool_image_per_post;
 
-    public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
+    public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
         this._items_2_Post = _items_2_Post;
         this._acActivity = _acActivity;
         this._destination_id = _destination_id;
         this._MainpostMessage = _MainpostMessage;
+        this._bool_image_per_post = _bool_image_per_post;
         _mMultiPost_Response = new ArrayList<>();
     }
 
@@ -103,12 +105,12 @@ public class HlpFbook_Posts implements Runnable {
                 mItemtxtHeader = mSsaleItemMakeup.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
                 Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + cnt );
-                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, false, mBitmap );
+                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, mBitmap );
             }
         }
     }
 
-    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, boolean _pubStus, Bitmap _imgObj) {
+    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
@@ -133,7 +135,7 @@ public class HlpFbook_Posts implements Runnable {
 
         //     params.putString( "message", _postMessage );
         params.putString( "message", "--- Diana's Many Sales Items ---" );
-        params.putString( "published", _pubStus ? "true" : "false" );
+        params.putString( "published", _bool_image_per_post ? "false" : "true" );
         new GraphRequest(
                 currentAccessToken,
                 "/" + _destination_id + "/photos",
@@ -158,12 +160,19 @@ public class HlpFbook_Posts implements Runnable {
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
         mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
         // final post to auth previous multi posts ,,
-        Log.d( TAG, " CallBack DoFinal_PublishPost Invoked  " );
+        String mstr_ = _bool_image_per_post ? "true" : "false";
+        Log.d( TAG, " CallBack DoFinal_PublishPost Invoked " + " Img Per Post = " + mstr_ );
+
         Bundle params;
         params = FB_HelperClss.FB_Extract_NamedValue_from_Respose( _mMultiPost_Response );
         params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
         // do custom post
-        CustomPost( _destination_id, params );
+        if (false == _bool_image_per_post) {
+            Log.d( TAG, " ** NOT **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
+        } else {
+            Log.d( TAG, " ** I Am  **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
+            CustomPost( _destination_id, params );
+        }
     }
 
 
@@ -176,7 +185,6 @@ public class HlpFbook_Posts implements Runnable {
                 _params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
-                      Log.d( TAG, " GraphRequest.Callback() Invoked " );
                     public void onCompleted (GraphResponse _response) {
                         mGraph_custom_post_callBack_Listner.CallBack_On_Custom_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
                     }
