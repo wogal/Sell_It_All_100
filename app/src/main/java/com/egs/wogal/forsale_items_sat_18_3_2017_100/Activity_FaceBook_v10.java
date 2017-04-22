@@ -418,7 +418,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             }
             case R.id.FB_1: {
                 // test post
-                HlpFbook_Posts.TestPost( WogalstestGroup, "Wogal heck -- " );
+
                 break;
             }
             case R.id.FB_2: {
@@ -434,7 +434,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     public int CallBack_OnFinal_On_Mulit_Image_Post (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         // finsh and auth multi posts
 
-        HlpFbook_Posts.TestPost( WogalstestGroup, "final post pics = -> " + _items_2_Post.size() );
         return 0;
     }
 

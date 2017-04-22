@@ -3,6 +3,7 @@ package FaceBook_Java_Helpers;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
@@ -21,7 +22,7 @@ import For_Sale_Item_Object_Pkg.SaleItemMakeup;
  */
 
 public class HlpFbook_Posts implements Runnable {
-
+    public static final String TAG = "HlpFbook_Posts";
     private static String mStr_static = "";
     public ArrayList<GraphResponse> mGraphFaceBookPartPost_Id;
     public int tst = 0;
@@ -69,6 +70,7 @@ public class HlpFbook_Posts implements Runnable {
 
     @Override
     public void run () {
+        Log.d( TAG, " run Invoked" );
         PostMultiplePicys( _items_2_Post, _acActivity, _destination_id, _MainpostMessage );
         if (false) {
             try {
@@ -84,15 +86,14 @@ public class HlpFbook_Posts implements Runnable {
     // master wrapper for posting " multiple " images
     private void PostMultiplePicys (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
         int cnt;
+        Log.d( TAG, " PostMultiplePicys Invoked" );
         SaleItemMakeup mSsaleItemMakeup;
         cnt = _items_2_Post.size();
         Bitmap mBitmap;
         String mItemtxtHeader;
         int PostCount;
-
         mGraphFaceBookPartPost_Id = new ArrayList<>();
         cnt = _items_2_Post.size();
-
         if (cnt > 0) {
             for (int mIndex = 0; mIndex != cnt; mIndex++) {
                 // get SaleItemMakeup at mIndex
@@ -101,48 +102,33 @@ public class HlpFbook_Posts implements Runnable {
                 mBitmap = mSsaleItemMakeup.get_Bitmap();
                 mItemtxtHeader = mSsaleItemMakeup.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
-                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, FB_Consts.PostImageType.POST_BITMAP_PHOTO, false, mBitmap );
+                Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + cnt );
+                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, false, mBitmap );
             }
         }
-        tst = 0;
-        PostCount = mGraphFaceBookPartPost_Id.size();
-        mStr = "--";
     }
 
-    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, FB_Consts.PostImageType _ImgeTyp, boolean _pubStus, Bitmap _imgObj) {
+    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, boolean _pubStus, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
 
-
-        switch (_ImgeTyp) {
-            case NONE: {
-                break;
-            }
-            case POST_BITMAP_PHOTO: {
-                ByteArrayOutputStream stream = null;
-                stream = new ByteArrayOutputStream();
-                try {
-                    _imgObj.compress( Bitmap.CompressFormat.PNG, 100, stream );
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                byte[] _FS_ItemBitmapArray = stream.toByteArray();
-                try {
-                    params.putByteArray( "picture", _FS_ItemBitmapArray );
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
-            }
-            case POST_IMAGE_PHOTO: {
-                //   params.putString( "url", (String) _imgObj );
-                break;
-            }
+        Log.d( TAG, " postOPbj_2_Grp Invoked " );
+        // convert Bitmap ( _imgObj ) to   byte[] ( _FS_ItemBitmapArray ) for facebook to handel
+        ByteArrayOutputStream stream;
+        stream = new ByteArrayOutputStream();
+        try {
+            _imgObj.compress( Bitmap.CompressFormat.PNG, 100, stream );
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
+        byte[] _FS_ItemBitmapArray = stream.toByteArray();
+        try {
+            params.putByteArray( FB_Consts.FB_picture, _FS_ItemBitmapArray );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         //     params.putString( "message", _postMessage );
@@ -155,6 +141,7 @@ public class HlpFbook_Posts implements Runnable {
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {
+                        Log.d( TAG, " CallBackFunction_MultiPost Invoked " );
                         _mMultiPost_Response.add( _response );
                         mGraph_onCompleted_callBack_Listerner.CallBackFunction_MultiPost( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
                         if (_mMultiPost_Response.size() == _items_2_Post.size()) {
@@ -164,12 +151,14 @@ public class HlpFbook_Posts implements Runnable {
                     }
                 }
         ).executeAsync();
+        Log.d( TAG, " postOPbj_2_Grp Exited  " );
         mStr += "";
     }
 
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
         mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
         // final post to auth previous multi posts ,,
+        Log.d( TAG, " CallBack DoFinal_PublishPost Invoked  " );
         Bundle params;
         params = FB_HelperClss.FB_Extract_NamedValue_from_Respose( _mMultiPost_Response );
         params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
@@ -180,17 +169,20 @@ public class HlpFbook_Posts implements Runnable {
 
     public void CustomPost (final String _destination_id, Bundle _params) {
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
+        Log.d( TAG, " CustomPost Invoked " );
         new GraphRequest(
                 currentAccessToken,
                 "/" + _destination_id + "/feed",
                 _params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
+                      Log.d( TAG, " GraphRequest.Callback() Invoked " );
                     public void onCompleted (GraphResponse _response) {
                         mGraph_custom_post_callBack_Listner.CallBack_On_Custom_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
                     }
                 }
         ).executeAsync();
+        Log.d( TAG, " CustomPost Exited " );
     }
 
 }
