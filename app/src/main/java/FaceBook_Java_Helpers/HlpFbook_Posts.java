@@ -52,8 +52,8 @@ public class HlpFbook_Posts implements Runnable {
         this._bool_image_per_post = _bool_image_per_post;
         // holds each posts GraphResponse  ( _ response ) and is passed back during callbacks
         _mMultiPost_Response = new ArrayList<>();
-        if(_instantRun == true){
-          this.run();
+        if (_instantRun == true) {
+            this.run();
         }
     }
 
@@ -89,28 +89,27 @@ public class HlpFbook_Posts implements Runnable {
 
     // master wrapper for posting " multiple " images
     private void PostMultiplePicys (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
-        int cnt;
+        int mCnt;
         Log.d( TAG, " PostMultiplePicys Invoked" );
         SaleItemMakeup mSsaleItemMakeup;
         Bitmap mBitmap;
         String mItemtxtHeader;
-        mGraphFaceBookPartPost_Id = new ArrayList<>();
-        cnt = _items_2_Post.size();
-        if (cnt > 0) {
-            for (int mIndex = 0; mIndex != cnt; mIndex++) {
+        mCnt = _items_2_Post.size();
+        if (mCnt > 0) {
+            for (int mIndex = 0; mIndex != mCnt; mIndex++) {
                 // get SaleItemMakeup at mIndex
                 mSsaleItemMakeup = _items_2_Post.get( mIndex );
                 // get components parts
                 mBitmap = mSsaleItemMakeup.get_Bitmap();
                 mItemtxtHeader = mSsaleItemMakeup.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
-                Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + cnt );
-                postOPbj_2_Grp( _acActivity, _destination_id, mItemtxtHeader, mBitmap );
+                Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + mCnt );
+                postOPbj_2_Grp( mIndex, _acActivity, _destination_id, mItemtxtHeader, mBitmap );
             }
         }
     }
 
-    private void postOPbj_2_Grp (Activity _acActivity, final String _destination_id, String _postMessage, Bitmap _imgObj) {
+    private void postOPbj_2_Grp (int _mCnt, Activity _acActivity, final String _destination_id, String _postMessage, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
@@ -131,10 +130,8 @@ public class HlpFbook_Posts implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         //     params.putString( "message", _postMessage );
-        params.putString( "message", "--- Diana's Many Sales Items ---" );
+        params.putString( "message", "Item Cnt -> " + _mCnt );
         params.putString( "published", _bool_image_per_post ? "false" : "true" );
         new GraphRequest(
                 currentAccessToken,
