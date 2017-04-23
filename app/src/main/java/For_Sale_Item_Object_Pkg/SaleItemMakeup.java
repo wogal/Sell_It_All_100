@@ -8,7 +8,13 @@ import com.facebook.GraphResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
-// class ( group ) to hold each item in for sale item
+/* Class " SaleItemMakeup " to hold EACH  item For sale Master holding object is
+*
+*
+* */
+
+
+
 public class SaleItemMakeup implements Serializable {
 
 

@@ -384,8 +384,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         int mCnt;
         For_Sale_Item_Object mfor_sale_item_object;
         mfor_sale_item_object = For_Sale_Item_Object.RecallItemObj();
-
-
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
         mProgressBar_Post_Progress.setProgress( 0 );
@@ -393,15 +391,18 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
 
         boolean bool_image_per_post;
+        boolean InstantRun;
+
+        InstantRun = true;
 
         bool_image_per_post = mChkBoxiTemPerPost.isChecked();
 
-        mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
+        mHlpFbook_posts = new HlpFbook_Posts(InstantRun,mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
         mHlpFbook_posts.setEventListener( this );
         mHlpFbook_posts.setEventListener_Final_Post( this );
 
 
-        mHlpFbook_posts.run();
+   //     mHlpFbook_posts.run();
         mTextView.setText( "" );
         if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
             mTextView.setText( "ALL DONE cnr -> " + mHlpFbook_posts.get_mMultiPost_Response().size() );

@@ -118,12 +118,13 @@
             android:textStyle="bold"/>
 
          <CheckBox
-            android:text=" One Sales Item Per Post"
+            android:text="Combine All Items To Make One Post - "
             android:id="@+id/chkBx_sepPosts_v10"
             android:textSize="30dp"
             android:textStyle="italic"
             android:padding="5dp"
             android:checked="false"
+            android:background="@drawable/chk_box_100_antotation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

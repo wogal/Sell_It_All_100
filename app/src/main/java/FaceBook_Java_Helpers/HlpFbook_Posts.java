@@ -10,8 +10,6 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 
-import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
@@ -22,15 +20,10 @@ import For_Sale_Item_Object_Pkg.SaleItemMakeup;
  */
 
 public class HlpFbook_Posts implements Runnable {
+
+
     public static final String TAG = "HlpFbook_Posts";
-    private static String mStr_static = "";
     public ArrayList<GraphResponse> mGraphFaceBookPartPost_Id;
-    public int tst = 0;
-    private String mStr;
-    private JSONObject Json_objQ;
-    //  private String mStr = "";
-
-
     // call back event for final post on multi post actions
     private Graph_OnfinalPost_CallBack_Interface mGraph_onfinalPost_callBack_Listerner;
     // call back event for custom posts  ( we supply most of the stuff and data )
@@ -44,13 +37,24 @@ public class HlpFbook_Posts implements Runnable {
     private String _MainpostMessage;
     private boolean _bool_image_per_post;
 
-    public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
+
+    // main entry point and auto invoke/run ( if instantRun == true )
+    public HlpFbook_Posts (boolean _instantRun, ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
+        // List of for sale items For_Sale_Item_Object -> < SaleItemMakeup >
         this._items_2_Post = _items_2_Post;
+        // handel / pointer to parent
         this._acActivity = _acActivity;
+        // FB group / page to post to
         this._destination_id = _destination_id;
+        // text to be asserted with this post ( not posted )
         this._MainpostMessage = _MainpostMessage;
+        // if true will post each iteration of _items_2_Post separably , else one post will share all objects
         this._bool_image_per_post = _bool_image_per_post;
+        // holds each posts GraphResponse  ( _ response ) and is passed back during callbacks
         _mMultiPost_Response = new ArrayList<>();
+        if(_instantRun == true){
+          this.run();
+        }
     }
 
 
@@ -76,9 +80,7 @@ public class HlpFbook_Posts implements Runnable {
         PostMultiplePicys( _items_2_Post, _acActivity, _destination_id, _MainpostMessage );
         if (false) {
             try {
-                Thread.sleep( 1000 );
-                if (_mMultiPost_Response.size() == 3)
-                    return;
+                Thread.sleep( 100 );
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -90,10 +92,8 @@ public class HlpFbook_Posts implements Runnable {
         int cnt;
         Log.d( TAG, " PostMultiplePicys Invoked" );
         SaleItemMakeup mSsaleItemMakeup;
-        cnt = _items_2_Post.size();
         Bitmap mBitmap;
         String mItemtxtHeader;
-        int PostCount;
         mGraphFaceBookPartPost_Id = new ArrayList<>();
         cnt = _items_2_Post.size();
         if (cnt > 0) {
@@ -154,7 +154,6 @@ public class HlpFbook_Posts implements Runnable {
                 }
         ).executeAsync();
         Log.d( TAG, " postOPbj_2_Grp Exited  " );
-        mStr += "";
     }
 
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
