@@ -24,12 +24,18 @@ public class HlpFbook_Posts implements Runnable {
 
     public static final String TAG = "HlpFbook_Posts";
     public ArrayList<GraphResponse> mGraphFaceBookPartPost_Id;
+
+
+
     // call back event for final post on multi post actions
     private Graph_OnfinalPost_CallBack_Interface mGraph_onfinalPost_callBack_Listerner;
     // call back event for custom posts  ( we supply most of the stuff and data )
     private Graph_Custom_Post_CallBack_Interface mGraph_custom_post_callBack_Listner;
     // call back event on each iteration of a multi pos
     private Graph_OnCompleted_CallBack_Interface mGraph_onCompleted_callBack_Listerner;
+
+
+
     private ArrayList<GraphResponse> _mMultiPost_Response;
     private ArrayList<SaleItemMakeup> _items_2_Post;
     private Activity _acActivity;
@@ -155,6 +161,8 @@ public class HlpFbook_Posts implements Runnable {
 
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
         mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( _destination_id, _response, _mMultiPost_Response, _items_2_Post );
+
+
         // final post to auth previous multi posts ,,
         String mstr_ = _bool_image_per_post ? "true" : "false";
         Log.d( TAG, " CallBack DoFinal_PublishPost Invoked " + " Img Per Post = " + mstr_ );

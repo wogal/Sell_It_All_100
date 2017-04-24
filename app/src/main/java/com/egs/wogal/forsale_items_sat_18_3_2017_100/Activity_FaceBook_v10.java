@@ -397,12 +397,15 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
         bool_image_per_post = mChkBoxiTemPerPost.isChecked();
 
-        mHlpFbook_posts = new HlpFbook_Posts(InstantRun,mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
-        mHlpFbook_posts.setEventListener( this );
+        mHlpFbook_posts = new HlpFbook_Posts( InstantRun, mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
+
+
+        mHlpFbook_posts.setEventListener(this);
         mHlpFbook_posts.setEventListener_Final_Post( this );
+     //   mHlpFbook_posts.setEventListener_custom_Post( this);
 
 
-   //     mHlpFbook_posts.run();
+        //     mHlpFbook_posts.run();
         mTextView.setText( "" );
         if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
             mTextView.setText( "ALL DONE cnr -> " + mHlpFbook_posts.get_mMultiPost_Response().size() );
@@ -420,7 +423,6 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mHandler_Text.sendMessage( message );
         return 0;
     }
-
 
     @Override
     public void onClick (View v) {

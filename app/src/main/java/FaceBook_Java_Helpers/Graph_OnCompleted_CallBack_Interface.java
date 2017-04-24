@@ -11,7 +11,6 @@ import For_Sale_Item_Object_Pkg.SaleItemMakeup;
  */
 
 public interface Graph_OnCompleted_CallBack_Interface {
-    // call back  from post function
     int CallBackFunction_MultiPost (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post);
 
 }
