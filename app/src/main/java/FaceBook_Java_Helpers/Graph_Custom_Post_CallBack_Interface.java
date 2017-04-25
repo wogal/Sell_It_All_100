@@ -11,5 +11,5 @@ import For_Sale_Item_Object_Pkg.SaleItemMakeup;
  */
 
 public interface Graph_Custom_Post_CallBack_Interface {
-    int CallBack_On_Custom_Post (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post);
+    int CallBack_On_Custom_Post (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post);
 }

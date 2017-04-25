@@ -40,13 +40,14 @@ import com.facebook.share.widget.ShareDialog;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import FaceBook_Java_Helpers.Graph_OnCompleted_CallBack_Interface;
+import FaceBook_Java_Helpers.Graph_Custom_Post_CallBack_Interface;
+import FaceBook_Java_Helpers.Graph_OnCallBackFunction_EachPost_Interface;
 import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 
-public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCompleted_CallBack_Interface {
+public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCallBackFunction_EachPost_Interface, Graph_Custom_Post_CallBack_Interface {
 
     public static final String TAG = "faceBk v10";
     // START
@@ -90,6 +91,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private Button mBut_FB_3;
     private CheckBox mChkBoxiTemPerPost;
 
+    private int mPostProgressIndex;
+
 
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
@@ -131,16 +134,22 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage (Message msg) {
-            int a;
-            a = msg.arg1;
-            mProgressBar_Post_Progress.setProgress( a );
+
         }
     };
 
-    private Handler getmHandler_ProgressBar = new Handler() {
+    private Handler CrossThreadHandler_ShowPostProgress = new Handler() {
         @Override
         public void handleMessage (Message msg) {
+            int mCnt;
+            String mStr;
+            mCnt = msg.arg1;
+            mStr = (String) msg.obj;
 
+            mTextView.setText( mStr );
+            mProgressBar_Post_Progress.setProgress( mCnt );
+            mTextView.invalidate();
+            mProgressBar_Post_Progress.invalidate();
         }
     };
 
@@ -254,12 +263,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 mTextView.setText( mStr );
             }
         };
-
         mChkBoxiTemPerPost = (CheckBox) findViewById( R.id.chkBx_sepPosts_v10 );
-
-
-        mThread = new Thread( new Mythread() );
-        mThread.start();
     }
 
 
@@ -386,43 +390,21 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mfor_sale_item_object = For_Sale_Item_Object.RecallItemObj();
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
-        mProgressBar_Post_Progress.setProgress( 0 );
-        mProgressBar_Post_Progress.setMax( mCnt );
-
-
         boolean bool_image_per_post;
-        boolean InstantRun;
-
-        InstantRun = true;
 
         bool_image_per_post = mChkBoxiTemPerPost.isChecked();
 
-        mHlpFbook_posts = new HlpFbook_Posts( InstantRun, mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
-
-
-        mHlpFbook_posts.setEventListener(this);
+        mHlpFbook_posts = new HlpFbook_Posts( mfor_sale_item_object.get_ItemGroupArray(), this, WogalstestGroup, mfor_sale_item_object.get_FS_SaleItemName(), bool_image_per_post );
+        mHlpFbook_posts.setEventListener( this );
         mHlpFbook_posts.setEventListener_Final_Post( this );
-     //   mHlpFbook_posts.setEventListener_custom_Post( this);
+        mHlpFbook_posts.setEventListener_custom_Post( this );
+        mPostProgressIndex = 0;
+        mTextView.setText( "Posting Invoked" );
+        mHlpFbook_posts.run();
+        mProgressBar_Post_Progress.setMax( mCnt + 10 );
 
-
-        //     mHlpFbook_posts.run();
-        mTextView.setText( "" );
-        if (mHlpFbook_posts.get_mMultiPost_Response().size() == mfor_sale_item_object.get_ItemGroupArray().size()) {
-            mTextView.setText( "ALL DONE cnr -> " + mHlpFbook_posts.get_mMultiPost_Response().size() );
-        }
     }
 
-
-    @Override
-    public int CallBackFunction_MultiPost (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
-        Message message = Message.obtain();
-
-        mStr += "";
-        message.obj = "iD:" + mStr;
-
-        mHandler_Text.sendMessage( message );
-        return 0;
-    }
 
     @Override
     public void onClick (View v) {
@@ -446,12 +428,30 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public int CallBack_OnFinal_On_Mulit_Image_Post (String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
-        // finsh and auth multi posts
-
+    public int CallBack_OnFinal_On_Mulit_Image_Post (int _post_Index, String _dest_id, GraphResponse _response, ArrayList<GraphResponse> _Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+        Message message = Message.obtain();
+        String mStr = "";
+        mPostProgressIndex++;
+        mStr = "Post Index -> " + mPostProgressIndex;
+        message.obj = mStr;
+        message.arg1 = mPostProgressIndex;
+        CrossThreadHandler_ShowPostProgress.sendMessageAtFrontOfQueue( message );
         return 0;
     }
 
+    @Override
+    public int CallBack_On_Custom_Post (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+        return 0;
+    }
+
+    @Override
+    public int CallBackFunction_EachPost (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+        Message message = Message.obtain();
+        message.arg1 = _post_Index;
+
+        CrossThreadHandler_ShowPostProgress.sendMessage( message );
+        return 0;
+    }
 
     private enum PendingAction {
         NONE,
@@ -459,26 +459,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         POST_STATUS_UPDATE
     }
 
-    class Mythread implements Runnable {
-        @Override
-        public void run () {
-            int mBarValue = 5;
 
-            int max = mProgressBar_Post_Progress.getMax();
-
-            for (mBarValue = 0; mBarValue != max - 1; mBarValue++) {
-                Message message = Message.obtain();
-                message.arg1 = mBarValue;
-                mHandler.sendMessage( message );
-                try {
-                    Thread.sleep( 5 );
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-    //    END
+//    END
 }
 
 
