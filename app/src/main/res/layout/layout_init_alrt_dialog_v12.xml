@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/sound_recorder_v3"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp"
+              android:background="@drawable/thin_l_blue_boarder"
+              android:color="#b69f"
+              android:orientation="vertical"
+              android:padding="20dp">
+
+    <TextView
+    android:id="@+id/text_view_init_header_v12"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="25dp"
+    android:background="@drawable/obect_header_txt_v1_"
+    android:gravity="center"
+    android:padding="15dp"
+    android:text="-------"
+    android:textColor="#F4511E"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/text_view_init_actions_v12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/thin_boarder_100"
+        android:color="#bbff6e66"
+
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="-------"
+        android:textColor="#1e82f4"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/post_init_progress_bar_v12"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_margin="@dimen/margin_V8"
+        android:indeterminate="false"
+        android:max="1000"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbar"/>
+
+
+    <Button
+        android:id="@+id/But_item_name_done_v12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Done"
+        android:textColor="#FFC107"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+</LinearLayout>
+
+

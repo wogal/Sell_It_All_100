@@ -7,11 +7,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.view.View;
+import android.widget.Button;
 
-import Psot_Mangr_v11.AdapterDrops;
+import JavaClasses_pkg_100.Storage_Helper_Class;
+import Post_Manager_v11.AdapterDrops;
 
-public class Activity_Mngr_Posts_v11 extends AppCompatActivity {
+public class Activity_Mngr_Posts_v11 extends AppCompatActivity implements View.OnClickListener {
+
     private RecyclerView mRecyclerView;
+    private Button mBut_test_1;
+    private Button mBut_test_2;
 
 
     @Override
@@ -25,10 +31,29 @@ public class Activity_Mngr_Posts_v11 extends AppCompatActivity {
         mRecyclerView.setAdapter( new AdapterDrops( this ) );
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView( mRecyclerView );
-        R.fil
+        // standard init stuff
+        mBut_test_1 = (Button) findViewById( R.id.But_Invoke_test_1_v11 );
+        mBut_test_1.setOnClickListener( this );
+        mBut_test_2 = (Button) findViewById( R.id.But_Invoke_test_2_v11 );
+        mBut_test_2.setOnClickListener( this );
 
-      //
     }
 
 
+    @Override
+    public void onClick (View v) {
+        switch (v.getId()) {
+            case R.id.But_Invoke_test_1_v11: {
+                invoke_test_1();
+                break;
+            }
+            case R.id.But_Invoke_test_2_v11: {
+                break;
+            }
+        }
+    }
+
+    private void invoke_test_1 () {
+        Storage_Helper_Class.MakeOrCheck_If_Folder_Exists("dogs_with_logs cats_with_dogs");
+    }
 }

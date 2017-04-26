@@ -705,7 +705,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         if (_itemPosistion > 0) {
             // get pic of selected item
             Bitmap bm;
-          SaleItemMakeup iTem =  GetSlectedItemGroup(_itemPosistion);
+            SaleItemMakeup iTem = GetSlectedItemGroup( _itemPosistion );
             bm = iTem.get_Bitmap();
             mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
             mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );

@@ -7,13 +7,13 @@
         android:id="@+id/earle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:padding="10dp">
 
 
         <TextView
@@ -32,11 +32,11 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/Rec_Posts_v11"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:clipChildren="false"
             android:keepScreenOn="false"
-            android:overScrollMode="never"
-            android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:overScrollMode="never">
         </android.support.v7.widget.RecyclerView>
 
 
@@ -45,8 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:padding="5dp"
             android:text="-- -- -- -- -- -- -- -- -- "
@@ -55,24 +55,24 @@
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/But_Invoke_Camera_v11"
+            android:id="@+id/But_Invoke_test_1_v11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/layout_v4_padding"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Test Post"
+            android:text="Test 1"
             android:textColor="#FFC107"
             android:textSize="25dp"
             android:textStyle="bold"/>
 
         <Button
-            android:id="@+id/But_Done_v11"
+            android:id="@+id/But_Invoke_test_2_v11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_margin="@dimen/layout_v4_padding"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Done"
+            android:text="Test 2"
             android:textColor="#ff07b9"
             android:textSize="25dp"
             android:textStyle="bold"/>

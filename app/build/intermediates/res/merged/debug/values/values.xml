@@ -702,6 +702,7 @@
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="BaseSystemFolder">System_Base_Folder</string>
     <string name="F_S_O_FileFolder">FSO_Folder"</string>
     <string name="F_S_O_FileName">FSO_List.fso</string>
     <string name="Qcamera_text">Camera</string>
@@ -781,6 +782,7 @@
     <string name="success">Success</string>
     <string name="successfully_posted_post">Post ID: %1$s</string>
     <string name="test_image_path">/storage/emulated/0/Pictures/Wogals_IMAGE_.jpg</string>
+    <string name="test_string_100">OK</string>
     <string name="wogal">is earle</string>
     <string name="wogal_101">\@drawable/for_sale_logo_640_480</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
