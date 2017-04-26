@@ -34,11 +34,20 @@
             android:textSize="30dp"
             android:textStyle="bold"/>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/Rec_Posts_v11"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+
+
         <TextView
             android:id="@+id/txt_test_v11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/obect_header_txt_v1_"
             android:gravity="center"
