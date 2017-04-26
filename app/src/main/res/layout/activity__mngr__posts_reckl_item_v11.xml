@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              android:layout_height="75dp"
               android:orientation="horizontal"
-              android:layout_height="match_parent">
+              android:background="@drawable/bg_btn_login_background"
+              android:id="@+id/ItermView_v11"
+              android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/iMageView_v11"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:layout_gravity="center_vertical"
+        android:visibility="visible"
+        android:src="@drawable/for_sale_logo_640_480"/>
+
+    <TextView
+        android:id="@+id/textV11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+
+        android:padding="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="0dp"
+        android:lines="2"
+        android:text="Post - Bath Room Items ----------------"
+        android:textSize="20dp"/>
+
 
 </LinearLayout>

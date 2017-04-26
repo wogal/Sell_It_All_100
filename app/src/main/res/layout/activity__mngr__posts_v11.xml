@@ -25,10 +25,9 @@
             android:background="@drawable/obect_header_txt_v1_"
             android:gravity="center"
             android:padding="@dimen/layout_v4_padding"
-            android:text="Manage Posts (v11)"
+            android:text="Manage Post's (v11)"
             android:textColor="#F4511E"
             android:textSize="30dp"
-            android:layout_weight="1"
             android:textStyle="bold"/>
 
         <android.support.v7.widget.RecyclerView
@@ -37,8 +36,7 @@
             android:keepScreenOn="false"
             android:overScrollMode="never"
             android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="match_parent">
+            android:layout_height="250dp">
         </android.support.v7.widget.RecyclerView>
 
 
@@ -54,7 +52,6 @@
             android:text="-- -- -- -- -- -- -- -- -- "
             android:textColor="#f41edf"
             android:textSize="30dp"
-            android:layout_weight="1"
             android:textStyle="bold"/>
 
         <Button
@@ -66,7 +63,6 @@
             android:text="Test Post"
             android:textColor="#FFC107"
             android:textSize="25dp"
-            android:layout_weight="1"
             android:textStyle="bold"/>
 
         <Button
@@ -79,7 +75,6 @@
             android:text="Done"
             android:textColor="#ff07b9"
             android:textSize="25dp"
-            android:layout_weight="1"
             android:textStyle="bold"/>
 
     </LinearLayout>

@@ -21,7 +21,7 @@ public class AdapterDrops extends RecyclerView.Adapter<AdapterDrops.DropHolder> 
 
     @Override
     public DropHolder onCreateViewHolder (ViewGroup parent, int viewType) {
-        View view = mInflater.inflate( R.layout.layout_rec_item_v7, parent, false );
+        View view = mInflater.inflate( R.layout.activity__mngr__posts_reckl_item_v11, parent, false );
         DropHolder holder = new DropHolder( view );
         return holder;
     }
@@ -33,7 +33,7 @@ public class AdapterDrops extends RecyclerView.Adapter<AdapterDrops.DropHolder> 
 
     @Override
     public int getItemCount () {
-        return 10;
+        return 1;
     }
 
     public static class DropHolder extends RecyclerView.ViewHolder {

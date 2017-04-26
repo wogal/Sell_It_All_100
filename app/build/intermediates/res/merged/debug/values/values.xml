@@ -98,6 +98,7 @@
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <color name="AcolorPrimary">#3F51B5</color>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -199,6 +200,7 @@
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="textColorPrimary">#fff</color>
+    <color name="wogals_colour">#646161</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode">
             
             <enum name="normal" value="0"/>
@@ -772,6 +774,8 @@
     <string name="messenger_send_button_text">Send</string>
     <string name="ok">OK</string>
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="post_file_ext">pst</string>
+    <string name="post_file_folder"/>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="success">Success</string>
