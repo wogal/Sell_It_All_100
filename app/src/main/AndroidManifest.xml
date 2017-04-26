@@ -24,17 +24,23 @@
         </activity>
 
         <dependency>
-            <groupId>com.facebook.android</groupId>
-            <artifactId>facebook-android-sdk</artifactId>
-            <version>PUT_LATEST_VERSION_HERE</version>
-        </dependency>
+            <groupId>
+                com.facebook.android
+            </groupId>
 
+            <artifactId>
+                facebook-android-sdk
+            </artifactId>
+
+            <version>
+                PUT_LATEST_VERSION_HERE
+            </version>
+        </dependency>
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider1867682216852926"
             android:exported="true"/>
-
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -57,6 +63,8 @@
         <activity android:name=".Activity_Camrea_100">
         </activity>
         <activity android:name=".Activity_FaceBook_v10">
+        </activity>
+        <activity android:name=".Activity_Mngr_Posts_v11">
         </activity>
     </application>
 

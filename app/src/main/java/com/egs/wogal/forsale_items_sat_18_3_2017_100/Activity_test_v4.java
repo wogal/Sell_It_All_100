@@ -16,6 +16,8 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
     private Button mBut_Done;
     private Button mbut_Recyclerview;
     private Button mBut_FacebookIntergration;
+    private Button mBut_ManagePosts;
+
 
 
     @Override
@@ -39,6 +41,10 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
 
         mBut_FacebookIntergration = (Button) findViewById( R.id.But_facebookIntergration_v4 );
         mBut_FacebookIntergration.setOnClickListener( this );
+
+        mBut_ManagePosts = (Button) findViewById( R.id.But_Post_mngr_v4 );
+        mBut_ManagePosts.setOnClickListener( this );
+
 
 
     }
@@ -64,6 +70,11 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
             case R.id.But_Invoke_Camera_v4: {
                 // test camera
                 Intent intent = new Intent( this, Activity_Camera_v5.class );
+                startActivity( intent );
+                break;
+            }
+            case R.id.But_Post_mngr_v4:{
+                Intent intent = new Intent( this, Activity_Mngr_Posts_v11.class );
                 startActivity( intent );
                 break;
             }

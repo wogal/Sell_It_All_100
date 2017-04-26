@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/earle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_test_v4">
+
+        <TextView
+            android:id="@+id/txt_header_v11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="@dimen/layout_v4_padding"
+            android:text="Manage Posts (v11)"
+            android:textColor="#F4511E"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txt_test_v11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="@dimen/layout_v4_padding"
+            android:text="----"
+            android:textColor="#f41edf"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/But_Invoke_Camera_v11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_v4_padding"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Test Post"
+            android:textColor="#FFC107"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/But_Done_v11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/layout_v4_padding"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Done"
+            android:textColor="#ff07b9"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</RelativeLayout>

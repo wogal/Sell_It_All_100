@@ -400,8 +400,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mHlpFbook_posts.setEventListener_custom_Post( this );
         mPostProgressIndex = 0;
         mTextView.setText( "Posting Invoked" );
+        mProgressBar_Post_Progress.setMax( mCnt);
         mHlpFbook_posts.run();
-        mProgressBar_Post_Progress.setMax( mCnt + 10 );
+
 
     }
 
@@ -430,11 +431,11 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     @Override
     public int CallBack_OnFinal_On_Mulit_Image_Post (int _post_Index, String _dest_id, GraphResponse _response, ArrayList<GraphResponse> _Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         Message message = Message.obtain();
-        String mStr = "";
+        String mStr;
         mPostProgressIndex++;
-        mStr = "Post Index -> " + mPostProgressIndex;
+        mStr = " -- Post Complete --";
         message.obj = mStr;
-        message.arg1 = mPostProgressIndex;
+        message.arg1 = 0;
         CrossThreadHandler_ShowPostProgress.sendMessageAtFrontOfQueue( message );
         return 0;
     }
@@ -447,9 +448,12 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     @Override
     public int CallBackFunction_EachPost (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
         Message message = Message.obtain();
-        message.arg1 = _post_Index;
-
-        CrossThreadHandler_ShowPostProgress.sendMessage( message );
+        String mStr = "";
+        mPostProgressIndex++;
+        mStr = "Post Index -> " + mPostProgressIndex;
+        message.obj = mStr;
+        message.arg1 = mPostProgressIndex;
+        CrossThreadHandler_ShowPostProgress.sendMessageAtFrontOfQueue( message );
         return 0;
     }
 

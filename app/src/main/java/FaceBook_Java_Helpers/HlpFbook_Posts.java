@@ -97,7 +97,7 @@ public class HlpFbook_Posts implements Runnable {
         String mItemtxtHeader;
         mCnt = _items_2_Post.size();
         wogal_test = 0;
-    //    itemUpdateIndex = 0;
+        //    itemUpdateIndex = 0;
         if (mCnt > 0) {
             for (int mIndex = 0; mIndex != mCnt; mIndex++) {
                 // get SaleItemMakeup at mIndex
@@ -145,11 +145,14 @@ public class HlpFbook_Posts implements Runnable {
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {
                         Log.d( TAG, " CallBackFunction_EachPost Invoked " );
+                        // add _response to Array List of GraphResponse
                         _mMultiPost_Response.add( _response );
-
-                        final int i = mGraph_onCompleted_callBack_Listerner.CallBackFunction_EachPost(0, _destination_id, _response, _mMultiPost_Response, _items_2_Post );
+                        // invoke call back to Parent ( or any interested parti's )
+                        mGraph_onCompleted_callBack_Listerner.CallBackFunction_EachPost( 0, _destination_id, _response, _mMultiPost_Response, _items_2_Post );
+                        // check if its the last post in list if so invoke final post
                         if (_mMultiPost_Response.size() == _items_2_Post.size()) {
                             // if all done then do final publish post
+                            mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( 0, _destination_id, _response, _mMultiPost_Response, _items_2_Post );
                             DoFinal_PublishPost( _destination_id, _response );
                         }
                     }
@@ -159,9 +162,6 @@ public class HlpFbook_Posts implements Runnable {
     }
 
     private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
-        mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( 0, _destination_id, _response, _mMultiPost_Response, _items_2_Post );
-
-
         // final post to auth previous multi posts ,,
         String mstr_ = _bool_image_per_post ? "true" : "false";
         Log.d( TAG, " CallBack DoFinal_PublishPost Invoked " + " Img Per Post = " + mstr_ );

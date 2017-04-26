@@ -5,4 +5,5 @@
     <dimen name="butt_margin_101">5dp</dimen>
     <dimen name="textViewPadding_100">10dp</dimen>
     <dimen name="text_header_padding_8">20dp</dimen>
+    <dimen name="layout_v4_padding">10dp</dimen>
 </resources>
