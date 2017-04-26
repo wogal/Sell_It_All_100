@@ -1,4 +1,5 @@
 <resources>
+    <string name="test_string_100">OK</string>
     <string name="app_name">Sell Things</string>
     <string name="login_text">Login</string>
     <string name="camera_text">Camera</string>
@@ -15,4 +16,5 @@
     <string name="cancelled">Cancelled</string>
     <string name="hello_user">Hello %1$s!</string>
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+
 </resources>

@@ -25,6 +25,8 @@ public class Activity_Mngr_Posts_v11 extends AppCompatActivity {
         mRecyclerView.setAdapter( new AdapterDrops( this ) );
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView( mRecyclerView );
+        R.fil
+
       //
     }
 
