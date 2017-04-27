@@ -7,12 +7,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:paddingTop="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false">
 
         <TextView
             android:id="@+id/txt_header_v1"
@@ -25,6 +24,7 @@
             android:padding="15dp"
             android:text="Let's Sell Stuff (v1)"
             android:textColor="#F4511E"
+            android:textAllCaps="false"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -40,40 +40,22 @@
             android:text="-------"
             android:textColor="#F4511E"
             android:textSize="30dp"
+            android:textAllCaps="false"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/But_item_name_v1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@drawable/bg_btn_login_background"
-            android:text="Sales Item Name"
-            android:textColor="#FFC107"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+
 
         <Button
-            android:id="@+id/But_item_voice_v1"
+            android:id="@+id/But_make_NEW_Post_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Add Voice Memo"
-            android:textColor="#FFC107"
+            android:text="Make NEW Post"
+            android:textColor="#ff7b07"
             android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/But_make_item_v1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/bg_btn_login_background"
-            android:text="Make Sales Item"
-            android:textColor="#FFC107"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textAllCaps="false"
+            android:textStyle="italic" />
         <Button
             android:id="@+id/But_test_activity_v1"
             android:layout_width="match_parent"
@@ -82,6 +64,7 @@
             android:background="@drawable/bg_btn_login_background"
             android:text="Test Activity"
             android:textColor="#ff07f7"
+            android:textAllCaps="false"
             android:textSize="25dp"
             android:textStyle="bold" />
 
