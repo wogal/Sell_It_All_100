@@ -18,6 +18,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mBut_Test_v4;
     private TextView mTxtHeaderText_v1;
     private TextView mTxtItemName_v1;
+    private TextView mTxtView_txt_in_v14;
 
 
     private Button mButMake_NEW_POST;
@@ -130,6 +131,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     // stops AlertDialog from dismissing on touch out side the AlertDialog
                     mBuilderItemName.setCancelable( false );
                     // set key listeners & initialize Dialog
+                    mTxtView_txt_in_v14 = (TextView) mViewItemName.findViewById( R.id.text_view_txt_input_header_v14 );
+                    mTxtView_txt_in_v14.setText( "New Post Name " );
+
                     mBuilderItemName.setView( mViewItemName );
                     Dialog_ItemName = mBuilderItemName.create();
                     Dialog_ItemName.show();

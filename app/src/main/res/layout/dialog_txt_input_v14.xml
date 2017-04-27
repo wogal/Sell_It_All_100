@@ -11,6 +11,23 @@
               android:orientation="vertical"
               android:padding="20dp">
 
+
+    <TextView
+        android:id="@+id/text_view_txt_input_header_v14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/thin_l_blue_boarder"
+
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="-------"
+        android:textColor="#F4511E"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/inputLayout_item_name_v14"
         android:layout_width="match_parent"
@@ -27,7 +44,7 @@
             android:maxLines="1"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:visibility="visible" />
+            android:visibility="visible"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -43,7 +60,7 @@
         android:text="-------"
         android:textColor="#F4511E"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/But_item_name_done_v14"
@@ -54,7 +71,7 @@
         android:text="Done"
         android:textColor="#ff079c"
         android:textSize="25sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"/>
 </LinearLayout>
 
 
