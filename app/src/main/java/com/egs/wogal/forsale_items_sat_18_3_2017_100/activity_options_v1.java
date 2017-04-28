@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Dialog_Input_v14.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap.Dialog_Result;
 import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
 

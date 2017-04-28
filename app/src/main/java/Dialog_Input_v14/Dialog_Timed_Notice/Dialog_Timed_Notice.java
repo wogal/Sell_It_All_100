@@ -5,4 +5,6 @@ package Dialog_Input_v14.Dialog_Timed_Notice;
  */
 
 public class Dialog_Timed_Notice {
+
+
 }

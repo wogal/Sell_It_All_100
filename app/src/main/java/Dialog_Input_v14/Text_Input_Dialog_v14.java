@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.egs.wogal.forsale_items_sat_18_3_2017_100.R;
 
+import Holder_4_Odd_Things_and_Crap.Dialog_Result;
+
 /**
  * Created by wogal on 4/27/2017.
  */
