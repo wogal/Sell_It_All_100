@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.egs.wogal.forsale_items_sat_18_3_2017_100.R;
 
-import Holder_4_Odd_Things_and_Crap.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 
 /**
  * Created by wogal on 4/27/2017.
@@ -72,6 +72,7 @@ public class Text_Input_Dialog_v14 implements View.OnClickListener {
             str = "Empty";
         }
         mText_inp_dia_key_response_Listerner.CallBack_Key_response( _dialog_result, str );
+        mText_Input_Dialog.dismiss();
     }
 
 
