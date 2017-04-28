@@ -1,4 +1,4 @@
-package Dialog_Input_v14.Dialog_Timed_Notice;
+package Dialog_Timed_Notice;
 
 /**
  * Created by wogal on 4/28/2017.
