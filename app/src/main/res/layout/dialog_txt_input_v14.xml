@@ -35,11 +35,11 @@
         android:imeOptions="actionDone">
 
         <EditText
-            android:id="@+id/edit_text_item_name_v14"
+            android:id="@+id/edit_text_input_v14"
             style="@android:style/Widget.DeviceDefault.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="    Sale Item Name - Tap - (v14)"
+            android:hint="    Enter Text - Tap - (v14)"
             android:inputType="text"
             android:maxLines="1"
             android:textSize="25sp"
@@ -47,20 +47,6 @@
             android:visibility="visible"/>
     </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/text_view_sales_item_name_v14"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/thin_l_blue_boarder"
-
-        android:gravity="center"
-        android:padding="15dp"
-        android:text="-------"
-        android:textColor="#F4511E"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/But_item_name_done_v14"
