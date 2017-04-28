@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import Holder_4_Odd_Things_and_Crap.Dialog_Result;
-import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface;
+import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v15;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
 
 
@@ -133,7 +133,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     if (true) {
 
                         Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name" );
-                        mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface() {
+                        mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v15() {
                             @Override
                             public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
                                 Toast.makeText( activity_options_v1.this, "Key - " + _dialog_result + " str - " + _inputText, Toast.LENGTH_LONG ).show();
