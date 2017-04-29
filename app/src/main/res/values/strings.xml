@@ -18,10 +18,39 @@
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
 
 
-    <string name="BaseSystemFolder">System_Base_Folder</string>
+    <!-- Root folder for ALL files used by this App  -->
+    <string name="BaseSystemFolder">System_Base_Folder_100</string>
+    <!-- temp working  folder for any temporary files used by this App  -->
+    <string name="Temporary_SystemFolder">Temp_System_Folder_100</string>
 
 
+    <!--
+    START  of resources for Post's of items
+    -->
+    <!--  sub folder ( from base folder )   -->
+    <string name="post_sub_folder">Posts_100</string>
     <string name="post_file_ext">pst</string>
     <string name="post_file_folder"></string>
 
+
+    <!--
+    END of resources for Post's of items
+    -->
+
+
 </resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

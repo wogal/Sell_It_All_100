@@ -14,6 +14,7 @@ import android.widget.Toast;
 import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v15;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 
 
 public class activity_options_v1 extends AppCompatActivity implements View.OnClickListener {
@@ -23,7 +24,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private TextView mTxtHeaderText_v1;
     private TextView mTxtItemName_v1;
     private TextView mTxtView_txt_in_v14;
-    private Intent intent;
+    private Intent m_Intent;
 
 
     private Button mButMake_NEW_POST;
@@ -102,7 +103,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         setContentView( R.layout.layout_v1 );
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
-        intent = new Intent( this, Activity_MakeSalesItem_v8.class );
+        m_Intent = new Intent( this, Activity_MakeSalesItem_v8.class );
 
         mTxtHeaderText_v1 = (TextView) findViewById( R.id.txt_header_v1 );
         mTxtHeaderText_v1.setOnClickListener( this );
@@ -131,44 +132,26 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         if (1 == 1) {
             switch (v.getId()) {
                 case R.id.But_make_NEW_Post_v1: {
-
-                    if (true) {
-
-                        Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name" );
-                        mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v15() {
-                            @Override
-                            public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                                MakeNew_Post_File( _inputText );
-                                Toast.makeText( activity_options_v1.this, "Key - " + _dialog_result + " str - " + _inputText, Toast.LENGTH_LONG ).show();
-                                startActivity( intent );
-                            }
-                        } );
-                        mText_input_dialog.show();
-
-
-                    } else {
-                        mBuilderItemName = new AlertDialog.Builder( activity_options_v1.this );
-                        mViewItemName = getLayoutInflater().inflate( R.layout.dialog_txt_input_v14, null );
-                        // mTextEntersTextField_v2 = (TextView) mViewItemName.findViewById( R.id.text_view_sales_item_name_v14 );
-                        // stops AlertDialog from dismissing on touch out side the AlertDialog
-                        mBuilderItemName.setCancelable( false );
-                        // set key listeners & initialize Dialog
-                        mTxtView_txt_in_v14 = (TextView) mViewItemName.findViewById( R.id.text_view_txt_input_header_v14 );
-                        mTxtView_txt_in_v14.setText( "New Post Name " );
-
-                        mBuilderItemName.setView( mViewItemName );
-                        Dialog_ItemName = mBuilderItemName.create();
-                        Dialog_ItemName.show();
-
-                        Intent intent = new Intent( this, Activity_MakeSalesItem_v8.class );
-                        startActivity( intent );
-                    }
-
-
+                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name" );
+                    mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v15() {
+                        @Override
+                        public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
+                            MakeNew_Post_File( _inputText );
+                            Toast.makeText( activity_options_v1.this, "Key - " + _dialog_result + " str - " + _inputText, Toast.LENGTH_LONG ).show();
+                            TestCode( _inputText );
+                            //     startActivity( m_Intent );
+                        }
+                    } );
+                    mText_input_dialog.show();
                     break;
                 }
             }
         }
+    }
+
+    private void TestCode (String _inputText) {
+        String mStr = "";
+        File_Helper_Items.Check_4_Valid_File_NameValidity( this,_inputText);
     }
 
     private void MakeNew_Post_File (String inputText) {
