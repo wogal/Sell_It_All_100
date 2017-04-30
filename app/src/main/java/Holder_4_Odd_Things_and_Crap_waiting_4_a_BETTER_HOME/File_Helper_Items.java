@@ -20,7 +20,7 @@ public class File_Helper_Items {
     }
 
 
-    private static boolean CheckIfPath_exits (Activity _context, String _pathName, boolean _createIfNot_exist) {
+    private static boolean CheckIfPath_exits (String _pathName, boolean _createIfNot_exist) {
         boolean mPathStatus;
         File mNewfolder;
         mNewfolder = new File( _pathName );
@@ -48,7 +48,7 @@ public class File_Helper_Items {
         mConcaternated_path = new File( mExtStoragePath, mSystemBasePath ).toString();
         mConcaternated_path = new File( mConcaternated_path, mTemporaryFilePath ).toString();
 
-        mResult = CheckIfPath_exits( _context, mConcaternated_path, true );
+        mResult = CheckIfPath_exits( mConcaternated_path, true );
 
         mNewfolder = new File( mConcaternated_path );
         if (!mNewfolder.exists()) {
@@ -67,8 +67,32 @@ public class File_Helper_Items {
         return true;
     }
 
-    public static String GetAbs_Post_path(String _post){
-        return "";
+    public static String GetAbs_Post_path(Activity _context, String _fileName ){
+        String mExtStoragePath;
+        String mPostfolderPath;
+        String mSystemBasePath;
+        String mConcatenated_path;
+        String mNewfolder_and_File;
+        String mPostFile_ext;
+
+        mExtStoragePath = IsExternal_StorageMounted();
+        mSystemBasePath = _context.getString( R.string.BaseSystemFolder );
+        mPostfolderPath = _context.getString( R.string.post_sub_folder );
+        mPostFile_ext = _context.getString( R.string.post_file_ext );
+        // concatenate paths
+        mConcatenated_path = new File( mExtStoragePath, mSystemBasePath ).toString();
+        mConcatenated_path = new File( mConcatenated_path, mPostfolderPath ).toString();
+        // check path exists if not create ( need to rationalize this )
+        CheckIfPath_exits(mConcatenated_path,true);
+        mNewfolder_and_File = mConcatenated_path;
+        if(_fileName.isEmpty() == false && _fileName.length() > 4){
+            if(_fileName.contains( "." )){ // contains extension ( i think )
+                mNewfolder_and_File = String.format( "%s/%s", mConcatenated_path, _fileName);
+                return mNewfolder_and_File;
+            }
+            mNewfolder_and_File = String.format( "%s/%s.%s", mConcatenated_path, _fileName, mPostFile_ext );
+        }
+                return mNewfolder_and_File;
     }
 
     public static boolean Check_and_Create_Post_File (Activity _context, String _fileName, boolean _create_if_not_Exits) {
@@ -91,7 +115,7 @@ public class File_Helper_Items {
         mConcatenated_path = new File( mConcatenated_path, mPostfolderPath ).toString();
 
         // check and create path if not exist's
-        mResult = CheckIfPath_exits( _context, mConcatenated_path, true );
+        mResult = CheckIfPath_exits(mConcatenated_path, true );
         // add file and extension to path
         mNewfolder_and_File = String.format( "%s/%s.%s", mConcatenated_path, _fileName, mPostFile_ext );
         // check if file exists
@@ -120,12 +144,6 @@ public class File_Helper_Items {
         }
         return extStoragePath; // not mounter or error
     }
-
-    private String getStringResourceByName (String aString) {
-        return "";
-    }/* String packageName = getPackageName();
-        int resId = getResources().getIdentifier(aString, "string", packageName);
-        return getString(resId);*/
 
 
 }

@@ -146,6 +146,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     break;
                 }
                 case R.id.But_test_activity_v1: {
+                    File_Helper_Items.GetAbs_Post_path( this,"wogal_heck.wog" );
                     m_Intent = new Intent( this, Activity_test_v4.class );
                     startActivity( m_Intent ); // save to move on
                     break;
