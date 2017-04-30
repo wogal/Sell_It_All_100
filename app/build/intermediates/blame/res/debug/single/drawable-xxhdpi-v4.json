@@ -120,6 +120,10 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\drawable-xxhdpi-v4\\messenger_button_send_round_shadow.png"
     },
     {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\thin_boarder_blue_200.xml",
+        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable-xxhdpi\\thin_boarder_blue_200.xml"
+    },
+    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
@@ -202,6 +206,10 @@
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\thick_boarder_red_100.xml",
+        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable-xxhdpi\\thick_boarder_red_100.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",

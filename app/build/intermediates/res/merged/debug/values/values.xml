@@ -777,7 +777,6 @@
     <string name="ok">OK</string>
     <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
     <string name="post_file_ext">pst</string>
-    <string name="post_file_folder"/>
     <string name="post_sub_folder">Posts_100</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -2360,6 +2359,15 @@
         <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
         <item name="passwordToggleDrawable">@drawable/design_ic_visibility</item>
         <item name="passwordToggleTint">@color/design_tint_password_toggle</item>
+    </style>
+    <style name="boarder_100">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/thick_boarder_red_100</item>
+        <item name="android:color">#e60716</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">20dp</item>
     </style>
     <style name="com_facebook_activity_theme" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>

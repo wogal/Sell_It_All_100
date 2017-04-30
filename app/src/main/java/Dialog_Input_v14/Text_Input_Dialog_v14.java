@@ -17,7 +17,7 @@ import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
  */
 
 public class Text_Input_Dialog_v14 implements View.OnClickListener {
-    private Text_Inp_Dia_Key_Response_Interface_v15 mText_inp_dia_key_response_Listerner;
+    private Text_Inp_Dia_Key_Response_Interface_v14 mText_inp_dia_key_response_Listerner;
 
     // Alert mText_Input_Dialog Vars
     private AlertDialog mText_Input_Dialog;
@@ -84,7 +84,7 @@ public class Text_Input_Dialog_v14 implements View.OnClickListener {
     }
 
 
-    public void setEventListener_Call_Back (Text_Inp_Dia_Key_Response_Interface_v15 _eventListener) {
+    public void setEventListener_Call_Back (Text_Inp_Dia_Key_Response_Interface_v14 _eventListener) {
         mText_inp_dia_key_response_Listerner = _eventListener;
     }
 
@@ -96,6 +96,5 @@ public class Text_Input_Dialog_v14 implements View.OnClickListener {
                 break;
             }
         }
-
     }
 }

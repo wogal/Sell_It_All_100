@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
 
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/dialog_txt_input_v14"
+              style="@style/boarder_100">
+
+
+    <TextView
+        android:id="@+id/text_view_header_v15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/thin_l_blue_boarder"
+
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="-------"
+        android:textColor="#F4511E"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/text_view_message_v15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/thin_boarder_blue_200"
+        android:color="#bbff6e66"
+
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="-------"
+        android:textColor="#1e82f4"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/But_item_name_done_v15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="E-X-I-T"
+        android:textColor="#ff079c"
+        android:textSize="25sp"
+        android:textStyle="italic"/>
 </LinearLayout>
+
+

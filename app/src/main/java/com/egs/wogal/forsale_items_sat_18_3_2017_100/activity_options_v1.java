@@ -9,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v15;
+import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
+import Dialog_Timed_Notice.Dialog_Timed_Notice_v15;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 
@@ -133,30 +133,38 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
             switch (v.getId()) {
                 case R.id.But_make_NEW_Post_v1: {
                     Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name" );
-                    mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v15() {
+                    mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                         @Override
                         public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                            MakeNew_Post_File( _inputText );
-                            Toast.makeText( activity_options_v1.this, "Key - " + _dialog_result + " str - " + _inputText, Toast.LENGTH_LONG ).show();
-                            TestCode( _inputText );
-                            //     startActivity( m_Intent );
+                            if (Make_New_Post_File( _inputText ))
+                                startActivity( m_Intent ); // save to move on
                         }
                     } );
                     mText_input_dialog.show();
+                    break;
+                }
+                case R.id.But_test_activity_v1: {
+                    Dialog_Timed_Notice_v15 mDialog_timed_notice_v15 = new Dialog_Timed_Notice_v15( this, "** Wogal **", "Test" ).show();
                     break;
                 }
             }
         }
     }
 
-    private void TestCode (String _inputText) {
+    private boolean Make_New_Post_File (String _inputText) {
         String mStr = "";
-        File_Helper_Items.Check_4_Valid_File_NameValidity( this,_inputText);
+        if (false == File_Helper_Items.Check_4_Valid_File_NameValidity( this, _inputText )) {
+            Dialog_Timed_Notice_v15 mDialog_timed_notice_v15 = new Dialog_Timed_Notice_v15( this, "** Error **", "Post Name Err" ).show();
+            return false;
+        }
+        if (true == File_Helper_Items.Check_and_Create_Post_File( this, _inputText, true )) {
+            Dialog_Timed_Notice_v15 mDialog_timed_notice_v15 = new Dialog_Timed_Notice_v15( this, "** Nice **", "File Created" ).show();
+            return true;
+        } else {
+            Dialog_Timed_Notice_v15 mDialog_timed_notice_v15 = new Dialog_Timed_Notice_v15( this, "** Error **", "File Exist's" ).show();
+            return false;
+        }
     }
 
-    private void MakeNew_Post_File (String inputText) {
-
-
-    }
 }
 
