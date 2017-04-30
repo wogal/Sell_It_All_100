@@ -98,7 +98,7 @@ public class File_Helper_Items {
         try {
             file.createNewFile();
         } catch (IOException e) {
-            return false; // should never happen
+            return false; // should never happen i know if it can it will ,, lol
         }
         return true;
     }
