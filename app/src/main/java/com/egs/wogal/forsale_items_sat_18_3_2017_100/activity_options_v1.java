@@ -146,7 +146,8 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     break;
                 }
                 case R.id.But_test_activity_v1: {
-                    Dialog_Timed_Notice_v15 mDialog_timed_notice_v15 = new Dialog_Timed_Notice_v15( this, "** Wogal **", "Test" ).show();
+                    m_Intent = new Intent( this, Activity_test_v4.class );
+                    startActivity( m_Intent ); // save to move on
                     break;
                 }
             }

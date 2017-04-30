@@ -17,10 +17,8 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,25 +31,24 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
+import Dialog_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
 import static JavaClasses_pkg_100.ImageClassHelper.rotateImage;
 import static JavaClasses_pkg_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
-import static android.view.KeyEvent.KEYCODE_ENTER;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_recall_obj_v8;
-import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "Wogal v8";
-
-    private String mPostFileName;
-
     private static final int ACTIVITY_START_CAMERA_APP = 0;
+    private String mPostFileName;
     private String mImageFileLocation = null;
     private ImageView mPhotoCaptureImageView;
 
@@ -64,25 +61,22 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private Button mBut_RecallIemObj;
 
 
-    private View mViewItemName;
     private Button mBut_name_item_GoBack;
     private Button mBut_itemTextHeader_v8;
     private TextView mTxtView_ItemHeaderText_v8;
 
-    private EditText mTxtInputText_v2;
-    private TextView mTextEntersTextField_v2;
+
     private Button mBtnSalesItemName_v8;
-    private AlertDialog Dialog_ItemName;
+
     private TextView mTxtItemName_v8;
-    private AlertDialog.Builder mBuilderItemName;
 
 
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
     private AlertDialog.Builder mBuilderItemView = null;
 
-
-    private boolean mTestBoolExecuteTrue = false;
+    // post display name file name
+    private TextView mTxtView_PostFileName;
 
 
     // master item class object
@@ -96,7 +90,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         // get extra passed info
 
-        mPostFileName = getIntent().getStringExtra("post_file_name");
+        mPostFileName = getIntent().getStringExtra( "post_file_name" );
 
         mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
 
@@ -113,6 +107,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         mTxtView_ItemHeaderText_v8 = (TextView) findViewById( R.id.txt_v_text_header_v8 );
         mTxtView_ItemHeaderText_v8.setOnClickListener( this );
+
+        mTxtView_PostFileName = (TextView) findViewById( R.id.txt_file_name_v8 );
+        mTxtView_PostFileName.setText( String.format( "File Name : %s.%s", mPostFileName, getString( R.string.post_file_ext ) ) );
 
 
         mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
@@ -151,119 +148,46 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
+
+            case R.id.txt_v_text_header_v8:
+            case R.id.But_text_header_v8: {
+                //    mTxtView_ItemHeaderText_v8.setText( str );
+                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name" );
+                mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
+                    @Override
+                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
+                        if (_dialog_result == Dialog_Result.Dialog_Ok && _inputText.length() > 2) {
+                            mTxtView_ItemHeaderText_v8.setText( _inputText );
+                        }
+                    }
+                } );
+                mText_input_dialog.show();
+                break;
+            }
+
+
+            case R.id.txt_v_sales_item_name_v8:
+            case R.id.But_item_name_v8: {
+                //      mTxtItemName_v8.setText( str );
+                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Description" );
+                mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
+                    @Override
+                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
+                        if (_dialog_result == Dialog_Result.Dialog_Ok && _inputText.length() > 2) {
+                            mTxtItemName_v8.setText( _inputText );
+                        }
+                    }
+                } );
+                mText_input_dialog.show();
+                break;
+            }
             case R.id.But_save_obj_v8: {
                 SaveItemObj();
                 break;
             }
-            case But_recall_obj_v8: {
-                takePhoto();
-                //   RecallItemObj();
-                break;
-            }
-
-            case R.id.txt_v_text_header_v8:
-            case R.id.But_text_header_v8:
-                mBuilderItemName = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
-                mViewItemName = getLayoutInflater().inflate( R.layout.layout_v2, null );
-                mTextEntersTextField_v2 = (TextView) mViewItemName.findViewById( text_view_sales_item_name_v2 );
-
-                mBut_name_item_GoBack = (Button) mViewItemName.findViewById( R.id.But_item_name_done_v2 );
-                mBut_name_item_GoBack.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick (View v) {
-                        switch (v.getId()) {
-                            case R.id.But_item_name_done_v2:
-                                String str;
-                                str = mTxtInputText_v2.getText().toString();
-                                if (!str.isEmpty()) {
-                                    mTxtView_ItemHeaderText_v8.setText( str );
-                                }
-                                Dialog_ItemName.dismiss();
-                                break;
-                        }
-                    }
-                } );
-                mTxtInputText_v2 = (EditText) mViewItemName.findViewById( R.id.edit_text_item_name_v2 );
-                mTxtInputText_v2.setOnKeyListener( new View.OnKeyListener() {
-                    @Override
-                    public boolean onKey (View v, int keyCode, KeyEvent event) {
-                        //    Log.d(TAG, "key parsed - " + keyCode );
-                        if (KEYCODE_ENTER == keyCode) {
-                            String str;
-                            str = mTxtInputText_v2.getText().toString();
-                            if (!str.isEmpty()) {
-                                mTxtView_ItemHeaderText_v8.setText( str );
-                                mTextEntersTextField_v2.setText( str );
-                            }
-                            mTxtInputText_v2.setText( "" );
-                            mTxtInputText_v2.clearFocus();
-                            Toast.makeText( getApplicationContext(), "hi Item Key-> " + keyCode + " " + str, Toast.LENGTH_LONG ).show();
-                            Dialog_ItemName.dismiss();
-                        }
-                        return false;
-                    }
-                } );
-                mBuilderItemName.setView( mViewItemName );
-                Dialog_ItemName = mBuilderItemName.create();
-                Dialog_ItemName.show();
-                break;
-
-            case R.id.But_item_name_done_v2:
-                String str;
-                str = mTxtInputText_v2.getText().toString();
-                if (!str.isEmpty()) {
-                    mTxtItemName_v8.setText( str );
-                }
-                Dialog_ItemName.dismiss();
-                break;
-
-            case R.id.txt_v_sales_item_name_v8:
-            case R.id.But_item_name_v8:
-                mBuilderItemName = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
-                mViewItemName = getLayoutInflater().inflate( R.layout.layout_v2, null );
-                mTextEntersTextField_v2 = (TextView) mViewItemName.findViewById( text_view_sales_item_name_v2 );
-                mBut_name_item_GoBack = (Button) mViewItemName.findViewById( R.id.But_item_name_done_v2 );
-                mBut_name_item_GoBack.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick (View v) {
-                        switch (v.getId()) {
-                            case R.id.But_item_name_done_v2:
-                                String str;
-                                str = mTxtInputText_v2.getText().toString();
-                                if (!str.isEmpty()) {
-                                    mTxtItemName_v8.setText( str );
-                                }
-                                Dialog_ItemName.dismiss();
-                                break;
-                        }
-                    }
-                } );
-                mTxtInputText_v2 = (EditText) mViewItemName.findViewById( R.id.edit_text_item_name_v2 );
-                mTxtInputText_v2.setOnKeyListener( new View.OnKeyListener() {
-                    @Override
-                    public boolean onKey (View v, int keyCode, KeyEvent event) {
-                        //    Log.d(TAG, "key parsed - " + keyCode );
-                        if (KEYCODE_ENTER == keyCode) {
-                            String str;
-                            str = mTxtInputText_v2.getText().toString();
-                            if (!str.isEmpty()) {
-                                mTxtItemName_v8.setText( str );
-                                mTextEntersTextField_v2.setText( str );
-                            }
-                            mTxtInputText_v2.setText( "" );
-                            mTxtInputText_v2.clearFocus();
-                            Toast.makeText( getApplicationContext(), "hi Item Key-> " + keyCode + " " + str, Toast.LENGTH_LONG ).show();
-                            Dialog_ItemName.dismiss();
-                        }
-                        return false;
-                    }
-                } );
-                mBuilderItemName.setView( mViewItemName );
-                Dialog_ItemName = mBuilderItemName.create();
-                Dialog_ItemName.show();
-                break;
         }
     }
+
 
     private For_Sale_Item_Object RecallItemObj () {
         For_Sale_Item_Object fsObj = null;
@@ -451,7 +375,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // action button allocations
         Button mBut_Take_Pic_v9;
         Button mBut_Text_Memo_v9;
-        Button mBut_Voice_Memo_v9;
         Button mBut_Exit_and_save_v9;
         Button mBut_Exit_NO_save_v9;
 
@@ -464,46 +387,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
             mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
             mPhotoCaptureImageView.setImageBitmap( bm );
-
         }
-
-
-        mBut_Text_Memo_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_text_memo_v9 );
-        mBut_Text_Memo_v9.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-
-            }
-        } );
-
-        mBut_Voice_Memo_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_record_voice_memo_v9 );
-        mBut_Voice_Memo_v9.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-
-            }
-        } );
-
-        mBut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
-        mBut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                // get new item and save
-                // put v9 into   For_Sale_Item_Object.get/set_ItemGroupArray< SaleItemMakeup>
-                //       For_Sale_Item_ObjectCls.get_SaleItemMakeup();
-                Add_SaleItemMakeup_2_set_ItemGroupArray();
-                Dialog_Itemview.dismiss();
-                mBuilderItemView = null;
-            }
-        } );
-        mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9 );
-        mBut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick (View v) {
-                Dialog_Itemview.dismiss();
-                mBuilderItemView = null;
-            }
-        } );
 
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
         mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );

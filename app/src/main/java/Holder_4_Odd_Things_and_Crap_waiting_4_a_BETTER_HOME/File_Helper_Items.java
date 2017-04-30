@@ -67,6 +67,10 @@ public class File_Helper_Items {
         return true;
     }
 
+    public static String GetAbs_Post_path(String _post){
+        return "";
+    }
+
     public static boolean Check_and_Create_Post_File (Activity _context, String _fileName, boolean _create_if_not_Exits) {
         boolean mResult = false;
         // make full path and file name from component parts

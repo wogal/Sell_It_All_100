@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Test Activity"
+            android:text="Post FaceBook"
             android:textColor="#ff07f7"
             android:textAllCaps="false"
             android:textSize="25dp"
