@@ -9,9 +9,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +22,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +36,6 @@ import java.util.ArrayList;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 import JavaClasses_pkg_100.ImageClassHelper;
-import JavaClasses_pkg_100.Sound_Play_Record_Helper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
 import static JavaClasses_pkg_100.ImageClassHelper.rotateImage;
@@ -49,8 +44,6 @@ import static android.view.KeyEvent.KEYCODE_ENTER;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_recall_obj_v8;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.text_view_sales_item_name_v2;
-import static java.lang.Math.log;
-import static java.lang.Math.pow;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
 
@@ -75,7 +68,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private Button mBut_name_item_GoBack;
     private Button mBut_itemTextHeader_v8;
     private TextView mTxtView_ItemHeaderText_v8;
-    private Button mBut_Add_Voice_Handeler_v8;
 
     private EditText mTxtInputText_v2;
     private TextView mTextEntersTextField_v2;
@@ -89,58 +81,12 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private View mView_Itemview;
     private AlertDialog.Builder mBuilderItemView = null;
 
-    // Alert Dialog_Sound Vars
-    private AlertDialog Dialog_SoundRecord;
-    private View mViewSound;
-
-
-    private Button mButSound_Start_Stop_Play;
-    private Button mButSound_Start_Stop_Record;
-    private Button mBut_Sound_Done;
-    private Button mBut_Sound_Stop;
-    private Button mButRecordTimrLeft;
-
-    private int mRecordTimeLeft = 0;
 
     private boolean mTestBoolExecuteTrue = false;
 
-    private Sound_Play_Record_Helper mSound_Play_Record_Helper = null;
-    private ProgressBar pb;
-
-
-    private CountDownTimer mmCountDownTimer;
 
     // master item class object
     private For_Sale_Item_Object For_Sale_Item_ObjectCls = null;
-
-
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage (Message msg) {
-            String _str = "----";
-            int scalednum;
-            int Max = 255;
-            int _amp = msg.arg1;
-            scalednum = (int) (log( _amp ) / log( pow( 2, 32 ) ) * Max);
-            //  scalednum = value/ (Integer.MAX_VALUE/255);
-            //  scalednum = _amp % Max + 1;
-            pb.setMax( 200 );
-            pb.setProgress( scalednum );
-        }
-    };
-
-    private Handler handleRecTimer = new Handler() {
-        @Override
-        public void handleMessage (Message msg) {
-            String _str;
-            if (msg.arg1 >= 0) {
-                _str = "" + msg.arg1;
-            } else {
-                _str = "--";
-            }
-            mButRecordTimrLeft.setText( _str );
-        }
-    };
 
 
     @Override
@@ -149,7 +95,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         setContentView( R.layout.layout_v8 );
 
         // get extra passed info
-
 
         mPostFileName = getIntent().getStringExtra("post_file_name");
 
@@ -169,8 +114,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTxtView_ItemHeaderText_v8 = (TextView) findViewById( R.id.txt_v_text_header_v8 );
         mTxtView_ItemHeaderText_v8.setOnClickListener( this );
 
-        mBut_Add_Voice_Handeler_v8 = (Button) findViewById( R.id.But_voice_header_v8 );
-        mBut_Add_Voice_Handeler_v8.setOnClickListener( this );
 
         mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
         mBut_saveItemObj.setOnClickListener( this );
@@ -205,52 +148,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    private void SoundDoneButton_Ena_dis (boolean _enable) {
-        if (_enable == true) {
-            mBut_Sound_Done.setEnabled( true );
-            mBut_Sound_Done.setText( "Done" );
-        } else {
-            mBut_Sound_Done.setEnabled( false );
-            mBut_Sound_Done.setText( "--" );
-        }
-    }
-
-    private void ForceStopRecording () {
-        // im already recording so pls stop me & re enable the buttons
-        mSound_Play_Record_Helper.Set_Record_Action( false );
-
-        mButSound_Start_Stop_Play.setText( "Start Playing" );
-        mButSound_Start_Stop_Play.setEnabled( true );
-
-        mButSound_Start_Stop_Record.setText( "Start Recoding" );
-        mButSound_Start_Stop_Record.setEnabled( true );
-        // stop and quit the rec timer
-        if (mmCountDownTimer != null) {
-            mmCountDownTimer.cancel();
-            mmCountDownTimer = null;
-        }
-        mmCountDownTimer = null;
-        Message message = Message.obtain();
-        message.arg1 = -1;
-        handleRecTimer.sendMessage( message );
-        // Dis enable progress bar
-        pb.setVisibility( View.GONE );
-        // enable done button
-        SoundDoneButton_Ena_dis( true );
-        // copy recorded voice to item object
-        // get voice file path
-        String mSoundFileName = Storage_Helper_Class.GetVoiceFilePath();
-        File fs = new File( mSoundFileName );
-        if (fs.exists()) {
-            if (fs.length() >= 500) {
-                // we have a valid voice / sound file so save as byte array 2 itemObject
-                byte[] bA;
-                bA = Storage_Helper_Class.File_2_ByteArray( mSoundFileName );
-                For_Sale_Item_ObjectCls.set_FS_ItemHeaderVoiceFileData( bA );
-            }
-        }
-    }
-
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
@@ -261,156 +158,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             case But_recall_obj_v8: {
                 takePhoto();
                 //   RecallItemObj();
-                break;
-            }
-            case R.id.But_sound_exit_v3: {
-                Dialog_SoundRecord.dismiss();
-                break;
-            }
-            case R.id.But_sound_stop_v3: {
-                //    mSound_Play_Record_Helper.DummyInVokeEvent(5);
-                pb.setProgress( pb.getProgress() + 5 );
-                break;
-            }
-            case R.id.But_sound_play_v3: {
-                if (mSound_Play_Record_Helper == null)
-                    break;
-                if (mSound_Play_Record_Helper.isM_IsRecording()) {
-                    // we are Recording So Disable Play Option
-                    mButSound_Start_Stop_Play.setText( "--" );
-                    mButSound_Start_Stop_Play.setEnabled( false );
-                    break;
-                }
-                if (mSound_Play_Record_Helper.isM_IsPlaying() == true) {
-                    // we are already playing SO STPO
-                    SoundDoneButton_Ena_dis( true );
-                    mSound_Play_Record_Helper.Set_Play_Action( false );
-                    // ebnable button
-                    mButSound_Start_Stop_Play.setText( "Star Play" );
-                    mButSound_Start_Stop_Play.setEnabled( true );
-                    mButSound_Start_Stop_Record.setText( "Start Recoding" );
-                    mButSound_Start_Stop_Record.setEnabled( true );
-                } else {
-                    // disable Record button
-                    SoundDoneButton_Ena_dis( false );
-                    mButSound_Start_Stop_Record.setText( "-" );
-                    mButSound_Start_Stop_Record.setEnabled( false );
-                    // we are not playing so we need to start
-                    mSound_Play_Record_Helper.Set_Play_Action( true );
-                    // ebnable button
-                    mButSound_Start_Stop_Play.setText( "-----" );
-                    mButSound_Start_Stop_Play.setEnabled( false );
-                }
-                break;
-            }
-            case R.id.But_sound_record_v3: {
-                if (mSound_Play_Record_Helper == null)
-                    break;
-                if (mSound_Play_Record_Helper.isM_IsPlaying() == true)
-                    break;
-
-                if (mSound_Play_Record_Helper.isM_IsRecording() == true) {
-                    // im already recording so pls stop me & re enable the buttons
-                    ForceStopRecording();
-                } else {
-                    // i haven't even started recording to lets go
-                    mSound_Play_Record_Helper.Set_Record_Action( true );
-                    mButSound_Start_Stop_Record.setText( "Stop Recoding" );
-                    mButSound_Start_Stop_Record.setEnabled( true );
-                    // disable play
-                    mButSound_Start_Stop_Play.setText( "-  -" );
-                    mButSound_Start_Stop_Play.setEnabled( false );
-                    // enable progress bar
-                    pb.setVisibility( View.VISIBLE );
-                    // enable record length timer
-                    mRecordTimeLeft = 10;
-                    if (null == mmCountDownTimer) {
-                        mmCountDownTimer = new CountDownTimer( 11000, 1000 ) {
-                            @Override
-                            public void onTick (long millisUntilFinished) {
-                                Message message = Message.obtain();
-                                mRecordTimeLeft = (int) (millisUntilFinished / 1000);
-                                message.arg1 = mRecordTimeLeft--;
-                                SoundDoneButton_Ena_dis( false );
-                                handleRecTimer.sendMessage( message );
-                            }
-
-                            @Override
-                            public void onFinish () {
-                                ForceStopRecording();
-
-                                mmCountDownTimer = null;
-                                Message message = Message.obtain();
-                                message.arg1 = -1;
-                                handleRecTimer.sendMessage( message );
-                            }
-                        }.start();
-                    }
-                }
-                break;
-            }
-
-            case R.id.But_voice_header_v8: {
-                // record voice message
-                AlertDialog.Builder mBuilderSound = new AlertDialog.Builder( Activity_MakeSalesItem_v8.this );
-                mViewSound = getLayoutInflater().inflate( R.layout.layout_sound_recorder_v3, null );
-
-                mBut_Sound_Done = (Button) mViewSound.findViewById( R.id.But_sound_exit_v3 );
-                mBut_Sound_Done.setOnClickListener( this );
-
-                mButSound_Start_Stop_Play = (Button) mViewSound.findViewById( R.id.But_sound_play_v3 );
-                mButSound_Start_Stop_Play.setOnClickListener( this );
-
-                mButSound_Start_Stop_Record = (Button) mViewSound.findViewById( R.id.But_sound_record_v3 );
-                mButSound_Start_Stop_Record.setOnClickListener( this );
-
-                mBut_Sound_Stop = (Button) mViewSound.findViewById( R.id.But_sound_stop_v3 );
-                mBut_Sound_Stop.setOnClickListener( this );
-
-                mButRecordTimrLeft = (Button) mViewSound.findViewById( R.id.But_sound_record_time_v3 );
-
-                mButRecordTimrLeft.setText( "--" );
-                pb = (ProgressBar) mViewSound.findViewById( R.id.progressBar );
-                pb.setProgress( 10 );
-                pb.setMax( 100 );
-                pb.setProgress( 25 );
-                mBuilderSound.setView( mViewSound );
-                mButSound_Start_Stop_Play.setText( "Start Playing" );
-                mButSound_Start_Stop_Record.setText( "Start Recoding" );
-
-                if (!mTestBoolExecuteTrue) {
-                    mSound_Play_Record_Helper = new Sound_Play_Record_Helper();
-                    // set default values
-                    pb.setVisibility( View.GONE );
-                    if (mSound_Play_Record_Helper.isSafeToPlayFile() == false) {
-                        // disable play button
-                        mButSound_Start_Stop_Play.setEnabled( false );
-                        mButSound_Start_Stop_Play.setText( "----" );
-                    }
-                    mSound_Play_Record_Helper.setOnAmplitudeEventListener( new Sound_Play_Record_Helper.OnAmplitudeEventCallBack() {
-                        @Override
-                        public int GotMicAmplitude (String _str, int _amp) {
-                            Message message = Message.obtain();
-                            message.arg1 = _amp;
-                            handler.sendMessage( message );
-                            return 0;
-                        }
-                    } );
-                    mSound_Play_Record_Helper.setOnStopTrackEventListener( new Sound_Play_Record_Helper.OnStopTrackEventListener() {
-                        @Override
-                        public int onStopTrack (int a) {
-                            mButSound_Start_Stop_Record.setEnabled( true );
-                            mButSound_Start_Stop_Record.setText( "Start Recoding" );
-                            mButSound_Start_Stop_Play.setEnabled( true );
-                            mButSound_Start_Stop_Play.setText( "Start Play" );
-                            SoundDoneButton_Ena_dis( true );
-                            pb.setVisibility( View.GONE );
-                            return 10;
-                        }
-                    } );
-                    Dialog_SoundRecord = mBuilderSound.create();
-                    Dialog_SoundRecord.show();
-                }
                 break;
             }
 
