@@ -136,8 +136,10 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                         @Override
                         public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                            if (Make_New_Post_File( _inputText ))
+                            if (true == Make_New_Post_File( _inputText )) {
+                                m_Intent.putExtra( "post_file_name",_inputText );
                                 startActivity( m_Intent ); // save to move on
+                            }
                         }
                     } );
                     mText_input_dialog.show();

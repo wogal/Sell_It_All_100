@@ -56,6 +56,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     public static final String TAG = "Wogal v8";
 
+    private String mPostFileName;
+
     private static final int ACTIVITY_START_CAMERA_APP = 0;
     private String mImageFileLocation = null;
     private ImageView mPhotoCaptureImageView;
@@ -145,6 +147,11 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.layout_v8 );
+
+        // get extra passed info
+
+
+        mPostFileName = getIntent().getStringExtra("post_file_name");
 
         mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
 
