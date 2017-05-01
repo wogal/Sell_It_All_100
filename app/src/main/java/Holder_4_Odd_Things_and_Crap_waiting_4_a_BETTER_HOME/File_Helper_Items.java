@@ -67,7 +67,7 @@ public class File_Helper_Items {
         return true;
     }
 
-    public static String GetAbs_Post_path(Activity _context, String _fileName ){
+    public static String GetAbs_Post_path (Activity _context, String _fileName) {
         String mExtStoragePath;
         String mPostfolderPath;
         String mSystemBasePath;
@@ -83,50 +83,32 @@ public class File_Helper_Items {
         mConcatenated_path = new File( mExtStoragePath, mSystemBasePath ).toString();
         mConcatenated_path = new File( mConcatenated_path, mPostfolderPath ).toString();
         // check path exists if not create ( need to rationalize this )
-        CheckIfPath_exits(mConcatenated_path,true);
+        CheckIfPath_exits( mConcatenated_path, true );
         mNewfolder_and_File = mConcatenated_path;
-        if(_fileName.isEmpty() == false && _fileName.length() > 4){
-            if(_fileName.contains( "." )){ // contains extension ( i think )
-                mNewfolder_and_File = String.format( "%s/%s", mConcatenated_path, _fileName);
+        if (_fileName.isEmpty() == false && _fileName.length() > 2) {
+            if (_fileName.contains( "." )) { // contains extension ( i think )
+                mNewfolder_and_File = String.format( "%s/%s", mConcatenated_path, _fileName );
                 return mNewfolder_and_File;
             }
             mNewfolder_and_File = String.format( "%s/%s.%s", mConcatenated_path, _fileName, mPostFile_ext );
         }
-                return mNewfolder_and_File;
+        return mNewfolder_and_File;
     }
 
     public static boolean Check_and_Create_Post_File (Activity _context, String _fileName, boolean _create_if_not_Exits) {
-        boolean mResult = false;
         // make full path and file name from component parts
-
-        String mExtStoragePath;
-        String mPostfolderPath;
-        String mSystemBasePath;
-        String mConcatenated_path;
         String mNewfolder_and_File;
-        String mPostFile_ext;
-
-        mExtStoragePath = IsExternal_StorageMounted();
-        mSystemBasePath = _context.getString( R.string.BaseSystemFolder );
-        mPostfolderPath = _context.getString( R.string.post_sub_folder );
-        mPostFile_ext = _context.getString( R.string.post_file_ext );
-        // concatenate paths
-        mConcatenated_path = new File( mExtStoragePath, mSystemBasePath ).toString();
-        mConcatenated_path = new File( mConcatenated_path, mPostfolderPath ).toString();
-
-        // check and create path if not exist's
-        mResult = CheckIfPath_exits(mConcatenated_path, true );
-        // add file and extension to path
-        mNewfolder_and_File = String.format( "%s/%s.%s", mConcatenated_path, _fileName, mPostFile_ext );
-        // check if file exists
+        mNewfolder_and_File = GetAbs_Post_path( _context, _fileName );
         File file = new File( mNewfolder_and_File );
         if (file.exists())
             return false; // file exits so exit with error
         // create and format post file
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            return false; // should never happen i know if it can it will ,, lol
+        if (_create_if_not_Exits) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                return false; // should never happen i know if it can it will ,, lol
+            }
         }
         return true;
     }

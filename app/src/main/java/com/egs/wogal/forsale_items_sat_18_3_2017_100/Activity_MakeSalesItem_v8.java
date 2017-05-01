@@ -165,7 +165,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 break;
             }
 
-
             case R.id.txt_v_sales_item_name_v8:
             case R.id.But_item_name_v8: {
                 //      mTxtItemName_v8.setText( str );
