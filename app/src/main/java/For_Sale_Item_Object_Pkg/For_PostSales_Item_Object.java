@@ -14,7 +14,7 @@ import JavaClasses_pkg_100.Storage_Helper_Class;
  * Created by wogal on 3/25/2017.
  */
 
-public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable {
+public class For_PostSales_Item_Object extends Post_Sales_Item_MakeUp implements Serializable {
 
 
     //<editor-fold desc=" Variables  ">
@@ -23,25 +23,25 @@ public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable
     // name of item for sale
     private String _FS_SaleItemName;
     // list of item objects ie:pic , text , voice , --
-    private ArrayList<SaleItemMakeup> _ItemGroupArray;
+    private ArrayList<Post_Sales_Item_MakeUp> _ItemGroupArray;
     // text to describe sales item
     private String _FS_ItemHeaderText = "";
     // byte array for item header voice sound file
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
 
 
-    public For_Sale_Item_Object () {
+    public For_PostSales_Item_Object () {
         long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
         this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
-        this.set_ItemGroupArray( new ArrayList<SaleItemMakeup>() );
+        this.set_ItemGroupArray( new ArrayList<Post_Sales_Item_MakeUp>() );
     }
 
     private static void GetCreateSalesItemObject () {
 
     }
 
-    public static For_Sale_Item_Object RecallItemObj () {
-        For_Sale_Item_Object fsObj = null;
+    public static For_PostSales_Item_Object RecallItemObj () {
+        For_PostSales_Item_Object fsObj = null;
         String file = "earle.ser";
         String path;
         path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
@@ -52,25 +52,25 @@ public class For_Sale_Item_Object extends SaleItemMakeup implements Serializable
             GetCreateSalesItemObject();
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-            fsObj = (For_Sale_Item_Object) in.readObject();
+            fsObj = (For_PostSales_Item_Object) in.readObject();
         } catch (IOException e) {
-            fsObj = new For_Sale_Item_Object();
+            fsObj = new For_PostSales_Item_Object();
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            fsObj = new For_Sale_Item_Object();
+            fsObj = new For_PostSales_Item_Object();
             e.printStackTrace();
         } finally {
-            //    For_Sale_Item_ObjectCls = new For_Sale_Item_Object();
+            //    For_Sale_Item_ObjectCls = new For_PostSales_Item_Object();
             //    return ;
         }
         return fsObj;
     }
 
-    public ArrayList<SaleItemMakeup> get_ItemGroupArray () {
+    public ArrayList<Post_Sales_Item_MakeUp> get_ItemGroupArray () {
         return _ItemGroupArray;
     }
 
-    public void set_ItemGroupArray (ArrayList<SaleItemMakeup> _ItemGroupArray) {
+    public void set_ItemGroupArray (ArrayList<Post_Sales_Item_MakeUp> _ItemGroupArray) {
         this._ItemGroupArray = _ItemGroupArray;
     }
 

@@ -8,14 +8,14 @@ import com.facebook.GraphResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
-/* Class " SaleItemMakeup " to hold EACH  item For sale Master holding object is
+/* Class " Post_Sales_Item_MakeUp " to hold EACH  item For sale Master holding object is
 *
 *
 * */
 
 
 
-public class SaleItemMakeup implements Serializable {
+public class Post_Sales_Item_MakeUp implements Serializable {
 
 
     //region Vars Used In each sales items

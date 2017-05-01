@@ -13,7 +13,7 @@ import com.facebook.HttpMethod;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-import For_Sale_Item_Object_Pkg.SaleItemMakeup;
+import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 
 /**
  * Created by wogal on 4/13/2017.
@@ -32,7 +32,7 @@ public class HlpFbook_Posts implements Runnable {
     // call back event on each iteration of a multi pos
     private Graph_OnCallBackFunction_EachPost_Interface mGraph_onCompleted_callBack_Listerner;
     private ArrayList<GraphResponse> _mMultiPost_Response;
-    private ArrayList<SaleItemMakeup> _items_2_Post;
+    private ArrayList<Post_Sales_Item_MakeUp> _items_2_Post;
     private Activity _acActivity;
     private String _destination_id;
     private String _MainpostMessage;
@@ -41,8 +41,8 @@ public class HlpFbook_Posts implements Runnable {
     private int wogal_test = 0;
 
     // main entry point and auto invoke/run ( if instantRun == true )
-    public HlpFbook_Posts (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
-        // List of for sale items For_Sale_Item_Object -> < SaleItemMakeup >
+    public HlpFbook_Posts (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
+        // List of for sale items For_PostSales_Item_Object -> < Post_Sales_Item_MakeUp >
         this._items_2_Post = _items_2_Post;
         // handel / pointer to parent
         this._acActivity = _acActivity;
@@ -89,10 +89,10 @@ public class HlpFbook_Posts implements Runnable {
     }
 
     // master wrapper for posting " multiple " images
-    private void PostMultiplePicys (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
+    private void PostMultiplePicys (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
         int mCnt;
         Log.d( TAG, " PostMultiplePicys Invoked" );
-        SaleItemMakeup mSsaleItemMakeup;
+        Post_Sales_Item_MakeUp mSsaleItemMakeUp;
         Bitmap mBitmap;
         String mItemtxtHeader;
         mCnt = _items_2_Post.size();
@@ -100,11 +100,11 @@ public class HlpFbook_Posts implements Runnable {
         //    itemUpdateIndex = 0;
         if (mCnt > 0) {
             for (int mIndex = 0; mIndex != mCnt; mIndex++) {
-                // get SaleItemMakeup at mIndex
-                mSsaleItemMakeup = _items_2_Post.get( mIndex );
+                // get Post_Sales_Item_MakeUp at mIndex
+                mSsaleItemMakeUp = _items_2_Post.get( mIndex );
                 // get components parts
-                mBitmap = mSsaleItemMakeup.get_Bitmap();
-                mItemtxtHeader = mSsaleItemMakeup.get_FS_SaleItemName();
+                mBitmap = mSsaleItemMakeUp.get_Bitmap();
+                mItemtxtHeader = mSsaleItemMakeUp.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
                 Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + mCnt );
                 postOPbj_2_Grp( wogal_test, mIndex, _acActivity, _destination_id, mItemtxtHeader, mBitmap );

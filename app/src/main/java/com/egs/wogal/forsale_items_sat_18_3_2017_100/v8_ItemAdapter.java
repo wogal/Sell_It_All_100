@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
-import For_Sale_Item_Object_Pkg.SaleItemMakeup;
+import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -31,12 +31,12 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     Activity_MakeSalesItem_v8 m_activity_makeSalesItem_v8;
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
-    private For_Sale_Item_Object mFor_Sale_Item_ObjectCls;
+    private For_PostSales_Item_Object mFor_Sale_Item_ObjectCls;
 
 
     private int _itemPosistion = 0;
 
-    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, For_Sale_Item_Object _for_Sale_Item_ObjectCls) {
+    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, For_PostSales_Item_Object _for_Sale_Item_ObjectCls) {
         mFor_Sale_Item_ObjectCls = _for_Sale_Item_ObjectCls;
         m_activity_makeSalesItem_v8 = _activity_makeSalesItem_v8;
         mView_Itemview = _activity_makeSalesItem_v8.get_view();
@@ -84,20 +84,20 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             holder.mTitle.setTextColor( 0xFFFF5044 );
             holder.mImageView.setVisibility( View.GONE );
         } else {
-            SaleItemMakeup mSaleItemMakeup;
-            ArrayList<SaleItemMakeup> mItemList;
+            Post_Sales_Item_MakeUp mPostSalesItemMakeUp;
+            ArrayList<Post_Sales_Item_MakeUp> mItemList;
             mItemList = mFor_Sale_Item_ObjectCls.get_ItemGroupArray();
             if (mItemList.size() == 0)
                 return;
-            mSaleItemMakeup = mItemList.get( position - 1 );
-            holder.mImageView.setImageBitmap( mSaleItemMakeup.get_Bitmap() );
+            mPostSalesItemMakeUp = mItemList.get( position - 1 );
+            holder.mImageView.setImageBitmap( mPostSalesItemMakeUp.get_Bitmap() );
 
             if (true) {
                 String path;
                 Bitmap bm;
                 // put in image
-                mSaleItemMakeup = mItemList.get( position - 1 );
-                bm = mSaleItemMakeup.get_Bitmap();
+                mPostSalesItemMakeUp = mItemList.get( position - 1 );
+                bm = mPostSalesItemMakeUp.get_Bitmap();
                 holder.mImageView.setImageBitmap( bm );
                 holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
                 holder.mTitle.setText( "Pos -> " + position );

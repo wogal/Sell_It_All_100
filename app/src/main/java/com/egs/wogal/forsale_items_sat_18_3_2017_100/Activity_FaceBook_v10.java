@@ -44,8 +44,8 @@ import FaceBook_Java_Helpers.Graph_Custom_Post_CallBack_Interface;
 import FaceBook_Java_Helpers.Graph_OnCallBackFunction_EachPost_Interface;
 import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
-import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
-import For_Sale_Item_Object_Pkg.SaleItemMakeup;
+import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCallBackFunction_EachPost_Interface, Graph_Custom_Post_CallBack_Interface {
 
@@ -386,8 +386,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
     private void Post_multibule_Images () {
         int mCnt;
-        For_Sale_Item_Object mfor_sale_item_object;
-        mfor_sale_item_object = For_Sale_Item_Object.RecallItemObj();
+        For_PostSales_Item_Object mfor_sale_item_object;
+        mfor_sale_item_object = For_PostSales_Item_Object.RecallItemObj();
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
         boolean bool_image_per_post;
@@ -429,7 +429,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public int CallBack_OnFinal_On_Mulit_Image_Post (int _post_Index, String _dest_id, GraphResponse _response, ArrayList<GraphResponse> _Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+    public int CallBack_OnFinal_On_Mulit_Image_Post (int _post_Index, String _dest_id, GraphResponse _response, ArrayList<GraphResponse> _Response, ArrayList<Post_Sales_Item_MakeUp> _items_2_Post) {
         Message message = Message.obtain();
         String mStr;
         mPostProgressIndex++;
@@ -441,12 +441,12 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public int CallBack_On_Custom_Post (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+    public int CallBack_On_Custom_Post (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<Post_Sales_Item_MakeUp> _items_2_Post) {
         return 0;
     }
 
     @Override
-    public int CallBackFunction_EachPost (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<SaleItemMakeup> _items_2_Post) {
+    public int CallBackFunction_EachPost (int _post_Index, String _destination_id, GraphResponse _response, ArrayList<GraphResponse> mMultiPost_Response, ArrayList<Post_Sales_Item_MakeUp> _items_2_Post) {
         Message message = Message.obtain();
         String mStr = "";
         mPostProgressIndex++;

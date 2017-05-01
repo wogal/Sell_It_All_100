@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import java.util.ArrayList;
 
-import For_Sale_Item_Object_Pkg.SaleItemMakeup;
+import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 
 /**
  * Created by wogal on 4/22/2017.
@@ -28,6 +28,6 @@ import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 public class FP_Multi_Image_Post {
 
 
-    public FP_Multi_Image_Post (ArrayList<SaleItemMakeup> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
+    public FP_Multi_Image_Post (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage) {
     }
 }
