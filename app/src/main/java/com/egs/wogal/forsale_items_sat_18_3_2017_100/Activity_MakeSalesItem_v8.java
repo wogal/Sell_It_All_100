@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
-import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
@@ -81,7 +81,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
     // master item class object
-    private For_PostSales_Item_Object For_Sale_Item_ObjectCls = null;
+    private Post_Sales_Master_Object For_Sale_Item_ObjectCls = null;
 
 
     @Override
@@ -189,8 +189,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    private For_PostSales_Item_Object RecallItemObj () {
-        For_PostSales_Item_Object fsObj = null;
+    private Post_Sales_Master_Object RecallItemObj () {
+        Post_Sales_Master_Object fsObj = null;
          String mAbsFullPath_and_extension;
         File_Helper_Items.Get_4_Sale_ItemObj( this,mPostFileName );
 
@@ -206,15 +206,15 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             GetCreateSalesItemObject();
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-            fsObj = (For_PostSales_Item_Object) in.readObject();
+            fsObj = (Post_Sales_Master_Object) in.readObject();
         } catch (IOException e) {
-            fsObj = new For_PostSales_Item_Object();
+            fsObj = new Post_Sales_Master_Object();
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            fsObj = new For_PostSales_Item_Object();
+            fsObj = new Post_Sales_Master_Object();
             e.printStackTrace();
         } finally {
-            //    For_Sale_Item_ObjectCls = new For_PostSales_Item_Object();
+            //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
             //    return ;
         }
         // pop layout ( View )
@@ -249,8 +249,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    private For_PostSales_Item_Object GetCreateSalesItemObject () {
-        For_Sale_Item_ObjectCls = new For_PostSales_Item_Object();
+    private Post_Sales_Master_Object GetCreateSalesItemObject () {
+        For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
         return For_Sale_Item_ObjectCls;
     }
 
@@ -414,7 +414,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
     private void Add_SaleItemMakeup_2_set_ItemGroupArray () {
-        Post_Sales_Item_MakeUp mPostSalesItemMakeUp = new For_PostSales_Item_Object();
+        Post_Sales_Item_MakeUp mPostSalesItemMakeUp = new Post_Sales_Master_Object();
         ArrayList<Post_Sales_Item_MakeUp> mItemList;
         mPostSalesItemMakeUp.set_Bitmap( ((BitmapDrawable) mPhotoCaptureImageView.getDrawable()).getBitmap() );
         mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();

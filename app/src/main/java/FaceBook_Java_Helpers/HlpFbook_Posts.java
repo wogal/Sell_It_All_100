@@ -42,7 +42,7 @@ public class HlpFbook_Posts implements Runnable {
 
     // main entry point and auto invoke/run ( if instantRun == true )
     public HlpFbook_Posts (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
-        // List of for sale items For_PostSales_Item_Object -> < Post_Sales_Item_MakeUp >
+        // List of for sale items Post_Sales_Master_Object -> < Post_Sales_Item_MakeUp >
         this._items_2_Post = _items_2_Post;
         // handel / pointer to parent
         this._acActivity = _acActivity;

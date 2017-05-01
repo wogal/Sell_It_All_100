@@ -14,7 +14,7 @@ import JavaClasses_pkg_100.Storage_Helper_Class;
  * Created by wogal on 3/25/2017.
  */
 
-public class For_PostSales_Item_Object extends Post_Sales_Item_MakeUp implements Serializable {
+public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements Serializable {
 
 
     //<editor-fold desc=" Variables  ">
@@ -30,7 +30,7 @@ public class For_PostSales_Item_Object extends Post_Sales_Item_MakeUp implements
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
 
 
-    public For_PostSales_Item_Object () {
+    public Post_Sales_Master_Object () {
         long _FS_DateTime_of_Conseption = new Time( System.currentTimeMillis() ).getTime();
         this._FS_DateTime_of_Conseption = _FS_DateTime_of_Conseption;
         this.set_ItemGroupArray( new ArrayList<Post_Sales_Item_MakeUp>() );
@@ -40,8 +40,8 @@ public class For_PostSales_Item_Object extends Post_Sales_Item_MakeUp implements
 
     }
 
-    public static For_PostSales_Item_Object RecallItemObj () {
-        For_PostSales_Item_Object fsObj = null;
+    public static Post_Sales_Master_Object RecallItemObj () {
+        Post_Sales_Master_Object fsObj = null;
         String file = "earle.ser";
         String path;
         path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
@@ -52,15 +52,15 @@ public class For_PostSales_Item_Object extends Post_Sales_Item_MakeUp implements
             GetCreateSalesItemObject();
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-            fsObj = (For_PostSales_Item_Object) in.readObject();
+            fsObj = (Post_Sales_Master_Object) in.readObject();
         } catch (IOException e) {
-            fsObj = new For_PostSales_Item_Object();
+            fsObj = new Post_Sales_Master_Object();
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            fsObj = new For_PostSales_Item_Object();
+            fsObj = new Post_Sales_Master_Object();
             e.printStackTrace();
         } finally {
-            //    For_Sale_Item_ObjectCls = new For_PostSales_Item_Object();
+            //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
             //    return ;
         }
         return fsObj;

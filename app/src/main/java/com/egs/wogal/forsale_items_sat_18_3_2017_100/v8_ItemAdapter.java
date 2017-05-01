@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
@@ -31,12 +31,12 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     Activity_MakeSalesItem_v8 m_activity_makeSalesItem_v8;
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
-    private For_PostSales_Item_Object mFor_Sale_Item_ObjectCls;
+    private Post_Sales_Master_Object mFor_Sale_Item_ObjectCls;
 
 
     private int _itemPosistion = 0;
 
-    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, For_PostSales_Item_Object _for_Sale_Item_ObjectCls) {
+    public v8_ItemAdapter (Activity_MakeSalesItem_v8 _activity_makeSalesItem_v8, Post_Sales_Master_Object _for_Sale_Item_ObjectCls) {
         mFor_Sale_Item_ObjectCls = _for_Sale_Item_ObjectCls;
         m_activity_makeSalesItem_v8 = _activity_makeSalesItem_v8;
         mView_Itemview = _activity_makeSalesItem_v8.get_view();

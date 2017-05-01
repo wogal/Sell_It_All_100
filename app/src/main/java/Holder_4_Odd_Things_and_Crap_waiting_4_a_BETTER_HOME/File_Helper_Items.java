@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 
 /**
  * Created by wogal on 4/28/2017.
@@ -102,7 +102,7 @@ public class File_Helper_Items {
     public static boolean Check_and_Create_Post_File (Activity _context, String _fileName, boolean _create_if_not_Exits) {
         // make full path and file name from component parts
         String mNewfolder_and_File;
-        For_PostSales_Item_Object mFor_sale_item_object;
+        Post_Sales_Master_Object mFor_sale_item_object;
         mNewfolder_and_File = GetAbs_Post_path( _context, _fileName );
         File file = new File( mNewfolder_and_File );
         if (file.exists())
@@ -111,8 +111,8 @@ public class File_Helper_Items {
         if (_create_if_not_Exits) {
             try {
                 file.createNewFile();
-                // initialize Post File with new "For_PostSales_Item_Object"
-                mFor_sale_item_object = new For_PostSales_Item_Object();
+                // initialize Post File with new "Post_Sales_Master_Object"
+                mFor_sale_item_object = new Post_Sales_Master_Object();
             } catch (IOException e) {
                 return false; // should never happen i know if it can it will ,, lol
             }
@@ -121,26 +121,26 @@ public class File_Helper_Items {
     }
 
 
-    // will return For_PostSales_Item_Object object pointed to by _fileName ( will add path & extension ) , else null if error
-    public static For_PostSales_Item_Object Get_4_Sale_ItemObj (Activity _context, String _fileName) {
-        For_PostSales_Item_Object mFor_sale_item_object = null;
+    // will return Post_Sales_Master_Object object pointed to by _fileName ( will add path & extension ) , else null if error
+    public static Post_Sales_Master_Object Get_4_Sale_ItemObj (Activity _context, String _fileName) {
+        Post_Sales_Master_Object mFor_sale_item_object = null;
         String mAbsFullPath_and_extension;
         // make full abs path and extension
         mAbsFullPath_and_extension = GetAbs_Post_path( _context, _fileName );
         File fs = new File( mAbsFullPath_and_extension );
         if (!fs.exists()) // should never happen
-            mFor_sale_item_object = new For_PostSales_Item_Object();
+            mFor_sale_item_object = new Post_Sales_Master_Object();
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( mAbsFullPath_and_extension ) );
-            mFor_sale_item_object = (For_PostSales_Item_Object) in.readObject();
+            mFor_sale_item_object = (Post_Sales_Master_Object) in.readObject();
         } catch (IOException e) {
-            mFor_sale_item_object = new For_PostSales_Item_Object();
+            mFor_sale_item_object = new Post_Sales_Master_Object();
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            mFor_sale_item_object = new For_PostSales_Item_Object();
+            mFor_sale_item_object = new Post_Sales_Master_Object();
             e.printStackTrace();
         } finally {
-            //    For_Sale_Item_ObjectCls = new For_PostSales_Item_Object();
+            //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
             //    return ;
         }
 

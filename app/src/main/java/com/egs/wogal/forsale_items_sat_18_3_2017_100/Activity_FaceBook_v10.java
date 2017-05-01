@@ -44,7 +44,7 @@ import FaceBook_Java_Helpers.Graph_Custom_Post_CallBack_Interface;
 import FaceBook_Java_Helpers.Graph_OnCallBackFunction_EachPost_Interface;
 import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
-import For_Sale_Item_Object_Pkg.For_PostSales_Item_Object;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCallBackFunction_EachPost_Interface, Graph_Custom_Post_CallBack_Interface {
@@ -386,8 +386,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
     private void Post_multibule_Images () {
         int mCnt;
-        For_PostSales_Item_Object mfor_sale_item_object;
-        mfor_sale_item_object = For_PostSales_Item_Object.RecallItemObj();
+        Post_Sales_Master_Object mfor_sale_item_object;
+        mfor_sale_item_object = Post_Sales_Master_Object.RecallItemObj();
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
         boolean bool_image_per_post;
