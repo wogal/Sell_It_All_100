@@ -36,6 +36,7 @@ import Dialog_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.For_Sale_Item_Object;
 import For_Sale_Item_Object_Pkg.SaleItemMakeup;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -190,6 +191,11 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     private For_Sale_Item_Object RecallItemObj () {
         For_Sale_Item_Object fsObj = null;
+         String mAbsFullPath_and_extension;
+        File_Helper_Items.Get_4_Sale_ItemObj( this,mPostFileName );
+
+
+
         String file = "earle.ser";
         String path;
         path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
