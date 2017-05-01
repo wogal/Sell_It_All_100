@@ -63,7 +63,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private TextView mTxtView_ItemHeaderText_v8;
 
 
-    private Button mBtnSalesItemName_v8;
+    private Button mBtn_Sales_Post_Item_Details_v8;
 
     private TextView mTxtItemName_v8;
 
@@ -93,10 +93,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
-        mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_Sales_Post_Item_Details_v8 );
-        mBtnSalesItemName_v8.setOnClickListener( this );
+        mBtn_Sales_Post_Item_Details_v8 = (Button) findViewById( R.id.But_Sales_Post_Item_Details_v8 );
+        mBtn_Sales_Post_Item_Details_v8.setOnClickListener( this );
 
-        mTxtItemName_v8 = (TextView) findViewById( R.id.txt_v_sales_item_name_v8 );
+        mTxtItemName_v8 = (TextView) findViewById( R.id.txt_v_Sales_Post_Item_Details_v8 );
         mTxtItemName_v8.setOnClickListener( this );
 
         mBut_itemTextHeader_v8 = (Button) findViewById( R.id.But_text_header_v8 );
@@ -162,19 +162,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 break;
             }
 
-            case R.id.txt_v_sales_item_name_v8:
+            case R.id.txt_v_Sales_Post_Item_Details_v8:
             case R.id.But_Sales_Post_Item_Details_v8: {
-                //      mTxtItemName_v8.setText( str );
-                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Description" );
-                mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
-                    @Override
-                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Ok && _inputText.length() > 2) {
-                            mTxtItemName_v8.setText( _inputText );
-                        }
-                    }
-                } );
-                mText_input_dialog.show();
+                Intent intent_post_item_details = new Intent(this,Activity_Post_Details_v15.class );
+                startActivity( intent_post_item_details );
                 break;
             }
             case R.id.But_save_obj_v8: {

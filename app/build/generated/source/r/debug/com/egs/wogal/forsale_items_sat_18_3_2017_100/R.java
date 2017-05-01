@@ -3454,6 +3454,7 @@ containing a value of this type.
         public static final int But_Invoke_test_1_v11=0x7f0d0093;
         public static final int But_Invoke_test_2_v11=0x7f0d0094;
         public static final int But_Post_mngr_v4=0x7f0d00dd;
+        public static final int But_Sales_Post_Item_Details_v8=0x7f0d00e7;
         public static final int But_done_v6=0x7f0d00e2;
         public static final int But_facebookIntergration_v4=0x7f0d00dc;
         public static final int But_fb_post_pic_v10=0x7f0d0110;
@@ -3465,7 +3466,6 @@ containing a value of this type.
         public static final int But_item_name_done_v15=0x7f0d00b7;
         public static final int But_item_name_done_v2=0x7f0d00d6;
         public static final int But_item_name_v1=0x7f0d0096;
-        public static final int But_Sales_Post_Item_Details_v8 =0x7f0d00e7;
         public static final int But_item_save_v9=0x7f0d00f2;
         public static final int But_item_voice_v1=0x7f0d0097;
         public static final int But_make_NEW_Post_v1=0x7f0d00d1;
@@ -3713,9 +3713,9 @@ containing a value of this type.
         public static final int txt_status_v10=0x7f0d008a;
         public static final int txt_test_v11=0x7f0d0092;
         public static final int txt_test_v4=0x7f0d00d8;
+        public static final int txt_v_Sales_Post_Item_Details_v8=0x7f0d00e6;
         public static final int txt_v_sales_item_name=0x7f0d0098;
         public static final int txt_v_sales_item_name_v1=0x7f0d0095;
-        public static final int txt_v_sales_item_name_v8=0x7f0d00e6;
         public static final int txt_v_take_pici_v5=0x7f0d00de;
         public static final int txt_v_text_header_v8=0x7f0d00e8;
         public static final int txt_view_item_content_header_txt_v9=0x7f0d00ee;

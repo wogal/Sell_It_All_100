@@ -39,7 +39,7 @@ public class Activity_Main_v0 extends AppCompatActivity implements View.OnClickL
         // make sure system folders are set up
 
 
-        if (false ) {
+        if (false) {
 
         } else {
             mBuilderItemName = new AlertDialog.Builder( Activity_Main_v0.this );
