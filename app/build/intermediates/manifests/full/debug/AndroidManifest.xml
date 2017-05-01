@@ -72,6 +72,8 @@
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Mngr_Posts_v11" >
         </activity>
+        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v15" >
+        </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

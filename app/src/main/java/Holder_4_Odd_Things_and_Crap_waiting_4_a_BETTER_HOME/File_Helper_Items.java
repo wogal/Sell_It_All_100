@@ -7,8 +7,10 @@ import com.egs.wogal.forsale_items_sat_18_3_2017_100.R;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 
@@ -102,6 +104,7 @@ public class File_Helper_Items {
     public static boolean Check_and_Create_Post_File (Activity _context, String _fileName, boolean _create_if_not_Exits) {
         // make full path and file name from component parts
         String mNewfolder_and_File;
+        ObjectOutputStream out = null;
         Post_Sales_Master_Object mFor_sale_item_object;
         mNewfolder_and_File = GetAbs_Post_path( _context, _fileName );
         File file = new File( mNewfolder_and_File );
@@ -111,6 +114,15 @@ public class File_Helper_Items {
         if (_create_if_not_Exits) {
             try {
                 file.createNewFile();
+                try {
+                    out = new ObjectOutputStream( new FileOutputStream( mNewfolder_and_File ) );
+                    Post_Sales_Master_Object _post_sales_master_object = new Post_Sales_Master_Object();
+                    out.writeObject( _post_sales_master_object );
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    out.close();
+                }
                 // initialize Post File with new "Post_Sales_Master_Object"
                 mFor_sale_item_object = new Post_Sales_Master_Object();
             } catch (IOException e) {
@@ -120,16 +132,31 @@ public class File_Helper_Items {
         return true;
     }
 
+    public static void Save_4_Sale_Post_Obj (Activity _context, String _fileName, Post_Sales_Master_Object _post_sales_master_object) {
+        String mAbsFullPath_and_extension;
+        // make full abs path and extension
+        mAbsFullPath_and_extension = GetAbs_Post_path( _context, _fileName );
+        try {
+            ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( mAbsFullPath_and_extension ) );
+            out.writeObject( _post_sales_master_object );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     // will return Post_Sales_Master_Object object pointed to by _fileName ( will add path & extension ) , else null if error
-    public static Post_Sales_Master_Object Get_4_Sale_ItemObj (Activity _context, String _fileName) {
+    public static Post_Sales_Master_Object Get_4_Sale_Post_Obj (Activity _context, String _fileName) {
         Post_Sales_Master_Object mFor_sale_item_object = null;
         String mAbsFullPath_and_extension;
         // make full abs path and extension
         mAbsFullPath_and_extension = GetAbs_Post_path( _context, _fileName );
         File fs = new File( mAbsFullPath_and_extension );
-        if (!fs.exists()) // should never happen
+        if (!fs.exists()) { // should never happen
             mFor_sale_item_object = new Post_Sales_Master_Object();
+        }
+
+
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( mAbsFullPath_and_extension ) );
             mFor_sale_item_object = (Post_Sales_Master_Object) in.readObject();
@@ -143,8 +170,6 @@ public class File_Helper_Items {
             //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
             //    return ;
         }
-
-
         return mFor_sale_item_object;
     }
 

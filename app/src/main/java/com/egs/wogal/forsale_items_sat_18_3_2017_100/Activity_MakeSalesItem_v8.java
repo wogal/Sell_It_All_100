@@ -24,17 +24,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
-import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 import JavaClasses_pkg_100.ImageClassHelper;
@@ -97,7 +93,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
-        mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_item_name_v8 );
+        mBtnSalesItemName_v8 = (Button) findViewById( R.id.But_Sales_Post_Item_Details_v8 );
         mBtnSalesItemName_v8.setOnClickListener( this );
 
         mTxtItemName_v8 = (TextView) findViewById( R.id.txt_v_sales_item_name_v8 );
@@ -167,7 +163,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             }
 
             case R.id.txt_v_sales_item_name_v8:
-            case R.id.But_item_name_v8: {
+            case R.id.But_Sales_Post_Item_Details_v8: {
                 //      mTxtItemName_v8.setText( str );
                 Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Description" );
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
@@ -191,67 +187,16 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     private Post_Sales_Master_Object RecallItemObj () {
         Post_Sales_Master_Object fsObj = null;
-         String mAbsFullPath_and_extension;
-        File_Helper_Items.Get_4_Sale_ItemObj( this,mPostFileName );
+        String mAbsFullPath_and_extension;
+        For_Sale_Item_ObjectCls = File_Helper_Items.Get_4_Sale_Post_Obj( this, mPostFileName );
 
-
-
-        String file = "earle.ser";
-        String path;
-        path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
-        path = path + "/" + file;
-        // see if item file exist ,, if not put in blank default values else get from file
-        File fs = new File( path );
-        if (!fs.exists())
-            GetCreateSalesItemObject();
-        try {
-            ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-            fsObj = (Post_Sales_Master_Object) in.readObject();
-        } catch (IOException e) {
-            fsObj = new Post_Sales_Master_Object();
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            fsObj = new Post_Sales_Master_Object();
-            e.printStackTrace();
-        } finally {
-            //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
-            //    return ;
-        }
-        // pop layout ( View )
-        mTxtView_ItemHeaderText_v8.setText( fsObj.get_FS_ItemHeaderText() );
-        mTxtItemName_v8.setText( fsObj.get_FS_SaleItemName() );
-        // make voice arry to sound file
-        Storage_Helper_Class.ByteArray_2_File( Storage_Helper_Class.GetVoiceFilePath(), fsObj.get_FS_ItemHeaderVoiceFileData() );
-        For_Sale_Item_ObjectCls = fsObj;
-        return fsObj;
+        return For_Sale_Item_ObjectCls;
     }
 
     private void SaveItemObj () {
         // put in any data
-        boolean _test = false;
-        _test = Storage_Helper_Class.canWriteToExternalStorage( this );
-
-        if (true) {
-            For_Sale_Item_ObjectCls.set_FS_SaleItemName( mTxtItemName_v8.getText().toString() );
-            For_Sale_Item_ObjectCls.set_FS_ItemHeaderText( mTxtView_ItemHeaderText_v8.getText().toString() );
-            String file = "earle.ser";
-            String path;
-            path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
-            path = path + "/" + file;
-            try {
-                ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( path ) );
-                out.writeObject( For_Sale_Item_ObjectCls );
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        this.finish();
-    }
-
-
-    private Post_Sales_Master_Object GetCreateSalesItemObject () {
-        For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
-        return For_Sale_Item_ObjectCls;
+        File_Helper_Items.Save_4_Sale_Post_Obj( this, mPostFileName, For_Sale_Item_ObjectCls );
+        //      this.finish();
     }
 
 
@@ -387,7 +332,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         if (_itemPosistion > 0) {
             // get pic of selected item
             Bitmap bm;
-            Post_Sales_Item_MakeUp iTem = GetSlectedItemGroup( _itemPosistion );
+            Post_Sales_Item_MakeUp iTem = GetSelectedItemGroup( _itemPosistion );
             bm = iTem.get_Bitmap();
             mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
             mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
@@ -423,7 +368,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         SaveItemObj();
     }
 
-    private Post_Sales_Item_MakeUp GetSlectedItemGroup (int _posistion) {
+    private Post_Sales_Item_MakeUp GetSelectedItemGroup (int _posistion) {
         Post_Sales_Item_MakeUp mPostSalesItemMakeUp;
         ArrayList<Post_Sales_Item_MakeUp> mItemList;
         mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();

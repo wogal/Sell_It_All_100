@@ -66,6 +66,8 @@
         </activity>
         <activity android:name=".Activity_Mngr_Posts_v11">
         </activity>
+        <activity android:name=".Activity_Post_Details_v15">
+        </activity>
     </application>
 
 </manifest>

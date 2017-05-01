@@ -8,8 +8,8 @@
               android:layout_margin="10dp"
               android:background="@drawable/thin_l_blue_boarder"
               android:color="#b69f"
-              android:padding="20dp"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:padding="20dp">
 
 
     <TextView
@@ -33,8 +33,8 @@
         android:layout_height="200dp"
         android:layout_below="@+id/txt_view_item_content_header_txt_v9"
         android:layout_centerHorizontal="true"
-        android:scaleType="centerInside"
         android:layout_marginTop="5dp"
+        android:scaleType="centerInside"
         android:src="@drawable/for_sale_logo_640_480"/>
 
 
@@ -88,9 +88,9 @@
 
             android:id="@+id/But_item_save_v9"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
+            android:layout_weight="1"
             android:background="@drawable/bg_btn_login_background"
             android:text="Save"
             android:textColor="#ed0e37"
@@ -101,9 +101,9 @@
 
             android:id="@+id/But_item_No_save_v9"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"
+            android:layout_weight="1"
             android:background="@drawable/bg_btn_login_background"
             android:text="Exit"
             android:textColor="#ed0e37"
