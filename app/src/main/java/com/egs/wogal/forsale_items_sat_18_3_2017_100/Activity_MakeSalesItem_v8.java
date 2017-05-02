@@ -31,6 +31,7 @@ import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 import JavaClasses_pkg_100.ImageClassHelper;
@@ -149,7 +150,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             case R.id.txt_v_text_header_v8:
             case R.id.But_text_header_v8: {
                 //    mTxtView_ItemHeaderText_v8.setText( str );
-                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name" );
+                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name", Dialog_Line_Type.Dialog_Mult_Line );
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                     @Override
                     public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
@@ -164,7 +165,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
             case R.id.txt_v_Sales_Post_Item_Details_v8:
             case R.id.But_Sales_Post_Item_Details_v8: {
-                Intent intent_post_item_details = new Intent(this,Activity_Post_Details_v15.class );
+                Intent intent_post_item_details = new Intent(this,Activity_Post_Details_v16.class );
                 startActivity( intent_post_item_details );
                 break;
             }

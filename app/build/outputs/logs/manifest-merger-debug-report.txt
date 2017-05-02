@@ -138,7 +138,7 @@ activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Mngr_Posts_v11
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:9-68:20
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:19-58
-activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v15
+activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v16
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:69:9-70:20
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:69:19-60

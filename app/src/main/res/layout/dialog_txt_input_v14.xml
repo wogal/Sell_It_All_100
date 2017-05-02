@@ -40,9 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="    Enter Text - Tap - (v14)"
-            android:inputType="textNoSuggestions|textVisiblePassword"
-            android:maxLines="1"
-            android:textSize="25sp"
+            android:maxLines="3"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="visible"/>
     </android.support.design.widget.TextInputLayout>

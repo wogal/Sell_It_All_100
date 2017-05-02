@@ -13,6 +13,7 @@ import android.widget.TextView;
 import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Input_v14.Text_Input_Dialog_v14;
 import Dialog_Timed_Notice.Dialog_Timed_Notice_v15;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 
@@ -132,7 +133,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         if (1 == 1) {
             switch (v.getId()) {
                 case R.id.But_make_NEW_Post_v1: {
-                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name" );
+                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line );
                     mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                         @Override
                         public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {

@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/thin_l_blue_boarder"
+        android:color="#b69f"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txt_header_v16"
+            android:layout_width="308dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Sales Post Details (v16)"
+            android:textAllCaps="false"
+            android:textColor="#F4511E"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp"/>
+
+        <TextView
+            android:id="@+id/txt_divider_v16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="15dp"
+            android:paddingBottom="10dp"
+            android:text="------------------"
+            android:textAllCaps="false"
+            android:textColor="#de1ef485"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayout_item_name_v14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="normal">
+        <EditText
+            android:id="@+id/edit_text_input_v14"
+            style="@android:style/Widget.DeviceDefault.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="    Enter Text - Tap - (v16)"
+            android:maxLines="5"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"/>
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+</RelativeLayout>
