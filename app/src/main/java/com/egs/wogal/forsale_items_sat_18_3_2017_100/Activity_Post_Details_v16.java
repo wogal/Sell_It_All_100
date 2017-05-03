@@ -10,6 +10,7 @@ import Dialog_Numeric_Input_v17.Numeric_Inp_Dia_Key_Response_Interface_v17;
 import Dialog_Numeric_Input_v17.Numeric_Input_Dialog_v17;
 import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
+import Get_Locale_Info.Get_Locale_Info;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 
@@ -62,12 +63,14 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
             }
             case R.id.But_post_cost_v16:
             case R.id.text_view_post_cost_v16: {
-                Numeric_Input_Dialog_v17 mNumeric_input_dialog = new Numeric_Input_Dialog_v17( this, "Post Cost");
+                Numeric_Input_Dialog_v17 mNumeric_input_dialog = new Numeric_Input_Dialog_v17( this, "Post Cost" );
                 mNumeric_input_dialog.setEventListener_Call_Back( new Numeric_Inp_Dia_Key_Response_Interface_v17() {
                     @Override
                     public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 2) {
-                            mTextView_Post_Cost.setText( _inputText );
+                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 0) {
+                            String mStr;
+                            mStr = Format_PostCost_String( _inputText );
+                            mTextView_Post_Cost.setText( mStr );
                         }
                     }
                 } );
@@ -75,5 +78,12 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
                 break;
             }
         }
+    }
+
+    private String Format_PostCost_String (String _inputText) {
+        String Str_Currency;
+        Str_Currency = Get_Locale_Info.Get_Locale_Currency_String();
+        Str_Currency = String.format( "%s %s", Str_Currency, _inputText );
+        return Str_Currency;
     }
 }

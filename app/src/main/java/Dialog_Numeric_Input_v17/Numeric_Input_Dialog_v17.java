@@ -17,6 +17,10 @@ import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
  * Created by wogal on 5/2/2017.
  */
 
+
+// TODO code needs numeric mask help is in the " Custom XML ( Styles ) " then sub folder -> " Masked_Keyboard_Input " folder
+
+
 public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
     private Numeric_Inp_Dia_Key_Response_Interface_v17 mNumric_inp_dia_key_response_Listerner;
 
@@ -54,9 +58,9 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
         mEditText_Input = (EditText) mDialog_View.findViewById( R.id.edit_text_input_v17 );
         // set either single or multi line inputs
 
-    //    mEditText_Input.setInputType( InputType.PHONE );
+        //    mEditText_Input.setInputType( InputType.PHONE );
         mEditText_Input.setRawInputType( Configuration.KEYBOARD_12KEY );
-    //    mEditText_Input.setDi
+        //    mEditText_Input.setDi
 
         mEditText_Input.setLines( 1 );
 
