@@ -47,23 +47,92 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="0dp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/butt_margin_101"
+            android:background="@drawable/boarder_thin_100"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_view_post_details_v16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/butt_margin_100"
+                android:background="@drawable/boarder_thin_100"
+                android:gravity="center"
+                android:padding="@dimen/textViewPadding_100"
+                android:text="----"
+                android:textColor="#f5f41e7e"
+                android:textSize="20dp"
+                android:lines="4"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/But_post_details_v16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_V8"
+                android:background="@drawable/boarder_thin_100"
+                android:text="Add Post details"
+                android:textAllCaps="false"
+                android:textColor="#ffac07"
+                android:textSize="25dp"
+                android:textStyle="italic"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/butt_margin_101"
+            android:background="@drawable/boarder_thin_100"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_view_post_cost_v16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/butt_margin_100"
+                android:background="@drawable/boarder_thin_100"
+                android:gravity="center"
+                android:padding="@dimen/textViewPadding_100"
+                android:text="----"
+                android:textColor="#f5f41e7e"
+                android:textSize="20dp"
+                android:lines="1"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/But_post_cost_v16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_V8"
+                android:background="@drawable/boarder_thin_100"
+                android:text="Add Post Cost"
+                android:textAllCaps="false"
+                android:textColor="#ffac07"
+                android:textSize="25dp"
+                android:textStyle="italic"/>
+        </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/inputLayout_item_name_v14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="normal">
-        <EditText
-            android:id="@+id/edit_text_input_v14"
-            style="@android:style/Widget.DeviceDefault.EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="    Enter Text - Tap - (v16)"
-            android:maxLines="5"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:visibility="visible"/>
-        </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </LinearLayout>
 </RelativeLayout>

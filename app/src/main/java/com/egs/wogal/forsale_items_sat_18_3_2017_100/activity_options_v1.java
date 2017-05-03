@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
-import Dialog_Input_v14.Text_Input_Dialog_v14;
+import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
+import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import Dialog_Timed_Notice.Dialog_Timed_Notice_v15;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;

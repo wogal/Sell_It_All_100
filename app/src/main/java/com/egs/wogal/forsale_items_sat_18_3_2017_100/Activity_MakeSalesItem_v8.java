@@ -27,8 +27,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Dialog_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
-import Dialog_Input_v14.Text_Input_Dialog_v14;
+import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
+import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
@@ -154,7 +154,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                     @Override
                     public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Ok && _inputText.length() > 2) {
+                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 2) {
                             mTxtView_ItemHeaderText_v8.setText( _inputText );
                         }
                     }
