@@ -22,7 +22,7 @@ import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 
 
 public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
-    private Numeric_Inp_Dia_Key_Response_Interface_v17 mNumric_inp_dia_key_response_Listerner;
+    private Numeric_Inp_Dia_Key_Response_Interface_v17 mNumeric_imp_dea_key_response_Listerner;
 
     // Alert mText_Input_Dialog Vars
     private AlertDialog mText_Input_Dialog;
@@ -75,14 +75,14 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
 
 
     private void Invoke_Call_Back (Dialog_Result _dialog_result) {
-        if (mNumric_inp_dia_key_response_Listerner == null)
+        if (mNumeric_imp_dea_key_response_Listerner == null)
             return;
         String str;
         str = mEditText_Input.getText().toString();
         if (str.isEmpty()) {
             str = "Empty";
         }
-        mNumric_inp_dia_key_response_Listerner.CallBack_Key_response( _dialog_result, str );
+        mNumeric_imp_dea_key_response_Listerner.CallBack_Key_response( _dialog_result, str );
         mText_Input_Dialog.dismiss();
     }
 
@@ -96,7 +96,7 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
 
 
     public void setEventListener_Call_Back (Numeric_Inp_Dia_Key_Response_Interface_v17 _eventListener) {
-        mNumric_inp_dia_key_response_Listerner = _eventListener;
+        mNumeric_imp_dea_key_response_Listerner = _eventListener;
     }
 
     @Override

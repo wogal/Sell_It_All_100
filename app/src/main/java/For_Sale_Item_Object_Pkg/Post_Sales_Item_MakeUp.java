@@ -31,7 +31,7 @@ public class Post_Sales_Item_MakeUp implements Serializable {
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
 
     // text name  of item for sale
-    private String _FS_SaleItemName;
+    private String _FS_SaleItemName ="";
 
 
     private GraphResponse _graph_response;

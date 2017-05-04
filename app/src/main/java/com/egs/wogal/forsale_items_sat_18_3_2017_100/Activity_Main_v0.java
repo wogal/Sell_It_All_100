@@ -42,10 +42,12 @@ public class Activity_Main_v0 extends AppCompatActivity implements View.OnClickL
         if (false) {
 
         } else {
+
             mBuilderItemName = new AlertDialog.Builder( Activity_Main_v0.this );
             mViewItemName = getLayoutInflater().inflate( R.layout.layout_init_alrt_dialog_v12, null );
             mBut_name_item_GoBack = (Button) mViewItemName.findViewById( R.id.But_item_name_done_v12 );
-            mTxtView_init_header_v12 = (TextView) mViewItemName.findViewById( R.id.text_view_init_header_v12 );
+            mTxtView_init_header_v12 = (TextView) mViewItemName.findViewById( R.id.text_view_init_header_v12 )
+            ;
             mTxtView_init_action_v12 = (TextView) mViewItemName.findViewById( R.id.text_view_init_actions_v12 );
             mTxtView_init_header_v12.setText( "Init Actions (v12)" );
             // stops AlertDialog from dismissing on touch out side the AlertDialog

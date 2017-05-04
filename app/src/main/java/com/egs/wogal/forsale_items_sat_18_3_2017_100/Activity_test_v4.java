@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+
 public class Activity_test_v4 extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBut_test;
@@ -17,7 +18,6 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
     private Button mbut_Recyclerview;
     private Button mBut_FacebookIntergration;
     private Button mBut_ManagePosts;
-
 
 
     @Override
@@ -52,8 +52,8 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
-            case R.id.But_facebookIntergration_v4:{
-             Intent intentFaceBook_v10 = new Intent( this,Activity_FaceBook_v10.class );
+            case R.id.But_facebookIntergration_v4: {
+                Intent intentFaceBook_v10 = new Intent( this, Activity_FaceBook_v10.class );
                 startActivity( intentFaceBook_v10 );
                 break;
             }
@@ -73,15 +73,13 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
                 startActivity( intent );
                 break;
             }
-            case R.id.But_Post_mngr_v4:{
+            case R.id.But_Post_mngr_v4: {
                 Intent intent = new Intent( this, Activity_Mngr_Posts_v11.class );
                 startActivity( intent );
                 break;
             }
         }
     }
-
-
 
 
 }

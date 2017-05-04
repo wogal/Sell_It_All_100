@@ -155,8 +155,6 @@ public class File_Helper_Items {
         if (!fs.exists()) { // should never happen
             mFor_sale_item_object = new Post_Sales_Master_Object();
         }
-
-
         try {
             ObjectInputStream in = new ObjectInputStream( new FileInputStream( mAbsFullPath_and_extension ) );
             mFor_sale_item_object = (Post_Sales_Master_Object) in.readObject();

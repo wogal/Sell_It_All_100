@@ -34,6 +34,7 @@ import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Shared_Constants;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -165,8 +166,12 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
             case R.id.txt_v_Sales_Post_Item_Details_v8:
             case R.id.But_Sales_Post_Item_Details_v8: {
-                Intent intent_post_item_details = new Intent(this,Activity_Post_Details_v16.class );
-                startActivity( intent_post_item_details );
+                Intent intent_post_item_details = new Intent( this, Activity_Post_Details_v16.class );
+                //  and post cost to v16
+                intent_post_item_details.putExtra( System_Shared_Constants.const_bundle_post_cost, For_Sale_Item_ObjectCls.get_FS_PostCost() );
+                // pass in post details ,,
+                intent_post_item_details.putExtra( System_Shared_Constants.const_bundle_post_details, For_Sale_Item_ObjectCls.get_FS_Post_Details_Text() );
+                startActivityForResult( intent_post_item_details, System_Shared_Constants.const_Data_From_Post_Details );
                 break;
             }
             case R.id.But_save_obj_v8: {
@@ -283,23 +288,33 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         Toast.makeText( this, "Wogal Heck ", Toast.LENGTH_LONG ).show();
         Log.d( TAG, "onActivityResult start " );
-        if (true) {
-            if (requestCode == ACTIVITY_START_CAMERA_APP && resultCode == RESULT_OK) {
-                if (false)
-                    return;
-                Bitmap bm_in;
-                Bitmap bm_out;
-                bm_in = BitmapFactory.decodeFile( mImageFileLocation );
-                //    bm_out = rotateImage( bm_in );
-                bm_in = ImageClassHelper.getResizedBitmap( bm_in, 700, 700 );
-                String path;
-                bm_in = rotateImage( bm_in, mImageFileLocation );
-                path = Storage_Helper_Class.saveImage( bm_in, "wogal", "jpg" );
-                Log.d( TAG, "onActivityResult end ( save pressed " );
-                mPhotoCaptureImageView.setImageBitmap( bm_in );
+
+        switch (requestCode) {
+            case ACTIVITY_START_CAMERA_APP: {
+                if (requestCode == ACTIVITY_START_CAMERA_APP && resultCode == RESULT_OK) {
+                    Bitmap bm_in;
+                    Bitmap bm_out;
+                    bm_in = BitmapFactory.decodeFile( mImageFileLocation );
+                    //    bm_out = rotateImage( bm_in );
+                    bm_in = ImageClassHelper.getResizedBitmap( bm_in, 700, 700 );
+                    String path;
+                    bm_in = rotateImage( bm_in, mImageFileLocation );
+                    path = Storage_Helper_Class.saveImage( bm_in, "wogal", "jpg" );
+                    Log.d( TAG, "onActivityResult end ( save pressed " );
+                    mPhotoCaptureImageView.setImageBitmap( bm_in );
+                }
+                break;
+            }
+            case System_Shared_Constants.const_Data_From_Post_Details: {
+                For_Sale_Item_ObjectCls.set_FS_Post_Details_Text( data.getStringExtra( System_Shared_Constants.const_bundle_post_details ) );
+                // get post cost ( is Float so java/android bug work around
+                Bundle bundle = data.getExtras();
+                For_Sale_Item_ObjectCls.set_FS_PostCost( bundle.getFloat( System_Shared_Constants.const_bundle_post_cost ) );
+                break;
             }
         }
     }
+
 
     // Make Item Content dialog v9
     //region Description

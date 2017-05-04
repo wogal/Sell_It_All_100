@@ -19,15 +19,27 @@ public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements 
 
     //<editor-fold desc=" Variables  ">
     // date when for sale item was created
-    private long _FS_DateTime_of_Conseption;
+    private long _FS_DateTime_of_Conseption = 0;
     // name of item for sale
-    private String _FS_SaleItemName;
+    private String _FS_SaleItemName = "";
     // list of item objects ie:pic , text , voice , --
     private ArrayList<Post_Sales_Item_MakeUp> _ItemGroupArray;
-    // text to describe sales item
-    private String _FS_ItemHeaderText = "";
+    // text to describe sales post
+    private String _FS_Post_Details_Text = "";
     // byte array for item header voice sound file
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
+    // float representation of post cost
+    private float _FS_PostCost = 0.0F;
+
+    public float get_FS_PostCost () {
+        return _FS_PostCost;
+    }
+
+    public void set_FS_PostCost (float _FS_PostCost) {
+        this._FS_PostCost = _FS_PostCost;
+    }
+
+
 
 
     public Post_Sales_Master_Object () {
@@ -74,12 +86,12 @@ public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements 
         this._ItemGroupArray = _ItemGroupArray;
     }
 
-    public String get_FS_ItemHeaderText () {
-        return _FS_ItemHeaderText;
+    public String get_FS_Post_Details_Text () {
+        return _FS_Post_Details_Text;
     }
 
-    public void set_FS_ItemHeaderText (String _FS_ItemHeaderText) {
-        this._FS_ItemHeaderText = _FS_ItemHeaderText;
+    public void set_FS_Post_Details_Text (String _FS_Post_Details_Text) {
+        this._FS_Post_Details_Text = _FS_Post_Details_Text;
     }
 
     //</editor-fold>

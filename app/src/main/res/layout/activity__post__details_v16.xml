@@ -110,8 +110,19 @@
                 android:textColor="#ffac07"
                 android:textSize="25dp"
                 android:textStyle="italic"/>
-        </LinearLayout>
 
+        </LinearLayout>
+        <Button
+            android:id="@+id/But_post_done_v16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_V8"
+            android:background="@drawable/boarder_thin_100"
+            android:text="D  O  N  E"
+            android:textAllCaps="false"
+            android:textColor="#ffac07"
+            android:textSize="25dp"
+            android:textStyle="italic"/>
 
 
 
