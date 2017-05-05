@@ -38,14 +38,14 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
     private Button mBtn_done;
 
 
-    public Numeric_Input_Dialog_v17 (Context _context, String _Dialog_Title) {
+    public Numeric_Input_Dialog_v17 (Context _context,String _Dialog_Title,String _value) {
         mContext = _context;
-
         invoke_Dialog();
         if (_Dialog_Title != null) {
             if (_Dialog_Title.length() > 2)
                 mTextView_header.setText( _Dialog_Title );
         }
+        mEditText_Input.setText( _value );
     }
 
     private void invoke_Dialog () {
@@ -56,14 +56,10 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
 
         // text input hint on input text
         mEditText_Input = (EditText) mDialog_View.findViewById( R.id.edit_text_input_v17 );
-        // set either single or multi line inputs
 
-        //    mEditText_Input.setInputType( InputType.PHONE );
         mEditText_Input.setRawInputType( Configuration.KEYBOARD_12KEY );
-        //    mEditText_Input.setDi
 
         mEditText_Input.setLines( 1 );
-
 
         // dialog header text
         mTextView_header = (TextView) mDialog_View.findViewById( R.id.text_view_txt_input_header_v17 );

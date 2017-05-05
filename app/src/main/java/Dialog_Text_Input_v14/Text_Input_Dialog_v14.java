@@ -38,7 +38,7 @@ public class Text_Input_Dialog_v14 implements View.OnClickListener {
     private Dialog_Line_Type mSingleLine_input;
 
 
-    public Text_Input_Dialog_v14 (Context _context, String _Dialog_Title, Dialog_Line_Type _dialog_line_type) {
+    public Text_Input_Dialog_v14 (Context _context, String _Dialog_Title, Dialog_Line_Type _dialog_line_type, String _mStr) {
         mContext = _context;
         mSingleLine_input = _dialog_line_type;
         invoke_Dialog();
@@ -46,7 +46,7 @@ public class Text_Input_Dialog_v14 implements View.OnClickListener {
             if (_Dialog_Title.length() > 2)
                 mTextView_header.setText( _Dialog_Title );
         }
-
+       mEditText_Input.setText( _mStr );
     }
 
     private void invoke_Dialog () {

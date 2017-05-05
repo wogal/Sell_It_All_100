@@ -31,9 +31,9 @@ public class Activity_Main_v0 extends AppCompatActivity implements View.OnClickL
         mBtn_startselling_vn = (Button) findViewById( R.id.butt_lets_start_selling_v0 );
         mBtn_startselling_vn.setOnClickListener( this );
         // invoke system initialize Actions
-        Initialize_System( this );
-
+         Initialize_System( this );
     }
+
 
     private void Initialize_System (Activity _activity_main_v0) {
         // make sure system folders are set up

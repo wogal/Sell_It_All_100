@@ -133,7 +133,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         if (1 == 1) {
             switch (v.getId()) {
                 case R.id.But_make_NEW_Post_v1: {
-                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line );
+                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line,"" );
                     mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                         @Override
                         public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {

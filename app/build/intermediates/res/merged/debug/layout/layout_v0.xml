@@ -16,10 +16,13 @@
         android:background="@drawable/bg_btn_login_background"
         android:gravity="center"
         android:padding="10dp"
-        android:text="Diana's Deals  ..(v0)"
+        android:text="Sell It All  ..(v0)"
         android:textColor="#F44336"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
+
+
+
 
     <ImageView
         android:id="@+id/master_logo_vo"
@@ -34,6 +37,7 @@
         android:foregroundGravity="center"
         android:padding="5dp"
         android:scaleType="fitCenter"
+        android:visibility="visible"
         android:src="@drawable/for_sale_logo_640_480" />
 
     <Button
@@ -50,6 +54,7 @@
         android:background="@drawable/bg_btn_login_background"
         android:gravity="center"
         android:padding="10dp"
+        android:visibility="visible"
         android:text="Lets Start Selling"
         android:textColor="@color/button_login_txt_colour"
         android:textSize="35sp"

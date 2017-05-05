@@ -53,6 +53,7 @@
             android:layout_margin="@dimen/butt_margin_101"
             android:background="@drawable/boarder_thin_100"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/text_view_post_details_v16"
                 android:layout_width="match_parent"
@@ -61,12 +62,13 @@
                 android:layout_margin="@dimen/butt_margin_100"
                 android:background="@drawable/boarder_thin_100"
                 android:gravity="center"
+                android:lines="4"
                 android:padding="@dimen/textViewPadding_100"
                 android:text="----"
                 android:textColor="#f5f41e7e"
                 android:textSize="20dp"
-                android:lines="4"
                 android:textStyle="bold"/>
+
             <Button
                 android:id="@+id/But_post_details_v16"
                 android:layout_width="match_parent"
@@ -79,12 +81,14 @@
                 android:textSize="25dp"
                 android:textStyle="italic"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/butt_margin_101"
             android:background="@drawable/boarder_thin_100"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/text_view_post_cost_v16"
                 android:layout_width="match_parent"
@@ -93,12 +97,13 @@
                 android:layout_margin="@dimen/butt_margin_100"
                 android:background="@drawable/boarder_thin_100"
                 android:gravity="center"
+                android:lines="1"
                 android:padding="@dimen/textViewPadding_100"
                 android:text="----"
                 android:textColor="#f5f41e7e"
                 android:textSize="20dp"
-                android:lines="1"
                 android:textStyle="bold"/>
+
             <Button
                 android:id="@+id/But_post_cost_v16"
                 android:layout_width="match_parent"
@@ -112,6 +117,7 @@
                 android:textStyle="italic"/>
 
         </LinearLayout>
+
         <Button
             android:id="@+id/But_post_done_v16"
             android:layout_width="match_parent"
@@ -123,26 +129,6 @@
             android:textColor="#ffac07"
             android:textSize="25dp"
             android:textStyle="italic"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </LinearLayout>

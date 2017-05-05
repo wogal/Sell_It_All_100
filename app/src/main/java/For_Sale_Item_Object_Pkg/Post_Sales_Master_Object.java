@@ -29,7 +29,7 @@ public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements 
     // byte array for item header voice sound file
     private byte[] _FS_ItemHeaderVoiceFileDataArray;
     // float representation of post cost
-    private float _FS_PostCost = 0.0F;
+    private float _FS_PostCost = 12.69F;
 
     public float get_FS_PostCost () {
         return _FS_PostCost;

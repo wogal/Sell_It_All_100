@@ -31,9 +31,11 @@ import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Add_Remove_Decoration;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Locale_Helpers;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Shared_Constants;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
@@ -44,6 +46,7 @@ import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_recall_obj_v8;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
+
 
     public static final String TAG = "Wogal v8";
     private static final int ACTIVITY_START_CAMERA_APP = 0;
@@ -67,8 +70,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     private Button mBtn_Sales_Post_Item_Details_v8;
 
-    private TextView mTxtItemName_v8;
-
 
     private AlertDialog Dialog_Itemview;
     private View mView_Itemview;
@@ -76,6 +77,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
     // post display name file name
     private TextView mTxtView_PostFileName;
+    // post details
+    private TextView mTxt_Post_Details_v8;
+    // post cost
+    private TextView mTxtV_post_cost;
 
 
     // master item class object
@@ -98,8 +103,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBtn_Sales_Post_Item_Details_v8 = (Button) findViewById( R.id.But_Sales_Post_Item_Details_v8 );
         mBtn_Sales_Post_Item_Details_v8.setOnClickListener( this );
 
-        mTxtItemName_v8 = (TextView) findViewById( R.id.txt_v_Sales_Post_Item_Details_v8 );
-        mTxtItemName_v8.setOnClickListener( this );
+        mTxt_Post_Details_v8 = (TextView) findViewById( R.id.txt_v_Sales_Post_Item_Details_v8 );
+        mTxt_Post_Details_v8.setOnClickListener( this );
 
         mBut_itemTextHeader_v8 = (Button) findViewById( R.id.But_text_header_v8 );
         mBut_itemTextHeader_v8.setOnClickListener( this );
@@ -117,7 +122,14 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mBut_RecallIemObj = (Button) findViewById( But_recall_obj_v8 );
         mBut_RecallIemObj.setOnClickListener( this );
 
-        RecallItemObj();
+        mTxtV_post_cost = (TextView) findViewById( R.id.txt_v_post_cost_v8 );
+        mTxtV_post_cost.setOnClickListener( this );
+
+        // RECALL and update layout from recalled post item object ( for consistency )
+        For_Sale_Item_ObjectCls = RecallItemObj();
+        Update_Layout_from_Post_Sales_Master_Object( For_Sale_Item_ObjectCls );
+
+        For_Sale_Item_ObjectCls = Update_Post_Sales_Master_Object_from_Layout( For_Sale_Item_ObjectCls );
 
         // horizontal Rec View
         if (true) {
@@ -151,7 +163,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             case R.id.txt_v_text_header_v8:
             case R.id.But_text_header_v8: {
                 //    mTxtView_ItemHeaderText_v8.setText( str );
-                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name", Dialog_Line_Type.Dialog_Mult_Line );
+                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name", Dialog_Line_Type.Dialog_Mult_Line, "TEST ERROR" );
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                     @Override
                     public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
@@ -165,12 +177,13 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             }
 
             case R.id.txt_v_Sales_Post_Item_Details_v8:
-            case R.id.But_Sales_Post_Item_Details_v8: {
+            case R.id.txt_v_post_cost_v8:
+            case R.id.But_Sales_Post_Item_Details_v8: { // call update POST DETAILS
                 Intent intent_post_item_details = new Intent( this, Activity_Post_Details_v16.class );
-                //  and post cost to v16
-                intent_post_item_details.putExtra( System_Shared_Constants.const_bundle_post_cost, For_Sale_Item_ObjectCls.get_FS_PostCost() );
-                // pass in post details ,,
-                intent_post_item_details.putExtra( System_Shared_Constants.const_bundle_post_details, For_Sale_Item_ObjectCls.get_FS_Post_Details_Text() );
+                // get latest info from Layout ->  " For_Sale_Item_ObjectCls "
+                For_Sale_Item_ObjectCls = Update_Post_Sales_Master_Object_from_Layout( For_Sale_Item_ObjectCls );
+                // send copy of " Post_Sales_Master_Object " to child process
+                intent_post_item_details.putExtra( System_Shared_Constants.const_bundle_post_OBJECT, For_Sale_Item_ObjectCls );
                 startActivityForResult( intent_post_item_details, System_Shared_Constants.const_Data_From_Post_Details );
                 break;
             }
@@ -306,10 +319,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                 break;
             }
             case System_Shared_Constants.const_Data_From_Post_Details: {
-                For_Sale_Item_ObjectCls.set_FS_Post_Details_Text( data.getStringExtra( System_Shared_Constants.const_bundle_post_details ) );
-                // get post cost ( is Float so java/android bug work around
-                Bundle bundle = data.getExtras();
-                For_Sale_Item_ObjectCls.set_FS_PostCost( bundle.getFloat( System_Shared_Constants.const_bundle_post_cost ) );
+
+                For_Sale_Item_ObjectCls = (Post_Sales_Master_Object) data.getSerializableExtra( System_Shared_Constants.const_bundle_post_OBJECT );
+                // update layout
+                Update_Layout_from_Post_Sales_Master_Object( For_Sale_Item_ObjectCls );
                 break;
             }
         }
@@ -382,6 +395,46 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mPostSalesItemMakeUp = mItemList.get( _posistion - 1 );
         return mPostSalesItemMakeUp;
     }
+
+
+    /**
+     * Will take items in layout and populate "Post_Sales_Master_Object" with data
+     *
+     * @return object populated from layout
+     */
+    private Post_Sales_Master_Object Update_Post_Sales_Master_Object_from_Layout (Post_Sales_Master_Object _Post_Sales_Master_Object) {
+        Post_Sales_Master_Object mPost_sales_master_object;
+        mPost_sales_master_object = _Post_Sales_Master_Object;
+        String mStr;
+        // post details
+
+        mStr = Add_Remove_Decoration.Remove_Decoration_Post_details(  mTxt_Post_Details_v8);
+
+        mPost_sales_master_object.set_FS_Post_Details_Text(mStr);
+
+
+        // post cost (special case USE float from POST OBJECT )
+        // get substring after locale currency char
+        String mSubStr;
+        String mCostStr;
+        mCostStr = (String) mTxtV_post_cost.getText();
+        mSubStr = mCostStr.substring( mCostStr.lastIndexOf( System_Locale_Helpers.GetLocaleCurrency_char() ) + 1 );
+
+        mPost_sales_master_object.set_FS_PostCost( Float.parseFloat( mSubStr ) );
+        return mPost_sales_master_object;
+
+    }
+
+    /**
+     * Will update layout from info in "Post_Sales_Master_Object"
+     *
+     * @param _Post_Sales_Master_Object
+     */
+    private void Update_Layout_from_Post_Sales_Master_Object (Post_Sales_Master_Object _Post_Sales_Master_Object) {
+        mTxt_Post_Details_v8.setText( Add_Remove_Decoration.Add_Decoration_Post_details() );
+        mTxtV_post_cost.setText( System_Locale_Helpers.Format_PostCost_String( _Post_Sales_Master_Object.get_FS_PostCost() ) );
+    }
+
 
     //endregion
 
