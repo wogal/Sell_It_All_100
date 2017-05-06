@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-75:12
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-77:12
 	package
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:3:11-66
 		INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml
@@ -30,7 +30,7 @@ ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:8:22-64
 application
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:10:5-73:19
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:10:5-75:19
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:28:5-48:19
 MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\8cb48a0c128b873f3be016061ae4374a315135f2\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.0.0] C:\Users\wogal\.android\build-cache\cb835bac364cfa9cbf74e1d3d0a30393e28b6cd5\output\AndroidManifest.xml:22:5-20
@@ -146,6 +146,10 @@ activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_layout_v9_item_c
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:71:9-72:20
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:71:19-66
+activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Select_Post_File_v17
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:73:9-74:20
+	android:name
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:73:19-64
 uses-sdk
 INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:24:5-26:41

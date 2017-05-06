@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/earle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="false">
+
+        <TextView
+            android:id="@+id/txt_header_v17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Let's Sell Stuff (v1)"
+            android:textColor="#F4511E"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_v_sales_item_name_v17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/obect_header_txt_v1_"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="-------"
+            android:textColor="#F4511E"
+            android:textSize="30dp"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+
+
+
+
+
+        <Button
+            android:id="@+id/But_make_NEW_Post_v17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Make NEW Post"
+            android:textColor="#ff7b07"
+            android:textSize="25dp"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:textStyle="italic" />
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -67,6 +67,17 @@
             android:textAllCaps="false"
             android:textSize="25dp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/But_select_Post_File_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Select Post File"
+            android:textColor="#b384b1"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:textStyle="italic" />
 
 
     </LinearLayout>

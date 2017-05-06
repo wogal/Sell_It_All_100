@@ -70,6 +70,8 @@
         </activity>
         <activity android:name=".Activity_layout_v9_item_content">
         </activity>
+        <activity android:name=".Activity_Select_Post_File_v17">
+        </activity>
     </application>
 
 </manifest>
