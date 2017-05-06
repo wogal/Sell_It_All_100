@@ -178,7 +178,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
             case R.id.txt_v_Sales_Post_Item_Details_v8:
             case R.id.txt_v_post_cost_v8:
-            case R.id.But_Sales_Post_Item_Details_v8: { // call update POST DETAILS
+            case R.id.But_Sales_Post_Item_Details_v8: { // call update POST DETAILS v16
                 Intent intent_post_item_details = new Intent( this, Activity_Post_Details_v16.class );
                 // get latest info from Layout ->  " For_Sale_Item_ObjectCls "
                 For_Sale_Item_ObjectCls = Update_Post_Sales_Master_Object_from_Layout( For_Sale_Item_ObjectCls );
@@ -407,12 +407,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mPost_sales_master_object = _Post_Sales_Master_Object;
         String mStr;
         // post details
-
-        mStr = Add_Remove_Decoration.Remove_Decoration_Post_details(  mTxt_Post_Details_v8);
-
-        mPost_sales_master_object.set_FS_Post_Details_Text(mStr);
-
-
+        mStr = Add_Remove_Decoration.Remove_Decoration_Post_details( mTxt_Post_Details_v8 );
+        mPost_sales_master_object.set_FS_Post_Details_Text( mStr );
         // post cost (special case USE float from POST OBJECT )
         // get substring after locale currency char
         String mSubStr;
@@ -431,7 +427,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
      * @param _Post_Sales_Master_Object
      */
     private void Update_Layout_from_Post_Sales_Master_Object (Post_Sales_Master_Object _Post_Sales_Master_Object) {
-        mTxt_Post_Details_v8.setText( Add_Remove_Decoration.Add_Decoration_Post_details() );
+
+        mTxt_Post_Details_v8.setText( Add_Remove_Decoration.Add_Decoration_Post_details( _Post_Sales_Master_Object ) );
+
         mTxtV_post_cost.setText( System_Locale_Helpers.Format_PostCost_String( _Post_Sales_Master_Object.get_FS_PostCost() ) );
     }
 

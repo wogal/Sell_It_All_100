@@ -19,6 +19,7 @@ import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Locale_Helpers;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Shared_Constants;
 
+import static Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Add_Remove_Decoration.Remove_Decoration_Post_details;
 import static Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Locale_Helpers.Format_PostCost_String;
 
 
@@ -81,16 +82,23 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
             case R.id.But_post_details_v16:
             case R.id.text_view_post_details_v16: {
                 // get present value of post details and pass to Text_Input_Dialog_v14
-                mStr = (String) mTxt_Post_Details_v16.getText();
+
+                mStr = Add_Remove_Decoration.Remove_Decoration_Post_details( mTxt_Post_Details_v16 );
+
                 Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Detail's", Dialog_Line_Type.Dialog_Mult_Line, mStr );
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                     @Override
                     public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
                         if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 2) {
-                            mTxt_Post_Details_v16.setText( _inputText );
+                            // copy to master post " Post_Sales_Master_Object "
+                            mPost_sales_master_object.set_FS_Post_Details_Text( _inputText );
+                            // update layout ( and decorate )
+                            Update_Layout_from_Post_Sales_Master_Object( mPost_sales_master_object );
                         }
                     }
                 } );
+
+
                 mText_input_dialog.show();
                 break;
             }
@@ -141,12 +149,17 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
         Post_Sales_Master_Object mPost_sales_master_object;
         mPost_sales_master_object = _Post_Sales_Master_Object;
         // post details
-        mPost_sales_master_object.set_FS_Post_Details_Text( (String) mTxt_Post_Details_v16.getText() );
-        // post cost (special case USE float from POST OBJECT )
-        // get substring after locale currency char
+        String mStr = Remove_Decoration_Post_details( mTxt_Post_Details_v16 );
+        mPost_sales_master_object.set_FS_Post_Details_Text( mStr );
+
+        // undecorated post details  "  mTxt_Post_Details_v16 "
+        mStr = Add_Remove_Decoration.Remove_Decoration_Post_details(  mTxt_Post_Details_v16);
+        mPost_sales_master_object.set_FS_Post_Details_Text(mStr);
+
         String mCostStr;
         mCostStr = (String) mTxtV_post_cost_v16.getText();
         mPost_sales_master_object.set_FS_PostCost( System_Locale_Helpers.Get_Float_From_String( mCostStr ) );
+
         return mPost_sales_master_object;
     }
 
@@ -156,7 +169,7 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
      * @param _Post_Sales_Master_Object
      */
     private void Update_Layout_from_Post_Sales_Master_Object (Post_Sales_Master_Object _Post_Sales_Master_Object) {
-        mTxt_Post_Details_v16.setText( Add_Remove_Decoration.Add_Decoration_Post_details() );
+        mTxt_Post_Details_v16.setText( Add_Remove_Decoration.Add_Decoration_Post_details( _Post_Sales_Master_Object ) );
         // post cost
         mTxtV_post_cost_v16.setText( System_Locale_Helpers.Format_PostCost_String( _Post_Sales_Master_Object.get_FS_PostCost() ) );
     }
