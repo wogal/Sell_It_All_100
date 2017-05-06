@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +28,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
-import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Add_Remove_Decoration;
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Locale_Helpers;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Shared_Constants;
@@ -62,10 +59,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     private Button mBut_saveItemObj;
     private Button mBut_RecallIemObj;
 
-
-    private Button mBut_name_item_GoBack;
-    private Button mBut_itemTextHeader_v8;
-    private TextView mTxtView_ItemHeaderText_v8;
+    private LinearLayout mLinearLayout;
 
 
     private Button mBtn_Sales_Post_Item_Details_v8;
@@ -93,7 +87,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         setContentView( R.layout.layout_v8 );
 
         // get extra passed info
-
         mPostFileName = getIntent().getStringExtra( "post_file_name" );
 
         mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
@@ -106,15 +99,8 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTxt_Post_Details_v8 = (TextView) findViewById( R.id.txt_v_Sales_Post_Item_Details_v8 );
         mTxt_Post_Details_v8.setOnClickListener( this );
 
-        mBut_itemTextHeader_v8 = (Button) findViewById( R.id.But_text_header_v8 );
-        mBut_itemTextHeader_v8.setOnClickListener( this );
-
-        mTxtView_ItemHeaderText_v8 = (TextView) findViewById( R.id.txt_v_text_header_v8 );
-        mTxtView_ItemHeaderText_v8.setOnClickListener( this );
-
         mTxtView_PostFileName = (TextView) findViewById( R.id.txt_file_name_v8 );
         mTxtView_PostFileName.setText( String.format( "File Name : %s.%s", mPostFileName, getString( R.string.post_file_ext ) ) );
-
 
         mBut_saveItemObj = (Button) findViewById( R.id.But_save_obj_v8 );
         mBut_saveItemObj.setOnClickListener( this );
@@ -131,6 +117,10 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         For_Sale_Item_ObjectCls = Update_Post_Sales_Master_Object_from_Layout( For_Sale_Item_ObjectCls );
 
+        mLinearLayout = (LinearLayout) findViewById( R.id.LinLayOut_PostItem_details_v8 );
+        mLinearLayout.setOnClickListener( this );
+
+
         // horizontal Rec View
         if (true) {
             mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
@@ -146,7 +136,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             //     SnapHelper snapHelper = new GravitySnapHelper ();
             snapHelper.attachToRecyclerView( mRecyclerView );
         }
-
     }
 
 
@@ -159,23 +148,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     @Override
     public void onClick (View v) {
         switch (v.getId()) {
-
-            case R.id.txt_v_text_header_v8:
-            case R.id.But_text_header_v8: {
-                //    mTxtView_ItemHeaderText_v8.setText( str );
-                Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Name", Dialog_Line_Type.Dialog_Mult_Line, "TEST ERROR" );
-                mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
-                    @Override
-                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 2) {
-                            mTxtView_ItemHeaderText_v8.setText( _inputText );
-                        }
-                    }
-                } );
-                mText_input_dialog.show();
-                break;
-            }
-
+            case R.id.LinLayOut_PostItem_details_v8:
             case R.id.txt_v_Sales_Post_Item_Details_v8:
             case R.id.txt_v_post_cost_v8:
             case R.id.But_Sales_Post_Item_Details_v8: { // call update POST DETAILS v16
