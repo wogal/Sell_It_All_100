@@ -68,6 +68,8 @@
         </activity>
         <activity android:name=".Activity_Post_Details_v16">
         </activity>
+        <activity android:name=".Activity_layout_v9_item_content">
+        </activity>
     </application>
 
 </manifest>

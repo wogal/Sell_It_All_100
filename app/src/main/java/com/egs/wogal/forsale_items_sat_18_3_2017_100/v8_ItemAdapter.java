@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import JavaClasses_pkg_100.ImageClassHelper;
 import JavaClasses_pkg_100.Storage_Helper_Class;
 
@@ -43,7 +43,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     }
 
     @Override
-    public v8_Item_ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
+    public v8_Item_ViewHolder onCreateViewHolder (final ViewGroup parent, int viewType) {
         View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.layout_rec_item_v7, parent, false );
         v8_Item_ViewHolder vh = new v8_Item_ViewHolder( v, m_Context );
 
@@ -53,7 +53,10 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             public void onClick (View v) {
                 switch (v.getId()) {
                     case R.id.ItermView_v7: {
+                 //       Toast.makeText( null, "Wogal Heck ", Toast.LENGTH_LONG ).show();
                         m_activity_makeSalesItem_v8.MakeDialog( v, _itemPosistion );
+                       //  Intent intent_v0 = new Intent(null,Activity_layout_v9_item_content.class );
+
                         break;
                     }
                 }

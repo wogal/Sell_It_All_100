@@ -3449,6 +3449,7 @@ containing a value of this type.
         public static final int wogals_uimg_700_700=0x7f0200a1;
     }
     public static final class id {
+        public static final int Add_Items_v8=0x7f0d00f8;
         public static final int But_Done_v4=0x7f0d00e6;
         public static final int But_Invoke_Camera_v4=0x7f0d00e5;
         public static final int But_Invoke_test_1_v11=0x7f0d0093;
@@ -3497,7 +3498,6 @@ containing a value of this type.
         public static final int R_id_txt_header_v1=0x7f0d011e;
         public static final int Rec_Posts_v11=0x7f0d0091;
         public static final int Rec_View_v6=0x7f0d00ef;
-        public static final int Rec_itemPics_v8=0x7f0d00f8;
         public static final int action0=0x7f0d0104;
         public static final int action_bar=0x7f0d0073;
         public static final int action_bar_activity_content=0x7f0d0000;

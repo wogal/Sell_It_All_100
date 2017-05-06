@@ -111,19 +111,21 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTxtV_post_cost = (TextView) findViewById( R.id.txt_v_post_cost_v8 );
         mTxtV_post_cost.setOnClickListener( this );
 
+        mLinearLayout = (LinearLayout) findViewById( R.id.LinLayOut_PostItem_details_v8 );
+        mLinearLayout.setOnClickListener( this );
+
+
+
         // RECALL and update layout from recalled post item object ( for consistency )
         For_Sale_Item_ObjectCls = RecallItemObj();
         Update_Layout_from_Post_Sales_Master_Object( For_Sale_Item_ObjectCls );
 
         For_Sale_Item_ObjectCls = Update_Post_Sales_Master_Object_from_Layout( For_Sale_Item_ObjectCls );
 
-        mLinearLayout = (LinearLayout) findViewById( R.id.LinLayOut_PostItem_details_v8 );
-        mLinearLayout.setOnClickListener( this );
-
 
         // horizontal Rec View
         if (true) {
-            mRecyclerView = (RecyclerView) findViewById( R.id.Rec_itemPics_v8 );
+            mRecyclerView = (RecyclerView) findViewById( R.id.Add_Items_v8 );
             mRecyclerView.setHasFixedSize( true );
             mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
 
@@ -335,9 +337,21 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
         mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
 
-        //   if (_itemPosistion == 0)
-        //    mTextView.setText( "Item # " + _itemPosistion + ":" );
-        if (true) {
+
+        if (true) { // action buttons on " layout_v9_item_content "
+            mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById(R.id.But_item_No_save_v9 );
+            mBut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick (View v) {
+                    // save item
+              //      For_Sale_Item_ObjectCls =    Update_For_Sale_Item_ObjectCls_from_Layout(For_Sale_Item_ObjectCls);
+                    Dialog_Itemview.dismiss();
+                    return;
+                 //   Dialog_Itemview = null;
+                }
+            } );
+
+
             mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
             mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
                 @Override
@@ -351,15 +365,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         }
     }
 
-    private void Add_SaleItemMakeup_2_set_ItemGroupArray () {
-        Post_Sales_Item_MakeUp mPostSalesItemMakeUp = new Post_Sales_Master_Object();
-        ArrayList<Post_Sales_Item_MakeUp> mItemList;
-        mPostSalesItemMakeUp.set_Bitmap( ((BitmapDrawable) mPhotoCaptureImageView.getDrawable()).getBitmap() );
-        mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();
-        mItemList.add( mPostSalesItemMakeUp );
-        For_Sale_Item_ObjectCls.set_ItemGroupArray( mItemList );
-        SaveItemObj();
-    }
 
     private Post_Sales_Item_MakeUp GetSelectedItemGroup (int _posistion) {
         Post_Sales_Item_MakeUp mPostSalesItemMakeUp;
@@ -406,6 +411,20 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTxtV_post_cost.setText( System_Locale_Helpers.Format_PostCost_String( _Post_Sales_Master_Object.get_FS_PostCost() ) );
     }
 
+
+    private Post_Sales_Item_MakeUp Update_For_Sale_Item_ObjectCls_from_Layout(Post_Sales_Item_MakeUp _Post_sales_item_makeUp) {
+
+        Post_Sales_Item_MakeUp mPostSalesItemMakeUp = new Post_Sales_Master_Object();
+        ArrayList<Post_Sales_Item_MakeUp> mItemList;
+        mPostSalesItemMakeUp.set_Bitmap( ((BitmapDrawable) mPhotoCaptureImageView.getDrawable()).getBitmap() );
+        mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();
+        mItemList.add( mPostSalesItemMakeUp );
+        For_Sale_Item_ObjectCls.set_ItemGroupArray( mItemList );
+        SaveItemObj();
+
+
+        return For_Sale_Item_ObjectCls;
+    }
 
     //endregion
 
