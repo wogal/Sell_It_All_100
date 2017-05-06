@@ -111,40 +111,6 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/butt_margin_101"
-            android:visibility="gone"
-            android:background="@drawable/boarder_thin_100"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/txt_v_text_header_v8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/butt_margin_100"
-                android:background="@drawable/boarder_thin_100"
-                android:gravity="center"
-                android:padding="@dimen/textViewPadding_100"
-                android:text="----"
-                android:textColor="#f5f41e7e"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-
-            <Button
-                android:id="@+id/But_text_header_v8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_V8"
-                android:background="@drawable/boarder_thin_100"
-                android:text="Add Text Header"
-                android:textAllCaps="false"
-                android:textColor="#ffac07"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
