@@ -74,7 +74,7 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
                 break;
             }
             case R.id.But_Post_mngr_v4: {
-                Intent intent = new Intent( this, Activity_Mngr_Posts_v11.class );
+                Intent intent = new Intent( this, Recycley_view_Activity_Mngr_Posts_v11.class );
                 startActivity( intent );
                 break;
             }

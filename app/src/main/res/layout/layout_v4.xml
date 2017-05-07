@@ -102,9 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/layout_v4_padding"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Manage Group's"
+            android:text="Manage Group's (Test Recycle)"
             android:textColor="#FFC107"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="italic"/>
 
 

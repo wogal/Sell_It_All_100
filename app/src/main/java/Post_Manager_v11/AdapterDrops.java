@@ -33,7 +33,7 @@ public class AdapterDrops extends RecyclerView.Adapter<AdapterDrops.DropHolder> 
 
     @Override
     public int getItemCount () {
-        return 1;
+        return 14;
     }
 
     public static class DropHolder extends RecyclerView.ViewHolder {

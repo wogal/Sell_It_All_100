@@ -70,7 +70,7 @@
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_FaceBook_v10" >
         </activity>
-        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Mngr_Posts_v11" >
+        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Recycley_view_Activity_Mngr_Posts_v11" >
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v16" >
         </activity>

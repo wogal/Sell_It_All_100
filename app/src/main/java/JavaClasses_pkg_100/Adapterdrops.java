@@ -80,8 +80,6 @@ public class Adapterdrops extends RecyclerView.Adapter<Adapterdrops.DropHolder> 
             super( itemView );
             mTxtview = (TextView) itemView.findViewById( R.id.textV7 );
             mImgView = (ImageView) itemView.findViewById( R.id.iMageView_v7 );
-
-
         }
     }
 }

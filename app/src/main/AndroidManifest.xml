@@ -64,7 +64,7 @@
         </activity>
         <activity android:name=".Activity_FaceBook_v10">
         </activity>
-        <activity android:name=".Activity_Mngr_Posts_v11">
+        <activity android:name=".Recycley_view_Activity_Mngr_Posts_v11">
         </activity>
         <activity android:name=".Activity_Post_Details_v16">
         </activity>

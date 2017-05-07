@@ -134,10 +134,10 @@ activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_FaceBook_v10
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:65:9-66:20
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:65:19-56
-activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Mngr_Posts_v11
+activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Recycley_view_Activity_Mngr_Posts_v11
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:9-68:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:19-58
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:19-72
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v16
 ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:69:9-70:20
 	android:name
