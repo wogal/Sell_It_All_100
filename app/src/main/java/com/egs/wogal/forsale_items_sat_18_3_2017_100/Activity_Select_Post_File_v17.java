@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 
 import Select_Post_File_Recylcle.AdapterDrops_Post_Files;
+import Select_Post_File_Recylcle.Post_File_Array_Class;
 
 public class Activity_Select_Post_File_v17 extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -18,6 +19,10 @@ public class Activity_Select_Post_File_v17 extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity__select__post__file_v17 );
         // init
+
+        Post_File_Array_Class.Get_Post_Files_List( this );
+
+
         mRecyclerView = (RecyclerView) findViewById( R.id.RecView_SelectPost_File_v17 );
         LinearLayoutManager manager = new LinearLayoutManager( this );
         mRecyclerView.setLayoutManager( manager );

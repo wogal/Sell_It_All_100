@@ -115,7 +115,6 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mLinearLayout.setOnClickListener( this );
 
 
-
         // RECALL and update layout from recalled post item object ( for consistency )
         For_Sale_Item_ObjectCls = RecallItemObj();
         Update_Layout_from_Post_Sales_Master_Object( For_Sale_Item_ObjectCls );
@@ -339,15 +338,28 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
         if (true) { // action buttons on " layout_v9_item_content "
-            mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById(R.id.But_item_No_save_v9 );
+
+
+            mBut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
+            mBut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick (View v) {
+                    // get items from " layout_v9_item_content.xml " and add to
+                    Post_Sales_Master_Object mPost_ItemMakeup = new Post_Sales_Master_Object();
+                    Add_SaleItemMakeup_2_set_ItemGroupArray();
+                }
+            } );
+
+
+            mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9QQ );
             mBut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {
                     // save item
-              //      For_Sale_Item_ObjectCls =    Update_For_Sale_Item_ObjectCls_from_Layout(For_Sale_Item_ObjectCls);
+                    //      For_Sale_Item_ObjectCls =    Update_For_Sale_Item_ObjectCls_from_Layout(For_Sale_Item_ObjectCls);
                     Dialog_Itemview.dismiss();
                     return;
-                 //   Dialog_Itemview = null;
+                    //   Dialog_Itemview = null;
                 }
             } );
 
@@ -412,7 +424,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
     }
 
 
-    private Post_Sales_Item_MakeUp Update_For_Sale_Item_ObjectCls_from_Layout(Post_Sales_Item_MakeUp _Post_sales_item_makeUp) {
+    private Post_Sales_Item_MakeUp Update_For_Sale_Item_ObjectCls_from_Layout (Post_Sales_Item_MakeUp _Post_sales_item_makeUp) {
 
         Post_Sales_Item_MakeUp mPostSalesItemMakeUp = new Post_Sales_Master_Object();
         ArrayList<Post_Sales_Item_MakeUp> mItemList;
@@ -424,6 +436,19 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
 
         return For_Sale_Item_ObjectCls;
+    }
+
+    private void Add_SaleItemMakeup_2_set_ItemGroupArray () {
+        Post_Sales_Item_MakeUp mSaleItemMakeup = new Post_Sales_Item_MakeUp();
+        ArrayList<Post_Sales_Item_MakeUp> mItemList;
+        Bitmap bm;
+        bm = ((BitmapDrawable) mPhotoCaptureImageView.getDrawable()).getBitmap();
+        mSaleItemMakeup.set_Bitmap( bm);
+        mItemList = For_Sale_Item_ObjectCls.get_ItemGroupArray();
+        mItemList.add( mSaleItemMakeup );
+        For_Sale_Item_ObjectCls.set_ItemGroupArray( mItemList );
+
+        SaveItemObj();
     }
 
     //endregion

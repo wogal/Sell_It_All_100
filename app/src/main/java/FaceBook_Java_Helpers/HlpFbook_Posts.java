@@ -106,19 +106,19 @@ public class HlpFbook_Posts implements Runnable {
                 mBitmap = mSsaleItemMakeUp.get_Bitmap();
                 mItemtxtHeader = mSsaleItemMakeUp.get_FS_SaleItemName();
                 // post all activity ( but with publish stats == false ) and store ids
-                Log.d( TAG, " postOPbj_2_Grp Invoked iteration -> " + mCnt );
-                postOPbj_2_Grp( wogal_test, mIndex, _acActivity, _destination_id, mItemtxtHeader, mBitmap );
+                Log.d( TAG, " postOPbj_2_Group Invoked iteration -> " + mCnt );
+                postOPbj_2_Group( wogal_test, mIndex, _acActivity, _destination_id, mItemtxtHeader, mBitmap );
             }
         }
     }
 
-    private void postOPbj_2_Grp (int _wogal_test, final int _mCnt, Activity _acActivity, final String _destination_id, String _postMessage, Bitmap _imgObj) {
+    private void postOPbj_2_Group (int _wogal_test, final int _mCnt, Activity _acActivity, final String _destination_id, String _postMessage, Bitmap _imgObj) {
 
         Bundle params = new Bundle();
         params.clear();
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
 
-        Log.d( TAG, " postOPbj_2_Grp Invoked " );
+        Log.d( TAG, " postOPbj_2_Group Invoked " );
         // convert Bitmap ( _imgObj ) to   byte[] ( _FS_ItemBitmapArray ) for facebook to handel
         ByteArrayOutputStream stream;
         stream = new ByteArrayOutputStream();
@@ -135,7 +135,11 @@ public class HlpFbook_Posts implements Runnable {
         }
         //     params.putString( "message", _postMessage );
         params.putString( "message", "Item Cnt -> " + _mCnt );
+        params.putString( "message","Wogal Heck And Puggle Heck" );
         params.putString( "published", _bool_image_per_post ? "false" : "true" );
+     //   params.putString( "message","Wogal Heck And Puggle Heck" );
+
+
 
         new GraphRequest(
                 currentAccessToken,
@@ -153,39 +157,42 @@ public class HlpFbook_Posts implements Runnable {
                         if (_mMultiPost_Response.size() == _items_2_Post.size()) {
                             // if all done then do final publish post
                             mGraph_onfinalPost_callBack_Listerner.CallBack_OnFinal_On_Mulit_Image_Post( 0, _destination_id, _response, _mMultiPost_Response, _items_2_Post );
-                            DoFinal_PublishPost( _destination_id, _response );
+                            DoFinal_PublishPost_QQQ( _destination_id, _response );
                         }
                     }
                 }
         ).executeAsync();
-        Log.d( TAG, " postOPbj_2_Grp Exited  " );
+        Log.d( TAG, " postOPbj_2_Group Exited  " );
     }
 
-    private void DoFinal_PublishPost (String _destination_id, GraphResponse _response) {
+    private void DoFinal_PublishPost_QQQ (String _destination_id, GraphResponse _response) {
         // final post to auth previous multi posts ,,
         String mstr_ = _bool_image_per_post ? "true" : "false";
         Log.d( TAG, " CallBack DoFinal_PublishPost Invoked " + " Img Per Post = " + mstr_ );
 
         Bundle params;
-        params = FB_HelperClss.FB_Extract_NamedValue_from_Respose( _mMultiPost_Response );
+        params = FB_HelperClss.FB_Extract_NamedValue_from_Respose_QQQ( _mMultiPost_Response );
         params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
+        params.putString( FB_Consts.FB_message, "Multi Post Authorise 200" );
+        params.putString( FB_Consts.FB_message, "Multi Post Authorise 300" );
+        params.putString(FB_Consts.FB_message,"Wogal Heck And Puggle Heck" );
+
         // do custom post
         if (false == _bool_image_per_post) {
             Log.d( TAG, " ** NOT **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
         } else {
             Log.d( TAG, " ** I Am  **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
-            CustomPost( _destination_id, params );
+            CustomPost_QQQ( _destination_id, params );
         }
     }
 
 
-    public void CustomPost (final String _destination_id, Bundle _params) {
+    public void CustomPost_QQQ (final String _destination_id, Bundle _params) {
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
         Log.d( TAG, " CustomPost Invoked " );
         new GraphRequest(
                 currentAccessToken,
-                "/" + _destination_id + "/feed",
-                _params,
+                "/" + _destination_id + "/feed",_params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {

@@ -3461,7 +3461,7 @@ containing a value of this type.
         public static final int But_fb_post_pic_v10=0x7f0d0120;
         public static final int But_fb_text_post__v10=0x7f0d011e;
         public static final int But_get_pici_v5=0x7f0d00f0;
-        public static final int But_item_No_save_v9=0x7f0d0103;
+        public static final int But_item_No_save_v9QQ=0x7f0d0103;
         public static final int But_item_name_done_v12=0x7f0d00cc;
         public static final int But_item_name_done_v14=0x7f0d00c7;
         public static final int But_item_name_done_v15=0x7f0d00c3;

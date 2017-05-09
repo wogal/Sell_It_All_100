@@ -136,6 +136,8 @@ public class File_Helper_Items {
         String mAbsFullPath_and_extension;
         // make full abs path and extension
         mAbsFullPath_and_extension = GetAbs_Post_path( _context, _fileName );
+        // put in this file name to Post Object
+        _post_sales_master_object.set_FS_Post_File_Name( _fileName );
         try {
             ObjectOutputStream out = new ObjectOutputStream( new FileOutputStream( mAbsFullPath_and_extension ) );
             out.writeObject( _post_sales_master_object );
@@ -149,14 +151,16 @@ public class File_Helper_Items {
     public static Post_Sales_Master_Object Get_4_Sale_Post_Obj (Activity _context, String _fileName) {
         Post_Sales_Master_Object mFor_sale_item_object = null;
         String mAbsFullPath_and_extension;
+        ObjectInputStream in;
         // make full abs path and extension
+
         mAbsFullPath_and_extension = GetAbs_Post_path( _context, _fileName );
         File fs = new File( mAbsFullPath_and_extension );
         if (!fs.exists()) { // should never happen
             mFor_sale_item_object = new Post_Sales_Master_Object();
         }
         try {
-            ObjectInputStream in = new ObjectInputStream( new FileInputStream( mAbsFullPath_and_extension ) );
+             in = new ObjectInputStream( new FileInputStream( mAbsFullPath_and_extension ) );
             mFor_sale_item_object = (Post_Sales_Master_Object) in.readObject();
         } catch (IOException e) {
             mFor_sale_item_object = new Post_Sales_Master_Object();
@@ -176,6 +180,13 @@ public class File_Helper_Items {
     public static String IsExternal_StorageMounted () {
         String state;
         String extStoragePath = "";
+/*
+        if(ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
+            //ask for permission
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE_PERMISSION_CODE);
+        }
+     */
 
         state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals( state )) {

@@ -44,10 +44,10 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
 
     @Override
     public v8_Item_ViewHolder onCreateViewHolder (final ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from( parent.getContext() ).inflate( R.layout.layout_rec_item_v7, parent, false );
-        v8_Item_ViewHolder vh = new v8_Item_ViewHolder( v, m_Context );
+        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.layout_rec_item_v7, parent, false );
+        v8_Item_ViewHolder vh = new v8_Item_ViewHolder( view, m_Context );
 
-        m_ItemRecle_Id = (LinearLayout) v.findViewById( R.id.ItermView_v7 );
+        m_ItemRecle_Id = (LinearLayout) view.findViewById( R.id.ItermView_v7 );
         m_ItemRecle_Id.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick (View v) {

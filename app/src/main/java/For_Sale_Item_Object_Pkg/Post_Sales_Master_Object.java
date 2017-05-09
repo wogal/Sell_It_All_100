@@ -1,14 +1,8 @@
 package For_Sale_Item_Object_Pkg;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
-
-import JavaClasses_pkg_100.Storage_Helper_Class;
 
 /**
  * Created by wogal on 3/25/2017.
@@ -31,6 +25,17 @@ public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements 
     // float representation of post cost
     private float _FS_PostCost = 12.69F;
 
+    public String get_FS_Post_File_Name () {
+        return _FS_Post_File_Name;
+    }
+
+    public void set_FS_Post_File_Name (String _FS_Post_File_Name) {
+        this._FS_Post_File_Name = _FS_Post_File_Name;
+    }
+
+    private String _FS_Post_File_Name = "";
+
+
     public float get_FS_PostCost () {
         return _FS_PostCost;
     }
@@ -52,31 +57,7 @@ public class Post_Sales_Master_Object extends Post_Sales_Item_MakeUp implements 
 
     }
 
-    public static Post_Sales_Master_Object RecallItemObj () {
-        Post_Sales_Master_Object fsObj = null;
-        String file = "earle.ser";
-        String path;
-        path = Storage_Helper_Class.MakeOrCheck_If_Folder_Exists( "For_Sale_100" );
-        path = path + "/" + file;
-        // see if item file exist ,, if not put in blank default values else get from file
-        File fs = new File( path );
-        if (!fs.exists())
-            GetCreateSalesItemObject();
-        try {
-            ObjectInputStream in = new ObjectInputStream( new FileInputStream( path ) );
-            fsObj = (Post_Sales_Master_Object) in.readObject();
-        } catch (IOException e) {
-            fsObj = new Post_Sales_Master_Object();
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            fsObj = new Post_Sales_Master_Object();
-            e.printStackTrace();
-        } finally {
-            //    For_Sale_Item_ObjectCls = new Post_Sales_Master_Object();
-            //    return ;
-        }
-        return fsObj;
-    }
+
 
     public ArrayList<Post_Sales_Item_MakeUp> get_ItemGroupArray () {
         return _ItemGroupArray;
