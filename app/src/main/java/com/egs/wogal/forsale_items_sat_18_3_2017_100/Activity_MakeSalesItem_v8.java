@@ -89,6 +89,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         // get extra passed info
         mPostFileName = getIntent().getStringExtra( "post_file_name" );
 
+
         mImageFileLocation = GetBaseStorageFilePathAndAddFile( "Wogals_Temp_Pic_100", "jpg" );
 
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
@@ -396,6 +397,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         Post_Sales_Master_Object mPost_sales_master_object;
         mPost_sales_master_object = _Post_Sales_Master_Object;
         String mStr;
+
         // post details
         mStr = Add_Remove_Decoration.Remove_Decoration_Post_details( mTxt_Post_Details_v8 );
         mPost_sales_master_object.set_FS_Post_Details_Text( mStr );

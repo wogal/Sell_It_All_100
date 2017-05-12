@@ -15,7 +15,7 @@ import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Add_Remove_Decoration;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Locale_Helpers;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.System_Shared_Constants;
 
@@ -88,8 +88,8 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
                 Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "Post Detail's", Dialog_Line_Type.Dialog_Mult_Line, mStr );
                 mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                     @Override
-                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 2) {
+                    public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
+                        if (_dialog_result == Dialog_Result_Enum.Dialog_Done && _inputText.length() > 2) {
                             // copy to master post " Post_Sales_Master_Object "
                             mPost_sales_master_object.set_FS_Post_Details_Text( _inputText );
                             // update layout ( and decorate )
@@ -111,8 +111,8 @@ public class Activity_Post_Details_v16 extends AppCompatActivity implements View
                 Numeric_Input_Dialog_v17 mNumeric_input_dialog = new Numeric_Input_Dialog_v17( this, "Post Cost", mStr );
                 mNumeric_input_dialog.setEventListener_Call_Back( new Numeric_Inp_Dia_Key_Response_Interface_v17() {
                     @Override
-                    public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
-                        if (_dialog_result == Dialog_Result.Dialog_Done && _inputText.length() > 0) {
+                    public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
+                        if (_dialog_result == Dialog_Result_Enum.Dialog_Done && _inputText.length() > 0) {
                             String mStr;
                             Float mFloat;
                             String str = _inputText;

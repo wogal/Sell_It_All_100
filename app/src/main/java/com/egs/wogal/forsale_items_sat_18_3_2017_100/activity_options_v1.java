@@ -13,11 +13,12 @@ import android.widget.TextView;
 import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import Dialog_Timed_Notice.Dialog_Timed_Notice_v15;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Choice_ActionEnums;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 
-import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_select_Post_File_v1;
+import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_select_Post_File_Edit_v1;
 
 
 public class activity_options_v1 extends AppCompatActivity implements View.OnClickListener {
@@ -28,7 +29,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private TextView mTxtItemName_v1;
     private TextView mTxtView_txt_in_v14;
     private Intent m_Intent;
-    private Button mBut_SelectPost_File;
+    private Button mBut_SelectPost_To_Edit;
+    private Button mBut_Select_Edit_To_Post;
+
 
     private Button mButMake_NEW_POST;
 
@@ -121,9 +124,11 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         mButMake_NEW_POST = (Button) findViewById( R.id.But_make_NEW_Post_v1 );
         mButMake_NEW_POST.setOnClickListener( this );
 
-        mBut_SelectPost_File = (Button) findViewById( But_select_Post_File_v1 );
-        mBut_SelectPost_File.setOnClickListener( this );
+        mBut_SelectPost_To_Edit = (Button) findViewById( But_select_Post_File_Edit_v1 );
+        mBut_SelectPost_To_Edit.setOnClickListener( this );
 
+        mBut_Select_Edit_To_Post = (Button) findViewById( R.id.But_select_File_To_Post_v1 );
+        mBut_Select_Edit_To_Post.setOnClickListener( this );
 
     }
 
@@ -139,16 +144,29 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     public void onClick (View v) {
         if (1 == 1) {
             switch (v.getId()) {
-                case But_select_Post_File_v1: {
-                    Intent SelectPost_File_Intent = new Intent( this,Activity_Select_Post_File_v17.class );
+                case But_select_Post_File_Edit_v1: { // Edit Post file
+                    Intent SelectPost_File_Intent = new Intent( this, Activity_Select_Post_File_v17.class );
+                    SelectPost_File_Intent.putExtra( Choice_ActionEnums.key.toString(),Choice_ActionEnums.choice_Edit_Post_File.toString() );
                     startActivity( SelectPost_File_Intent );
+                    break;
+                }
+                case R.id.But_select_File_To_Post_v1: { // Post file
+                    Intent SelectPost_File_Intent = new Intent( this, Activity_Select_Post_File_v17.class );
+                    SelectPost_File_Intent.putExtra(Choice_ActionEnums.key.toString(),Choice_ActionEnums.choice_Post_File.toString() );
+                    startActivity( SelectPost_File_Intent );
+                    break;
+                }
+                case R.id.But_test_activity_v1: {  // ******************
+                    File_Helper_Items.GetAbs_Post_path( this, "Earles Chairs.pst" );
+                    m_Intent = new Intent( this, Activity_test_v4.class );
+                    startActivity( m_Intent ); // save to move on
                     break;
                 }
                 case R.id.But_make_NEW_Post_v1: {
                     Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line, "" );
                     mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                         @Override
-                        public void CallBack_Key_response (Dialog_Result _dialog_result, String _inputText) {
+                        public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
                             if (true == Make_New_Post_File( _inputText )) {
                                 m_Intent.putExtra( "post_file_name", _inputText );
                                 startActivity( m_Intent ); // save to move on
@@ -156,12 +174,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                         }
                     } );
                     mText_input_dialog.show();
-                    break;
-                }
-                case R.id.But_test_activity_v1: {
-                    File_Helper_Items.GetAbs_Post_path( this, "Earles Chairs.pst" );
-                    m_Intent = new Intent( this, Activity_test_v4.class );
-                    startActivity( m_Intent ); // save to move on
                     break;
                 }
             }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.egs.wogal.forsale_items_sat_18_3_2017_100.R;
 
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
 
 /**
  * Created by wogal on 4/28/2017.
@@ -81,7 +81,7 @@ public class Dialog_Timed_Notice_v15 implements View.OnClickListener {
 
             @Override
             public void onFinish () {
-                Invoke_Call_Back( Dialog_Result.Dialog_Done );
+                Invoke_Call_Back( Dialog_Result_Enum.Dialog_Done );
             }
         }.start();
 
@@ -93,7 +93,7 @@ public class Dialog_Timed_Notice_v15 implements View.OnClickListener {
     }
 
 
-    private void Invoke_Call_Back (Dialog_Result _dialog_result) {
+    private void Invoke_Call_Back (Dialog_Result_Enum _dialog_result) {
         mText_Input_Dialog.dismiss();
         if (mText_inp_dia_key_response_Listerner == null)
             return;
@@ -113,7 +113,7 @@ public class Dialog_Timed_Notice_v15 implements View.OnClickListener {
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_item_name_done_v15: {
-                Invoke_Call_Back( Dialog_Result.Dialog_Done );
+                Invoke_Call_Back( Dialog_Result_Enum.Dialog_Done );
                 break;
             }
         }

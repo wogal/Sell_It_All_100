@@ -54,7 +54,6 @@ public class Activity_test_v4 extends AppCompatActivity implements View.OnClickL
         switch (v.getId()) {
             case R.id.But_facebookIntergration_v4: {
                 Intent intentFaceBook_v10 = new Intent( this, Activity_FaceBook_v10.class );
-
                 startActivity( intentFaceBook_v10 );
                 break;
             }

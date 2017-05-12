@@ -46,6 +46,7 @@ import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Choice_ActionEnums;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCallBackFunction_EachPost_Interface, Graph_Custom_Post_CallBack_Interface {
@@ -94,6 +95,11 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
 
     private int mPostProgressIndex;
 
+    private String mAction;
+
+    private TextView mTxtV_txt_header_v10;
+
+    Bundle mBundle;
 
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
@@ -158,9 +164,22 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+// get any extras
+
+        mBundle = new Bundle(  );
+
+        mAction = mBundle.getString( Choice_ActionEnums.key.toString() );
+
+
 
         callbackManager = CallbackManager.Factory.create();
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
+
+        getIntent().getStringExtra( Choice_ActionEnums.key.toString() );
+
+
+        mTxtV_txt_header_v10 = (TextView) findViewById( R.id.txt_header_v10 );
+
 
         //region "    LoginManager.getInstance().registerCallback( callbackManager, "
         LoginManager.getInstance().registerCallback( callbackManager,

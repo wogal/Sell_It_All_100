@@ -14,4 +14,6 @@ public class System_Shared_Constants {
         // banner text's
         public static final String const_banner_post_details = "Post Header Details\n";
 
+    //    public static final String const_Choice_ActionEnums
+
 }

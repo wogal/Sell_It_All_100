@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.egs.wogal.forsale_items_sat_18_3_2017_100.R;
 
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
 
 /**
  * Created by wogal on 5/2/2017.
@@ -70,7 +70,7 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
     }
 
 
-    private void Invoke_Call_Back (Dialog_Result _dialog_result) {
+    private void Invoke_Call_Back (Dialog_Result_Enum _dialog_result) {
         if (mNumeric_imp_dea_key_response_Listerner == null)
             return;
         String str;
@@ -99,7 +99,7 @@ public class Numeric_Input_Dialog_v17 implements View.OnClickListener {
     public void onClick (View v) {
         switch (v.getId()) {
             case R.id.But_item_name_done_v17: {
-                Invoke_Call_Back( Dialog_Result.Dialog_Done );
+                Invoke_Call_Back( Dialog_Result_Enum.Dialog_Done );
                 break;
             }
         }

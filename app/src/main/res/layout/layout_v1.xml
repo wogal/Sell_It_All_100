@@ -36,7 +36,7 @@
             android:layout_marginBottom="35dp"
             android:background="@drawable/obect_header_txt_v1_"
             android:gravity="center"
-            android:padding="15dp"
+            android:padding="10dp"
             android:text="-------"
             android:textColor="#F4511E"
             android:textSize="30dp"
@@ -49,7 +49,7 @@
             android:id="@+id/But_make_NEW_Post_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_btn_login_background"
             android:text="Make NEW Post"
             android:textColor="#ff7b07"
@@ -60,7 +60,7 @@
             android:id="@+id/But_test_activity_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_btn_login_background"
             android:text="Post FaceBook"
             android:textColor="#ff07f7"
@@ -68,17 +68,28 @@
             android:textSize="25dp"
             android:textStyle="bold" />
         <Button
-            android:id="@+id/But_select_Post_File_v1"
+            android:id="@+id/But_select_Post_File_Edit_v1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Select Post File"
-            android:textColor="#b384b1"
+            android:text="Select Post File (Edit)"
+            android:textColor="#dc46c8"
             android:textAllCaps="false"
             android:textSize="25dp"
             android:textStyle="italic" />
 
+        <Button
+            android:id="@+id/But_select_File_To_Post_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="Select File to Post"
+            android:textColor="#df70da"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 </RelativeLayout>
