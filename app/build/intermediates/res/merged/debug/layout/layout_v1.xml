@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="50dp"
+        android:paddingTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentBottom="false"
@@ -90,6 +90,18 @@
             android:textAllCaps="false"
             android:textSize="25dp"
             android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/But_select_Text_2_speech_v1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_btn_login_background"
+            android:text="NEW Text to Speech"
+            android:textColor="#df6412"
+            android:textAllCaps="false"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </RelativeLayout>

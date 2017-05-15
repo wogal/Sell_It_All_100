@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-77:12
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:2:1-78:12
 	package
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:3:11-66
 		INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml
@@ -30,12 +30,12 @@ ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell
 	android:name
 		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:8:22-64
 application
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:10:5-75:19
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:11:5-76:19
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:28:5-48:19
 MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\8cb48a0c128b873f3be016061ae4374a315135f2\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.0.0] C:\Users\wogal\.android\build-cache\cb835bac364cfa9cbf74e1d3d0a30393e28b6cd5\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wogal\.android\build-cache\e6a88fec013d388821c0ad7ea6dcba774bbf8516\output\AndroidManifest.xml:9:5-20
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.android\build-cache\bdf62df10bbdcf642a316b7effb71d2d39467bed\output\AndroidManifest.xml:28:5-48:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\wogal\.android\build-cache\50c786da97ab424606ebcd0d5d87e870dba372ee\output\AndroidManifest.xml:28:5-48:19
 MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\wogal\.android\build-cache\17b53cab81cdf038e6e95db8393affcd90b331c3\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.0] C:\Users\wogal\.android\build-cache\fdcc9cf2c7818a6cabc857440bfd0d46172120bc\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.0.0] C:\Users\wogal\.android\build-cache\f6aca05ff9bf8a54cbc9444540d130837eef8c1a\output\AndroidManifest.xml:25:5-20
@@ -49,107 +49,107 @@ MERGED from [com.android.support:customtabs:25.0.0] C:\Users\wogal\.android\buil
 MERGED from [com.android.support:support-compat:25.0.0] C:\Users\wogal\.android\build-cache\204d7e62c4abb33c8fc5d533bc625472c670d350\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.volley:volley:1.0.0] C:\Users\wogal\.android\build-cache\cfe8777de89855cb59b25691edbaa8bbd4ace838\output\AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:15:9-41
 	android:supportsRtl
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:17:9-35
 	android:roundIcon
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:15:9-54
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:16:9-54
 	android:configChanges
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:12:9-55
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:13:9-55
 	android:allowBackup
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:13:9-48
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:14:9-48
 	android:theme
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:17:9-40
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:18:9-40
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Main_v0
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:18:9-24:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:19:9-25:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:18:19-51
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:19:19-51
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:20:17-68
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:21:17-68
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:22:17-76
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:23:17-76
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:23:27-74
 dependency
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:26:9-38:22
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:27:9-39:22
 groupId
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:27:13-29:23
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:28:13-30:23
 artifactId
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:31:13-33:26
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:32:13-34:26
 version
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:35:13-37:23
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:36:13-38:23
 provider#com.facebook.FacebookContentProvider
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:40:9-43:38
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:41:9-44:38
 	android:authorities
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:42:13-91
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:43:13-91
 	android:exported
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:43:13-36
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:44:13-36
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:41:13-64
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:42:13-64
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:45:9-47:54
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:46:9-48:54
 	android:value
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:47:13-52
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:48:13-52
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:46:13-58
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:47:13-58
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.activity_options_v1
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:49:9-56
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:50:9-56
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:49:19-54
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:50:19-54
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_test_v4
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:50:9-53
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:51:9-53
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:50:19-51
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:51:19-51
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Camera_v5
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:51:9-52:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:52:9-53:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:51:19-53
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:52:19-53
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Recycle_v6
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:53:9-54:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:54:9-55:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:53:19-54
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:54:19-54
 uses-feature#android.hardware.camera
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:56:9-63
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:57:9-63
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:56:23-61
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:57:23-61
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_MakeSalesItem_v8
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:58:9-62:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:59:9-63:20
 	android:screenOrientation
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:61:13-50
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:62:13-50
 	android:configChanges
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:60:13-74
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:61:13-74
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:59:13-54
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:60:13-54
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Camrea_100
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:63:9-64:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:64:9-65:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:63:19-54
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:64:19-54
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_FaceBook_v10
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:65:9-66:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:66:9-67:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:65:19-56
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:66:19-56
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Recycley_view_Activity_Mngr_Posts_v11
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:9-68:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:68:9-69:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:67:19-72
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:68:19-72
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Post_Details_v16
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:69:9-70:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:70:9-71:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:69:19-60
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:70:19-60
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_layout_v9_item_content
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:71:9-72:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:72:9-73:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:71:19-66
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:72:19-66
 activity#com.egs.wogal.forsale_items_sat_18_3_2017_100.Activity_Select_Post_File_v17
-ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:73:9-74:20
+ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:74:9-75:20
 	android:name
-		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:73:19-64
+		ADDED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml:74:19-64
 uses-sdk
 INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:24:5-26:41
@@ -157,7 +157,7 @@ MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-ca
 MERGED from [com.android.support:recyclerview-v7:25.0.0] C:\Users\wogal\.android\build-cache\6463df7e0fae7275a0fe1b1843bba0b47c7e9e53\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.0.0] C:\Users\wogal\.android\build-cache\cb835bac364cfa9cbf74e1d3d0a30393e28b6cd5\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wogal\.android\build-cache\e6a88fec013d388821c0ad7ea6dcba774bbf8516\output\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.android\build-cache\bdf62df10bbdcf642a316b7effb71d2d39467bed\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\wogal\.android\build-cache\50c786da97ab424606ebcd0d5d87e870dba372ee\output\AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:appcompat-v7:25.0.0] C:\Users\wogal\.android\build-cache\17b53cab81cdf038e6e95db8393affcd90b331c3\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.0.0] C:\Users\wogal\.android\build-cache\fdcc9cf2c7818a6cabc857440bfd0d46172120bc\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.0.0] C:\Users\wogal\.android\build-cache\f6aca05ff9bf8a54cbc9444540d130837eef8c1a\output\AndroidManifest.xml:21:5-23:60
@@ -180,7 +180,7 @@ MERGED from [com.android.volley:volley:1.0.0] C:\Users\wogal\.android\build-cach
 		INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml
 activity#com.facebook.FacebookActivity
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:29:9-32:66
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.android\build-cache\bdf62df10bbdcf642a316b7effb71d2d39467bed\output\AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\wogal\.android\build-cache\50c786da97ab424606ebcd0d5d87e870dba372ee\output\AndroidManifest.xml:29:9-32:66
 	android:configChanges
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:31:13-96
 	android:theme
@@ -189,12 +189,12 @@ MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.a
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:30:13-57
 activity#com.facebook.CustomTabMainActivity
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:33:9-71
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.android\build-cache\bdf62df10bbdcf642a316b7effb71d2d39467bed\output\AndroidManifest.xml:33:9-71
+MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\wogal\.android\build-cache\50c786da97ab424606ebcd0d5d87e870dba372ee\output\AndroidManifest.xml:33:9-71
 	android:name
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:33:19-68
 provider#com.facebook.internal.FacebookInitProvider
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:44:9-47:40
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.0] C:\Users\wogal\.android\build-cache\bdf62df10bbdcf642a316b7effb71d2d39467bed\output\AndroidManifest.xml:44:9-47:40
+MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\wogal\.android\build-cache\50c786da97ab424606ebcd0d5d87e870dba372ee\output\AndroidManifest.xml:44:9-47:40
 	android:authorities
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:46:13-72
 	android:exported

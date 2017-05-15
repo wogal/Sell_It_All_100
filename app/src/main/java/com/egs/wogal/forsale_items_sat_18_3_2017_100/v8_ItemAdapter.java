@@ -2,7 +2,6 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,8 +15,6 @@ import java.util.ArrayList;
 
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
-import JavaClasses_pkg_100.ImageClassHelper;
-import JavaClasses_pkg_100.Storage_Helper_Class;
 
 /**
  * Created by wogal on 3/27/2017.
@@ -53,9 +50,9 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             public void onClick (View v) {
                 switch (v.getId()) {
                     case R.id.ItermView_v7: {
-                 //       Toast.makeText( null, "Wogal Heck ", Toast.LENGTH_LONG ).show();
+                        //       Toast.makeText( null, "Wogal Heck ", Toast.LENGTH_LONG ).show();
                         m_activity_makeSalesItem_v8.MakeDialog( v, _itemPosistion );
-                       //  Intent intent_v0 = new Intent(null,Activity_layout_v9_item_content.class );
+                        //  Intent intent_v0 = new Intent(null,Activity_layout_v9_item_content.class );
 
                         break;
                     }
@@ -71,18 +68,9 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
         _itemPosistion = position;
         if (holder.getOldPosition() == position)
             return;
-        ;
+
         if (position == 0) {
-            // hake new item header
-            String path = "";
-            Bitmap bm;
-            Bitmap bm_1;
-            // put in image
-            path = Storage_Helper_Class.GetBaseStorageFilePathAndAddFile( "wogal", "jpg" );
-            bm = BitmapFactory.decodeFile( path );
-            bm_1 = ImageClassHelper.forMatImage_4_ImageView( bm, path );
-            holder.mImageView.setImageBitmap( bm );
-            holder.mTitle.setText( "Make New Item" );
+            holder.mTitle.setText( "Make New Item (v7)" );
             holder.mTitle.setTextSize( 25 );
             holder.mTitle.setTextColor( 0xFFFF5044 );
             holder.mImageView.setVisibility( View.GONE );
@@ -96,14 +84,12 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             holder.mImageView.setImageBitmap( mPostSalesItemMakeUp.get_Bitmap() );
 
             if (true) {
-                String path;
                 Bitmap bm;
-                // put in image
                 mPostSalesItemMakeUp = mItemList.get( position - 1 );
                 bm = mPostSalesItemMakeUp.get_Bitmap();
                 holder.mImageView.setImageBitmap( bm );
                 holder.mTitle.setText( mFor_Sale_Item_ObjectCls.get_FS_SaleItemName() );
-                holder.mTitle.setText( "Pos -> " + position );
+                holder.mTitle.setText( "Edit Item " + position );
                 holder.mImageView.setVisibility( View.VISIBLE );
             }
         }
@@ -118,11 +104,11 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
     }
 
 
+
     // is class to hold item views
     public class v8_Item_ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTitle;
         public ImageView mImageView;
-
 
         private AlertDialog Dialog_Itemview;
         private View mView_Itemview;
@@ -131,9 +117,7 @@ public class v8_ItemAdapter extends RecyclerView.Adapter<v8_ItemAdapter.v8_Item_
             super( _view );
             mTitle = (TextView) _view.findViewById( R.id.textV7 );
             mImageView = (ImageView) _view.findViewById( R.id.iMageView_v7 );
-            //   _view.setOnClickListener( this );
         }
-
     }
 }
 

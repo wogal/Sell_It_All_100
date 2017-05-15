@@ -57,6 +57,18 @@
         android:textColor="#ff079c"
         android:textSize="25sp"
         android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/But_invoke_speech_2_text_v14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Speech To Text"
+        android:textColor="#e94c34"
+        android:textSize="25sp"
+        android:textStyle="italic"/>
+
 </LinearLayout>
 
 

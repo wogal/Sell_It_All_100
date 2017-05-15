@@ -141,11 +141,13 @@ public class AdapterDrops_Post_Files extends RecyclerView.Adapter<AdapterDrops_P
             super( itemView );
             mAdapterDrops_post_files = _adapterDrops_post_files;
             mContext = _Context;
+
             itemView.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {
                     int resultPostFile;
                     int resultEditPostFile;
+                    int pos;
                     String ActionStr = mAdapterDrops_post_files.mAction;
                     String strEditFile = Choice_ActionEnums.choice_Edit_Post_File.toString();
                     String strPostFile = Choice_ActionEnums.choice_Post_File.toString();
@@ -155,15 +157,33 @@ public class AdapterDrops_Post_Files extends RecyclerView.Adapter<AdapterDrops_P
                     if (resultPostFile == 0) { // POST File to facebook
                         Intent intentFaceBook_v10 = new Intent( mContext, Activity_FaceBook_v10.class );
                         intentFaceBook_v10.putExtra( Choice_ActionEnums.key.toString(), Choice_ActionEnums.choice_Post_File.toString() );
+
+                        String mFileString;
+                        pos = getLayoutPosition();
+                        File mFile;
+
+                        mFile = mAdapterDrops_post_files.mFiles.get( pos );
+                        mFileString = mFile.getName();
+                        intentFaceBook_v10.putExtra( "post_file_name", mFileString );
+
                         mContext.startActivity( intentFaceBook_v10 );
                     } else if (resultEditPostFile == 0) { // Edit Post File
-                        Intent intentFaceBook_v10 = new Intent( mContext, Activity_FaceBook_v10.class );
-                        intentFaceBook_v10.putExtra( Choice_ActionEnums.key.toString(), Choice_ActionEnums.choice_Post_File.toString() );
-                        mContext.startActivity( intentFaceBook_v10 );
+                        Intent m_Intent = new Intent( mContext, Activity_MakeSalesItem_v8.class );
+                        String mFileString;
+                        pos = getLayoutPosition();
+                        File mFile;
+                        mFile = mAdapterDrops_post_files.mFiles.get( pos );
+                        mFileString = mFile.getName();
+                        m_Intent.putExtra( "post_file_name", mFileString );
+                        mContext.startActivity( m_Intent );
                     } else if (1 == 2) {
                         Intent m_Intent = new Intent( mContext, Activity_MakeSalesItem_v8.class );
                         String mFileString;
-                        m_Intent.putExtra( "post_file_name", "Wogalt.pst" );
+                        pos = getLayoutPosition();
+                        File mFile;
+                        mFile = mAdapterDrops_post_files.mFiles.get( pos );
+                        mFileString = mFile.getName();
+                        m_Intent.putExtra( "post_file_name", mFileString );
                         mContext.startActivity( m_Intent );
                     }
 
@@ -171,7 +191,6 @@ public class AdapterDrops_Post_Files extends RecyclerView.Adapter<AdapterDrops_P
                     if (false) {
                         Intent m_Intent = new Intent( mContext, Activity_MakeSalesItem_v8.class );
                         String mFileString;
-                        int pos;
                         pos = getLayoutPosition();
                         File mFile;
                         mFile = mAdapterDrops_post_files.mFiles.get( pos );

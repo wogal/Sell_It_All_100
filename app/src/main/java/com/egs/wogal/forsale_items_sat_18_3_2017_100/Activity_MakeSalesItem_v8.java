@@ -39,7 +39,6 @@ import JavaClasses_pkg_100.Storage_Helper_Class;
 
 import static JavaClasses_pkg_100.ImageClassHelper.rotateImage;
 import static JavaClasses_pkg_100.Storage_Helper_Class.GetBaseStorageFilePathAndAddFile;
-import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_pici_v9;
 import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.But_recall_obj_v8;
 
 public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View.OnClickListener {
@@ -125,7 +124,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
 
         // horizontal Rec View
         if (true) {
-            mRecyclerView = (RecyclerView) findViewById( R.id.Add_Items_v8 );
+            mRecyclerView = (RecyclerView) findViewById( R.id.Add_Items_v8QQQ );
             mRecyclerView.setHasFixedSize( true );
             mLayoutManager = new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false );
 
@@ -337,9 +336,9 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
         mTextView = (TextView) Dialog_Itemview.findViewById( R.id.txt_view_item_content_header_txt_v9 );
         mPhotoCaptureImageView = (ImageView) Dialog_Itemview.findViewById( R.id.capturePhotoImageView );
 
+        // Lands from with actions From
 
-        if (true) { // action buttons on " layout_v9_item_content "
-
+        if (true) { // action buttons on " layout_v9_item_content " layout_v9_item_content.xml "
 
             mBut_Exit_and_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_save_v9 );
             mBut_Exit_and_save_v9.setOnClickListener( new View.OnClickListener() {
@@ -348,11 +347,13 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
                     // get items from " layout_v9_item_content.xml " and add to
                     Post_Sales_Master_Object mPost_ItemMakeup = new Post_Sales_Master_Object();
                     Add_SaleItemMakeup_2_set_ItemGroupArray();
+                    Dialog_Itemview.dismiss();
+                    return;
                 }
             } );
 
 
-            mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9QQ );
+            mBut_Exit_NO_save_v9 = (Button) Dialog_Itemview.findViewById( R.id.But_item_No_save_v9 );
             mBut_Exit_NO_save_v9.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {
@@ -365,7 +366,7 @@ public class Activity_MakeSalesItem_v8 extends AppCompatActivity implements View
             } );
 
 
-            mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById( But_pici_v9 );
+            mBut_Take_Pic_v9 = (Button) Dialog_Itemview.findViewById(R.id.But_pici_v9 );
             mBut_Take_Pic_v9.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick (View v) {

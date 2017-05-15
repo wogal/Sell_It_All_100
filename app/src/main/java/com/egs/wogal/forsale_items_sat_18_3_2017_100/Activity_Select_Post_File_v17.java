@@ -29,7 +29,7 @@ public class Activity_Select_Post_File_v17 extends AppCompatActivity {
         Post_File_Array_Class.Get_Post_Files_List( this );
 
         mTxtV_header_v17 = (TextView) findViewById( R.id.txt_header_v17 );
-    ;
+
         mTxtV_header_v17.setText( mPostActionChoice_Str );
 
         Bundle mBundle = new Bundle();

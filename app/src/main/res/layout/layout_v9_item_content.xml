@@ -89,25 +89,25 @@
             android:id="@+id/But_item_save_v9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:layout_margin="3sp"
             android:layout_weight="1"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Save"
-            android:textColor="#ed0e37"
-            android:textSize="30sp"
+            android:text="Save With Exit"
+            android:textColor="#24ed0e"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
         <Button
 
-            android:id="@+id/But_item_No_save_v9QQ"
+            android:id="@+id/But_item_No_save_v9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5sp"
+            android:layout_margin="3sp"
             android:layout_weight="1"
             android:background="@drawable/bg_btn_login_background"
-            android:text="Exit"
-            android:textColor="#ed0e37"
-            android:textSize="30sp"
+            android:text="Exit No Save"
+            android:textColor="#e92347"
+            android:textSize="20sp"
             android:textStyle="bold"/>
 
     </LinearLayout>

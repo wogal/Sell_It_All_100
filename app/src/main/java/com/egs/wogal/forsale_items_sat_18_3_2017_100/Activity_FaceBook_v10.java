@@ -44,10 +44,12 @@ import FaceBook_Java_Helpers.Graph_Custom_Post_CallBack_Interface;
 import FaceBook_Java_Helpers.Graph_OnCallBackFunction_EachPost_Interface;
 import FaceBook_Java_Helpers.Graph_OnfinalPost_CallBack_Interface;
 import FaceBook_Java_Helpers.HlpFbook_Posts;
-import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
-import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Choice_ActionEnums;
+import For_Sale_Item_Object_Pkg.Post_Sales_Master_Object;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.File_Helper_Items;
+
+import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.txt_header_NEW_v10;
+import static com.egs.wogal.forsale_items_sat_18_3_2017_100.R.id.txt_status_v10_QQQ;
 
 public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnClickListener, Graph_OnfinalPost_CallBack_Interface, Graph_OnCallBackFunction_EachPost_Interface, Graph_Custom_Post_CallBack_Interface {
 
@@ -68,6 +70,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             "com.egs.wogal.forsale_items_sat_18_3_2017_100:PendingAction";
     // thread testing
     Thread mThread;
+    Bundle mBundle;
     private String mStr;
     private Button postPhotoButton;
     private Button mBtnPost_Multiple_Images;
@@ -80,26 +83,21 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     private ProfileTracker profileTracker;
     private ShareDialog shareDialog;
     private ProgressBar mProgressBar_Post_Progress;
-    private TextView mTextView;
-
+    private TextView mTxtV_Text_Status_v10;
     private Handler mHandler_Text;
     private Handler mHandler_ProgressBar;
-
     private HlpFbook_Posts mHlpFbook_posts = null;
-
-
     private Button mBut_FB_1;
     private Button mBut_FB_2;
     private Button mBut_FB_3;
     private CheckBox mChkBoxiTemPerPost;
-
     private int mPostProgressIndex;
+    private String mFile_2_Post;
 
-    private String mAction;
-
+    private TextView mTxtV_txt_status_v10;
     private TextView mTxtV_txt_header_v10;
 
-    Bundle mBundle;
+
 
     private FacebookCallback<Sharer.Result> shareCallback = new FacebookCallback<Sharer.Result>() {
         @Override
@@ -153,9 +151,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             mCnt = msg.arg1;
             mStr = (String) msg.obj;
 
-            mTextView.setText( mStr );
+            mTxtV_txt_header_v10.setText( mStr );
             mProgressBar_Post_Progress.setProgress( mCnt );
-            mTextView.invalidate();
+            mTxtV_txt_header_v10.invalidate();
             mProgressBar_Post_Progress.invalidate();
         }
     };
@@ -164,22 +162,32 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity__face_book_v10 );
+
+        String eStr = "";
+
 // get any extras
+        mBundle = new Bundle();
 
-        mBundle = new Bundle(  );
-
-        mAction = mBundle.getString( Choice_ActionEnums.key.toString() );
-
-
+        mFile_2_Post = getIntent().getStringExtra( "post_file_name" );
 
         callbackManager = CallbackManager.Factory.create();
         this.setRequestedOrientation( ActivityInfo.SCREEN_ORIENTATION_PORTRAIT );
 
-        getIntent().getStringExtra( Choice_ActionEnums.key.toString() );
+        //   getIntent().getStringExtra( Choice_ActionEnums.key.toString() );
 
 
-        mTxtV_txt_header_v10 = (TextView) findViewById( R.id.txt_header_v10 );
 
+
+        if (false) {
+            try {
+                mTxtV_txt_header_v10.setText( mFile_2_Post + " (v10)" );
+            } catch (Exception e) {
+                e.printStackTrace();
+                eStr = e.getMessage();
+
+            }
+        }
 
         //region "    LoginManager.getInstance().registerCallback( callbackManager, "
         LoginManager.getInstance().registerCallback( callbackManager,
@@ -229,7 +237,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
             pendingAction = PendingAction.valueOf( name );
         }
 
-        setContentView( R.layout.activity__face_book_v10 );
+
 
         profileTracker = new ProfileTracker() {
             @Override
@@ -240,6 +248,14 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 handlePendingAction();
             }
         };
+
+
+
+
+        mTxtV_txt_header_v10 = (TextView) findViewById( txt_header_NEW_v10 );
+
+        mTxtV_txt_status_v10 = (TextView) findViewById( R.id.txt_status_v10_QQQ);
+
 
         profilePictureView = (ProfilePictureView) findViewById( R.id.profilePicture );
         greeting = (TextView) findViewById( R.id.greeting );
@@ -261,7 +277,9 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mProgressBar_Post_Progress = (ProgressBar) findViewById( R.id.post_progress_bar );
         mProgressBar_Post_Progress.setProgress( 0 );
 
-        mTextView = (TextView) findViewById( R.id.txt_status_v10 );
+
+        // ERROR
+        mTxtV_Text_Status_v10 = (TextView) findViewById( txt_status_v10_QQQ );
 
         mBut_FB_1 = (Button) findViewById( R.id.FB_1 );
         mBut_FB_1.setOnClickListener( this );
@@ -280,7 +298,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
                 msgvalue = (String) msg.obj;
                 String mStr;
                 mStr = "Post Cnt -> " + msgvalue;
-                mTextView.setText( mStr );
+                mTxtV_Text_Status_v10.setText( mStr );
             }
         };
         mChkBoxiTemPerPost = (CheckBox) findViewById( R.id.chkBx_sepPosts_v10 );
@@ -408,7 +426,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         int mCnt;
         Post_Sales_Master_Object mfor_sale_item_object;
         //
-        mfor_sale_item_object = File_Helper_Items.Get_4_Sale_Post_Obj( this,"Wogal.pst" );
+        mfor_sale_item_object = File_Helper_Items.Get_4_Sale_Post_Obj( this, mFile_2_Post );
         mCnt = mfor_sale_item_object.get_ItemGroupArray().size();
         // set progress bar to total amount of posts
         boolean bool_image_per_post;
@@ -420,8 +438,8 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         mHlpFbook_posts.setEventListener_Final_Post( this );
         mHlpFbook_posts.setEventListener_custom_Post( this );
         mPostProgressIndex = 0;
-        mTextView.setText( "Posting Invoked" );
-        mProgressBar_Post_Progress.setMax( mCnt);
+        mTxtV_Text_Status_v10.setText( "Posting Invoked" );
+        mProgressBar_Post_Progress.setMax( mCnt );
         mHlpFbook_posts.run();
 
 
