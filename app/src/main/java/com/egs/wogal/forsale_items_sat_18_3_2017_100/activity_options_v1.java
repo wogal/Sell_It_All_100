@@ -40,6 +40,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     private Button mBut_Select_Edit_To_Post;
     private Button mButMake_NEW_POST;
 
+    private Button mBut_txt_2_speech;
+
+
     // Alert Dialog_ItemName Vars
 
 
@@ -142,6 +145,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         mBut_Select_Edit_To_Post = (Button) findViewById( R.id.But_select_File_To_Post_v1 );
         mBut_Select_Edit_To_Post.setOnClickListener( this );
 
+        mBut_txt_2_speech = (Button) findViewById( R.id.But_select_Text_2_speech_v1 );
+        mBut_txt_2_speech.setOnClickListener( this );
+
 
         if(mFiles.size() == 0){
             mBut_Test_v4.setEnabled( false );
@@ -158,11 +164,6 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
             mBut_Select_Edit_To_Post.setEnabled( true );
         }
 
-
-
-
-
-
     }
 
 
@@ -177,6 +178,10 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     public void onClick (View v) {
         if (1 == 1) {
             switch (v.getId()) {
+                case R.id.But_select_Text_2_speech_v1:{
+                    Text_2_Speech();
+                    break;
+                }
                 case But_select_Post_File_Edit_v1: { // Edit Post file
                     Intent SelectPost_File_Intent = new Intent( this, Activity_Select_Post_File_v17.class );
                     SelectPost_File_Intent.putExtra( Choice_ActionEnums.key.toString(),Choice_ActionEnums.choice_Edit_Post_File.toString() );
@@ -211,6 +216,11 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                 }
             }
         }
+    }
+
+    private void Text_2_Speech () {
+        Intent txt_2_speech_intent = new Intent( this,ActivityText_2_Speech_v19.class );
+        startActivity( txt_2_speech_intent );
     }
 
     private boolean Make_New_Post_File (String _inputText) {

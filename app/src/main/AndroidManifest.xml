@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
-
     <application
         android:allowBackup="true"
         android:configChanges="orientation|screenSize"
@@ -72,6 +71,8 @@
         <activity android:name=".Activity_layout_v9_item_content">
         </activity>
         <activity android:name=".Activity_Select_Post_File_v17">
+        </activity>
+        <activity android:name=".ActivityText_2_Speech_v19">
         </activity>
     </application>
 
