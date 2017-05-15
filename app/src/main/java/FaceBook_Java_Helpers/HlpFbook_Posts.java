@@ -133,7 +133,7 @@ public class HlpFbook_Posts implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //     params.putString( "message", _postMessage );
+        //     params.putString( "message", _postMessage ); www
         params.putString( "message", "Item Cnt -> " + _mCnt );
         params.putString( "message", "Wogal Heck And Puggle Heck" );
         params.putString( "published", _bool_image_per_post ? "false" : "true" );
