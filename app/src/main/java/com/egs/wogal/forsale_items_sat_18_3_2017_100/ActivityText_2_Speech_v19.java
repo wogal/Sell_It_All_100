@@ -42,16 +42,6 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
         String mStr = "";
         Activity mActivity = (Activity) _context;
 
-
-
-        //    Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH );
-
-        //  Intent i = new Intent( _context, Text_Input_Dialog_v14.class );
-        //   Intent i = new Intent( _context, Text_Input_Dialog_v14.class );
-        //  Intent i = new Intent( _context, Text_Input_Dialog_v14.class );
-        //   Intent i = new Intent( _context, Text_Input_Dialog_v14.class );
-
-
         Intent i = null;
         try {
             i = new Intent( RecognizerIntent.ACTION_RECOGNIZE_SPEECH );
@@ -69,8 +59,6 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
             mStr = e.getMessage();
             mStr += "";
         }
-
-
         //   i.putExtra( RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault() );
         //   i.putExtra( RecognizerIntent.EXTRA_PROMPT, "Say Som it" );
 
