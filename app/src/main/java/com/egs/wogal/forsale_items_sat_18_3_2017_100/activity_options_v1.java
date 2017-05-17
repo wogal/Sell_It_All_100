@@ -42,6 +42,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
 
     private Button mBut_txt_2_speech;
 
+    private int iint = 0;
 
     // Alert Dialog_ItemName Vars
 
@@ -237,6 +238,19 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
             return false;
         }
     }
+
+
+
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        iint = requestCode;
+
+
+
+    }
+
 
 }
 

@@ -1,6 +1,5 @@
 package Speech_2_Text;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -17,23 +16,30 @@ import java.util.Locale;
 
 public class Speech_2_Text extends AppCompatActivity {
     private final int SPEECH_RECOGNITION_CODE = 1;
+    private Context mContext;
 
-    private void Start_Speech_Text_1 (Context _context) {
+    public Speech_2_Text (Context _mContext) {
+        this.mContext = _mContext;
+        this.Start_Speech_Text_1();
+    }
+
+
+    public void Start_Speech_Text_1 () {
         String mStr = "";
-        Activity mActivity = (Activity) _context;
 
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
-                "Speak something...");
+
+        Intent intent = new Intent( RecognizerIntent.ACTION_RECOGNIZE_SPEECH );
+        intent.putExtra( RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault() );
+        intent.putExtra( RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM );
+        intent.putExtra( RecognizerIntent.EXTRA_PROMPT,
+                "Speak something..." );
         try {
-            startActivityForResult(intent, SPEECH_RECOGNITION_CODE);
+            startActivityForResult( intent, SPEECH_RECOGNITION_CODE );
         } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(),
+            Toast.makeText( getApplicationContext(),
                     "Sorry! Speech recognition is not supported in this device.",
-                    Toast.LENGTH_SHORT).show();
+                    Toast.LENGTH_SHORT ).show();
         }
 
 
@@ -50,7 +56,7 @@ public class Speech_2_Text extends AppCompatActivity {
 
                     ArrayList<String> text = data.getStringArrayListExtra( RecognizerIntent.EXTRA_RESULTS );
 
-                    mTxtV_text.setText( text.get( 0 ) );
+                    //     mTxtV_text.setText( text.get( 0 ) );
                     int a;
 
                     a = text.get( 0 ).length();
@@ -60,7 +66,6 @@ public class Speech_2_Text extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

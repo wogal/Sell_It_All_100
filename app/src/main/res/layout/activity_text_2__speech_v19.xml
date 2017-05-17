@@ -25,9 +25,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@drawable/bg_btn_login_background"
-        android:text="Test Speech"
+        android:text="Talk To Me"
         android:textColor="#FFC107"
-        android:textSize="25dp"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+
+
+    <Button
+        android:id="@+id/But_text_2_speech_exit_v19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@drawable/bg_btn_login_background"
+        android:text="Exit"
+        android:textColor="#FFC107"
+        android:textSize="30dp"
         android:textStyle="bold"/>
 
     <TextView
@@ -40,7 +52,7 @@
         android:padding="15dp"
         android:text="Text"
         android:maxLines="5"
-        android:textColor="#f41edf"
+        android:textColor="#1ea2f4"
         android:textSize="30dp"
         android:textStyle="bold"/>
 
