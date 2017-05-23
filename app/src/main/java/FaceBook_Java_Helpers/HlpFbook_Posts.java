@@ -128,21 +128,24 @@ public class HlpFbook_Posts implements Runnable {
             e.printStackTrace();
         }
         byte[] _FS_ItemBitmapArray = stream.toByteArray();
-        try {
-            params.putByteArray( FB_Consts.FB_picture, _FS_ItemBitmapArray );
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (true) {
+            try {
+                params.putByteArray( FB_Consts.FB_picture, _FS_ItemBitmapArray );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         //     params.putString( "message", _postMessage ); www
         params.putString( "message", "Item Cnt -> " + _mCnt );
-        params.putString( "message", "Wogal Heck And Puggle Heck" );
-        params.putString( "published", _bool_image_per_post ? "false" : "true" );
-           params.putString( "message","Wogal Heck And Puggle Heck" );
+        //     params.putString( "message", "Wogal Heck And Puggle Heck" );
+     //        params.putString( "published", _bool_image_per_post ? "false" : "true" );
+        //      params.putString( "message", "Wogal Heck And Puggle Heck" );
 
 
         new GraphRequest(
                 currentAccessToken,
-                "/" + _destination_id + "/photos",
+              "/" + _destination_id + "/photos",
+         //       "/357763397958712/feed",
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
@@ -171,11 +174,11 @@ public class HlpFbook_Posts implements Runnable {
 
         Bundle params;
         params = FB_HelperClss.FB_Extract_NamedValue_from_Respose_QQQ( _mMultiPost_Response );
-    //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
-    //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 200" );
-    //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 300" );
+        //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
+        //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 200" );
+        //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 300" );
         params.putString( FB_Consts.FB_message, "Testing App Post Beta 101" );
-
+        params.putString( "published","true" );
         // do custom post
         if (false == _bool_image_per_post) {
             Log.d( TAG, " ** NOT **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
@@ -187,11 +190,14 @@ public class HlpFbook_Posts implements Runnable {
 
 
     public void CustomPost_QQQ (final String _destination_id, Bundle _params) {
+        if(true)
+            return;
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
         Log.d( TAG, " CustomPost Invoked " );
         new GraphRequest(
                 currentAccessToken,
-                "/" + _destination_id + "/feed", _params,
+//                "/" + _destination_id + "/feed", _params,
+                "/" + _destination_id + "", _params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {

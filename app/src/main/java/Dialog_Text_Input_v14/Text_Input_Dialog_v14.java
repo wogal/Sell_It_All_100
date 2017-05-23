@@ -144,13 +144,13 @@ public class Text_Input_Dialog_v14 extends AppCompatActivity implements View.OnC
 
 
 // WORKS         Intent txt_2_speech_intent = new Intent(mContext, ActivityText_2_Speech_v19.class );
-        Intent txt_2_speech_intent = new Intent( this, ActivityText_2_Speech_v19.class );
+        Intent txt_2_speech_intent = new Intent( mContext, ActivityText_2_Speech_v19.class );
 
 
         String mStr = "";
 
             try {
-                ((Activity)this.getApplicationContext()).startActivityForResult( txt_2_speech_intent, 100 );
+                ((Activity)mContext).startActivityForResult( txt_2_speech_intent, 100 );
             } catch (Exception e) {
                 e.printStackTrace();
                 mStr = e.getMessage();
