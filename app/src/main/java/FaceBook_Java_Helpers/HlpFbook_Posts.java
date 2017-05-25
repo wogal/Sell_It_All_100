@@ -136,16 +136,18 @@ public class HlpFbook_Posts implements Runnable {
             }
         }
         //     params.putString( "message", _postMessage ); www
-        params.putString( "message", "Item Cnt -> " + _mCnt );
+        params.putString("caption", "Item Cnt -> " + _mCnt );
+        String mPubPost;
+        mPubPost = _bool_image_per_post ? "false" : "true";
         //     params.putString( "message", "Wogal Heck And Puggle Heck" );
-     //        params.putString( "published", _bool_image_per_post ? "false" : "true" );
+        params.putString( "published", mPubPost );
         //      params.putString( "message", "Wogal Heck And Puggle Heck" );
 
 
         new GraphRequest(
                 currentAccessToken,
-              "/" + _destination_id + "/photos",
-         //       "/357763397958712/feed",
+                "/" + _destination_id + "/photos",
+                //       "/357763397958712/feed",
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
@@ -178,7 +180,7 @@ public class HlpFbook_Posts implements Runnable {
         //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 200" );
         //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 300" );
         params.putString( FB_Consts.FB_message, "Testing App Post Beta 101" );
-        params.putString( "published","true" );
+        params.putString( "published", "true" );
         // do custom post
         if (false == _bool_image_per_post) {
             Log.d( TAG, " ** NOT **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
@@ -190,14 +192,14 @@ public class HlpFbook_Posts implements Runnable {
 
 
     public void CustomPost_QQQ (final String _destination_id, Bundle _params) {
-        if(true)
+        if (false)
             return;
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
         Log.d( TAG, " CustomPost Invoked " );
         new GraphRequest(
                 currentAccessToken,
-//                "/" + _destination_id + "/feed", _params,
-                "/" + _destination_id + "", _params,
+                "/" + _destination_id + "/feed", _params,
+//                "/" + _destination_id + "", _params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted (GraphResponse _response) {
