@@ -15,6 +15,7 @@ public class FB_Consts {
 
     public static String FB_message = "message";
     public static String FB_picture = "picture";
+    public static String FB_caption = "caption";
 
     public enum PostImageType {
         NONE,

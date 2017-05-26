@@ -11,7 +11,9 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import For_Sale_Item_Object_Pkg.Post_Sales_Item_MakeUp;
 
@@ -41,7 +43,7 @@ public class HlpFbook_Posts implements Runnable {
     private int wogal_test = 0;
 
     // main entry point and auto invoke/run ( if instantRun == true )
-    public HlpFbook_Posts (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _bool_image_per_post) {
+    public HlpFbook_Posts (ArrayList<Post_Sales_Item_MakeUp> _items_2_Post, Activity _acActivity, String _destination_id, String _MainpostMessage, boolean _m_bool_image_per_post) {
         // List of for sale items Post_Sales_Master_Object -> < Post_Sales_Item_MakeUp >
         this._items_2_Post = _items_2_Post;
         // handel / pointer to parent
@@ -51,7 +53,7 @@ public class HlpFbook_Posts implements Runnable {
         // text to be asserted with this post ( not posted )
         this._MainpostMessage = _MainpostMessage;
         // if true will post each iteration of _items_2_Post separably , else one post will share all objects
-        this._bool_image_per_post = _bool_image_per_post;
+        this._bool_image_per_post = _m_bool_image_per_post;
         // holds each posts GraphResponse  ( _ response ) and is passed back during callbacks
         _mMultiPost_Response = new ArrayList<>();
     }
@@ -121,6 +123,20 @@ public class HlpFbook_Posts implements Runnable {
         Log.d( TAG, " postOPbj_2_Group Invoked " );
         // convert Bitmap ( _imgObj ) to   byte[] ( _FS_ItemBitmapArray ) for facebook to handel
         ByteArrayOutputStream stream;
+
+        //    params.putString( "caption", " ( 0 ) Item Cnt -> " + _mCnt );
+
+
+        String mDateStr;
+        String mTimeStr;
+        long msTime = System.currentTimeMillis();
+        Date curDateTime = new Date( msTime );
+        SimpleDateFormat formatter = new SimpleDateFormat( "MMMM' 'EEEE'  'yyyy  @ hh:mm a" );
+        mDateStr = formatter.format( curDateTime );
+        params.putString( FB_Consts.FB_message, "Testing part post message App Post Beta 101 \n " + mDateStr );
+        params.putString( FB_Consts.FB_caption, "Testing part post caption App Post Beta 101 \n " + mDateStr );
+
+
         stream = new ByteArrayOutputStream();
         try {
             _imgObj.compress( Bitmap.CompressFormat.PNG, 100, stream );
@@ -135,19 +151,17 @@ public class HlpFbook_Posts implements Runnable {
                 e.printStackTrace();
             }
         }
-        //     params.putString( "message", _postMessage ); www
-        params.putString("caption", "Item Cnt -> " + _mCnt );
+
         String mPubPost;
         mPubPost = _bool_image_per_post ? "false" : "true";
         //     params.putString( "message", "Wogal Heck And Puggle Heck" );
         params.putString( "published", mPubPost );
-        //      params.putString( "message", "Wogal Heck And Puggle Heck" );
 
 
         new GraphRequest(
                 currentAccessToken,
                 "/" + _destination_id + "/photos",
-                //       "/357763397958712/feed",
+                //           "/357763397958712/feed",
                 params,
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
@@ -172,6 +186,11 @@ public class HlpFbook_Posts implements Runnable {
     private void DoFinal_PublishPost_QQQ (String _destination_id, GraphResponse _response) {
         // final post to auth previous multi posts ,,
         String mstr_ = _bool_image_per_post ? "true" : "false";
+
+        if (false == _bool_image_per_post)
+            return;
+
+
         Log.d( TAG, " CallBack DoFinal_PublishPost Invoked " + " Img Per Post = " + mstr_ );
 
         Bundle params;
@@ -179,7 +198,18 @@ public class HlpFbook_Posts implements Runnable {
         //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 100" );
         //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 200" );
         //    params.putString( FB_Consts.FB_message, "Multi Post Authorise 300" );
-        params.putString( FB_Consts.FB_message, "Testing App Post Beta 101" );
+
+        String mDateStr;
+        String mTimeStr;
+        long msTime = System.currentTimeMillis();
+        Date curDateTime = new Date( msTime );
+        SimpleDateFormat formatter = new SimpleDateFormat( "MMMM' 'EEEE'  'yyyy  @ hh:mm a" );
+        mDateStr = formatter.format( curDateTime );
+
+        params.putString( FB_Consts.FB_message, "Final Testing message App Post Beta 101 \n " + mDateStr );
+
+        params.putString( FB_Consts.FB_caption, "Final Testing caption App Post Beta 101 \n " + mDateStr );
+
         params.putString( "published", "true" );
         // do custom post
         if (false == _bool_image_per_post) {
@@ -192,8 +222,8 @@ public class HlpFbook_Posts implements Runnable {
 
 
     public void CustomPost_QQQ (final String _destination_id, Bundle _params) {
-        if (false)
-            return;
+        //   if (false)
+        //       return;
         AccessToken currentAccessToken = AccessToken.getCurrentAccessToken();
         Log.d( TAG, " CustomPost Invoked " );
         new GraphRequest(
