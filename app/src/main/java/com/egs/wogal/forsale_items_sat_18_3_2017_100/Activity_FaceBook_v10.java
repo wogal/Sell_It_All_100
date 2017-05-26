@@ -477,6 +477,7 @@ public class Activity_FaceBook_v10 extends AppCompatActivity implements View.OnC
         message.arg1 = 0;
         CrossThreadHandler_ShowPostProgress.sendMessageAtFrontOfQueue( message );
         return 0;
+
     }
 
     @Override

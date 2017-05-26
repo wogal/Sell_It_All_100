@@ -1,27 +1,19 @@
 [
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_bar_up_container.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_list_menu_item_radio.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_device_auth_dialog_fragment.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\layout\\com_facebook_device_auth_dialog_fragment.xml"
     },
     {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_custom.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_big_media_custom.xml"
-    },
-    {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_media_action.xml"
-    },
-    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
@@ -29,15 +21,15 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_alert_dialog_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
@@ -45,11 +37,11 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_list_menu_item_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_v5.xml",
@@ -60,12 +52,8 @@
         "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\dialog_txt_input_v14.xml"
     },
     {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
-    },
-    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_dialog_title_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_timed_notice_v15.xml",
@@ -93,7 +81,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_activity_chooser_view.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
@@ -101,7 +89,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity__select__post__file_v17.xml",
@@ -117,11 +105,11 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_round.xml",
@@ -129,7 +117,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_screen_toolbar.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_v0.xml",
@@ -141,19 +129,19 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_mode_bar.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_select_dialog_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_media.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_media.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
@@ -164,12 +152,16 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\layout\\com_facebook_tooltip_bubble.xml"
     },
     {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_round.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\layout\\messenger_button_send_blue_round.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
@@ -193,7 +185,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\select_dialog_item_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\select_dialog_item_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
@@ -209,7 +201,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_activity_layout.xml",
@@ -217,11 +209,11 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_part_chronometer.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
@@ -240,16 +232,12 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\layout\\com_facebook_login_fragment.xml"
     },
     {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\8cb48a0c128b873f3be016061ae4374a315135f2\\output\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_small.xml",
@@ -257,7 +245,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_media_custom.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_v2.xml",
@@ -277,15 +265,11 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_rec_item_v7.xml",
         "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\layout_rec_item_v7.xml"
-    },
-    {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_v8.xml",
@@ -293,15 +277,15 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_screen_content_include.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_part_time.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_part_time.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity__mngr__posts_reckl_item_v11.xml",
@@ -309,7 +293,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity__face_book_v10.xml",
@@ -317,11 +301,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_media_cancel_action.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\test_recycley_view_layout_posts_v11.xml",
@@ -337,11 +317,11 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_action_menu_layout.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_smart_device_dialog_fragment.xml",
@@ -353,7 +333,7 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\notification_template_lines_media.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_text_2__speech_v19.xml",
@@ -377,6 +357,6 @@
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "C:\\Users\\wogal\\.android\\build-cache\\17b53cab81cdf038e6e95db8393affcd90b331c3\\output\\res\\layout\\abc_search_view.xml"
+        "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\abc_search_view.xml"
     }
 ]
