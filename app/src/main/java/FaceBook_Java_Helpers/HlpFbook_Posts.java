@@ -133,8 +133,8 @@ public class HlpFbook_Posts implements Runnable {
         Date curDateTime = new Date( msTime );
         SimpleDateFormat formatter = new SimpleDateFormat( "MMMM' 'EEEE'  'yyyy  @ hh:mm a" );
         mDateStr = formatter.format( curDateTime );
-        params.putString( FB_Consts.FB_message, "Testing part post message App Post Beta 101 \n " + mDateStr );
-        params.putString( FB_Consts.FB_caption, "Testing part post caption App Post Beta 101 \n " + mDateStr );
+        params.putString( FB_Consts.FB_caption, "caption Testing part post message App Post Beta 101 \n " + mDateStr );
+        //    params.putString( FB_Consts.FB_caption, "Testing part post caption App Post Beta 101 \n " + mDateStr );
 
 
         stream = new ByteArrayOutputStream();
@@ -160,7 +160,8 @@ public class HlpFbook_Posts implements Runnable {
 
         new GraphRequest(
                 currentAccessToken,
-                "/" + _destination_id + "/photos",
+           //     "/" + _destination_id + "/feed",
+                "/" + _destination_id + "/photos",   //   WORKS
                 //           "/357763397958712/feed",
                 params,
                 HttpMethod.POST,
@@ -206,9 +207,9 @@ public class HlpFbook_Posts implements Runnable {
         SimpleDateFormat formatter = new SimpleDateFormat( "MMMM' 'EEEE'  'yyyy  @ hh:mm a" );
         mDateStr = formatter.format( curDateTime );
 
-        params.putString( FB_Consts.FB_message, "Final Testing message App Post Beta 101 \n " + mDateStr );
+        params.putString( FB_Consts.FB_message, "message  Final Testing message App Post Beta 101 \n " + mDateStr );
 
-        params.putString( FB_Consts.FB_caption, "Final Testing caption App Post Beta 101 \n " + mDateStr );
+        params.putString( FB_Consts.FB_caption, "caption  Testing caption App Post Beta 101 \n " + mDateStr );
 
         params.putString( "published", "true" );
         // do custom post
@@ -218,7 +219,6 @@ public class HlpFbook_Posts implements Runnable {
             Log.d( TAG, " ** I Am  **  Invoking CustomPost (Final ) Due 2  _bool_image_per_post == " + mstr_ );
             CustomPost_QQQ( _destination_id, params );
         }
-
 
 
     }

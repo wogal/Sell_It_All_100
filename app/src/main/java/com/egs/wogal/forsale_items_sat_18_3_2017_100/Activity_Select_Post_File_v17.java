@@ -44,6 +44,5 @@ public class Activity_Select_Post_File_v17 extends AppCompatActivity {
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView( mRecyclerView );
 
-
     }
 }
