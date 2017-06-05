@@ -32,14 +32,13 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-             value = extras.getString("wogal");
+            value = extras.getString( "wogal" );
             //The key argument here must match that used in the other activity
 
-    //    mContext = (Context) extras.getSerializable( "context");
+            //    mContext = (Context) extras.getSerializable( "context");
 
 
         }
-
 
 
         mBut_Txt_2_Speech = (Button) findViewById( R.id.But_text_2_speech_v19 );
@@ -57,8 +56,10 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
                 Start_Speech_Text_1( this );
                 break;
             }
-            case R.id.But_text_2_speech_exit_v19:{
-               this.setResult( 100 );
+            case R.id.But_text_2_speech_exit_v19: {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("Spoken_Text","Wogal Heck");
+                this.setResult( 100 );
                 this.finish();
                 break;
             }
@@ -106,14 +107,13 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
         switch (requestCode) {
             case 100: {
                 if (resultCode == RESULT_OK && null != data) {
-
+                    // recover text
                     ArrayList<String> text = data.getStringArrayListExtra( RecognizerIntent.EXTRA_RESULTS );
 
                     mTxtV_text.setText( text.get( 0 ) );
                     int a;
 
                     a = text.get( 0 ).length();
-
 
 
                 }

@@ -244,6 +244,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult( requestCode, resultCode, data );
+        // should not land here
 
         iint = requestCode;
 

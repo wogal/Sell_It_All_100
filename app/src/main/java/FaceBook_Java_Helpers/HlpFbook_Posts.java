@@ -137,6 +137,9 @@ public class HlpFbook_Posts implements Runnable {
         //    params.putString( FB_Consts.FB_caption, "Testing part post caption App Post Beta 101 \n " + mDateStr );
 
 
+     //  GraphRequestBatch
+
+
         stream = new ByteArrayOutputStream();
         try {
             _imgObj.compress( Bitmap.CompressFormat.PNG, 100, stream );

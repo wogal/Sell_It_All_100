@@ -141,16 +141,16 @@ public class Text_Input_Dialog_v14 extends AppCompatActivity implements View.OnC
     private void Start_Speech_Text_1 (Context mContext) {
         //   Start_Speech_Text_11(mContext);
 
-
-
 // WORKS         Intent txt_2_speech_intent = new Intent(mContext, ActivityText_2_Speech_v19.class );
+    //    mContext = this;
+   //  mContext =  this.getApplicationContext();
         Intent txt_2_speech_intent = new Intent( mContext, ActivityText_2_Speech_v19.class );
 
 
         String mStr = "";
 
             try {
-                ((Activity)mContext).startActivityForResult( txt_2_speech_intent, 100 );
+                 ((Activity)mContext).startActivityForResult( txt_2_speech_intent, 100 );
             } catch (Exception e) {
                 e.printStackTrace();
                 mStr = e.getMessage();
@@ -194,7 +194,7 @@ public class Text_Input_Dialog_v14 extends AppCompatActivity implements View.OnC
 
 
         Invoke_Call_Back( Dialog_Result_Enum.Dialog_Done );
-
+        String mstr = "";
         aInt = requestCode;
         switch (requestCode) {
             case 200: {
@@ -204,7 +204,7 @@ public class Text_Input_Dialog_v14 extends AppCompatActivity implements View.OnC
                 if (resultCode == RESULT_OK && null != data) {
 
                     ArrayList<String> text = data.getStringArrayListExtra( RecognizerIntent.EXTRA_RESULTS );
-
+                    mstr = (String) data.getExtras().getString("Spoken_Text");
                     //     mTxtV_text.setText( text.get( 0 ) );
                     int a;
 
