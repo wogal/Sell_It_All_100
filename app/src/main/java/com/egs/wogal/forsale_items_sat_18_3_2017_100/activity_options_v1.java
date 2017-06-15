@@ -132,8 +132,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         ArrayList<File> mFiles = Post_File_Array_Class.Get_Post_Files_List( this );
 
 
-
- // buttons
+        // buttons
         mBut_Test_v4 = (Button) findViewById( R.id.But_test_activity_v1 );
         mBut_Test_v4.setOnClickListener( this );
 
@@ -150,14 +149,13 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
         mBut_txt_2_speech.setOnClickListener( this );
 
 
-        if(mFiles.size() == 0){
+        if (mFiles.size() == 0) {
             mBut_Test_v4.setEnabled( false );
             mButMake_NEW_POST.setEnabled( true );
             mBut_SelectPost_To_Edit.setEnabled( false );
             mBut_Select_Edit_To_Post.setEnabled( false );
             mBut_Select_Edit_To_Post.setEnabled( false );
-        }
-        else{
+        } else {
             mBut_Test_v4.setEnabled( true );
             mButMake_NEW_POST.setEnabled( true );
             mBut_SelectPost_To_Edit.setEnabled( true );
@@ -179,19 +177,19 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     public void onClick (View v) {
         if (1 == 1) {
             switch (v.getId()) {
-                case R.id.But_select_Text_2_speech_v1:{
+                case R.id.But_select_Text_2_speech_v1: {
                     Text_2_Speech();
                     break;
                 }
                 case But_select_Post_File_Edit_v1: { // Edit Post file
                     Intent SelectPost_File_Intent = new Intent( this, Activity_Select_Post_File_v17.class );
-                    SelectPost_File_Intent.putExtra( Choice_ActionEnums.key.toString(),Choice_ActionEnums.choice_Edit_Post_File.toString() );
+                    SelectPost_File_Intent.putExtra( Choice_ActionEnums.key.toString(), Choice_ActionEnums.choice_Edit_Post_File.toString() );
                     startActivity( SelectPost_File_Intent );
                     break;
                 }
                 case R.id.But_select_File_To_Post_v1: { // Post file
                     Intent SelectPost_File_Intent = new Intent( this, Activity_Select_Post_File_v17.class );
-                    SelectPost_File_Intent.putExtra(Choice_ActionEnums.key.toString(),Choice_ActionEnums.choice_Post_File.toString() );
+                    SelectPost_File_Intent.putExtra( Choice_ActionEnums.key.toString(), Choice_ActionEnums.choice_Post_File.toString() );
                     startActivity( SelectPost_File_Intent );
                     break;
                 }
@@ -202,17 +200,24 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     break;
                 }
                 case R.id.But_make_NEW_Post_v1: {
-                    Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line, "" );
-                    mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
-                        @Override
-                        public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
-                            if (true == Make_New_Post_File( _inputText )) {
-                                m_Intent.putExtra( "post_file_name", _inputText );
-                                startActivity( m_Intent ); // save to move on
+
+
+                    if (false) {
+                        Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line, "" );
+                        mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
+                            @Override
+                            public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
+                                if (true == Make_New_Post_File( _inputText )) {
+                                    m_Intent.putExtra( "post_file_name", _inputText );
+                                    startActivity( m_Intent ); // save to move on
+                                }
                             }
-                        }
-                    } );
-                    mText_input_dialog.show();
+                        } );
+                        mText_input_dialog.show();
+                    } else {
+                        Intent test_intent = new Intent( this,test_acticity_v100.class );
+                        startActivityForResult( test_intent,69 );
+                    }
                     break;
                 }
             }
@@ -220,7 +225,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     }
 
     private void Text_2_Speech () {
-        Intent txt_2_speech_intent = new Intent( this,ActivityText_2_Speech_v19.class );
+        Intent txt_2_speech_intent = new Intent( this, ActivityText_2_Speech_v19.class );
         startActivity( txt_2_speech_intent );
     }
 
@@ -240,14 +245,12 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     }
 
 
-
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult( requestCode, resultCode, data );
         // should not land here
 
         iint = requestCode;
-
 
 
     }

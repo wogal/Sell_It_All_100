@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="100dp"
+              android:orientation="horizontal"
+              android:background="@drawable/bg_btn_login_background"
+              android:id="@+id/ItermView_v7"
+              android:padding="22dp">
+
+
+    <ImageView
+        android:id="@+id/iMageView_v7"
+        android:layout_width="86dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:layout_gravity="center_vertical"
+        android:visibility="visible"
+        android:src="@drawable/for_sale_logo_640_480"/>
+
+    <TextView
+        android:id="@+id/textV7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+
+        android:padding="10dp"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:text="ho"
+        android:textSize="30dp"/>
+
+
+</LinearLayout>

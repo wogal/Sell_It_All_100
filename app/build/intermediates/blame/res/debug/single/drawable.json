@@ -16,16 +16,16 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_launcher.png",
-        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_airplanemode_active.xml",
         "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\ic_airplanemode_active.xml"
+    },
+    {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_launcher.png",
+        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_ic_visibility.xml",
@@ -240,12 +240,12 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\up.png",
-        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\up.png"
-    },
-    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\up.png",
+        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\drawable\\up.png"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\chk_box_100_antotation.xml",

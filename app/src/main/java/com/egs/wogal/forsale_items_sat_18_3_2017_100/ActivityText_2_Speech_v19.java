@@ -70,10 +70,7 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
         String mStr = "";
         Activity mActivity = (Activity) _context;
         Class<? extends String> cls;
-
         cls = RecognizerIntent.ACTION_RECOGNIZE_SPEECH.getClass();
-
-
         Intent mIntent = null;
         try {
             mIntent = new Intent( RecognizerIntent.ACTION_RECOGNIZE_SPEECH );
@@ -83,12 +80,9 @@ public class ActivityText_2_Speech_v19 extends AppCompatActivity implements View
             mStr = e.getMessage();
             mStr += "";
         }
-
         mIntent.putExtra( RecognizerIntent.EXTRA_LANGUAGE, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM );
-
         mIntent.putExtra( RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault() );
         mIntent.putExtra( RecognizerIntent.EXTRA_PROMPT, "Say Som it" );
-
         try {
 
             startActivityForResult( mIntent, 100 );
