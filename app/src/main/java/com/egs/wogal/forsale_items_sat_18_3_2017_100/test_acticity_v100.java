@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.util.Locale;
-
+// wogal
 public class test_acticity_v100 extends AppCompatActivity {
 
     public int test = 0;
