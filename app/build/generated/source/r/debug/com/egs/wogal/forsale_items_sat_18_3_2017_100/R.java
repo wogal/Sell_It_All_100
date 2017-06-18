@@ -3484,8 +3484,8 @@ containing a value of this type.
         public static final int Add_Items_v8QQQ=0x7f0d0106;
         public static final int But_Done_v4=0x7f0d00f4;
         public static final int But_Invoke_Camera_v4=0x7f0d00f3;
-        public static final int But_Invoke_test_1_v11=0x7f0d0131;
-        public static final int But_Invoke_test_2_v11=0x7f0d0132;
+        public static final int But_Invoke_test_1_v11=0x7f0d012f;
+        public static final int But_Invoke_test_2_v11=0x7f0d0130;
         public static final int But_Post_mngr_v4=0x7f0d00f7;
         public static final int But_Sales_Post_Item_Details_v8=0x7f0d0103;
         public static final int But_done_v6=0x7f0d00fc;
@@ -3495,6 +3495,7 @@ containing a value of this type.
         public static final int But_get_pici_v5=0x7f0d00fa;
         public static final int But_invoke_speech_2_text_v14=0x7f0d00d2;
         public static final int But_item_No_save_v9=0x7f0d010d;
+        public static final int But_item_name_done_v100=0x7f0d0132;
         public static final int But_item_name_done_v12=0x7f0d00d7;
         public static final int But_item_name_done_v14=0x7f0d00d1;
         public static final int But_item_name_done_v15=0x7f0d00cd;
@@ -3516,13 +3517,11 @@ containing a value of this type.
         public static final int But_select_File_To_Post_v1=0x7f0d00eb;
         public static final int But_select_Post_File_Edit_v1=0x7f0d00ea;
         public static final int But_select_Text_2_speech_v1=0x7f0d00ec;
-        public static final int But_sound_exit_v100=0x7f0d012c;
         public static final int But_sound_exit_v3=0x7f0d00e1;
         public static final int But_sound_play_v3=0x7f0d00dc;
         public static final int But_sound_play_v3_QQQQ=0x7f0d00dd;
         public static final int But_sound_record_time_v3=0x7f0d00df;
         public static final int But_sound_record_v3=0x7f0d00de;
-        public static final int But_sound_speech_v101=0x7f0d012d;
         public static final int But_sound_stop_v3=0x7f0d00e0;
         public static final int But_take_pici_v5=0x7f0d00f9;
         public static final int But_test_activity_v1=0x7f0d00e9;
@@ -3538,9 +3537,9 @@ containing a value of this type.
         public static final int ItermView_v7=0x7f0d009f;
         public static final int LinLayOut_PostItem_details_v8=0x7f0d0100;
         public static final int PostMultibule_Imagges=0x7f0d008f;
-        public static final int R_id_txt_header_v1=0x7f0d012e;
+        public static final int R_id_txt_header_v1=0x7f0d012c;
         public static final int RecView_SelectPost_File_v17=0x7f0d009c;
-        public static final int Rec_Posts_v11QQQq=0x7f0d0130;
+        public static final int Rec_Posts_v11QQQq=0x7f0d012e;
         public static final int Rec_View_v6=0x7f0d00fd;
         public static final int action0=0x7f0d0113;
         public static final int action_bar=0x7f0d0075;
@@ -3612,6 +3611,7 @@ containing a value of this type.
         public static final int design_menu_item_action_area_stub=0x7f0d00c2;
         public static final int design_menu_item_text=0x7f0d00c1;
         public static final int design_navigation_view=0x7f0d00c0;
+        public static final int dialog_txt_input_v100=0x7f0d0131;
         public static final int dialog_txt_input_v14=0x7f0d00ca;
         public static final int dialog_txt_input_v17=0x7f0d00c5;
         public static final int disableHome=0x7f0d0019;
@@ -3767,7 +3767,7 @@ containing a value of this type.
         public static final int txt_hash_key_v10=0x7f0d0129;
         public static final int txt_header_NEW_v10=0x7f0d0085;
         public static final int txt_header_v1=0x7f0d00e7;
-        public static final int txt_header_v11=0x7f0d012f;
+        public static final int txt_header_v11=0x7f0d012d;
         public static final int txt_header_v16=0x7f0d0093;
         public static final int txt_header_v17=0x7f0d009a;
         public static final int txt_header_v4=0x7f0d00f1;
@@ -3898,9 +3898,9 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f04005e;
         public static final int support_simple_spinner_dropdown_item=0x7f04005f;
         public static final int temp_file_v10=0x7f040060;
-        public static final int test_acticity_v100=0x7f040061;
-        public static final int test_activity=0x7f040062;
-        public static final int test_recycley_view_layout_posts_v11=0x7f040063;
+        public static final int test_activity=0x7f040061;
+        public static final int test_recycley_view_layout_posts_v11=0x7f040062;
+        public static final int text_input_v100=0x7f040063;
         public static final int v14_not_used_100=0x7f040064;
         public static final int wogals_test=0x7f040065;
     }

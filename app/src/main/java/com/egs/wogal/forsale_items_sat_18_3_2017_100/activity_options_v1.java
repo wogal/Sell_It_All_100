@@ -202,8 +202,8 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                 case R.id.But_make_NEW_Post_v1: {
 
 
-                    if (false) {
-                        Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name", Dialog_Line_Type.Dialog_Single_Line, "" );
+                    if (true) {
+                        Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name (1)", Dialog_Line_Type.Dialog_Single_Line, "" );
                         mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                             @Override
                             public void CallBack_Key_response (Dialog_Result_Enum _dialog_result, String _inputText) {
@@ -215,7 +215,7 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                         } );
                         mText_input_dialog.show();
                     } else {
-                        Intent test_intent = new Intent( this,test_acticity_v100.class );
+                        Intent test_intent = new Intent( this,text_input_v100.class );
                         startActivityForResult( test_intent,69 );
                     }
                     break;

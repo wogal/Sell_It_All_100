@@ -252,6 +252,10 @@
         "source": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
+        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\text_input_v100.xml",
+        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\text_input_v100.xml"
+    },
+    {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_v2.xml",
         "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\layout_v2.xml"
     },
@@ -310,10 +314,6 @@
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\test_recycley_view_layout_posts_v11.xml",
         "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\test_recycley_view_layout_posts_v11.xml"
-    },
-    {
-        "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\test_acticity_v100.xml",
-        "source": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\src\\main\\res\\layout\\test_acticity_v100.xml"
     },
     {
         "merged": "C:\\Users\\wogal\\Desktop\\Cloaned_forSaleItems\\Earles_For_Sale_Item\\Sell_It_All_100\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",

@@ -84,7 +84,7 @@
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.ActivityText_2_Speech_v19" >
         </activity>
-        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.test_acticity_v100" >
+        <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.text_input_v100" >
         </activity>
         <activity android:name="com.egs.wogal.forsale_items_sat_18_3_2017_100.MainActivity_test_layout" >
         </activity>

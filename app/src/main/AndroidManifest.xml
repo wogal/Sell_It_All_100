@@ -74,7 +74,7 @@
         </activity>
         <activity android:name=".ActivityText_2_Speech_v19">
         </activity>
-        <activity android:name=".test_acticity_v100">
+        <activity android:name=".text_input_v100">
         </activity>
         <activity android:name=".MainActivity_test_layout">
         </activity>
