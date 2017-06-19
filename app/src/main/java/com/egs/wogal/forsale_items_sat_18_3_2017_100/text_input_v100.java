@@ -3,19 +3,19 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
-import butterknife.OnClick;
+
+
+// C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\build.gradle
 
 // wogal
 public class text_input_v100 extends AppCompatActivity {
@@ -28,32 +28,39 @@ public class text_input_v100 extends AppCompatActivity {
     // dialog header text
     private TextView mTextView_header;
     // done button
-    private Button mBtn_done;
+ //    Button mBtn_done;
     // single of multi line input
     private Dialog_Line_Type mSingleLine_input;
     // speech to text
     private Button mButSpeech_2_Text;
     private int aInt = 0;
 
+
+
+  //  @BindView(R.id.But_item_name_done_v100)
+ //   Button mBtn_done;
+
+/*
+
+
      @OnClick(R.id.But_item_name_done_v100)
      public void ButtOnclick_Done(View view){
-         Toast.makeText( this,"done but",Toast.LENGTH_LONG );
+         Toast.makeText( this,"done but (100)",Toast.LENGTH_LONG );
      }
+*/
 
 
+/*
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.text_input_v100 );
-
-     //   mBtn_done = findViewById( R.id. )
-
-
-
+         ButterKnife.bind( this );
 
 
     }
+*/
 
     public void Speech_Recon (View view) {
         Start_Speech_Text_1 ( this);
