@@ -3,16 +3,24 @@ package com.egs.wogal.forsale_items_sat_18_3_2017_100;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
+import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
+import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 // C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\build.gradle
@@ -35,32 +43,54 @@ public class text_input_v100 extends AppCompatActivity {
     private Button mButSpeech_2_Text;
     private int aInt = 0;
 
+    private Text_Inp_Dia_Key_Response_Interface_v14 mText_inp_dia_key_response_Listerner;
 
 
-  //  @BindView(R.id.But_item_name_done_v100)
- //   Button mBtn_done;
 
-/*
+    @BindView(R.id.But_item_name_done_v100)
+   Button mBtn_done;
 
 
      @OnClick(R.id.But_item_name_done_v100)
      public void ButtOnclick_Done(View view){
-         Toast.makeText( this,"done but (100)",Toast.LENGTH_LONG );
+         Toast.makeText( this,"done but (100)",Toast.LENGTH_LONG ).show();
      }
-*/
 
 
-/*
+
+
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.text_input_v100 );
          ButterKnife.bind( this );
-
+     //   ButterKnife.inject(this);
+        // text input hint on input text
+        mEditText_Input = (EditText) findViewById( R.id.edit_text_input_v14 );
+        if (Dialog_Line_Type.Dialog_Single_Line == mSingleLine_input || 1 == 1) {
+            mEditText_Input.setInputType( InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD );
+            mEditText_Input.setLines( 1 );
+        } else {
+            //  mEditText_Input.setInputType(  );
+            mEditText_Input.setLines( 3 );
+        }
 
     }
-*/
+
+    private void Invoke_Call_Back (Dialog_Result_Enum _dialog_result) {
+        if (mText_inp_dia_key_response_Listerner == null)
+            return;
+        String str;
+        str = mEditText_Input.getText().toString();
+        if (str.isEmpty()) {
+            str = "Empty";
+        }
+        mText_inp_dia_key_response_Listerner.CallBack_Key_response( _dialog_result, str );
+     //   mText_Input_Dialog.dismiss();
+    }
+
+
 
     public void Speech_Recon (View view) {
         Start_Speech_Text_1 ( this);
