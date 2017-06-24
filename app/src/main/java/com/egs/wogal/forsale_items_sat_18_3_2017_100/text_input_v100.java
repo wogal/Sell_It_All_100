@@ -76,6 +76,14 @@ public class text_input_v100 extends AppCompatActivity {
             mEditText_Input.setLines( 3 );
         }
 
+        mEditText_Input.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+             aInt = v.getId();
+            }
+        } );
+
+
     }
 
     private void Invoke_Call_Back (Dialog_Result_Enum _dialog_result) {
