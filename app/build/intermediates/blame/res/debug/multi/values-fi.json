@@ -748,8 +748,27 @@
                     "startLine": 41,
                     "startColumn": 4,
                     "startOffset": 3897,
+                    "endColumn": 113,
+                    "endOffset": 4006
+                },
+                "from": {
+                    "file": "C:\\Users\\wogal\\.android\\build-cache\\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\\output\\res\\values-fi\\values-fi.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2251,
+                        "endColumn": 113,
+                        "endOffset": 2360
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 4011,
                     "endColumn": 100,
-                    "endOffset": 3993
+                    "endOffset": 4107
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-fi\\values-fi.xml",
@@ -764,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 3998,
+                    "startOffset": 4112,
                     "endColumn": 107,
-                    "endOffset": 4101
+                    "endOffset": 4215
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-fi\\values-fi.xml",
@@ -783,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 4106,
+                    "startOffset": 4220,
                     "endColumn": 61,
-                    "endOffset": 4163
+                    "endOffset": 4277
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-fi\\values-fi.xml",
@@ -802,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 4168,
+                    "startOffset": 4282,
                     "endColumn": 79,
-                    "endOffset": 4243
+                    "endOffset": 4357
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-fi\\values-fi.xml",
@@ -821,11 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 4248,
+                    "startOffset": 4362,
                     "endColumn": 100,
-                    "endOffset": 4344
+                    "endOffset": 4458
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-fi\\values-fi.xml",

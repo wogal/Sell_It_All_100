@@ -16,17 +16,12 @@ import java.util.ArrayList;
 public class FB_HelperClss {
 
 
-
-
-
-
     public static String FB_Pares_Format_attached_media_feild (int _feildIndex) {
         StringBuilder sb = new StringBuilder();
         sb.append( FB_Consts.FB_attached_media ).append( "[" ).append( _feildIndex ).append( "]" );
         String mStr_static = sb.toString();
         return mStr_static;
     }
-
 
 
     public static String FB_Format_Post_String (String _idStr) {

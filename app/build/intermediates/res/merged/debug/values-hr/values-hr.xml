@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Da biste povezali račun, otvorite aplikaciju Facebook na mobilnom uređaju i potražite obavijesti.</string>
     <string name="com_facebook_smart_device_instructions_or">- ILI -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">To niste vi?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Nastavite kao %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Potvrda prijave</string>
     <string name="com_facebook_tooltip_default">Vi odlučujete – odaberite koje podatke želite dijeliti u aplikacijama.</string>
     <string msgid="146198913615257606" name="search_menu_title">"Pretraživanje"</string>

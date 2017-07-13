@@ -43,6 +43,7 @@
             android:maxLines="3"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:imeOptions="actionDone"
             android:visibility="visible"/>
     </android.support.design.widget.TextInputLayout>
 

@@ -40,6 +40,7 @@
     <string name="com_facebook_smart_device_instructions">Om jou rekening te verbind, maak die Facebook-toepassing op jou mobiele toestel oop en kontroleer vir kennisgewings.</string>
     <string name="com_facebook_smart_device_instructions_or">- OF -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Nie jy nie?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Gaan voort as %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Bevestig aantekening</string>
     <string name="com_facebook_tooltip_default">Jy is in beheer – kies watter inligting jy met toepassings wil deel.</string>
     <string name="messenger_send_button_text">Stuur</string>

@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Du kan tilknytte din konto ved at åbne Facebook-appen på din mobilenhed og tjekke notifikationerne.</string>
     <string name="com_facebook_smart_device_instructions_or">- ELLER -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Ikke dig?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Fortsæt som %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Bekræft login</string>
     <string name="com_facebook_tooltip_default">Du har styringen – vælg de oplysninger, som du vil dele med apps.</string>
     <string name="messenger_send_button_text">Send</string>

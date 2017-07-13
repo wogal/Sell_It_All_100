@@ -748,8 +748,27 @@
                     "startLine": 41,
                     "startColumn": 4,
                     "startOffset": 3947,
+                    "endColumn": 114,
+                    "endOffset": 4057
+                },
+                "from": {
+                    "file": "C:\\Users\\wogal\\.android\\build-cache\\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2277,
+                        "endColumn": 114,
+                        "endOffset": 2387
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 4062,
                     "endColumn": 98,
-                    "endOffset": 4041
+                    "endOffset": 4156
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",
@@ -764,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 4046,
+                    "startOffset": 4161,
                     "endColumn": 131,
-                    "endOffset": 4173
+                    "endOffset": 4288
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",
@@ -783,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 4178,
+                    "startOffset": 4293,
                     "endColumn": 61,
-                    "endOffset": 4235
+                    "endOffset": 4350
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",
@@ -802,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 4240,
+                    "startOffset": 4355,
                     "endColumn": 84,
-                    "endOffset": 4320
+                    "endOffset": 4435
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",
@@ -821,11 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 4325,
+                    "startOffset": 4440,
                     "endColumn": 100,
-                    "endOffset": 4421
+                    "endOffset": 4536
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-pt-rPT\\values-pt-rPT.xml",

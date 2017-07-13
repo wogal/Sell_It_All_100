@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">A fiók hozzákapcsolásához nyisd meg a Facebook alkalmazást a mobilkészülékeden, és nézd meg az értesítéseket.</string>
     <string name="com_facebook_smart_device_instructions_or">- VAGY -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Nem te vagy az?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Folytatás mint %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Bejelentkezés megerősítése</string>
     <string name="com_facebook_tooltip_default">A döntés a kezedben van: kiválaszthatod, hogy milyen adatokat osztasz meg az alkalmazásokkal.</string>
     <string msgid="146198913615257606" name="search_menu_title">"Keresés"</string>

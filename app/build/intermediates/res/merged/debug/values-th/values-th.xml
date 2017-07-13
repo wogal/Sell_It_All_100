@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">หากต้องการเชื่อมต่อบัญชีผู้ใช้ของคุณ ให้เปิดแอพ Facebook บนอุปกรณ์มือถือของคุณและตรวจสอบการแจ้งเตือน</string>
     <string name="com_facebook_smart_device_instructions_or">- หรือ -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">หากไม่ใช่คุณ</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">ดำเนินการต่อในชื่อ %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">ยืนยันการเข้าสู่ระบบ</string>
     <string name="com_facebook_tooltip_default">คุณเป็นฝ่ายควบคุม โปรดเลือกข้อมูลที่คุณต้องการแชร์ด้วยแอพ</string>
     <string name="messenger_send_button_text">ส่ง</string>

@@ -748,8 +748,27 @@
                     "startLine": 41,
                     "startColumn": 4,
                     "startOffset": 3525,
+                    "endColumn": 105,
+                    "endOffset": 3626
+                },
+                "from": {
+                    "file": "C:\\Users\\wogal\\.android\\build-cache\\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\\output\\res\\values-ko\\values-ko.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 2027,
+                        "endColumn": 105,
+                        "endOffset": 2128
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 3631,
                     "endColumn": 78,
-                    "endOffset": 3599
+                    "endOffset": 3705
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-ko\\values-ko.xml",
@@ -764,11 +783,11 @@
             },
             {
                 "to": {
-                    "startLine": 42,
+                    "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 3604,
+                    "startOffset": 3710,
                     "endColumn": 84,
-                    "endOffset": 3684
+                    "endOffset": 3790
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-ko\\values-ko.xml",
@@ -783,11 +802,11 @@
             },
             {
                 "to": {
-                    "startLine": 43,
+                    "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 3689,
+                    "startOffset": 3795,
                     "endColumn": 58,
-                    "endOffset": 3743
+                    "endOffset": 3849
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\\output\\res\\values-ko\\values-ko.xml",
@@ -802,11 +821,11 @@
             },
             {
                 "to": {
-                    "startLine": 44,
+                    "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 3748,
+                    "startOffset": 3854,
                     "endColumn": 77,
-                    "endOffset": 3821
+                    "endOffset": 3927
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-ko\\values-ko.xml",
@@ -821,11 +840,11 @@
             },
             {
                 "to": {
-                    "startLine": 45,
+                    "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 3826,
+                    "startOffset": 3932,
                     "endColumn": 100,
-                    "endOffset": 3922
+                    "endOffset": 4028
                 },
                 "from": {
                     "file": "C:\\Users\\wogal\\.android\\build-cache\\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\\output\\res\\values-ko\\values-ko.xml",

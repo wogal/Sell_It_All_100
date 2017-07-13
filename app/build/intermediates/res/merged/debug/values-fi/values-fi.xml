@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Pääset liittämään käyttäjätilisi avaamalla Facebook-sovelluksen mobiililaitteellasi ja tarkistamalla ilmoitukset.</string>
     <string name="com_facebook_smart_device_instructions_or">- TAI -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Etkö tämä ole sinä?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Jatka nimellä %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Vahvista sisäänkirjautuminen</string>
     <string name="com_facebook_tooltip_default">Sinä voit valita, mitä tietoja jaat sovelluksille.</string>
     <string name="messenger_send_button_text">Lähetä</string>

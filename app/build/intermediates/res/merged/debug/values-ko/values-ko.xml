@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">계정을 연결하려면 모바일 기기에서 Facebook 앱을 열고 알림을 확인하세요.</string>
     <string name="com_facebook_smart_device_instructions_or">- 또는 -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">회원님이 아닌가요?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">%1$s님으로 계속</string>
     <string name="com_facebook_smart_login_confirmation_title">로그인 확인</string>
     <string name="com_facebook_tooltip_default">원하는 정보를 선택하여 앱에 공유할 수 있습니다.</string>
     <string name="messenger_send_button_text">보내기</string>

@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">لربط حسابك، افتح تطبيق فيسبوك على جهازك المحمول ثم تفقد الإشعارات.</string>
     <string name="com_facebook_smart_device_instructions_or">- أو -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">لست أنت؟</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">متابعة باسم %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">تأكيد تسجيل الدخول</string>
     <string name="com_facebook_tooltip_default">أنت المتحكم - اختر المعلومات التي تريد مشاركتها مع التطبيقات.</string>
     <string name="messenger_send_button_text">إرسال</string>

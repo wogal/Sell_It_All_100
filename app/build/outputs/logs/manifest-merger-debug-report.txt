@@ -35,7 +35,7 @@ MERGED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\w
 MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-cache\8cb48a0c128b873f3be016061ae4374a315135f2\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:transition:25.0.0] C:\Users\wogal\.android\build-cache\cb835bac364cfa9cbf74e1d3d0a30393e28b6cd5\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wogal\.android\build-cache\e6a88fec013d388821c0ad7ea6dcba774bbf8516\output\AndroidManifest.xml:9:5-20
-MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.android\build-cache\44e57c06a3fdf2491a88769af20314884334503c\output\AndroidManifest.xml:28:5-48:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.24.0] C:\Users\wogal\.android\build-cache\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\output\AndroidManifest.xml:28:5-48:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wogal\.android\build-cache\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wogal\.android\build-cache\0e6c5d66a10aa6f78829b0c9ab5bf0b5bdb8b3ee\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wogal\.android\build-cache\671465a0c6483510e184d0b2c767de9df029b075\output\AndroidManifest.xml:29:5-20
@@ -169,7 +169,7 @@ MERGED from [com.android.support:design:25.0.0] C:\Users\wogal\.android\build-ca
 MERGED from [com.android.support:recyclerview-v7:25.0.0] C:\Users\wogal\.android\build-cache\6463df7e0fae7275a0fe1b1843bba0b47c7e9e53\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.0.0] C:\Users\wogal\.android\build-cache\cb835bac364cfa9cbf74e1d3d0a30393e28b6cd5\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\wogal\.android\build-cache\e6a88fec013d388821c0ad7ea6dcba774bbf8516\output\AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.android\build-cache\44e57c06a3fdf2491a88769af20314884334503c\output\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.24.0] C:\Users\wogal\.android\build-cache\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\output\AndroidManifest.xml:24:5-26:41
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\wogal\.android\build-cache\5c0823975f8d470cc9adbc0f98d6f4f52e4ac8d9\output\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\wogal\.android\build-cache\0e6c5d66a10aa6f78829b0c9ab5bf0b5bdb8b3ee\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\wogal\.android\build-cache\671465a0c6483510e184d0b2c767de9df029b075\output\AndroidManifest.xml:21:5-23:60
@@ -193,7 +193,7 @@ MERGED from [com.jakewharton:butterknife:8.1.0] C:\Users\wogal\.android\build-ca
 		INJECTED from C:\Users\wogal\Desktop\Cloaned_forSaleItems\Earles_For_Sale_Item\Sell_It_All_100\app\src\main\AndroidManifest.xml
 activity#com.facebook.FacebookActivity
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:29:9-32:66
-MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.android\build-cache\44e57c06a3fdf2491a88769af20314884334503c\output\AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-android-sdk:4.24.0] C:\Users\wogal\.android\build-cache\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\output\AndroidManifest.xml:29:9-32:66
 	android:configChanges
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:31:13-96
 	android:theme
@@ -202,12 +202,12 @@ MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.a
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:30:13-57
 activity#com.facebook.CustomTabMainActivity
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:33:9-71
-MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.android\build-cache\44e57c06a3fdf2491a88769af20314884334503c\output\AndroidManifest.xml:33:9-71
+MERGED from [com.facebook.android:facebook-android-sdk:4.24.0] C:\Users\wogal\.android\build-cache\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\output\AndroidManifest.xml:33:9-71
 	android:name
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:33:19-68
 provider#com.facebook.internal.FacebookInitProvider
 ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:44:9-47:40
-MERGED from [com.facebook.android:facebook-android-sdk:4.23.0] C:\Users\wogal\.android\build-cache\44e57c06a3fdf2491a88769af20314884334503c\output\AndroidManifest.xml:44:9-47:40
+MERGED from [com.facebook.android:facebook-android-sdk:4.24.0] C:\Users\wogal\.android\build-cache\1ae686a668c68d8b7723efc5c8fc95ce7abadfae\output\AndroidManifest.xml:44:9-47:40
 	android:authorities
 		ADDED from [Sell_It_All_100:facebook-android-sdk-4.21.0:unspecified] C:\Users\wogal\.android\build-cache\be9f1030a6211b1c943d9d7aa6e5a29d756b6c6f\output\AndroidManifest.xml:46:13-72
 	android:exported

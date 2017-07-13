@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Koble til kontoen din ved å åpne Facebook-appen på mobilenheten din og se etter varsler.</string>
     <string name="com_facebook_smart_device_instructions_or">- ELLER -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Ikke deg?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Fortsett som %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Bekreft innlogging</string>
     <string name="com_facebook_tooltip_default">Du bestemmer – velg hvilke opplysninger du vil dele med appene.</string>
     <string name="messenger_send_button_text">Send</string>

@@ -137,7 +137,7 @@ public class HlpFbook_Posts implements Runnable {
         //    params.putString( FB_Consts.FB_caption, "Testing part post caption App Post Beta 101 \n " + mDateStr );
 
 
-     //  GraphRequestBatch
+        //  GraphRequestBatch
 
 
         stream = new ByteArrayOutputStream();
@@ -163,7 +163,7 @@ public class HlpFbook_Posts implements Runnable {
 
         new GraphRequest(
                 currentAccessToken,
-           //     "/" + _destination_id + "/feed",
+                //     "/" + _destination_id + "/feed",
                 "/" + _destination_id + "/photos",   //   WORKS
                 //           "/357763397958712/feed",
                 params,

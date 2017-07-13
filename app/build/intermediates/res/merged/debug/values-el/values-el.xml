@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Για να συνδεθείτε στο λογαριασμό σας, ανοίξτε την εφαρμογή Facebook στη φορητή συσκευή σας και ελέγξτε τις ειδοποιήσεις.</string>
     <string name="com_facebook_smart_device_instructions_or">- Ή -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Δεν είστε εσείς;</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Συνέχεια ως %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Επιβεβαίωση σύνδεσης</string>
     <string name="com_facebook_tooltip_default">Έχετε τον έλεγχο - επιλέξτε ποιες πληροφορίες θέλετε να κοινοποιούνται στις εφαρμογές.</string>
     <string name="messenger_send_button_text">Αποστολή</string>

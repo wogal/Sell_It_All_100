@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">अपने खाते को कनेक्ट करने के लिए, अपने मोबाइल एप्लिकेशन में Facebook एप्लिकेशन खोलें और सूचनाओं के लिए जाँच करें.</string>
     <string name="com_facebook_smart_device_instructions_or">- या -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">आप नहीं हैं?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">%1$s के रूप में जारी रखें</string>
     <string name="com_facebook_smart_login_confirmation_title">लॉग इन कन्फ़र्म करें</string>
     <string name="com_facebook_tooltip_default">आप नियंत्रण में हैं - चुनें कि आप एप्लिकेशन से कौन-सी जानकारी साझा करना चाहते हैं.</string>
     <string name="messenger_send_button_text">भेजें</string>

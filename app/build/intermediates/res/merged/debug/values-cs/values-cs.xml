@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Účet si můžete připojit tak, že si na mobilním zařízení spustíte aplikaci Facebook a podíváte se do upozornění.</string>
     <string name="com_facebook_smart_device_instructions_or">- NEBO -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Nejste to vy?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Pokračovat jako %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Potvrdit přihlášení</string>
     <string name="com_facebook_tooltip_default">Je jen na vás, které informace chcete s aplikacemi sdílet.</string>
     <string name="messenger_send_button_text">Odeslat</string>

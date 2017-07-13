@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Hesabınızı bağlamak için, mobil cihazınızda Facebook uygulamasını açın ve bildirimlerinizi kontrol edin.</string>
     <string name="com_facebook_smart_device_instructions_or">- YA DA -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Sen değil misin?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">%1$s olarak devam et</string>
     <string name="com_facebook_smart_login_confirmation_title">Girişi Onayla</string>
     <string name="com_facebook_tooltip_default">Kontrol sende. Uygulamalarla paylaşmak istediğin bilgileri seç.</string>
     <string name="messenger_send_button_text">Gönder</string>

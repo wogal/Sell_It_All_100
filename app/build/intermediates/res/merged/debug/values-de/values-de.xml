@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Um dein Konto zu verbinden, öffne die Facebook-App auf deinem Mobilgerät und prüfe, ob du Benachrichtigungen erhalten hast.</string>
     <string name="com_facebook_smart_device_instructions_or">– ODER –</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Nicht du?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Weiter als %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Login bestätigen</string>
     <string name="com_facebook_tooltip_default">Es liegt ganz an dir – du kannst dir aussuchen, was du mit Apps teilen möchtest.</string>
     <string name="messenger_send_button_text">Senden</string>

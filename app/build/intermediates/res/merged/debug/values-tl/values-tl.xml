@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Para ikonekta ang iyong account, buksan ang Facebook app sa iyong cellphone at tumingin ng mga notification.</string>
     <string name="com_facebook_smart_device_instructions_or">- O KAYA -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Hindi ikaw?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Magpatuloy bilang %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">I-confirm ang Pag-log in</string>
     <string name="com_facebook_tooltip_default">Ikaw ang may kontrol - piliin kung anong impormasyon ang gusto mong ibahagi sa mga app.</string>
     <string name="messenger_send_button_text">Ipadala</string>

@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Để kết nối tài khoản của bạn, hãy mở ứng dụng Facebook trên thiết bị di động và kiểm tra thông báo.</string>
     <string name="com_facebook_smart_device_instructions_or">- HOẶC -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Không phải bạn?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Tiếp tục với tư cách %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Xác nhận đăng nhập</string>
     <string name="com_facebook_tooltip_default">Bạn đang có quyền kiểm soát - hãy chọn thông tin bạn muốn chia sẻ với ứng dụng.</string>
     <string name="messenger_send_button_text">Gửi</string>

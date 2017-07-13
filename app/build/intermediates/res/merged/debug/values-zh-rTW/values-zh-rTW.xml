@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">若要連結帳號，請從行動裝置開啟 Facebook 應用程式，並查看通知。</string>
     <string name="com_facebook_smart_device_instructions_or">- 或 -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">這不是您？</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">以%1$s的身分繼續</string>
     <string name="com_facebook_smart_login_confirmation_title">確認登入</string>
     <string name="com_facebook_tooltip_default">您可以全盤掌控！選擇您想和應用程式分享的資訊內容。</string>
     <string name="messenger_send_button_text">傳送</string>

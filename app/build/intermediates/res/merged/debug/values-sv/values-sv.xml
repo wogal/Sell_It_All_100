@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Koppla ditt konto genom att öppna Facebook-appen på din mobila enhet och söka efter aviseringar.</string>
     <string name="com_facebook_smart_device_instructions_or">- ELLER -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Inte du?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Fortsätt som %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Bekräfta inloggning</string>
     <string name="com_facebook_tooltip_default">Du bestämmer – välj vilken info du vill dela med appar.</string>
     <string name="messenger_send_button_text">Skicka</string>

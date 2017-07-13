@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Om je account te verbinden, open je de Facebook-app op je mobiele apparaat en controleer of je meldingen ziet.</string>
     <string name="com_facebook_smart_device_instructions_or">- OF -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Ben jij dit niet?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Doorgaan als %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Aanmelden bevestigen</string>
     <string name="com_facebook_tooltip_default">Jij hebt de controle. Kies welke informatie je met apps wilt delen.</string>
     <string name="messenger_send_button_text">Verzenden</string>

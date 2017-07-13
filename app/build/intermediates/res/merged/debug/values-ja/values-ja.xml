@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">アカウントを接続するには、お使いのモバイル機器でFacebookアプリを開き、通知をご確認ください。</string>
     <string name="com_facebook_smart_device_instructions_or">- または -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">別のユーザーとしてログイン</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">%1$sとしてログイン</string>
     <string name="com_facebook_smart_login_confirmation_title">ログインの確認</string>
     <string name="com_facebook_tooltip_default">アプリと共有する情報をコントロールできます。</string>
     <string name="messenger_send_button_text">送信</string>

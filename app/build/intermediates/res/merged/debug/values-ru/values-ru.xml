@@ -39,6 +39,7 @@
     <string name="com_facebook_smart_device_instructions">Чтобы подключить аккаунт, откройте приложение Facebook на мобильном устройстве и проверьте уведомления.</string>
     <string name="com_facebook_smart_device_instructions_or">- ИЛИ -</string>
     <string name="com_facebook_smart_login_confirmation_cancel">Это не вы?</string>
+    <string gender="unknown" name="com_facebook_smart_login_confirmation_continue_as">Продолжить как %1$s</string>
     <string name="com_facebook_smart_login_confirmation_title">Подтвердить вход</string>
     <string name="com_facebook_tooltip_default">Вы сами выбираете, какой информацией поделиться с приложениями.</string>
     <string name="messenger_send_button_text">Отпр</string>

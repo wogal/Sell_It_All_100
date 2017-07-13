@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import Dialog_Text_Input_v14.Text_Inp_Dia_Key_Response_Interface_v14;
 import Dialog_Text_Input_v14.Text_Input_Dialog_v14;
 import Dialog_Timed_Notice.Dialog_Timed_Notice_v15;
+import FaceBook_Java_Helpers.Text_Input_Consts;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Choice_ActionEnums;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Line_Type;
 import Holder_4_Odd_Things_and_Crap_waiting_4_a_BETTER_HOME.Dialog_Result_Enum;
@@ -200,9 +201,10 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                     break;
                 }
                 case R.id.But_make_NEW_Post_v1: {
+                boolean  TexstOldInput = true ;
 
 
-                    if (false) {
+                    if (TexstOldInput) {  // invoke old / new text input
                         Text_Input_Dialog_v14 mText_input_dialog = new Text_Input_Dialog_v14( this, "New Post Name (1)", Dialog_Line_Type.Dialog_Single_Line, "" );
                         mText_input_dialog.setEventListener_Call_Back( new Text_Inp_Dia_Key_Response_Interface_v14() {
                             @Override
@@ -214,9 +216,9 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
                             }
                         } );
                         mText_input_dialog.show();
-                    } else {
-                        Intent test_intent = new Intent( this,text_input_v100.class );
-                        startActivityForResult( test_intent,69 );
+                    } else { // will return " onActivityResult " with data and constants are in " Text_Input_Consts "
+                        Intent test_intent = new Intent( this, text_input_v100.class );
+                        startActivityForResult( test_intent, 69 );
                     }
                     break;
                 }
@@ -249,6 +251,15 @@ public class activity_options_v1 extends AppCompatActivity implements View.OnCli
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult( requestCode, resultCode, data );
         // should not land here
+        if (69 == requestCode) {
+            if (resultCode == RESULT_OK) {
+                String mNewFileName = data.getStringExtra( Text_Input_Consts.txt_inp_text );
+                if (!mNewFileName.isEmpty() && mNewFileName.length() > 5 && mNewFileName != null) {
+                    m_Intent.putExtra( "post_file_name", mNewFileName );
+                    startActivity( m_Intent ); // save to move on
+                }
+            }
+        }
 
         iint = requestCode;
 
