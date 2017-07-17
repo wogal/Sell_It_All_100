@@ -6,6 +6,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.egs.wogal.forsale_items_sat_18_3_2017_100"
+    //    applicationId "com.egs.wogal.franks_sissios_app"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
